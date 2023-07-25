@@ -4,21 +4,22 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 
-<mapper namespace="com.kiosk.app.infra.codegroup.CodegroupMapper">
+<mapper namespace="com.kiosk.app.infra.code.CodeMapper">
 
-	<resultMap type="com.kiosk.app.infra.codegroup.Codegroup" id="resultMapObj"></resultMap>
+	<resultMap type="com.kiosk.app.infra.code.Code" id="resultMapObj"></resultMap>
  
  	<sql id="abc">
  		seq,
- 		categoryName,
- 		delNy
+ 		name,
+ 		delNy,
+ 		codegroup_seq
  	</sql>
  
     <sql id ="selectCommon">
    		FROM    
-	    	codegroup
+	    	code
 		WHERE 1=1
-			<if test="shKeyword != null and !shKeyword.equals('')">AND categoryName LIKE CONCAT('%',#{shKeyword},'%')</if>
+			<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%',#{shKeyword},'%')</if>
     </sql>
 
    	<select id="selectOneCount" resultType="Integer">
@@ -42,7 +43,7 @@
  		select
  			<include refid="abc" />
  		from
- 			codegroup
+ 			code
  		where 1=1
  			and	seq = #{seq}
  			<!-- 문자 검색은 대부분 like를 사용 -->
@@ -52,9 +53,9 @@
  	
  <update id="update" >
  	update
- 		codegroup
+ 		code
  	set
- 		categoryName = #{categoryName}
+ 		name = #{name}
  	where 1=1
  		and seq = #{seq}
  </update>
@@ -62,18 +63,18 @@
  <delete id="delete">
  	delete
  	from
- 		codegroup
+ 		code
  	where 1=1
  		and seq = #{seq}
  </delete>
  
  <insert id="insert">
  	insert into 
- 	codegroup(
- 		categoryName,
+ 	code(
+ 		name,
  		delNy
  		)value(
- 			#{categoryName},
+ 			#{name},
 		 <choose>
             <when test="delNy == null or delNy == '' or delNy == 0">
                 1
@@ -92,7 +93,7 @@
  	
  <update id="uelete">
 	update
- 		codegroup
+ 		code
  	set
  		delNy = #{delNy}
  	where 1=1

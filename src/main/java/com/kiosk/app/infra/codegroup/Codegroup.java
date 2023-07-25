@@ -1,22 +1,22 @@
 package com.kiosk.app.infra.codegroup;
 
 public class Codegroup {
-	private String codegroupSeq;
+	private String seq;
 	private String categoryName;
 	private String delNy;
 
 	
 //	-------
-	public String getCodegroupSeq() {
-		return codegroupSeq;
+	public String getSeq() {
+		return seq;
 	}
-	public void setCodegroupSeq(String codeGroupSeq) {
-		this.codegroupSeq = codeGroupSeq;
+	public void setSeq(String seq) {
+		this.seq = seq;
 	}
-
 	public String getCategoryName() {
 		return categoryName;
 	}
+
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}

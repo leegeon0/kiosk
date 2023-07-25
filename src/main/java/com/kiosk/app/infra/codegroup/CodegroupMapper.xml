@@ -9,14 +9,14 @@
 	<resultMap type="com.kiosk.app.infra.codegroup.Codegroup" id="resultMapObj"></resultMap>
  
  	<sql id="abc">
- 		codegroupSeq,
+ 		seq,
  		categoryName,
  		delNy
  	</sql>
  
- <sql id ="selectCommon">
+    <sql id ="selectCommon">
    		FROM    
-	    	kioskCodegroup
+	    	codegroup
 		WHERE 1=1
 			<if test="shKeyword != null and !shKeyword.equals('')">AND categoryName LIKE CONCAT('%',#{shKeyword},'%')</if>
     </sql>
@@ -42,9 +42,9 @@
  		select
  			<include refid="abc" />
  		from
- 			kioskCodegroup
+ 			codegroup
  		where 1=1
- 			and	codegroupSeq = #{codegroupSeq}
+ 			and	seq = #{seq}
  			<!-- 문자 검색은 대부분 like를 사용 -->
  	
  	
@@ -52,31 +52,31 @@
  	
  <update id="update" >
  	update
- 		kioskCodegroup
+ 		codegroup
  	set
  		categoryName = #{categoryName}
  	where 1=1
- 		and codegroupSeq = #{codegroupSeq}
+ 		and seq = #{seq}
  </update>
  
  <delete id="delete">
  	delete
  	from
- 		kioskCodegroup
+ 		codegroup
  	where 1=1
- 		and codegroupSeq = #{codegroupSeq}
+ 		and seq = #{seq}
  </delete>
  
  <insert id="insert">
  	insert into 
- 	kioskCodegroup(
+ 	codegroup(
  		categoryName,
  		delNy
  		)value(
  			#{categoryName},
 		 <choose>
             <when test="delNy == null or delNy == '' or delNy == 0">
-                0
+                1
             </when>
             <when test="delNy == '1' or delNy == 1 ">
                 1
@@ -92,10 +92,10 @@
  	
  <update id="uelete">
 	update
- 		kioskCodegroup
+ 		codegroup
  	set
  		delNy = #{delNy}
  	where 1=1
- 		and codegroupSeq = #{codegroupSeq} 
+ 		and seq = #{seq} 
  </update>
  </mapper>
