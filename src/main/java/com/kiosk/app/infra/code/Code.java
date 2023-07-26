@@ -1,4 +1,4 @@
-package com.kiosk.app.infra.code;
+package com.kiosk.app.infra.code; 
 
 public class Code {
 	private String seq;
