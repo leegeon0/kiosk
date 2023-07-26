@@ -28,7 +28,7 @@ public class Code {
 	}
 	public void setCodegroup_seq(String codegroup_seq) {
 		this.codegroup_seq = codegroup_seq;
-	}
+	} 
 	
 //	------
 	 
