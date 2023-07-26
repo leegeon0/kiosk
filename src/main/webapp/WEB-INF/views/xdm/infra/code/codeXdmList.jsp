@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<jsp:useBean id="CodeServiceImpl" class="com.kiosk.app.infra.code.CodeServiceImpl"/>
+<jsp:useBean id="CodeServiceImpl" class="com.kiosk.app.infra.code.CodeServiceImpl"/> 
 
 
 
