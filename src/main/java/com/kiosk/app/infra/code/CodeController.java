@@ -50,7 +50,7 @@ public class CodeController {
 	
 	
 	@RequestMapping("/codeUpdt")
-	public String kioskcodegroupUpdt(Code dto) {
+	public String kioskCodeUpdt(Code dto) {
 		
 		System.out.println("codeUpdt");
 		service.update(dto);
@@ -60,7 +60,7 @@ public class CodeController {
 	}
 	
 	@RequestMapping("/codeDel")
-	public String kioskcodegroupDel(Code dto) {
+	public String kioskCodeDel(Code dto) {
 		
 		System.out.println("codeDel");
 		service.delete(dto);
@@ -71,7 +71,7 @@ public class CodeController {
 	
 	
 	@RequestMapping("/codeInsert")
-	public String kioskcodegroupInsert(Code dto) {
+	public String kioskCodeInsert(Code dto) {
 		
 		System.out.println("codeInsert");
 		service.insert(dto);
@@ -81,7 +81,7 @@ public class CodeController {
 	}
 	
 	@RequestMapping("/codeUele")
-	public String kioskcodegroupUele(Code dto) {
+	public String kioskCodeUele(Code dto) {
 		
 		System.out.println("codeUele");
 		service.uelete(dto);

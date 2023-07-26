@@ -205,7 +205,7 @@
 //		uiType: 2 => 파일형
 //		uiType: 3 => 프로필형
 
-		var files = $("#" + objName +"")[0].files;
+		var files = $("#" + objName +"")[0].files; // 이게 제일 중요한것 파일 객체를 셀수있는것 파일 첨부에 가장 기본 핵심
 		var filePreview = $("#" + objName +"Preview");
 		var numbering = [];
 		var maxNumber = 0;
