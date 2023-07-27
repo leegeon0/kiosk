@@ -1,11 +1,11 @@
-package com.kiosk.app.infra.menu;
+package com.kiosk.app.infra.star;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class MenuController {
-
+public class StarController {
 	@Autowired
-	MenuServiceImpl service;
+	StarServiceImpl service;
+
 }

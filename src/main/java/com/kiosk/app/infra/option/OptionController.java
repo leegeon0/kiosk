@@ -1,11 +1,12 @@
-package com.kiosk.app.infra.menu;
+package com.kiosk.app.infra.option;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class MenuController {
-
+public class OptionController {
+	
 	@Autowired
-	MenuServiceImpl service;
+	OptionServiceImpl service;
+
 }
