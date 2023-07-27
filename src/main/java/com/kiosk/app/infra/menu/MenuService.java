@@ -6,7 +6,7 @@ public interface MenuService {
 
 	public int selectOneCount(MenuVo vo);
 	
-	public List<MenuVo>selectList(MenuVo vo);
+	public List<Menu>selectList(MenuVo vo);
 	
 	public MenuVo selectOne(MenuVo vo);
 	

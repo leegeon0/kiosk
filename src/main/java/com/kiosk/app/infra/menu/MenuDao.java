@@ -22,7 +22,7 @@ public class MenuDao {
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
 	}
 	
-	public List<MenuVo> selectList(MenuVo vo) {
+	public List<Menu> selectList(MenuVo vo) {
 		
 		return sqlSession.selectList(namespace + ".selectList", vo);
 	}

@@ -18,7 +18,7 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-	public List<MenuVo> selectList(MenuVo vo) {
+	public List<Menu> selectList(MenuVo vo) {
 		// TODO Auto-generated method stub
 		return dao.selectList(vo);
 	}

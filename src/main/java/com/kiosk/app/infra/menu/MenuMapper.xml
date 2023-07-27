@@ -21,7 +21,7 @@
 	   		FROM    
 		    	menu
 			WHERE 1=1
-				<if test="shKeyword != null and !shKeyword.equals('')">AND categoryName LIKE CONCAT('%',#{shKeyword},'%')</if>
+				<if test="shKeyword != null and !shKeyword.equals('')">AND menuName LIKE CONCAT('%',#{shKeyword},'%')</if>
 	    </sql>
 	
 	   	<select id="selectOneCount" resultType="Integer">
@@ -30,7 +30,7 @@
 		</select>
 	
 	   	<select id="selectList" resultMap="resultMapObj">
-			SELECT aa.* FROM (   	
+			SELECT aa. * FROM (   	
 		   		SELECT
 					<include refid="menuTable" />
 		   			<include refid="selectCommon" />
@@ -80,6 +80,8 @@
 	 		soldOutNy
 	 		)value(
 	 			#{menuName},
+	 			#{menuPrice},
+	 			#{category},	
 			 <choose>
 	            <when test="delNy == null or delNy == '' or delNy == 0">
 	                1
@@ -90,7 +92,8 @@
 	            <otherwise>
 	                <![CDATA[(SELECT 1/0)]]>
 	            </otherwise>
-	        </choose>
+	        </choose>,
+	        #{soldOutNy}
 	 	
 	 		)
 	 
