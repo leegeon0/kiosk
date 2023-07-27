@@ -7,14 +7,13 @@
 
  
   
-  <style type="text/css">
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
   
-  .sm{
-  	dispaly : flex;
-  }
-  
-  </style>
-   
+<!-- Head영역 include -->
+<%@include file="../include/xdmHead.jsp" %>   
 
   <!-- =======================================================
   * Template Name: NiceAdmin
@@ -27,7 +26,9 @@
 
 <body>
 
-<%@include file="codeXdmListTop.jsp"%>
+<!-- Header / nav 영역 include -->
+<%@include file="../include/xdmHeader.jsp"%>
+<%@include file="../include/xdmNav.jsp"%>
 
   <main id="main" class="main">
 
@@ -103,8 +104,8 @@
 
   </main><!-- End #main -->
 
-<%@include file="codeXdmListBottom.jsp"%>
- 
+<!-- Footer영역 include -->
+<%@include file="../include/xdmFooter.jsp"%>
   
   <script type="text/javascript">
   $("#submitBtn").on("click",function(){
