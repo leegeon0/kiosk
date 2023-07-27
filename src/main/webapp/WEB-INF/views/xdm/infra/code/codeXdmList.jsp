@@ -14,6 +14,7 @@
 <html lang="ko">
 
 <head>
+	<!-- Head영역 include -->
 	<%@include file="../include/xdmHead.jsp" %>
    
 
@@ -27,7 +28,7 @@
 </head>
 
 <body>
-
+<!-- Header / nav 영역 include -->
 	<%@include file="../include/xdmHeader.jsp"%>
 	<%@include file="../include/xdmNav.jsp"%>
 
@@ -153,7 +154,8 @@
     </section>
 
   </main><!-- End #main -->
-
+  
+<!-- Footer영역 include -->
   <%@include file="../include/xdmFooter.jsp"%>
 
  
