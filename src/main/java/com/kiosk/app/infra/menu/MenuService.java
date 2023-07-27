@@ -4,11 +4,11 @@ import java.util.List;
 
 public interface MenuService {
 
-	public int selectOneCount(Menu dto);
+	public int selectOneCount(MenuVo vo);
 	
-	public List<Menu>selectList(Menu dto);
+	public List<MenuVo>selectList(MenuVo vo);
 	
-	public Menu selectOne(Menu dto);
+	public MenuVo selectOne(MenuVo vo);
 	
 	public int update(Menu dto);
 	public int delete(Menu dto);

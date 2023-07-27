@@ -17,19 +17,19 @@ public class MenuDao {
 	
 	private static String namespace = "com.kiosk.app.infra.menu.MenuMapper";
 	
-	public int selectOneCount(Menu dto) {
+	public int selectOneCount(MenuVo vo) {
 		
-		return sqlSession.selectOne(namespace + ".selectOneCount", dto);
+		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
 	}
 	
-	public List<Menu> selectList(Menu dto) {
+	public List<MenuVo> selectList(MenuVo vo) {
 		
-		return sqlSession.selectList(namespace + ".selectList", dto);
+		return sqlSession.selectList(namespace + ".selectList", vo);
 	}
 	
-	public Menu selectOne(Menu dto) {
+	public MenuVo selectOne(MenuVo vo) {
 		
-		return sqlSession.selectOne(namespace + ".selectOne", dto);
+		return sqlSession.selectOne(namespace + ".selectOne", vo);
 	}
 	
 	public int update(Menu dto) {

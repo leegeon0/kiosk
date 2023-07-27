@@ -12,21 +12,21 @@ public class MenuServiceImpl implements MenuService {
 	MenuDao dao;
 	
 	@Override
-	public int selectOneCount(Menu dto) {
+	public int selectOneCount(MenuVo vo) {
 		// TODO Auto-generated method stub
-		return dao.selectOneCount(dto);
+		return dao.selectOneCount(vo);
 	}
 
 	@Override
-	public List<Menu> selectList(Menu dto) {
+	public List<MenuVo> selectList(MenuVo vo) {
 		// TODO Auto-generated method stub
-		return dao.selectList(dto);
+		return dao.selectList(vo);
 	}
 
 	@Override
-	public Menu selectOne(Menu dto) {
+	public MenuVo selectOne(MenuVo vo) {
 		// TODO Auto-generated method stub
-		return dao.selectOne(dto);
+		return dao.selectOne(vo);
 	}
 
 	@Override
