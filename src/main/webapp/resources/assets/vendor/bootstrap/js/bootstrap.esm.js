@@ -4419,7 +4419,7 @@ class Toast extends BaseComponent {
         }
         data[config](this);
       }
-    });
+    }); 
   }
 }
 

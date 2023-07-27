@@ -299,12 +299,12 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Register</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-person"></i><span>Register</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
            <li>
-            <a href="memberXdmList"  >
+            <a href="memberXdmList"  class="active">
               <i class="bi bi-circle"></i><span>MemberList</span>
             </a>
           </li>
@@ -360,13 +360,13 @@
         </ul>
       </li><!-- End Charts Nav -->
 
-      <li class="nav-item">
+      <li class="nav-item collapsed">
         <a class="nav-link" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-gem"></i><span>Codes</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="icons-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <ul id="icons-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="codegroupXdmList" class="active">
+            <a href="codegroupXdmList">
               <i class="bi bi-circle"></i><span>CodeGroup</span>
             </a>
           </li>
@@ -382,7 +382,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
+          
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->

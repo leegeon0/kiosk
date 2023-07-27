@@ -41,7 +41,7 @@
 
 <body>
 
-<%@include file="memberXdmListTop.jsp"%>
+<%@include file="../include/xdmTop.jsp"%>
 
   <main id="main" class="main">
 
@@ -241,7 +241,7 @@
 
   </main><!-- End #main -->
 
-<%@include file="memberXdmListBottom.jsp"%>
+<%@include file="../include/xdmBottom.jsp"%>
 
   
   <script type="text/javascript">
