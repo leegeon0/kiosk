@@ -5,7 +5,13 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+  <!DOCTYPE html>
+<html lang="ko">
+
+<head>
   
+<!-- Head영역 include -->
+<%@include file="../include/xdmHead.jsp" %>  
   <style type="text/css">
   
   
@@ -41,7 +47,10 @@
 
 <body>
 
-<%@include file="../include/xdmTop.jsp"%>
+<!-- Header / nav 영역 include -->
+<%@include file="../include/xdmHeader.jsp"%>
+<%@include file="../include/xdmNav.jsp"%>
+
 
   <main id="main" class="main">
 
@@ -241,7 +250,9 @@
 
   </main><!-- End #main -->
 
-<%@include file="../include/xdmBottom.jsp"%>
+
+<!-- Footer영역 include -->
+<%@include file="../include/xdmFooter.jsp"%>
 
   
   <script type="text/javascript">
