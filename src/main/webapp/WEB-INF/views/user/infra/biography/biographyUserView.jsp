@@ -301,7 +301,7 @@
                 <h4>User</h4>
                 <p>Kiosk</p>
                 <a href="/resources/assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Kiosk" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <a href="userLogin" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
 
