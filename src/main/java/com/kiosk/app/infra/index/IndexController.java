@@ -80,5 +80,71 @@ public class IndexController {
 		// 아래의 jsp 파일 호출
 		return "xdm/infra/include/xdm";
 	}
+	
+	@RequestMapping(value="/point") // value = / : 최상위 도메인
+	public String point() {
+		
+		// 여기에서 서버단에서 필요한 작업을 수행한다.
+		
+		// href = "/resources/css/style.css";
+		
+		// 아래의 jsp 파일 호출
+		return "user/infra/point/point";
+	}
+	
+	@RequestMapping(value="/newSignUp") // value = / : 최상위 도메인
+	public String newSignUp() {
+		
+		// 여기에서 서버단에서 필요한 작업을 수행한다.
+		
+		// href = "/resources/css/style.css";
+		
+		// 아래의 jsp 파일 호출
+		return "user/infra/point/newSignUp";
+	}
+	
+	@RequestMapping(value="/countStamp") // value = / : 최상위 도메인
+	public String countStamp() {
+		
+		// 여기에서 서버단에서 필요한 작업을 수행한다.
+		
+		// href = "/resources/css/style.css";
+		
+		// 아래의 jsp 파일 호출
+		return "user/infra/point/countStamp";
+	}
+	
+	@RequestMapping(value="/payment") // value = / : 최상위 도메인
+	public String payment() {
+		
+		// 여기에서 서버단에서 필요한 작업을 수행한다.
+		
+		// href = "/resources/css/style.css";
+		
+		// 아래의 jsp 파일 호출
+		return "user/infra/payment/payment";
+	}
+	
+	@RequestMapping(value="/orderComplete") // value = / : 최상위 도메인
+	public String orderComplete() {
+		
+		// 여기에서 서버단에서 필요한 작업을 수행한다.
+		
+		// href = "/resources/css/style.css";
+		
+		// 아래의 jsp 파일 호출
+		return "user/infra/payment/orderComplete";
+	}
+	
+	@RequestMapping(value="/receipt") // value = / : 최상위 도메인
+	public String receipt() {
+		
+		// 여기에서 서버단에서 필요한 작업을 수행한다.
+		
+		// href = "/resources/css/style.css";
+		
+		// 아래의 jsp 파일 호출
+		return "user/infra/payment/receipt";
+	}
 
 }
