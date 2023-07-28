@@ -8,6 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+<<<<<<< Upstream, based on origin/main
+=======
+import com.kiosk.app.infra.member.Member;
+import com.kiosk.app.infra.member.MemberVo;
+
+>>>>>>> 8354ae2 23.07.28
 
 @Controller
 public class MenuController {
@@ -31,4 +37,50 @@ public class MenuController {
 		return "xdm/infra/menu/menuXdmList";
 		
 	}
+	
+	@RequestMapping("/menuXdmForm")
+	public String memberXdomForm(MenuVo vo,Model model) {
+		
+		Menu menu = service.selectOne(vo);
+		
+		
+		model.addAttribute("item",menu);
+		
+		
+		return "xdm/infra/menu/menuXdmForm";
+	}
+	
+	@RequestMapping("/menuUpdt")
+	public String menuUpdt(Menu dto) {
+		
+		service.update(dto);
+		
+		return "redirect:/menuXdmList";
+	}
+	
+	@RequestMapping("/menuInsert")
+	public String menuInsert(Menu dto) {
+		
+		service.insert(dto);
+		
+		return "redirect:/menuXdmList";
+	}
+	
+	@RequestMapping("/menuDel")
+	public String menuDel(Menu dto) {
+		
+		service.delete(dto);
+		
+		return "redirect:/menuXdmList";
+	}
+	
+	@RequestMapping("/menuUele")
+	public String menuUele(Menu dto) {
+		
+		service.uelete(dto);
+		
+		return "redirect:/menuXdmList";
+	}
+	
+	
 }

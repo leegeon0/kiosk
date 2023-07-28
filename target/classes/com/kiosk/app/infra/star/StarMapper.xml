@@ -12,14 +12,14 @@
 	 		seq,
 	 		star,
 	 		starDate,
-	 		menuSeq
+	 		menu_seq
 	 	</sql>
 	 
 	    <sql id ="selectCommon">
 	   		FROM    
 		    	star
 			WHERE 1=1
-				<if test="shKeyword != null and !shKeyword.equals('')">AND categoryName LIKE CONCAT('%',#{shKeyword},'%')</if>
+				<if test="shKeyword != null and !shKeyword.equals('')">AND star LIKE CONCAT('%',#{shKeyword},'%')</if>
 	    </sql>
 	
 	   	<select id="selectOneCount" resultType="Integer">
@@ -73,10 +73,12 @@
 	 	menu(
 	 		star,
 	 		starDate,
-			menuSeq
+			menu_seq
 	 		)value(
 	 			#{star},
-			 <choose>
+	 			#{starDate},
+	 			#{menuSeq}
+			 <!-- <choose>
 	            <when test="menuSeq == null or menuSeq == '' or menuSeq == 0">
 	                1
 	            </when>
@@ -86,7 +88,7 @@
 	            <otherwise>
 	                <![CDATA[(SELECT 1/0)]]>
 	            </otherwise>
-	        </choose>
+	        </choose> -->
 	 	
 	 		)
 	 
@@ -96,7 +98,7 @@
 		update
 	 		star
 	 	set
-	 		menuSeq = #{menuSeq}
+	 		menu_seq = #{menuSeq}
 	 	where 1=1
 	 		and seq = #{seq} 
 	 </update>

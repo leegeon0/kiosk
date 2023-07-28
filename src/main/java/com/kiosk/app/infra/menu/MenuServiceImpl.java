@@ -24,7 +24,7 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-	public MenuVo selectOne(MenuVo vo) {
+	public Menu selectOne(MenuVo vo) {
 		// TODO Auto-generated method stub
 		return dao.selectOne(vo);
 	}

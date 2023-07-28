@@ -8,7 +8,7 @@ public interface MenuService {
 	
 	public List<Menu>selectList(MenuVo vo);
 	
-	public MenuVo selectOne(MenuVo vo);
+	public Menu selectOne(MenuVo vo);
 	
 	public int update(Menu dto);
 	public int delete(Menu dto);
