@@ -109,7 +109,7 @@
   
   <script type="text/javascript">
   
-  	var objName = $("#optionName");
+  	var objName = $("#star");
   
     validationInst = function(){
 	
@@ -143,7 +143,7 @@
 	    
 	    
  	    
-	 	$("form[name=form]").attr("action","/optionInsert").submit();
+	 	$("form[name=form]").attr("action","/starInsert").submit();
 	 	 
 	  });
   
@@ -151,7 +151,7 @@
 	  $("#updateBtn").on("click",function(){
 	 	
  		 if(validationUpdt() == false) return false;	 	 
-		 $("form[name=form]").attr("action","/optionUpdt").submit(); 
+		 $("form[name=form]").attr("action","/starUpdt").submit(); 
 	  });
 		 
 /* 	  
@@ -188,7 +188,7 @@
 	  $("#deleteBtn").on("click",function(){
 	 		
 	 		
-	 		$("form[name=form]").attr("action","/optionDel").submit();
+	 		$("form[name=form]").attr("action","/starDel").submit();
 
 	 		 
 	 });
@@ -196,7 +196,7 @@
 	  $("#ueleteBtn").on("click",function(){
 	 		
 	 		
-	 		$("form[name=form]").attr("action","/optionUele").submit();
+	 		$("form[name=form]").attr("action","/starUele").submit();
 	 		 
 	 });
 	  
