@@ -67,7 +67,7 @@
  		select
  			<include refid="abc" />
  		from
- 			kisokAccount
+ 			kioskAccount
  		where 1=1
  			and	id = #{id}
  			and password = #{password}

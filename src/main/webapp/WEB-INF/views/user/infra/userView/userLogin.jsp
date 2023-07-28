@@ -19,8 +19,8 @@
 
     <!-- 부트스트랩 CDN & JQuery CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../resources/assets/css/kiosk.css">
-    <script src="../../../../resources/assets/js/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="/resources/assets/css/kiosk.css">
+    <script src="/resources/assets/js/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- 부트스트랩 CDN & JQuery CDN -->
 
@@ -45,7 +45,7 @@
         <!-- rightSide 시작 -->
         <div class="rightSide col-5">
             <div class="mainLogo"></div>
-            <form action="">
+            <form  id="login" method="post">
                 <div class="radio">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="radio" id="adminRadio" checked>
@@ -63,20 +63,62 @@
                 <!-- radio Btn -->
                 <div class="inputBox">
                     <div class="idInput">
-                        <input type="text">
+                        <input type="text" id="id" value="" name="id">
                         <i class="fa-solid fa-user"></i>
                     </div>
-                    <div class="pwInput">
-                        <input type="password">
+                    <div class="pwInput" >
+                        <input type="password" id="password" value="" name="password">
                         <i class="fa-solid fa-key"></i>
                     </div>
                 </div>
-                <button class="loginBtn btnColor">로그인</button>
+                <button class="loginBtn btnColor" id="loginBtn" type="button">로그인</button>
             </form>
             <!-- 로그인 폼 -->
         </div>
         <!-- rightSide 끝 -->
     </div>
     <!-- wrapper 끝 -->
+   <script src="/resources/assets/js/kiosk.js"></script>
+  
+    
+  <script type="text/javascript">
+    
+    $("#loginBtn").on("click",function(){
+    	
+       	 
+    	$.ajax({
+    		async: true 
+    		,cache: false
+    		,type: "post"
+    		/* ,dataType:"json" */
+    		,url: "/login"
+    		/* ,data : $("#formLogin").serialize() */
+    		,data : {
+    			"id" : $("#id").val(),
+    			"password" : $("#password").val()}
+    		,success: function(response) {
+    			if(response.rt == "success" && $("#customerRadio").prop('checked') ) {
+    				alert(response.rtMember.name);
+    				location.href = "/userMain";
+    			}else if(response.rt == "success" && $("#adminRadio").prop('checked')){
+    				alert(response.rtMember.name);
+    				location.href = "/indexXdmView";
+    			}
+    			else {
+    				alert("그런 회원 없습니다.");
+    			}
+    		}
+    		,error : function(jqXHR, textStatus, errorThrown){
+    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+    		}
+    	});
+
+// 		$("form[name=register]").attr("action", "/memberXdmList").submit();
+// 		$("form[name=register]").attr("method","post");
+    });
+    	
+    
+    
+    </script>
 </body>
 </html>
