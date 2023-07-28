@@ -25,11 +25,20 @@
 	
 	<script type="text/javascript">
 	/* 네비게이션 이벤트 */
-	var link =  document.location.pathname;
-	console.log(link);
-	var navItem = document.querySelectorAll("li.nav-item>a['href']");
-;
-	console.log(navItem);
+	const xdmLink =  document.location.href;
+	const navItem = document.querySelectorAll("aside.sidebar a");
+	navItem.forEach(function(e, i){
+		if(navItem[i].href == xdmLink) {
+			if(navItem[i].pathname == '/indexXdmView') {
+				navItem[i].className = "nav-link";
+			} else {
+				navItem[i].className = "active";
+				navItem[i].parentElement.parentElement.parentElement.childNodes[1].className = "nav-link";
+				navItem[i].parentElement.parentElement.className = "nav-content collapse show";
+			}
+		}
+
+	})
 	</script>
 	<!-- ======= Footer ======= -->
 	  <footer id="footer" class="footer">
