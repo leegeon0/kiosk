@@ -23,8 +23,13 @@
 	
 	<script src="/resources/assets/js/niceAdmin.js"></script>
 	
-	<!-- navBar event -->
 	<script type="text/javascript">
+	/* 네비게이션 이벤트 */
+	var link =  document.location.pathname;
+	console.log(link);
+	var navItem = document.querySelectorAll("li.nav-item>a['href']");
+;
+	console.log(navItem);
 	</script>
 	<!-- ======= Footer ======= -->
 	  <footer id="footer" class="footer">
