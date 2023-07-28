@@ -23,6 +23,9 @@
 	
 	<script src="/resources/assets/js/niceAdmin.js"></script>
 	
+	<!-- navBar event -->
+	<script type="text/javascript">
+	</script>
 	<!-- ======= Footer ======= -->
 	  <footer id="footer" class="footer">
 	    <div class="copyright">

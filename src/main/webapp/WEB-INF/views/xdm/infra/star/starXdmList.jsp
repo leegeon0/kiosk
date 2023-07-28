@@ -46,7 +46,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Member Datatables</h5>
+              <h5 class="card-title">Stamp Datatables</h5>
                <form class="sm" name="formList" method="post">
                
                	<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">

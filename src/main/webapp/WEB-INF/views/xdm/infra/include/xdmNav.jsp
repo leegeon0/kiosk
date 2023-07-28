@@ -20,12 +20,12 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-person"></i><span>Register</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
            <li>
-            <a href="memberXdmList"  class="active">
+            <a href="memberXdmList">
               <i class="bi bi-circle"></i><span>MemberList</span>
             </a>
           </li>
@@ -38,12 +38,12 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
+            <a href="#">
               <i class="bi bi-circle"></i><span>CustomerNum</span>
             </a>
           </li>
           <li>
-            <a href="forms-layouts.html">
+            <a href="starXdmList">
               <i class="bi bi-circle"></i><span>CustomerStamp</span>
             </a>
           </li>
@@ -56,7 +56,7 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
 			<li>
-            <a href="charts-chartjs.html">
+            <a href="#">
               <i class="bi bi-circle"></i><span>OrderList</span>
             </a>
           </li>
@@ -69,20 +69,20 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
+            <a href="menuXdmList">
               <i class="bi bi-circle"></i><span>Menu</span>
             </a>
           </li>
           <li>
-            <a href="charts-apexcharts.html">
+            <a href="optionXdmList">
               <i class="bi bi-circle"></i><span>Option</span>
             </a>
           </li>
         </ul>
       </li><!-- End Charts Nav -->
 
-      <li class="nav-item collapsed">
-        <a class="nav-link" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-gem"></i><span>Codes</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="icons-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
