@@ -12,14 +12,14 @@
 	 		seq,
 	 		optionName,
 	 		optionPrice,
-	 		menuSeq
+	 		menu_seq
 	 	</sql>
 	 
 	    <sql id ="selectCommon">
 	   		FROM    
-		    	option
+		    	optionMenu
 			WHERE 1=1
-				<if test="shKeyword != null and !shKeyword.equals('')">AND categoryName LIKE CONCAT('%',#{shKeyword},'%')</if>
+				<if test="shKeyword != null and !shKeyword.equals('')">AND optionName LIKE CONCAT('%',#{shKeyword},'%')</if>
 	    </sql>
 	
 	   	<select id="selectOneCount" resultType="Integer">
@@ -43,7 +43,7 @@
 	 		select
 	 			<include refid="optionTable" />
 	 		from
-	 			option
+	 			optionMenu
 	 		where 1=1
 	 			and	seq = #{seq}
 	 			<!-- 문자 검색은 대부분 like를 사용 -->
@@ -53,7 +53,7 @@
 	 	
 	 <update id="update" >
 	 	update
-	 		option
+	 		optionMenu
 	 	set
 	 		optionName = #{optionName}
 	 	where 1=1
@@ -63,7 +63,7 @@
 	 <delete id="delete">
 	 	delete
 	 	from
-	 		option
+	 		optionMenu
 	 	where 1=1
 	 		and seq = #{seq}
 	 </delete>
@@ -73,30 +73,20 @@
 	 	menu(
 	 		optionName,
 	 		optionPrice,
-			menuSeq
+			menu_seq
 	 		)value(
 	 			#{optionName},
-			 <choose>
-	            <when test="menuSeq == null or menuSeq == '' or menuSeq == 0">
-	                1
-	            </when>
-	            <when test="menuSeq == '1' or menuSeq == 1 ">
-	                1
-	            </when>
-	            <otherwise>
-	                <![CDATA[(SELECT 1/0)]]>
-	            </otherwise>
-	        </choose>
-	 	
+	 			#{optionPrice},
+	 			#{menuSeq}
 	 		)
 	 
 	 </insert>
 	 	
 	 <update id="uelete">
 		update
-	 		option
+	 		optionMenu
 	 	set
-	 		menuSeq = #{menuSeq}
+	 		menu_seq = #{menuSeq}
 	 	where 1=1
 	 		and seq = #{seq} 
 	 </update>

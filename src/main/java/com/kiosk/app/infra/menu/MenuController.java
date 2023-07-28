@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+
 @Controller
 public class MenuController {
 
@@ -31,4 +32,50 @@ public class MenuController {
 		return "xdm/infra/menu/menuXdmList";
 		
 	}
+	
+	@RequestMapping("/menuXdmForm")
+	public String memberXdomForm(MenuVo vo,Model model) {
+		
+		Menu menu = service.selectOne(vo);
+		
+		
+		model.addAttribute("item",menu);
+		
+		
+		return "xdm/infra/menu/menuXdmForm";
+	}
+	
+	@RequestMapping("/menuUpdt")
+	public String menuUpdt(Menu dto) {
+		
+		service.update(dto);
+		
+		return "redirect:/menuXdmList";
+	}
+	
+	@RequestMapping("/menuInsert")
+	public String menuInsert(Menu dto) {
+		
+		service.insert(dto);
+		
+		return "redirect:/menuXdmList";
+	}
+	
+	@RequestMapping("/menuDel")
+	public String menuDel(Menu dto) {
+		
+		service.delete(dto);
+		
+		return "redirect:/menuXdmList";
+	}
+	
+	@RequestMapping("/menuUele")
+	public String menuUele(Menu dto) {
+		
+		service.uelete(dto);
+		
+		return "redirect:/menuXdmList";
+	}
+	
+	
 }
