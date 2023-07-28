@@ -154,7 +154,7 @@
 		$("input:hidden[name=thisPage]").val(thisPage);
 		$("form[name=formList]").attr("action", "/starXdmList").submit();
 	}
-  </script>
+  </script> 
 
 </body>
 
