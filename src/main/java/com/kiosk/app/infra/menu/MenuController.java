@@ -8,12 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-<<<<<<< Upstream, based on origin/main
-=======
-import com.kiosk.app.infra.member.Member;
-import com.kiosk.app.infra.member.MemberVo;
 
->>>>>>> 8354ae2 23.07.28
 
 @Controller
 public class MenuController {
