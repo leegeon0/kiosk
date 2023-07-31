@@ -12,7 +12,9 @@
  	<sql id="abc">
  		seq,
  		name,
+ 		delNy,
  		codegroup_seq
+ 		
  	</sql>
  
  <sql id ="selectCommon">
@@ -78,7 +80,7 @@
 	 		)value(
 	 			#{name},
 	 			#{delNy},
-	 			#{cdegroup_seq}
+	 			#{codegroup_seq}
 	 		)
 	 
 	 </insert>

@@ -163,6 +163,7 @@
               	</div>
               	
               	<!-- 이미지첨부 -->
+       <%--        	
               	        <div class="col-sm-6 mt-3 mt-sm-0">
         	<c:set var="type" value="2"/>		<!-- #-> -->
         	<c:set var="name" value="uploadImg"/>		<!-- #-> -->
@@ -183,8 +184,10 @@
 				</c:forEach>
 			</div>
         </div>
+         --%>
         <!-- 이미지 첨부 -->
         <!-- 파일 첨부 -->
+        <%-- 
         <div class="col-sm-6 mt-3 mt-sm-0">
         	<c:set var="type" value="3"/>		<!-- #-> -->
         	<c:set var="name" value="uploadFile"/>		<!-- #-> -->
@@ -207,6 +210,7 @@
 				</ul>
 			</div>
         </div>
+ --%>        
         <!-- 파일 첨부 -->
               		
               		
@@ -348,7 +352,7 @@
 	 		 
 	 });
 	  
-	  
+/* 	  
 		upload = function(objName, seq, allowedMaxTotalFileNumber, allowedExtdiv, allowedEachFileSize, allowedTotalFileSize, uiType) {
 			
 //			objName 과 seq 는 jsp 내에서 유일 하여야 함.
@@ -433,7 +437,7 @@
 			} else if (uiType == 3) {
 				var fileReader = new FileReader();
 				 fileReader.onload = function () {
-					 $("#uploadImgProfilePreview").attr("src", fileReader.result);		/* #-> */
+					 $("#uploadImgProfilePreview").attr("src", fileReader.result);		
 				 }	
 				 fileReader.readAsDataURL($("#" + objName +"")[0].files[0]);
 			} else {
@@ -441,8 +445,8 @@
 			}
 			return false;
 		}
-		
-		
+		 */
+/* 		
 		addEventListenerCustom = function (objName, type, i, file, filePreview, maxNumber) { 
 			return function(event) {
 				var imageFile = event.target;
@@ -522,7 +526,7 @@
 			$("#modalImgViewer").modal("show");
 		}
 	  
-	
+	 */
 
 
   

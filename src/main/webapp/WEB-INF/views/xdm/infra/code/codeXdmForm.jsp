@@ -57,6 +57,7 @@
 		                    <th scope="col">seq</th>
 		                    <th scope="col">name</th>
 		                    <th scope="col">codegroup_seq</th>
+		                    <th scope="col">delNy</th>
 		                </tr>
                 	</thead>
 	                <tbody>
@@ -64,6 +65,7 @@
 		                <td><input type="text" class="form-control" id="seq" name="seq" placeholder="Auto Increment" required readonly value="<c:out value="${item.seq}"/>"></td>
 		                <td><input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>"></td>
 		                <td><input type="text" class="form-control" id="codegroup_seq" name="codegroup_seq" required value="<c:out value="${item.codegroup_seq}"/>"></td>
+		                <td><input type="text" class="form-control" id="delNy" name="delNy" required value="<c:out value="${item.delNy}"/>"></td>
 					</tr>
 	                </tbody>
               		</table>
@@ -75,7 +77,7 @@
 						</c:when>
 						<c:otherwise>
 							<button type="button" class="btn btn-primary" id="updateBtn">업데이트</button>
-<!-- 							<button type="button" class="btn btn-primary" id="ueleteBtn">사용/해제</button> -->
+							<button type="button" class="btn btn-primary" id="ueleteBtn">사용/해제</button>
 							<button type="button" class="btn btn-primary" id="deleteBtn">삭제</button>
 						</c:otherwise>	
 					</c:choose>

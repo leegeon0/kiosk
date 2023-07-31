@@ -20,7 +20,7 @@
 	   
 	
 	  <!-- Template Main JS File -->
-	
+	  
 	<script src="/resources/assets/js/niceAdmin.js"></script>
 	
 	<script type="text/javascript">

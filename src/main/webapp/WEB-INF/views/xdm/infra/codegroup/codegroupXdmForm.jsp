@@ -126,7 +126,7 @@
  	
  	
   $("#submitBtn").on("click",function(){
-	  	if(validationInst() == false) return false; 
+	  	/* if(validationInst() == false) return false;  */
 	   	// 함수는 ()이게 있어야 함!!!
 
 		var delNyValue = $("#delNy").val();
@@ -148,7 +148,7 @@
 
 	  $("#updateBtn").on("click",function(){
 	 	
- 		 if(validationUpdt() == false) return false;	 	 
+ 		 /* if(validationUpdt() == false) return false;	 */ 	 
 		 $("form[name=form]").attr("action","/codegroupUpdt").submit(); 
 	  });
 		 

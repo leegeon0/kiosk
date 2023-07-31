@@ -89,6 +89,7 @@
 		                    <th scope="col">seq</th>
 		                    <th scope="col">name</th>
 		                    <th scope="col">codegroup_seq</th>
+		                    <th scope="col">delNy</th>
 		                </tr>
                 	</thead>
 	                <tbody>
@@ -104,6 +105,7 @@
 								<td><c:out value="${list.seq}"></c:out></td>
 								<td><a href="codeXdmForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name}"/></a></td>
 								<td><c:out value="${list.codegroup_seq}"></c:out><br></td>
+								<td><c:out value="${list.delNy}"></c:out><br></td>
 							</tr>
 							</c:forEach>
 						</c:otherwise>
