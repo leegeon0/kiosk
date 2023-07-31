@@ -5,13 +5,17 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="CodeServiceImpl" class="com.kiosk.app.infra.code.CodeServiceImpl"/> 
+
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
-  
-<!-- Head영역 include -->
-<%@include file="../include/xdmHead.jsp" %>
+	<!-- Head영역 include -->
+	<%@include file="../include/xdmHead.jsp" %>
    
 
   <!-- =======================================================
@@ -24,10 +28,10 @@
 </head>
 
 <body>
-
 <!-- Header / nav 영역 include -->
-<%@include file="../include/xdmHeader.jsp"%>
-<%@include file="../include/xdmNav.jsp"%>
+	<%@include file="../include/xdmHeader.jsp"%>
+	<%@include file="../include/xdmNav.jsp"%>
+
 
   <main id="main" class="main">
 
@@ -60,9 +64,13 @@
 				<button type="button" class="btn btn-primary" id="btn">검색</button>
 					
 					
+					
+                	<c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('1')}"/>
+					
 				   <table class="table">
 				   
                 	<thead>
+
                 	<!-- 
                 	 	<select name="shOption" style="margin-right : 10px;">
 							<option value="">-선택-</option>
@@ -77,7 +85,7 @@
 				  	 -->
 		                <tr>
 		                    <th scope="col">seq</th>
-		                    <th scope="col">categoryName</th>
+		                    <th scope="col">name</th>
 		                    <th scope="col">delNy</th>
 		                </tr>
                 	</thead>
@@ -89,18 +97,28 @@
 							</tr>	
 						</c:when>
 						<c:otherwise>
+							<c:forEach items="${listCodeGender}" var="list" varStatus="status">
+								<tr>
+									<td><c:out value="${list.seq}"></c:out></td>
+									<td><c:out value="${list.name}"/></td>
+									<td><c:out value="${list.delNy}"></c:out></td>
+								</tr>
+							</c:forEach>
+							<%-- 
 							<c:forEach items="${list}" var="list" varStatus="status">
 							<tr>
 								<td><c:out value="${list.seq}"></c:out></td>
-								<td><a href="codeSelectList?codegroup_seq=<c:out value="${list.seq}"/>"><c:out value="${list.categoryName}"/></a></td>
-								<td><c:out value="${list.delNy}"></c:out></td>
+								<td><a href="codeXdmForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name}"/></a></td>
+								<td><c:out value="${list.codegroup_seq}"></c:out><br></td>
+								<td><c:out value="${list.delNy}"></c:out><br></td>
 							</tr>
 							</c:forEach>
+							 --%>
 						</c:otherwise>
 						</c:choose>
 	                </tbody>
               		</table>
-              		<a href="codegroupXdmForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
+              		<a href="codeXdmForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
               		<div class="container-fluid px-0 mt-2">
 					    <div class="row">
 					        <div class="col">
@@ -141,20 +159,21 @@
 
         </div>
       </div>
-     
     </section>
 
   </main><!-- End #main -->
-
+  
 <!-- Footer영역 include -->
-<%@include file="../include/xdmFooter.jsp"%>
+  <%@include file="../include/xdmFooter.jsp"%>
 
+ 
+  
   <script type="text/javascript">
   $("#btn").on("click", function(){
 		
 		/* $("form[name=formList]").attr("method","get"); */
 
-		$("form[name=formList]").attr("action", "/codegroupXdmList").submit();
+		$("form[name=formList]").attr("action", "/codeSelectList").submit();
 		$("form[name=formList]").attr("method","post");
 		
 		
@@ -162,7 +181,7 @@
   
   goList = function(thisPage) {
 		$("input:hidden[name=thisPage]").val(thisPage);
-		$("form[name=formList]").attr("action", "/codegroupXdmList").submit();
+		$("form[name=formList]").attr("action", "/codeSelectList").submit();
 	}
   </script>
 

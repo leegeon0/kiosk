@@ -100,7 +100,7 @@
 							</tr>	
 						</c:when>
 						<c:otherwise>
-							<c:forEach items="${list}" var="list" varStatus="status">
+							<c:forEach items="${list}" var="codeList" varStatus="status">
 							<tr>
 								<td><c:out value="${list.seq}"></c:out></td>
 								<td><a href="codeXdmForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name}"/></a></td>

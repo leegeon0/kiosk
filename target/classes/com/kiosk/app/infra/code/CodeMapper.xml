@@ -101,6 +101,7 @@
 	  	select
 	  		seq,
 	  		name,
+	  		delNy,
 	  		codegroup_seq
 	  	from
 	  		code

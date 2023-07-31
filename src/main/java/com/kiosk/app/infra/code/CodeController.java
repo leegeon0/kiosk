@@ -93,6 +93,46 @@ public class CodeController {
 		// 경로가 있다면 해당 JSP로 return
 	}
 	
+	@RequestMapping("/codeSelectList")
+	public String codeSelectList(@ModelAttribute("vo") CodeVo vo,Model model) throws Exception {
+		
+		/*
+		 * System.out.println("controller: vo.getShOption() : " + vo.getShOption());
+		 * System.out.println("controller: vo.getShKeyword() : " + vo.getShKeyword());
+		 */
+		
+		vo.setShKeyword(vo.getShKeyword() == null ? "": vo.getShKeyword()); // 삼항 연산자
+		// 검색 입력창이 null인경우 "이" 값이 입력되도록 설정하고 다른 입력값을 입력하면 그값에 대한 검색란이 나오도록 설정
+		vo.setParamsPaging(service.selectOneCount(vo));
+		
+		if(vo.getTotalRows()>0) {
+			List<Code> list = service.selectList(vo);
+			model.addAttribute("list",list);
+//			
+//			List<Code> list2 = CodeServiceImpl.selectListCachedCode("1");
+//			  System.out.println(list2.size());
+//			  for(Code codeRow : list2) {
+//				  System.out.println(codeRow.getName());
+//				  
+//			  }
+//			
+		} else {
+			// by pass
+		}
+		
+//		List<CodeGroup> list = service.selectList(vo);
+		
+//		왼쪽의 list 는 jsp에서 사용할 변수명
+//		model.addAttribute("list",list);
+//		model.addAttribute("vo", vo);
+		// 이 위에 줄보다 @ModalAttribute("vo") 를 더 많이 사용
+		
+//		model.addAttribute("list",service.selectList(); 위에 두줄 대신에 사용가능
+		
+		return "xdm/infra/code/codeSelectList";
+	}
+	
+	
 	
 	
 	
