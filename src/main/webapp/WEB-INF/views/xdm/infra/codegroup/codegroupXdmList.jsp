@@ -92,7 +92,7 @@
 							<c:forEach items="${list}" var="list" varStatus="status">
 							<tr>
 								<td><c:out value="${list.seq}"></c:out></td>
-								<td><a href="codegroupXdmForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.categoryName}"/></a></td>
+								<td><a href="codeXdmList?codegroup_seq=<c:out value="${list.seq}"/>"><c:out value="${list.categoryName}"/></a></td>
 								<td><c:out value="${list.delNy}"></c:out></td>
 							</tr>
 							</c:forEach>

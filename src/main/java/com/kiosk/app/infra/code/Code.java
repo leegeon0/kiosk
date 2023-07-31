@@ -1,10 +1,16 @@
-package com.kiosk.app.infra.code; 
+package com.kiosk.app.infra.code;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Code {
 	private String seq;
 	private String name;
 	private String delNy;
 	private String codegroup_seq;
+	
+	
+	
 	public String getSeq() {
 		return seq;
 	}
@@ -29,6 +35,8 @@ public class Code {
 	public void setCodegroup_seq(String codegroup_seq) {
 		this.codegroup_seq = codegroup_seq;
 	} 
+	
+	public static List<Code> codeArrayList = new ArrayList<Code>();
 	
 //	------
 	 

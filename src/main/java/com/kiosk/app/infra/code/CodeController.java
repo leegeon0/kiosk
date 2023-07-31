@@ -13,6 +13,7 @@ public class CodeController {
 	@Autowired
 	CodeServiceImpl service;
 	
+	
 	@RequestMapping("/codeXdmList")
 	public String kioskCodeXdmList(@ModelAttribute("vo") CodeVo vo,Model model) {
 		

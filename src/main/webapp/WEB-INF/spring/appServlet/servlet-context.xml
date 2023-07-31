@@ -20,7 +20,7 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-<<<<<<< HEAD
+
 <!-- 	
 	fileUpload s 2022.03.30 
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -31,11 +31,11 @@
 	</beans:bean>
 	fileUpload e 2022.03.30
 	 -->
-=======
+
 	
 
 	
->>>>>>> refs/remotes/origin/main
+<!-- >>>>>>> refs/remotes/origin/main -->
 	<context:component-scan base-package="com.kiosk.app" />
 	
 	
