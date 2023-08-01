@@ -84,7 +84,7 @@
                                 </div>
                             </a></li>
                             <li><a href="#">
-                                <img src="/resources/assets/img/국밥4.jpg" alt="">
+                                <img src="/resources/assets/img/갈비탕.JPG" alt="">
                                 <div class="menuName">
                                     <div class="stars">
                                         <i class="fa-solid fa-star"></i>
@@ -107,12 +107,12 @@
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                     </div>
-                                    <p>황태해장국 정식</p>
+                                    <p>순대국밥 정식</p>
                                     <p>10,000</p>
                                 </div>
                             </a></li>
                             <li><a href="#">
-                                <img src="/resources/assets/img/국밥8.jpg" alt="">
+                                <img src="/resources/assets/img/콩나물국밥.JPG" alt="">
                                 <div class="menuName">
                                     <div class="stars">
                                         <i class="fa-solid fa-star"></i>
