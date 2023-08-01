@@ -148,6 +148,7 @@ public class IndexController {
 		// 아래의 jsp 파일 호출
 		return "user/infra/order/order";
 	}
+	
 	@RequestMapping(value="/joinForm") // value = / : 최상위 도메인
 	public String joinForm() {
 		
@@ -158,5 +159,6 @@ public class IndexController {
 		// 아래의 jsp 파일 호출
 		return "xdm/infra/form/joinForm";
 	}
+
 
 }

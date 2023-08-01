@@ -48,7 +48,7 @@
         <!-- Pills content -->
         <div class="tab-content">
             <div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-                <form name="form">
+                <form name="form" method="post">
                     
                     <!-- id input -->
                     <div class="form-outline mb-4">
@@ -111,7 +111,7 @@
                     </div>
 
                     <!-- Submit button -->
-                <a href="indexUserLogin"><button type="submit" id="signUpBtn" class="btn btn-primary btn-block mb-3 btn-goback" style="background-color: #FF6B3D; color: #fff">Sign up</button></a>
+               		<button type="button" id="signUpBtn" class="btn btn-primary btn-block mb-3 btn-goback" style="background-color: #FF6B3D; color: #fff">Sign up</button>
                 </form>
             </div>
         </div>
@@ -143,7 +143,7 @@
 			alert("이름을 입력해주세요.");
 			$("#name").focus();
 		}else{
-			$("form[name=form]").attr("action","/memberInsert").submit();	
+			$("form[name=form]").attr("action","/memberXdmInsert").submit();	
 		}
 		
 		/* $("form[name=formList]").attr("method","post"); */

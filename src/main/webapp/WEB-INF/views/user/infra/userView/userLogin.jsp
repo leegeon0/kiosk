@@ -72,6 +72,7 @@
                     </div>
                 </div>
                 <button class="loginBtn btnColor" id="loginBtn" type="button">로그인</button>
+                <button class="loginBtn btnBorder" id="registerBtn" type="button">회원가입</button>
             </form>
             <!-- 로그인 폼 -->
         </div>
@@ -117,6 +118,11 @@
 // 		$("form[name=register]").attr("method","post");
     });
     	
+    $("#registerBtn").on("click",function(){
+    	
+    	location.href ="/joinForm";
+    	
+    });
     
     
     </script>

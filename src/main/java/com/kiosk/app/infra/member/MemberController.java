@@ -84,6 +84,17 @@ public class MemberController {
 	}
 	
 	
+	@RequestMapping("/memberXdmInsert")
+	public String memberXdmInsert(Member dto) {
+		
+		service.insert(dto);
+		
+		return "user/infra/userView/userLogin";
+	}
+	
+	
+
+	
 	@ResponseBody
 	@RequestMapping("/login")
 	public Map<String, Object> loginMember(MemberVo vo, HttpSession httpSession ) {
