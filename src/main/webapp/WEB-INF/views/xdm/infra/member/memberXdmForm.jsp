@@ -79,12 +79,12 @@
 			        	<c:set var="name" value="uploadImgProfile"/>		<!-- #-> -->
 						<c:choose>
 							<c:when test="${ifmmSeq eq 0 }">
-								<img id="<c:out value="${name }"/>Preview" src="/resources/xdmin/image/default_100_100.png" class="rounded-circle mx-auto d-block" width="100" height="100">
+								<img id="<c:out value="${name }"/>Preview" src="" class="rounded-circle mx-auto d-block" width="100" height="100">
 							</c:when>
 							<c:otherwise>
 								<c:choose>
 									<c:when test="${fn:length(listUploaded) eq 0 }">
-										<img id="<c:out value="${name }"/>Preview" src="/resources/xdmin/image/default_100_100.png" class="rounded-circle mx-auto d-block" width="100" height="100">
+										<img id="<c:out value="${name }"/>Preview" src="" class="rounded-circle mx-auto d-block" width="100" height="100">
 									</c:when>
 									<c:otherwise>
 										<c:set var="GetNy" value="0"/>
@@ -111,49 +111,49 @@
 			        </div>
               		<div class="edit_pos">
               			<div class="form_line_left">
-              			<div class="form-outline mb-4">
+              			<div class="form-outline mb-4 d-flex flex-column-reverse">
                     		<input type="text" class="form-control" id="seq" placeholder="Auto Increment" readonly name="seq" required value="<c:out value="${item.seq}"/>">
                     		<label class="form-label" for="seq">seq</label>
                 		</div>
-              			<div class="form-outline mb-4">
+              			<div class="form-outline mb-4 d-flex flex-column-reverse">
                     		<input type="text" class="form-control" id="id" name="id" required value="<c:out value="${item.id}"/>">
                     		<label class="form-label" for="id">아이디</label>
                 		</div>
-                       	<div class="form-outline mb-4">
+                       	<div class="form-outline mb-4 d-flex flex-column-reverse">
                     		<input type="text" class="form-control" id="password" name="password"  required value="<c:out value="${item.password}"/>">
                     		<label class="form-label" for="id">비밀번호</label>
                 		</div>
-                		<div class="form-outline mb-4">
+                		<div class="form-outline mb-4 d-flex flex-column-reverse">
                     		<input type="text" class="form-control" id="name" name="name"  required value="<c:out value="${item.name}"/>">
                     		<label class="form-label" for="id">이름</label>
                 		</div>
-                		<div class="form-outline mb-4">
+                		<div class="form-outline mb-4 d-flex flex-column-reverse">
                 			<input type="text" class="form-control" id="salesType" name="salesType" required value="<c:out value="${item.salesType}"/>">
                 			<label class="form-label" for="salesType">판매유형</label>
                 		</div>
-                		<div class="form-outline mb-4">
-                			<input type="text" class="form-control" placeholder="default : 0" id="delNy" name="delNy" required value="<c:out value="${item.delNy}"/>">
+                		<div class="form-outline mb-4 d-flex flex-column-reverse">
+                			<input type="text" class="form-control" placeholder="default : 1" id="delNy" name="delNy" required value="<c:out value="${item.delNy}"/>">
                 			<label class="form-label" for="delNy">사용여부</label>
                 		</div>
               		</div>
               		<div class="form_line_right">
-              			<div class="form-outline mb-4">
+              			<div class="form-outline mb-4 d-flex flex-column-reverse">
                 			<input type="text" class="form-control" id="memberAddress" name="memberAddress" required value="<c:out value="${item.memberAddress}"/>">
                 			<label class="form-label" for="memberAddress">회원 주소</label>
                 		</div>
-                		<div class="form-outline mb-4">
+                		<div class="form-outline mb-4 d-flex flex-column-reverse">
                 			<input type="text" class="form-control" id="memberTel" name="memberTel" required value="<c:out value="${item.memberTel}"/>">
                 			<label class="form-label" for="memberTel">회원 전화번호</label>
                 		</div>
-                		<div class="form-outline mb-4">
+                		<div class="form-outline mb-4 d-flex flex-column-reverse">
                 			<input type="text" class="form-control" id="companyAddress" name="companyAddress" required value="<c:out value="${item.companyAddress}"/>">
                 			<label class="form-label" for="companyAddress">회사 주소</label>
                 		</div>
-                		<div class="form-outline mb-4">
+                		<div class="form-outline mb-4 d-flex flex-column-reverse">
                 			<input type="text" class="form-control" id="companyTel" name="companyTel" required value="<c:out value="${item.companyTel}"/>">
                 			<label class="form-label" for="companyTel">회사 전화번호</label>
                 		</div>
-                		<div class="form-outline mb-4">
+                		<div class="form-outline mb-4 d-flex flex-column-reverse">
                 			<input type="text" class="form-control" id="registerTime" name="registerTime" placeholder="자동등록" readonly required value="<c:out value="${item.registerTime}"/>">
                 			<label class="form-label" for="companyTel">가입 날짜</label>
                 		</div>
