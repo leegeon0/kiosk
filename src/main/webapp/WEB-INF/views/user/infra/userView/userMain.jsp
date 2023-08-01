@@ -44,8 +44,8 @@
         <div class="rightSide col-5">
             <div class="date" id="date"></div> 
             <div class="userMainBtn">
-                <button class="btnColor eatBtn">먹고가기</button>
-                <button class="btnBorder takeoutBtn">포장하기</button>
+                <button class="btnColor eatBtn" id="eatBtn">먹고가기</button>
+                <button class="btnBorder takeoutBtn" id="takeoutBtn">포장하기</button>
             </div>
             <div class="userMainCircleBtn">
                 <div class="voiceBtn">
@@ -61,7 +61,7 @@
         <!-- rightSide 끝 -->
     </div>
     <!-- wrapper 끝 -->
-
+	<script src="/resources/assets/js/kiosk.js"></script>
     <script type="text/javascript">
         const date = new Date();
         const year = date.getFullYear();

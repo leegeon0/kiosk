@@ -30,6 +30,9 @@
             <div class="receiptBox">
                 <h2>영수증</h2>
                 <h3>[ 주문번호 : <span id="orderNum">1</span> 번 ]</h3>
+                <div id="receiptModal" style="display: none;">
+				  <p id="receiptMessage"></p>
+				</div>
                 <table class="table">
                     <thead>
                       <tr>
@@ -75,7 +78,7 @@
 
     <script src="/resources/assets/js/kiosk.js"></script>
     <script>
-
+	
 
 
     </script>
