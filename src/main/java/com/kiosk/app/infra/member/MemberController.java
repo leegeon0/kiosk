@@ -89,7 +89,7 @@ public class MemberController {
 		
 		service.insert(dto);
 		
-		return "user/infra/userView/userLogin";
+		return "redirect:/userLogin";
 	}
 	
 	
