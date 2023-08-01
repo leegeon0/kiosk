@@ -70,19 +70,6 @@
 				   <table class="table">
 				   
                 	<thead>
-
-                	<!-- 
-                	 	<select name="shOption" style="margin-right : 10px;">
-							<option value="">-선택-</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-						</select> 
-					    <label for="validationCustom02" class="form-label">이름</label>
-					    <input type="text" name="shKeyword">
-					<div class="btn_tab" style="width : 100px; height : 70px; display : inline;">
-					  	<button type="button" class="btn btn-primary" id="btn" >검색</button>
-				  	</div>
-				  	 -->
 		                <tr>
 		                    <th scope="col">seq</th>
 		                    <th scope="col">name</th>
