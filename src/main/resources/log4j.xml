@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.junefw.infra">
+	<logger name="com.kiosk.app">
 		<level value="info" />
 	</logger>
 	
@@ -54,7 +54,7 @@
 	
 	<logger name="jdbc.resultsettable" additivity="false">
 		<!-- <level value="info"/> -->
-		<level value="warn"/>
+		<level value="info"/>
 		<appender-ref ref="console"/>
 	</logger>
 	<!-- query log e 2022.02.26 -->

@@ -41,29 +41,31 @@
                 <div class="menuBox">
                     <div id="tab1-1" class="tab_content1">
                         <ul class="tab_c_arti1">
-                        <c:choose>
+                    <c:choose>
 						<c:when test="${fn:length(list) eq 0}">
 							<p>There is no data!</p>
 						</c:when>
 						<c:otherwise>
 							<c:forEach items="${list}" var="list" varStatus="status">
-							   <li class="popup_btn"><a href="#">
-                           			<img alt="" src="<c:out value="${list.menuImg}"></c:out>">     
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                	<c:out value="${list.menuName}"></c:out><br>
-                                	<c:out value="${list.menuPrice}"></c:out>
-                                </div>
-                            </a></li>
+							   <li class="popup_btn">
+							   		<a href="#">
+                           				<img alt="" src="<c:out value="${list.menuImg}"></c:out>">     
+                                		<div class="menuName">
+                                    		<div class="stars">
+                                        		<i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+                                    		</div>
+		                                	<c:out value="${list.menuName}"></c:out><br>
+		                                	<c:out value="${list.menuPrice}"></c:out>
+                                		</div>
+                            		</a>
+                            	</li>
 							</c:forEach>
 						</c:otherwise>
-						</c:choose>
+					</c:choose>
 					<!-- 	
                             <li class="popup_btn"><a href="#">
                                 <img src="/resources/assets/img/국밥1.jpg" alt="">
@@ -152,31 +154,31 @@
                             </a></li>
                              -->
                             <div class="modal_bg"></div>
-                            <div class="modalLeftBox">
-                                <div class="modalBox">
-                                    <img src="/resources/assets/img/국밥1.jpg" alt="">
-                                    <div class="modal_info">
-                                        <p>순대 국밥</p>
-                                        <div class="count_box">
-                                            <div class="count-wrap _count">
-                                                <button type="button" class="minus">-</button>
-                                                <input type="text" class="inp" value="1" />
-                                                <button type="button" class="plus">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="stars">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <p><span id="modalPrice">15,000</span>원</p>
-                                    </div> 
-                                    <button class="modalOptionBtn btnBorder">옵션 선택</button>
-                                    <button class="modalCencelBtn btnBorder">취소하기</button>
-                                    <button class="modalOrderBtn btnColor">주문하기</button>
-                                </div>    
+                            	<div class="modalLeftBox">
+                                	<div class="modalBox">
+                                    	<img src="/resources/assets/img/국밥1.jpg" alt="">
+                                    	<div class="modal_info">
+                                        	<p>순대 국밥</p>
+                                        	<div class="count_box">
+                                            	<div class="count-wrap _count">
+                                                	<button type="button" class="minus">-</button>
+                                                	<input type="text" class="inp" value="1" />
+                                                	<button type="button" class="plus">+</button>
+                                            	</div>
+                                        	</div>
+	                                        <div class="stars">
+	                                            <i class="fa-solid fa-star"></i>
+	                                            <i class="fa-solid fa-star"></i>
+	                                            <i class="fa-solid fa-star"></i>
+	                                            <i class="fa-solid fa-star"></i>
+	                                            <i class="fa-solid fa-star"></i>
+	                                        </div>
+                                        	<p><span id="modalPrice">15,000</span>원</p>
+                                    	</div> 
+	                                    <button class="modalOptionBtn btnBorder">옵션 선택</button>
+	                                    <button class="modalCencelBtn btnBorder">취소하기</button>
+	                                    <button class="modalOrderBtn btnColor">주문하기</button>
+                                	</div>    
                                 <div class="modalOptionRightBox">
                                     <p>옵션 선택</p>
                                     <ul class="modalOptionBox">
