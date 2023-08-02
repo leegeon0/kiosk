@@ -18,11 +18,13 @@ $(document).ready(function() {
 $(document).ready(function() {
   $("#eatBtn").on("click", function() {
     showReceiptModal('매장');
+    location.href ="/order.html";
     /*location.href ="/receipt.html?message=매장식사"*/
   });
 
   $("#takeoutBtn").on("click", function() {
     showReceiptModal('포장');
+    location.href ="/order.html";
   });
 
   function showReceiptModal(message) {
@@ -47,6 +49,9 @@ $(document).ready(function() {
     $("#receiptModal").show();
   }
 });
+
+
+
 
 
 

@@ -3,15 +3,17 @@ package com.kiosk.app.infra.menu;
 public class Menu {
 	
 	private Integer seq;
+	private String menuImg;
 	private String menuName;
 	private String menuPrice;
 	private Integer category;
 	private Integer delNy;
 	private Integer soldOutNy;
+	
+	
+	
 
-	
-	
-//	검색
+	//	검색
 	private Integer shOption;
 	private String shKeyword;
 //	검색
@@ -22,6 +24,12 @@ public class Menu {
 	}
 	public void setSeq(Integer seq) {
 		this.seq = seq;
+	}
+	public String getMenuImg() {
+		return menuImg;
+	}
+	public void setMenuImg(String menuImg) {
+		this.menuImg = menuImg;
 	}
 	public String getMenuName() {
 		return menuName;

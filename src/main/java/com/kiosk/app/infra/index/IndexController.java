@@ -137,18 +137,20 @@ public class IndexController {
 		// 아래의 jsp 파일 호출
 		return "user/infra/payment/receipt";
 	}
-	
-	@RequestMapping(value="/order") // value = / : 최상위 도메인
-	public String order() {
-		
-		// 여기에서 서버단에서 필요한 작업을 수행한다.
-		
-		// href = "/resources/css/style.css";
-		
-		// 아래의 jsp 파일 호출
-		return "user/infra/order/order";
-	}
-	
+
+	/*
+	 * @RequestMapping(value="/order") // value = / : 최상위 도메인 public String order()
+	 * {
+	 * 
+	 * 
+	 * 
+	 * 
+	 * // 여기에서 서버단에서 필요한 작업을 수행한다.
+	 * 
+	 * // href = "/resources/css/style.css";
+	 * 
+	 * // 아래의 jsp 파일 호출 return "user/infra/order/order"; }
+	 */
 	@RequestMapping(value="/joinForm") // value = / : 최상위 도메인
 	public String joinForm() {
 		

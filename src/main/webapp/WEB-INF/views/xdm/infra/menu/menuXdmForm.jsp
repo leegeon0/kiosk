@@ -52,6 +52,7 @@
                 	<thead>
 		                <tr>
 		                    <th scope="col">seq</th>
+		                    <th scope="col">menuImg</th>
 		                    <th scope="col">menuName</th>
 		                    <th scope="col">menuPrice</th>
 		                    <th scope="col">category</th>
@@ -62,6 +63,7 @@
 	                <tbody>
 	                <tr>
 		                <td><input type="text" class="form-control" id="seq" name="seq" placeholder="Auto Increment" required readonly value="<c:out value="${item.seq}"/>"></td>
+		                <td><input type="text" class="form-control" id="menuImg" name="menuImg" value="<c:out value="${item.menuImg}"/>"></td>
 		                <td><input type="text" class="form-control" id="menuName" name="menuName" value="<c:out value="${item.menuName}"/>"></td>
 		                <td><input type="text" class="form-control" id="menuPrice" name="menuPrice" required value="<c:out value="${item.menuPrice}"/>"></td>
 		                <td><input type="text" class="form-control" id="category" name="category" required value="<c:out value="${item.category}"/>"></td>
@@ -132,7 +134,7 @@
  	
  	
   $("#submitBtn").on("click",function(){
-	  	if(validationInst() == false) return false; 
+	/*   	if(validationInst() == false) return false;  */
 	   	// 함수는 ()이게 있어야 함!!!
 
 		var delNyValue = $("#delNy").val();
@@ -154,7 +156,7 @@
 
 	  $("#updateBtn").on("click",function(){
 	 	
- 		 if(validationUpdt() == false) return false;	 	 
+ 	/* 	 if(validationUpdt() == false) return false;	 	  */
 		 $("form[name=form]").attr("action","/menuUpdt").submit(); 
 	  });
 		 

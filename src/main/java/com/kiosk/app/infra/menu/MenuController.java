@@ -26,12 +26,29 @@ public class MenuController {
 		if(vo.getTotalRows()>0) {
 			List<Menu> list = service.selectList(vo);
 			model.addAttribute("list",list);
+
 		} else {
 			// by pass
 		}
 		return "xdm/infra/menu/menuXdmList";
 		
 	}
+	
+	@RequestMapping(value="/order") // value = / : 최상위 도메인
+	public String order(@ModelAttribute("vo") MenuVo vo,Model model) throws Exception {
+		
+		
+		List<Menu> list = service.selectList(vo);
+		model.addAttribute("list",list);
+		
+		// 여기에서 서버단에서 필요한 작업을 수행한다.
+		
+		// href = "/resources/css/style.css";
+		
+		// 아래의 jsp 파일 호출
+		return "user/infra/order/order";
+	}
+	
 	
 	@RequestMapping("/menuXdmForm")
 	public String memberXdomForm(MenuVo vo,Model model) {

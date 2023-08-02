@@ -41,6 +41,30 @@
                 <div class="menuBox">
                     <div id="tab1-1" class="tab_content1">
                         <ul class="tab_c_arti1">
+                        <c:choose>
+						<c:when test="${fn:length(list) eq 0}">
+							<p>There is no data!</p>
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${list}" var="list" varStatus="status">
+							   <li class="popup_btn"><a href="#">
+                           			<img alt="" src="<c:out value="${list.menuImg}"></c:out>">     
+                                <div class="menuName">
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                	<c:out value="${list.menuName}"></c:out><br>
+                                	<c:out value="${list.menuPrice}"></c:out>
+                                </div>
+                            </a></li>
+							</c:forEach>
+						</c:otherwise>
+						</c:choose>
+					<!-- 	
                             <li class="popup_btn"><a href="#">
                                 <img src="/resources/assets/img/국밥1.jpg" alt="">
                                 <div class="menuName">
@@ -111,6 +135,7 @@
                                     <p>10,000</p>
                                 </div>
                             </a></li>
+                            
                             <li><a href="#">
                                 <img src="/resources/assets/img/콩나물국밥.JPG" alt="">
                                 <div class="menuName">
@@ -125,6 +150,7 @@
                                     <p>10,000</p>
                                 </div>
                             </a></li>
+                             -->
                             <div class="modal_bg"></div>
                             <div class="modalLeftBox">
                                 <div class="modalBox">
@@ -299,7 +325,7 @@
                     <div id="tab1-3" class="tab_content1">
                         <ul class="tab_c_arti1">
                             <li><a href="#">
-                                <img src="/resources/assets/assets/img/국밥1.jpg" alt="">
+                                <img src="/resources/assets/img/국밥1.jpg" alt="">
                                 <div class="menuName">
                                     <div class="stars">
                                         <i class="fa-solid fa-star"></i>
@@ -640,7 +666,7 @@
                 </div>
                 <div class="orderBtnBox">
                     <button class="btnBorder cencelBtn">취소하기</button>
-                    <button class="btnColor orderBtn">주문하기</button>
+                    <button class="btnColor orderBtn" id="orderBtn">주문하기</button>
                 </div>
             </div>
         </div>
@@ -649,6 +675,7 @@
     
     
     <script src="/resources/assets/js/order.js"></script>
+    <script src="/resources/assets/js/kiosk.js"></script>
     <script>
 
 

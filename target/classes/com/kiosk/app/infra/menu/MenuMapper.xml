@@ -10,6 +10,7 @@
 	 
 	 	<sql id="menuTable">
 	 		seq,
+	 		menuImg,
 	 		menuName,
 	 		menuPrice,
 	 		category,
@@ -57,6 +58,7 @@
 	 	update
 	 		menu
 	 	set
+	 		menuImg = #{menuImg},
 	 		menuName = #{menuName}
 	 	where 1=1
 	 		and seq = #{seq}
@@ -73,12 +75,14 @@
 	 <insert id="insert">
 	 	insert into 
 	 	menu(
+	 		menuImg,
 	 		menuName,
 	 		menuPrice,
 	 		category,
 	 		delNy,
 	 		soldOutNy
 	 		)value(
+	 			#{menuImg},
 	 			#{menuName},
 	 			#{menuPrice},
 	 			#{category},	

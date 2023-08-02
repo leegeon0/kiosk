@@ -77,6 +77,8 @@
 
 
         document.getElementById("date").innerHTML=year + '-' + month + '-' + day;
+        
+
     </script>
 </body>
 </html>
