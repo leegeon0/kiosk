@@ -1,9 +1,6 @@
 package com.kiosk.app.infra.code;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,6 +51,12 @@ public class CodeServiceImpl implements CodeService {
 	public int uelete(Code dto) {
 		// TODO Auto-generated method stub
 		return dao.uelete(dto);
+	}
+
+	@Override
+	public List<CodeVo> selectCodeGroupList(CodeVo vo) {
+		// TODO Auto-generated method stub
+		return dao.selectCodeGroupList(vo);
 	}
 	
 	

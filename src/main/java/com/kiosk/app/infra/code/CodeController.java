@@ -95,7 +95,24 @@ public class CodeController {
 	
 
 	
-	
+	@RequestMapping("/codencodegroupXdmList")
+	public String codencodegroupXdmList(@ModelAttribute("vo") CodeVo vo,Model model) {
+		
+		
+		vo.setShKeyword(vo.getShKeyword() == null ? "": vo.getShKeyword()); 
+		
+		vo.setParamsPaging(service.selectOneCount(vo));
+		
+		if(vo.getTotalRows()>0) {
+			List<CodeVo> selectCodeGroupList = service.selectCodeGroupList(vo);
+			model.addAttribute("list",selectCodeGroupList);
+		} else {
+			// by pass
+		}
+		
+		
+		return "xdm/infra/codencodegroup/codencodegroupXdmList";
+	}
 	
 	
 	

@@ -109,6 +109,20 @@
 	  	and delNy = 1
 	  
 	  </select>
-
+	  
+	<select id="selectCodeGroupList" resultMap="resultMapObj">
+			SELECT  
+				codeGroup.seq,
+			    codeGroup.categoryName,
+			    codeGroup.delNy,
+			    code.seq,
+			    code.name,
+			    code.delNy,
+			    code.codegroup_seq
+			FROM    code code
+			        	LEFT JOIN codegroup codeGroup ON codeGroup.seq = code.codegroup_seq
+			           ;
+	
+	</select>
 
  </mapper>

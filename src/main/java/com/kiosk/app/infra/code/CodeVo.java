@@ -25,6 +25,16 @@ public class CodeVo {
 	private String shKeyword;
 	private String seq;
 // ----------
+	
+	private Integer codeGroup_seq;
+	private String categoryName;
+	private Integer codeGroupDelNy;
+	private Integer codeSeq;
+	private String codeName;
+	private Integer codeDelNy;
+	private Integer codeGroupFK;
+	
+	
 	public Integer getShOption() {
 		return shOption;
 	}
@@ -162,4 +172,51 @@ public class CodeVo {
 			System.out.println("getStartRnumForMysql(): " + getStartRnumForMysql());
 			
 		}
+	
+	
+	
+	public Integer getCodeGroup_seq() {
+		return codeGroup_seq;
+	}
+	public void setCodeGroup_seq(Integer codeGroup_seq) {
+		this.codeGroup_seq = codeGroup_seq;
+	}
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+	public Integer getCodeGroupDelNy() {
+		return codeGroupDelNy;
+	}
+	public void setCodeGroupDelNy(Integer codeGroupDelNy) {
+		this.codeGroupDelNy = codeGroupDelNy;
+	}
+	public Integer getCodeSeq() {
+		return codeSeq;
+	}
+	public void setCodeSeq(Integer codeSeq) {
+		this.codeSeq = codeSeq;
+	}
+	public String getCodeName() {
+		return codeName;
+	}
+	public void setCodeName(String codeName) {
+		this.codeName = codeName;
+	}
+	public Integer getCodeDelNy() {
+		return codeDelNy;
+	}
+	public void setCodeDelNy(Integer codeDelNy) {
+		this.codeDelNy = codeDelNy;
+	}
+	public Integer getCodeGroupFK() {
+		return codeGroupFK;
+	}
+	public void setCodeGroupFK(Integer codeGroupFK) {
+		this.codeGroupFK = codeGroupFK;
+	}
+	
+	
 }
