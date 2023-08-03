@@ -21,6 +21,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/9ba187d4f0.js" crossorigin="anonymous"></script>
 
+
+<style type="text/css">
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+       .rate { display: inline-block;border: 0;margin-right: 15px;}
+.rate > input {display: none;}
+.rate > label {float: right;color: #ddd}
+.rate > label:before {display: inline-block;font-size: 1rem;padding: .3rem .2rem;margin: 0;cursor: pointer;font-family: FontAwesome;content: "\f005 ";}
+.rate .half:before {content: "\f089 "; position: absolute;padding-right: 0;}
+.rate input:checked ~ label, 
+.rate label:hover,.rate label:hover ~ label { color: #f73c32 !important;  } 
+.rate input:checked + .rate label:hover,
+.rate input input:checked ~ label:hover,
+.rate input:checked ~ .rate label:hover ~ label,  
+.rate label:hover ~ input:checked ~ label { color: #f73c32 !important;  } 
+
+
+</style>
 </head>
 
 <body>
@@ -29,7 +46,6 @@
             와라랄
         </button> -->
         <div class="left">
-        	<form action="" method="post" name="categoryList">
         	<div class="orderContainerLeft">
                 
                 <ul class="categoryBox">
@@ -53,11 +69,11 @@
                            				<img alt="" src="<c:out value="${list.menuImg}"></c:out>">     
                                 		<div class="menuName">
                                     		<div class="stars">
-                                        		<i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
                                     		</div>
 		                                	<c:out value="${list.menuName}"></c:out><br>
 		                                	<c:out value="${list.menuPrice}"></c:out>
@@ -67,6 +83,89 @@
 							</c:forEach>
 						</c:otherwise>
 					</c:choose>
+					<div class="modal_bg"></div>
+                            	<div class="modalLeftBox">
+                                	<div class="modalBox">
+                                    	<img src="/resources/assets/img/국밥1.jpg" alt="">
+                                    	<div class="modal_info">
+                                        	<p>순대 국밥</p>
+                                        	<div class="count_box">
+                                            	<div class="count-wrap _count">
+                                                	<button type="button" class="minus">-</button>
+                                                	<input type="text" class="inp" value="1" />
+                                                	<button type="button" class="plus">+</button>
+                                            	</div>
+                                        	</div>
+	                                        <div class="stars">
+			                                	<i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+	                                        </div>
+                                        	<p><span id="modalPrice">15,000</span>원</p>
+                                    	</div> 
+	                                    <button class="modalOptionBtn btnBorder">옵션 선택</button>
+	                                    <button class="modalCencelBtn btnBorder">취소하기</button>
+	                                    <button class="modalOrderBtn btnColor">주문하기</button>
+                                	</div>    
+                                <div class="modalOptionRightBox">
+                                    <p>옵션 선택</p>
+                                    <ul class="modalOptionBox">
+                                        <li><a href="#">
+                                            <img src="/resources/assets/img/공기밥.png" alt="">
+                                            <p>공기밥</p>
+                                            <p>1,000원</p>
+                                        </a></li>
+                                        <li><a href="#">
+                                            <img src="/resources/assets/img/순대.png" alt="">
+                                            <p>순대</p>
+                                            <p>3,000원</p>
+                                        </a></li>
+                                        <li><a href="#">
+                                            <img src="" alt="">
+                                            <p>냠</p>
+                                            <p>1,000원</p>
+                                        </a></li>
+                                        <li><a href="#">
+                                            <img src="" alt="">
+                                            <p>냠</p>
+                                            <p>1,000원</p>
+                                        </a></li>
+                                        <li><a href="#">
+                                            <img src="" alt="">
+                                            <p>냠</p>
+                                            <p>1,000원</p>
+                                        </a></li>
+                                        <li><a href="#">
+                                            <img src="" alt="">
+                                            <p>냠</p>
+                                            <p>1,000원</p>
+                                    </ul>
+                                    <button class="modalOptionCloseBtn btnBorder">
+                                        닫기
+                                    </button>
+                                </div>
+                                <div class="modalStarRightBox">
+                                    <p>이전에 이 음식을 드셔보셨다면 별점을 등록해주세요!
+                                    </p>
+                                    <div class="stars modalStarBox">
+			                             <fieldset class="rate fa-solid">
+			                                <input type="radio" id="rating10" name="rating" value="10"><label for="rating10" title="5점"></label>
+			                                <input type="radio" id="rating8" name="rating" value="8"><label for="rating8" title="4점"></label>
+			                                <input type="radio" id="rating6" name="rating" value="6"><label for="rating6" title="3점"></label>
+			                                <input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="2점"></label>
+			                                <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
+			                            </fieldset>
+                                    </div>
+                                    <button class="btnColor submitBtn">
+                                        등록하기
+                                    </button>
+                                    <button class="btnBorder closeStarBox">
+                                        안 할래요
+                                    </button>
+                                </div>
+                            </div>
 					
                         </ul>
                     </div>
@@ -336,7 +435,6 @@
                     </div>
                 </div>
             </div>
-        	</form>
             
         </div>
 
