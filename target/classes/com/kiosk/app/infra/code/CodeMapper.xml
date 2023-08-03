@@ -7,8 +7,9 @@
  
 <mapper namespace="com.kiosk.app.infra.code.CodeMapper">
 
-	<resultMap type="com.kiosk.app.infra.code.Code" id="resultMapObj"></resultMap>
- 
+	<resultMap type="com.kiosk.app.infra.code.Code" id="resultMapObj0"></resultMap>
+	<resultMap type="com.kiosk.app.infra.codeMore.CodeMoreVo" id="resultMapObj"></resultMap>
+
  	<sql id="abc">
  		seq,
  		name,

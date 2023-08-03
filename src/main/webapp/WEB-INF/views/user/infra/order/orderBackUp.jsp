@@ -67,6 +67,93 @@
 							</c:forEach>
 						</c:otherwise>
 					</c:choose>
+					<!-- 	
+                            <li class="popup_btn"><a href="#">
+                                <img src="/resources/assets/img/국밥1.jpg" alt="">
+                                <div class="menuName">
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>수육 국밥 정식</p>
+                                    <p>10,000</p>
+                                </div>
+                            </a></li>
+                            <li><a href="#">
+                                <img src="/resources/assets/img/국밥2.jpg" alt="">
+                                <div class="menuName">
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>해장국 정식</p>
+                                    <p>10,000</p>
+                                </div>
+                            </a></li>
+                            <li><a href="#">
+                                <img src="/resources/assets/img/국밥3.jpg" alt="">
+                                <div class="menuName">
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>나주 곰탕 정식</p>
+                                    <p>10,000</p>
+                                </div>
+                            </a></li>
+                            <li><a href="#">
+                                <img src="/resources/assets/img/갈비탕.JPG" alt="">
+                                <div class="menuName">
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>갈비탕 정식</p>
+                                    <p>10,000</p>
+                                </div>
+                            </a></li>
+                            <li><a href="#">
+                                <img src="/resources/assets/img/국밥5.jpg" alt="">
+                                <div class="menuName">
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>순대국밥 정식</p>
+                                    <p>10,000</p>
+                                </div>
+                            </a></li>
+                            
+                            <li><a href="#">
+                                <img src="/resources/assets/img/콩나물국밥.JPG" alt="">
+                                <div class="menuName">
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>콩나물국밥 정식</p>
+                                    <p>10,000</p>
+                                </div>
+                            </a></li>
+                             -->
                             <div class="modal_bg"></div>
                             	<div class="modalLeftBox">
                                 	<div class="modalBox">
