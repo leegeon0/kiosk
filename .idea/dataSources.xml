@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="kiosk@leegeon.cxvfdfpawj9y.ap-northeast-2.rds.amazonaws.com" uuid="95c9f096-323b-4652-83d0-ad7939cef8cc">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://leegeon.cxvfdfpawj9y.ap-northeast-2.rds.amazonaws.com:33067/kiosk</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
