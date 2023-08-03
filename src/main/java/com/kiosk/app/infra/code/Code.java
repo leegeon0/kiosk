@@ -8,7 +8,10 @@ public class Code {
 	private String name;
 	private String delNy;
 	private String codegroup_seq;
-	
+	private String categoryName;
+	private String codeSeq;
+	private String codeName;
+	private String codeDelNy;
 	
 	
 	public String getSeq() {
@@ -37,7 +40,36 @@ public class Code {
 	} 
 	
 	public static List<Code> codeArrayList = new ArrayList<Code>();
+
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+	public String getCodeSeq() {
+		return codeSeq;
+	}
+	public void setCodeSeq(String codeSeq) {
+		this.codeSeq = codeSeq;
+	}
+	public String getCodeName() {
+		return codeName;
+	}
+	public void setCodeName(String codeName) {
+		this.codeName = codeName;
+	}
+	public String getCodeDelNy() {
+		return codeDelNy;
+	}
+	public void setCodeDelNy(String codeDelNy) {
+		this.codeDelNy = codeDelNy;
+	}
+	
 	
 //	------
+	
+	
 	 
 }
