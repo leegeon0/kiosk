@@ -7,13 +7,12 @@
  
 <mapper namespace="com.kiosk.app.infra.code.CodeMapper">
 
-	<resultMap type="com.kiosk.app.infra.code.Code" id="resultMapObj0"></resultMap>
-	<resultMap type="com.kiosk.app.infra.codeMore.CodeMoreVo" id="resultMapObj"></resultMap>
+	<resultMap type="com.kiosk.app.infra.code.Code" id="resultMapObj"></resultMap>
 
  	<sql id="abc">
- 		seq,
- 		name,
- 		delNy,
+ 		codeSeq,
+ 		codeName,
+ 		codeDelNy,
  		codegroup_seq
  		
  	</sql>
@@ -48,7 +47,7 @@
  		from
  			code
  		where 1=1
- 			and	seq = #{seq}
+ 			and	codeSeq = #{codeSeq}
  			<!-- 문자 검색은 대부분 like를 사용 -->
  	
  	
@@ -58,10 +57,10 @@
 	 	update
 	 		code
 	 	set
-	 		name = #{name},
+	 		codeName = #{codeName},
 	 		codegroup_seq = #{codegroup_seq}
 	 	where 1=1
-	 		and seq = #{seq}
+	 		and codeSeq = #{codeSeq}
 	 </update>
  
 	 <delete id="delete">
@@ -69,18 +68,18 @@
 	 	from
 	 		code
 	 	where 1=1
-	 		and seq = #{seq}
+	 		and codeSeq = #{codeSeq}
 	 </delete>
 	 
 	 <insert id="insert">
 	 	insert into 
 	 	code(
-	 		name,
-	 		delNy,
+	 		codeName,
+	 		codeDelNy,
 	 		codegroup_seq
 	 		)value(
-	 			#{name},
-	 			#{delNy},
+	 			#{codeName},
+	 			#{codeDelNy},
 	 			#{codegroup_seq}
 	 		)
 	 
@@ -90,9 +89,9 @@
 		update
 	 		code
 	 	set
-	 		delNy = #{delNy}
+	 		codeDelNy = #{codeDelNy}
 	 	where 1=1
-	 		and seq = #{seq} 
+	 		and codeSeq = #{codeSeq} 
 	 </update> 
 	 
 	
@@ -100,14 +99,14 @@
 	  <select id="selectListCodeArrayList" resultMap="resultMapObj">
 	  
 	  	select
-	  		seq,
-	  		name,
-	  		delNy,
+	  		codeSeq,
+	  		codeName,
+	  		codeDelNy,
 	  		codegroup_seq
 	  	from
 	  		code
 	  	where 1=1
-	  	and delNy = 1
+	  	and codeDelNy = 1
 	  
 	  </select>
 	  
@@ -116,9 +115,9 @@
 				codeGroup.seq,
 			    codeGroup.categoryName,
 			    codeGroup.delNy,
-			    code.seq,
-			    code.name,
-			    code.delNy,
+			    code.codeSeq,
+			    code.codeName,
+			    code.codeDelNy,
 			    code.codegroup_seq
 			FROM    code code
 			        	LEFT JOIN codegroup codeGroup ON codeGroup.seq = code.codegroup_seq
