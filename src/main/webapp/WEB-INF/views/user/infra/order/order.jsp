@@ -57,7 +57,8 @@
                 
                 <div class="menuBox">
                     <div id="tab1-1" class="tab_content1">
-                        <ul class="tab_c_arti1">
+                        <ul class="tab_c_arti1" id="menuList">
+                        
                     <c:choose>
 						<c:when test="${fn:length(list) eq 0}">
 							<p>There is no data!</p>
@@ -69,11 +70,11 @@
                            				<img alt="" src="<c:out value="${list.menuImg}"></c:out>">     
                                 		<div class="menuName">
                                     		<div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
+		                                        <i class="fa-solid fa-star"></i>
                                     		</div>
 		                                	<c:out value="${list.menuName}"></c:out><br>
 		                                	<c:out value="${list.menuPrice}"></c:out>
@@ -613,39 +614,108 @@
     <script src="/resources/assets/js/order.js"></script>
     <script src="/resources/assets/js/kiosk.js"></script>
     <script>
-    $(".categoryBtn").on("click",function(){
-    	var categoryValue = $(this).val();
-    	
-      	 
-    	$.ajax({
-    		async: true 
-    		,cache: false
-    		,type: "post"
-    		/* ,dataType:"json" */
-    		,url: "/menu"
-    		/* ,data : $("#formLogin").serialize() */
-    		,data : {
-    			"category" : categoryValue}
-    		,success: function(response) {
-    			if(response.rt == "success" && categoryValue == 1 ) {
-    				alert(response.rtMenu[1].menuName);
-    				
-    				
-    				
-    				
-    			}else if(response.rt == "success" && categoryValue == 2 ){
-    				alert(response.rtMenu[0].menuName);
-    			}
-    			else {
-    				alert("실패");
-    			}
-    		}
-    		,error : function(jqXHR, textStatus, errorThrown){
-    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-    		}
-    	});
+    
+	$(document).ready(function(){
+		
+		 var categoryValue = 1;
+		 
+		 
+/* 
+		  // 이벤트 핸들러 등록
+		  $(".categoryBtn").on("click", function() {
+		    // 클릭한 버튼의 값을 categoryValue에 설정
+		    categoryValue = $(this).val();
+			
+		    
+		    
+		    // AJAX 호출 및 처리
+		    // ... (이전 코드와 동일한 AJAX 부분)
+		  });
+		
+ */
+	}); 
+    
+	
+		$(".categoryBtn").on("click",function(){
+	    	var categoryValue = $(this).val();
+	    	
+	      	 
+	    	$.ajax({
+	    		async: true 
+	    		,cache: false
+	    		,type: "post"
+	    		/* ,dataType:"json" */
+	    		,url: "/menu"
+	    		/* ,data : $("#formLogin").serialize() */
+	    		,data : {
+	    			"category" : categoryValue}
+	    		,success: function(response) {
+	    			if(response.rt == "success" && categoryValue == 1 ) {
+	    			     var htmlContent = '';
+	    			      if (response.rtMenu.length > 0) {
+	    			        $.each(response.rtMenu, function(index, item) {
+	    			          htmlContent += '<li class="popup_btn">';
+	    			          htmlContent += '<a href="#">';
+	    			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
+	    			          htmlContent += '<div class="menuName">';
+	    			          htmlContent += '<div class="stars">';
+	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	    			          htmlContent += '</div>';
+	    			          htmlContent += item.menuName + '<br>';
+	    			          htmlContent += item.menuPrice;
+	    			          htmlContent += '</div>';
+	    			          htmlContent += '</a>';
+	    			          htmlContent += '</li>';
+	    			        });
+	    			      } else {
+	    			        htmlContent = '<p>데이터가 없습니다!</p>';
+	    			      }
+	    			      $("#menuList").html(htmlContent);
+	    				
+	    				
+	    				
+	    			}else if(response.rt == "success" && categoryValue == 2 ){
+	    				var htmlContent = '';
+	  			      if (response.rtMenu.length > 0) {
+	  			        $.each(response.rtMenu, function(index, item) {
+	  			          htmlContent += '<li class="popup_btn">';
+	  			          htmlContent += '<a href="#">';
+	  			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
+	  			          htmlContent += '<div class="menuName">';
+	  			          htmlContent += '<div class="stars">';
+	  			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	  			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	  			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	  			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	  			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	  			          htmlContent += '</div>';
+	  			          htmlContent += item.menuName + '<br>';
+	  			          htmlContent += item.menuPrice;
+	  			          htmlContent += '</div>';
+	  			          htmlContent += '</a>';
+	  			          htmlContent += '</li>';
+	  			        });
+	  			      } else {
+	  			        htmlContent = '<p>데이터가 없습니다!</p>';
+	  			      }
+	  			      $("#menuList").html(htmlContent);
+	    			}
+	    			else {
+	    				alert("실패");
+	    			}
+	    		}
+	    		,error : function(jqXHR, textStatus, errorThrown){
+	    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+	    		}
+	    	});
 
-    });
+	    });
+		
+    
 
     </script>
 </body>
