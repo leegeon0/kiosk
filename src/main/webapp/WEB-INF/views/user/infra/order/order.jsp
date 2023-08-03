@@ -67,87 +67,7 @@
 							</c:forEach>
 						</c:otherwise>
 					</c:choose>
-                            <div class="modal_bg"></div>
-                            	<div class="modalLeftBox">
-                                	<div class="modalBox">
-                                    	<img src="/resources/assets/img/국밥1.jpg" alt="">
-                                    	<div class="modal_info">
-                                        	<p>순대 국밥</p>
-                                        	<div class="count_box">
-                                            	<div class="count-wrap _count">
-                                                	<button type="button" class="minus">-</button>
-                                                	<input type="text" class="inp" value="1" />
-                                                	<button type="button" class="plus">+</button>
-                                            	</div>
-                                        	</div>
-	                                        <div class="stars">
-	                                            <i class="fa-solid fa-star"></i>
-	                                            <i class="fa-solid fa-star"></i>
-	                                            <i class="fa-solid fa-star"></i>
-	                                            <i class="fa-solid fa-star"></i>
-	                                            <i class="fa-solid fa-star"></i>
-	                                        </div>
-                                        	<p><span id="modalPrice">15,000</span>원</p>
-                                    	</div> 
-	                                    <button class="modalOptionBtn btnBorder">옵션 선택</button>
-	                                    <button class="modalCencelBtn btnBorder">취소하기</button>
-	                                    <button class="modalOrderBtn btnColor">주문하기</button>
-                                	</div>    
-                                <div class="modalOptionRightBox">
-                                    <p>옵션 선택</p>
-                                    <ul class="modalOptionBox">
-                                        <li><a href="#">
-                                            <img src="/resources/assets/img/공기밥.png" alt="">
-                                            <p>공기밥</p>
-                                            <p>1,000원</p>
-                                        </a></li>
-                                        <li><a href="#">
-                                            <img src="/resources/assets/img/순대.png" alt="">
-                                            <p>순대</p>
-                                            <p>3,000원</p>
-                                        </a></li>
-                                        <li><a href="#">
-                                            <img src="" alt="">
-                                            <p>냠</p>
-                                            <p>1,000원</p>
-                                        </a></li>
-                                        <li><a href="#">
-                                            <img src="" alt="">
-                                            <p>냠</p>
-                                            <p>1,000원</p>
-                                        </a></li>
-                                        <li><a href="#">
-                                            <img src="" alt="">
-                                            <p>냠</p>
-                                            <p>1,000원</p>
-                                        </a></li>
-                                        <li><a href="#">
-                                            <img src="" alt="">
-                                            <p>냠</p>
-                                            <p>1,000원</p>
-                                    </ul>
-                                    <button class="modalOptionCloseBtn btnBorder">
-                                        닫기
-                                    </button>
-                                </div>
-                                <div class="modalStarRightBox">
-                                    <p>이전에 이 음식을 드셔보셨다면 별점을 등록해주세요!
-                                    </p>
-                                    <div class="stars modalStarBox">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <button class="btnColor submitBtn">
-                                        등록하기
-                                    </button>
-                                    <button class="btnBorder closeStarBox">
-                                        안 할래요
-                                    </button>
-                                </div>
-                            </div>
+					
                         </ul>
                     </div>
                     <div id="tab1-2" class="tab_content1">
@@ -610,10 +530,13 @@
     			"category" : categoryValue}
     		,success: function(response) {
     			if(response.rt == "success" && categoryValue == 1 ) {
-    				alert(response.rtMenu.category);
+    				alert(response.rtMenu[1].menuName);
+    				
+    				
+    				
     				
     			}else if(response.rt == "success" && categoryValue == 2 ){
-    				alert(response.rtMenu.category);
+    				alert(response.rtMenu[0].menuName);
     			}
     			else {
     				alert("실패");
