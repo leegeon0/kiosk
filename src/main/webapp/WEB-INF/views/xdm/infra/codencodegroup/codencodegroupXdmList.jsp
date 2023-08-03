@@ -29,8 +29,7 @@
 
 <body>
 <!-- Header / nav 영역 include -->
-	<%@include file="../include/xdmHeader.jsp"%>
-	<%@include file="../include/xdmNav.jsp"%>
+	 
 
 
   <main id="main" class="main">
@@ -85,6 +84,7 @@
 					  	<button type="button" class="btn btn-primary" id="btn" >검색</button>
 				  	</div>
 				  	 -->
+				  					
 		                <tr>
 		                    <th scope="col">코드그룹 seq</th>
 		                    <th scope="col">코드크룹 카테고리</th>
@@ -96,26 +96,28 @@
 		                </tr>
                 	</thead>
 	                <tbody>
-						<c:choose>
+						<%-- <c:choose>
 						<c:when test="${fn:length(selectCodeGroupList) eq 0}">
 							<tr>
 								<td class="text-center" colspan="9">There is no data!</td>
 							</tr>	
 						</c:when>
-						<c:otherwise>
-							<c:forEach items="${selectCodeGroupList}" var="list" varStatus="status">
-							<tr>
-								<td><c:out value="${selectCodeGroupList.codeGroup_seq}"></c:out></td>
-								<td><a href="#">"><c:out value="${selectCodeGroupList.categoryName}"/></a></td>
-								<td><c:out value="${selectCodeGroupList.codeGroupDelNy}"></c:out><br></td>
-								<td><c:out value="${selectCodeGroupList.codeSeq}"></c:out><br></td>
-								<td><c:out value="${selectCodeGroupList.codeName}"></c:out><br></td>
-								<td><c:out value="${selectCodeGroupList.codeDelNy}"></c:out><br></td>
-								<td><c:out value="${selectCodeGroupList.codeGroupFK}"></c:out><br></td>
-							</tr>
+						<c:otherwise> --%>
+						<%-- <c:set var="selectCodeGroupList" value="${CodeServiceImpl.selectCodeGroupList}"/> --%>
+					 
+							<c:forEach items="${list}" var="list" varStatus="status">
+								<tr>
+									<td><c:out value="${list.seq}"/></td>
+									<td><a href="#"><c:out value="${list.categoryName}"/></a></td>
+									<td><c:out value="${list.delNy}"></c:out><br></td>
+									<td><c:out value="${list.codeSeq}"></c:out><br></td>
+									<td><c:out value="${list.codeName}"></c:out><br></td>
+									<td><c:out value="${list.codeDelNy}"></c:out><br></td>
+									<td><c:out value="${list.codegroup_seq}"></c:out><br></td>
+								</tr>
 							</c:forEach>
-						</c:otherwise>
-						</c:choose>
+						<%-- </c:otherwise>
+						</c:choose> --%>
 	                </tbody>
               		</table>
               		<a href="codeXdmForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>

@@ -35,6 +35,7 @@
 				navItem[i].className = "active";
 				navItem[i].parentElement.parentElement.parentElement.childNodes[1].className = "nav-link";
 				navItem[i].parentElement.parentElement.className = "nav-content collapse show";
+				
 			}
 		}
 
