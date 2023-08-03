@@ -39,7 +39,7 @@
 			LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
 	   	</select>
 	 
-	 
+
 	 
 	 	
 	 		<select id="selectOne" resultMap="resultMapObj">
@@ -111,4 +111,13 @@
 	 	where 1=1
 	 		and seq = #{seq} 
 	 </update>
+	 
+	 	<select id="menuSelectList" resultMap="resultMapObj">
+	 		select
+	 			<include refid="menuTable" />
+	 		from
+	 			menu
+	 		where 1=1
+	 		and category = #{category}
+	 	</select>
 	 </mapper>

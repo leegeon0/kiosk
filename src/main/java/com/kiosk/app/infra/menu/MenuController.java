@@ -1,12 +1,20 @@
 package com.kiosk.app.infra.menu;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.kiosk.app.infra.member.Member;
+import com.kiosk.app.infra.member.MemberVo;
 
 
 
@@ -92,6 +100,28 @@ public class MenuController {
 		service.uelete(dto);
 		
 		return "redirect:/menuXdmList";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/menu")
+	public Map<String, Object> loginMember(MenuVo vo, HttpSession httpSession ) {
+		
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		List<Menu> rtMenu = service.menuSelectList(vo);
+		
+		if(rtMenu != null) {
+			
+			httpSession.setMaxInactiveInterval(60*60);	//60min
+			httpSession.setAttribute("sessionCategory", vo.getCategory());
+			
+			returnMap.put("rtMenu", rtMenu);
+			returnMap.put("rt", "success");
+		}else {
+			returnMap.put("rt", "fail");
+		}
+		
+		return returnMap;
 	}
 	
 	

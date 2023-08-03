@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+	<mapper namespace="com.kiosk.app.infra.star.StarMapper">
+	
+		<resultMap type="com.kiosk.app.infra.star.Star" id="resultMapObj"></resultMap>
+	 
+	 	<sql id="starTable">
+	 		seq,
+	 		star,
+	 		starDate,
+	 		menu_seq
+	 	</sql>
+	 
+	    <sql id ="selectCommon">
+	   		FROM    
+		    	star
+			WHERE 1=1
+				<if test="shKeyword != null and !shKeyword.equals('')">AND star LIKE CONCAT('%',#{shKeyword},'%')</if>
+	    </sql>
+	
+	   	<select id="selectOneCount" resultType="Integer">
+			SELECT count(*)
+			<include refid="selectCommon" />
+		</select>
+	
+	   	<select id="selectList" resultMap="resultMapObj">
+			SELECT aa.* FROM (   	
+		   		SELECT
+					<include refid="starTable" />
+		   			<include refid="selectCommon" />
+			) aa
+			LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
+	   	</select>
+	 
+	 
+	 
+	 	
+	 		<select id="selectOne" resultMap="resultMapObj">
+	 		select
+	 			<include refid="starTable" />
+	 		from
+	 			star
+	 		where 1=1
+	 			and	seq = #{seq}
+	 			<!-- 문자 검색은 대부분 like를 사용 -->
+	 	
+	 	
+	 	</select>
+	 	
+	 <update id="update" >
+	 	update
+	 		star
+	 	set
+	 		star = #{star}
+	 	where 1=1
+	 		and seq = #{seq}
+	 </update>
+	 
+	 <delete id="delete">
+	 	delete
+	 	from
+	 		star
+	 	where 1=1
+	 		and seq = #{seq}
+	 </delete>
+	 
+	 <insert id="insert">
+	 	insert into 
+	 	menu(
+	 		star,
+	 		starDate,
+			menu_seq
+	 		)value(
+	 			#{star},
+	 			#{starDate},
+	 			#{menuSeq}
+			 <!-- <choose>
+	            <when test="menuSeq == null or menuSeq == '' or menuSeq == 0">
+	                1
+	            </when>
+	            <when test="menuSeq == '1' or menuSeq == 1 ">
+	                1
+	            </when>
+	            <otherwise>
+	                <![CDATA[(SELECT 1/0)]]>
+	            </otherwise>
+	        </choose> -->
+	 	
+	 		)
+	 
+	 </insert>
+	 	
+	 <update id="uelete">
+		update
+	 		star
+	 	set
+	 		menu_seq = #{menuSeq}
+	 	where 1=1
+	 		and seq = #{seq} 
+	 </update>
+	 </mapper>

@@ -27,6 +27,11 @@ public class MenuDao {
 		return sqlSession.selectList(namespace + ".selectList", vo);
 	}
 	
+	public List<Menu> menuSelectList(MenuVo vo){
+		
+		return sqlSession.selectList(namespace + ".menuSelectList", vo);
+		
+	}
 	public Menu selectOne(MenuVo vo) {
 		
 		return sqlSession.selectOne(namespace + ".selectOne", vo);

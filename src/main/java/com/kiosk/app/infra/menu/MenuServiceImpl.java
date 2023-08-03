@@ -53,5 +53,12 @@ public class MenuServiceImpl implements MenuService {
 		return dao.uelete(dto);
 	}
 
+	@Override
+	public List<Menu> menuSelectList(MenuVo vo) {
+		// TODO Auto-generated method stub
+		return dao.menuSelectList(vo);
+	}
+
+
 	
 }

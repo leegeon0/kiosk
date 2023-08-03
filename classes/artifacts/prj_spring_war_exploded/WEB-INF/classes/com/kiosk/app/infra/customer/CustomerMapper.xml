@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+<mapper namespace="com.kiosk.app.infra.customer.CustomerMapper">
+
+	<resultMap type="com.kiosk.app.infra.customer.Customer" id="resultMapObj"></resultMap>
+ 
+ 	<sql id="abc">
+ 		seq,
+		phoneNum
+	</sql>
+ 
+ 
+ 
+ 	<sql id ="selectCommon">
+   		FROM    
+	    	customer
+		WHERE 1=1
+			<if test="shKeyword != null and !shKeyword.equals('')">AND phoneNum LIKE CONCAT('%',#{shKeyword},'%')</if>
+    </sql>
+    <!-- 검색 용도 -->
+
+
+
+
+   	<select id="selectOneCount" resultType="Integer">
+		SELECT count(*)
+		<include refid="selectCommon" />
+	</select>
+
+
+
+
+
+   	<select id="selectList" resultMap="resultMapObj">
+		SELECT aa.* FROM (   	
+	   		SELECT
+				<include refid="abc" />
+	   			<include refid="selectCommon" />
+		) aa
+		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
+   	</select>
+ 	<!-- 페이징임 -->
+ 
+ 
+ 
+ 
+ 	
+ 	<select id="selectOne" resultMap="resultMapObj">
+ 		select
+ 			<include refid="abc" />
+ 		from
+ 			customer
+ 		where 1=1
+ 			and	seq = #{seq}
+ 	</select>
+ 	
+ 	
+ 	
+ <update id="update" >
+ 	update
+ 		customer
+ 	set
+ 		phoneNum = #{phoneNum}
+ 	where 1=1
+ 		and seq = #{seq}
+ </update>
+ <!-- 추후에 바뀔 수 있는 컬럼들을 update set에다가 넣음 -->
+ 
+ 
+ 
+ <delete id="delete">
+ 	delete
+ 	from
+ 		customer
+ 	where 1=1
+ 		and seq = #{seq}
+ </delete>
+ 
+ 
+ 
+ <insert id="insert">
+ 	insert into 
+ 		customer (
+ 			phoneNum
+ 		)value(
+ 			#{phoneNum}
+ 		)
+ 
+ </insert>
+ 
+ 
+ 	
+</mapper>

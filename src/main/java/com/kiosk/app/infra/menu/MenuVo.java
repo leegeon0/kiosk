@@ -24,7 +24,7 @@ public class MenuVo {
 		private Integer seq;
 		private String menuName;
 		private String menuPrice;
-		private Integer category;
+		private String category;
 		private Integer delNy;
 		private Integer soldOutNy;
 
@@ -48,10 +48,10 @@ public Integer getSeq() {
 		public void setMenuPrice(String menuPrice) {
 			this.menuPrice = menuPrice;
 		}
-		public Integer getCategory() {
+		public String getCategory() {
 			return category;
 		}
-		public void setCategory(Integer category) {
+		public void setCategory(String category) {
 			this.category = category;
 		}
 		public Integer getDelNy() {

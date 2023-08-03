@@ -117,6 +117,8 @@ public class MemberController {
 		return returnMap;
 	}
 	
+	
+	
 	@ResponseBody
 	@RequestMapping("/logout")
 	public Map<String, Object> logoutMember(HttpSession httpSession ) {
