@@ -120,4 +120,21 @@
 	 		where 1=1
 	 		and category = #{category}
 	 	</select>
+	 	
+	 	
+	 	<!-- 메뉴 리스트 -->
+	 	
+	 	<select id="menuList" resultMap="resultMapObj">
+		 	SELECT  
+			menu.seq,
+		    menu.menuName,
+		    menu.menuPrice,
+		    menuList.menuListSeq,
+		    menuList.menuQuantity,
+		    menuList.menu_seq
+				FROM    menu menu
+					INNER JOIN menuList menuList
+					   ON menu.seq = menuList.menu_seq
+	 	</select>
+	 	
 	 </mapper>

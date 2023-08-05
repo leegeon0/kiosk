@@ -27,7 +27,12 @@ public class MenuVo {
 		private String category;
 		private Integer delNy;
 		private Integer soldOutNy;
-
+		
+		
+//		menuList
+		private String menuListSeq;
+		private String menuQuantity;
+		private String menu_seq;
 		
 		
 public String getSeq() {
@@ -205,6 +210,26 @@ public String getSeq() {
 				System.out.println("getStartRnumForMysql(): " + getStartRnumForMysql());
 				
 			}
+		
+//		menuList
+		public String getMenuListSeq() {
+			return menuListSeq;
+		}
+		public void setMenuListSeq(String menuListSeq) {
+			this.menuListSeq = menuListSeq;
+		}
+		public String getMenuQuantity() {
+			return menuQuantity;
+		}
+		public void setMenuQuantity(String menuQuantity) {
+			this.menuQuantity = menuQuantity;
+		}
+		public String getMenu_seq() {
+			return menu_seq;
+		}
+		public void setMenu_seq(String menu_seq) {
+			this.menu_seq = menu_seq;
+		}
 
-
+		
 }

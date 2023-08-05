@@ -64,7 +64,7 @@ public class MenuController {
 	
 	
 	@RequestMapping("/menuXdmForm")
-	public String memberXdomForm(MenuVo vo,Model model) {
+	public String menuXdomForm(MenuVo vo,Model model) {
 		
 		Menu menu = service.selectOne(vo);
 		
@@ -127,6 +127,37 @@ public class MenuController {
 		}
 		
 		return returnMap;
+	}
+	
+	
+	@RequestMapping("/menuListXdmList")
+	public String menuListXdomForm(@ModelAttribute("vo") MenuVo vo,Model model) {
+		
+		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
+				
+		vo.setParamsPaging(service.selectOneCount(vo));
+		
+		if(vo.getTotalRows()>0) {
+			List<MenuVo> menuList = service.menuList(vo);
+			model.addAttribute("list", menuList);
+
+		} else {
+			// by pass
+		}
+		
+		return "xdm/infra/menuList/menuListXdmList";
+	}
+	
+	@RequestMapping("/menuListXdmForm")
+	public String MenuListXdomForm(MenuVo vo,Model model) {
+		
+		Menu menu = service.selectOne(vo);
+		
+		
+		model.addAttribute("item",menu);
+		
+		
+		return "xdm/infra/menuList/menuListXdmForm";
 	}
 	
 

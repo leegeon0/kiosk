@@ -10,10 +10,9 @@
  
  	<sql id="abc">
  		seq,
-		menuQuantity,
 		totalPrice,
 		orderTime,
-		menu_seq
+		menuList_seq
 	</sql>
  
  
@@ -67,10 +66,9 @@
  	update
  		orderList
  	set
- 		menuQuantity = #{menuQuantity},
  		totalPrice = #{totalPrice},
  		orderTime = #{orderTime},
- 		menu_seq = #{menu_seq}
+ 		menuList_seq = #{menuList_seq}
  	where 1=1
  		and seq = #{seq}
  </update>
@@ -91,15 +89,13 @@
  <insert id="insert">
  	insert into 
  		orderList (
- 			menuQuantity,
  			totalPrice,
 			orderTime,
- 			menu_seq
+ 			menuList_seq
  		)value(
- 			#{menuQuantity},
  			#{totalPrice},
  			#{orderTime},
- 			#{menu_seq}
+ 			#{menuList_seq}
  		)
  
  </insert>

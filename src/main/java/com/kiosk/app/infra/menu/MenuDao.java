@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.kiosk.app.infra.code.CodeVo;
+
 @Repository
 public class MenuDao {
 
@@ -50,4 +52,7 @@ public class MenuDao {
 		return sqlSession.update(namespace + ".uelete", dto);
 	}
 	
+	public List<MenuVo> menuList(MenuVo vo) { 
+		return sqlSession.selectList(namespace + ".menuList", vo); 
+	}
 }

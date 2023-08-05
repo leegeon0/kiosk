@@ -2,10 +2,9 @@ package com.kiosk.app.infra.orderList;
 
 public class OrderList {
 	private String seq;
-	private String menuQuantity;
 	private String totalPrice;
 	private String orderTime;
-	private String menu_seq;
+	private String menuList_seq;
 	
 	
 //	----------------------------------------
@@ -16,12 +15,6 @@ public class OrderList {
 	}
 	public void setSeq(String seq) {
 		this.seq = seq;
-	}
-	public String getMenuQuantity() {
-		return menuQuantity;
-	}
-	public void setMenuQuantity(String menuQuantity) {
-		this.menuQuantity = menuQuantity;
 	}
 	public String getTotalPrice() {
 		return totalPrice;
@@ -35,10 +28,11 @@ public class OrderList {
 	public void setOrderTime(String orderTime) {
 		this.orderTime = orderTime;
 	}
-	public String getMenu_seq() {
-		return menu_seq;
+	public String getMenuList_seq() {
+		return menuList_seq;
 	}
-	public void setMenu_seq(String menu_seq) {
-		this.menu_seq = menu_seq;
+	public void setMenuList_seq(String menuList_seq) {
+		this.menuList_seq = menuList_seq;
 	}
+	
 }

@@ -86,19 +86,17 @@
                 	<thead>
 		                <tr>
 		                    <th scope="col">seq</th>
-		                    <th scope="col">menuQuantity</th>
 		                    <th scope="col">totalPrice</th>
 		                    <th scope="col">orderTime</th>
-		                    <th scope="col">menu_seq</th>
+		                    <th scope="col">menuList_seq</th>
 		                </tr>
                 	</thead>
 	                <tbody>
 	                <tr>
 		                <td><input type="text" class="form-control" id="seq" name="seq" placeholder="Auto Increment" required readonly value="<c:out value="${item.seq}"/>"></td>
-		                <td><input type="text" class="form-control" id="menuQuantity" name="menuQuantity" value="<c:out value="${item.menuQuantity}"/>"></td>
 		                <td><input type="text" class="form-control" id="totalPrice" name="totalPrice" value="<c:out value="${item.totalPrice}"/>"></td>
 		                <td><input type="text" class="form-control" id="orderTime" name="orderTime" value="<c:out value="${item.orderTime}"/>"></td>
-		                <td><input type="text" class="form-control" id="menu_seq" name="menu_seq" value="<c:out value="${item.menu_seq}"/>"></td>
+		                <td><input type="text" class="form-control" id="menu_seq" name="menu_seq" value="<c:out value="${item.menuList_seq}"/>"></td>
 					</tr>
 	                </tbody>
               		</table>

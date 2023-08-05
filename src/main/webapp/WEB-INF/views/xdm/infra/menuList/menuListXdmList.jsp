@@ -5,16 +5,16 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="MenuServiceImpl" class="com.kiosk.app.infra.menu.MenuServiceImpl"/> 
 
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
-  <!-- Head영역 include -->
+  
+<!-- Head영역 include -->
 <%@include file="../include/xdmHead.jsp" %>   
-   
-
-  <!-- =======================================================
+ <!-- =======================================================
   * Template Name: NiceAdmin
   * Updated: May 30 2023 with Bootstrap v5.3.0
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -22,12 +22,11 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-
 <body>
-
 <!-- Header / nav 영역 include -->
 <%@include file="../include/xdmHeader.jsp"%>
 <%@include file="../include/xdmNav.jsp"%>
+
 
 
   <main id="main" class="main">
@@ -49,7 +48,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Datatables</h5>
+              <h5 class="card-title">Menu Datatables</h5>
                <form class="sm" name="formList" method="post">
                
                	<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
@@ -59,28 +58,16 @@
                 <input type="text" name="shKeyword"  value="<c:out value="${vo.shKeyword}"/>">
 	
 				<button type="button" class="btn btn-primary" id="btn">검색</button>
-					
-					
+
 				   <table class="table">
 				   
                 	<thead>
-                	<!-- 
-                	 	<select name="shOption" style="margin-right : 10px;">
-							<option value="">-선택-</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-						</select> 
-					    <label for="validationCustom02" class="form-label">이름</label>
-					    <input type="text" name="shKeyword">
-					<div class="btn_tab" style="width : 100px; height : 70px; display : inline;">
-					  	<button type="button" class="btn btn-primary" id="btn" >검색</button>
-				  	</div>
-				  	 -->
 		                <tr>
 		                    <th scope="col">seq</th>
-		                    <th scope="col">총금액</th>
-		                    <th scope="col">주문시간</th>
-		                    <th scope="col">메뉴리스트seq</th>
+   		                    <th scope="col">menu_seq</th>
+		                    <th scope="col">menuName</th>
+		                    <th scope="col">menuQuantity</th>
+		                    <th scope="col">menuPrice</th>	                    
 		                </tr>
                 	</thead>
 	                <tbody>
@@ -93,17 +80,18 @@
 						<c:otherwise>
 							<c:forEach items="${list}" var="list" varStatus="status">
 							<tr>
-								<td><a href="customerForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.seq}"/></a></td>
-								<td><c:out value="${list.totalPrice}"></c:out></td>
-								<td><c:out value="${list.orderTime}"></c:out></td>
-								<td><c:out value="${list.menuList_seq}"></c:out></td>
+								<td><c:out value="${list.menuListSeq}"></c:out></td>
+								<td><c:out value="${list.menu_seq}"></c:out></td>
+								<td><c:out value="${list.menuName}"></c:out></td>
+								<td><a href="menuListXdmForm?seq=<c:out value="${list.menuListSeq}"/>"><c:out value="${list.menuQuantity}"/></a></td>
+								<td><c:out value="${list.menuPrice}"></c:out><br></td>
 							</tr>
 							</c:forEach>
 						</c:otherwise>
 						</c:choose>
 	                </tbody>
               		</table>
-              		<a href="orderListForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
+              		<a href="menuXdmForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
               		<div class="container-fluid px-0 mt-2">
 					    <div class="row">
 					        <div class="col">
@@ -144,7 +132,6 @@
 
         </div>
       </div>
-     
     </section>
 
   </main><!-- End #main -->
@@ -152,12 +139,16 @@
 <!-- Footer영역 include -->
 <%@include file="../include/xdmFooter.jsp"%>
   
+ 
+  
+  
+  
   <script type="text/javascript">
   $("#btn").on("click", function(){
 		
 		/* $("form[name=formList]").attr("method","get"); */
 
-		$("form[name=formList]").attr("action", "/orderListXdmList").submit();
+		$("form[name=formList]").attr("action", "/menuListXdmList").submit();
 		$("form[name=formList]").attr("method","post");
 		
 		
@@ -165,7 +156,7 @@
   
   goList = function(thisPage) {
 		$("input:hidden[name=thisPage]").val(thisPage);
-		$("form[name=formList]").attr("action", "/orderListXdmList").submit();
+		$("form[name=formList]").attr("action", "/menuListXdmList").submit();
 	}
   </script>
 

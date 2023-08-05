@@ -16,4 +16,6 @@ public interface MenuService {
 	public int delete(Menu dto);
 	public int insert(Menu dto);
 	public int uelete(Menu dto);
+	
+	public List<MenuVo> menuList(MenuVo vo);
 }
