@@ -64,10 +64,10 @@
 									<p>There is no data!</p>
 								</c:when>
 								<c:otherwise>
-									<c:forEach items="${list}" var="list" varStatus="status" begin="1" >
-									   <li class="popup_btn">
-									   		<a href="#">
-		                           				<img alt="" src="<c:out value="${list.menuImg}"></c:out>">     
+									<c:forEach items="${list}" var="list" varStatus="status">
+										<c:if test="${list.category eq 1}">
+										   <li class="popup_btn" data-category="<c:out value="${list.category}" />">
+	                           					<img alt="메뉴사진" src="<c:out value="${list.menuImg}"></c:out>">     
 		                                		<div class="menuName">
 		                                    		<div class="stars">
 				                                        <i class="fa-solid fa-star"></i>
@@ -76,15 +76,14 @@
 				                                        <i class="fa-solid fa-star"></i>
 				                                        <i class="fa-solid fa-star"></i>
 		                                    		</div>
-				                                	<c:out value="${list.menuName}"></c:out><br>
-				                                	<c:out value="${list.menuPrice}"></c:out>
+				                                	<p id="menuName" data-menuName="<c:out value="${list.menuName}" />"><c:out value="${list.menuName}"></c:out></p><br>
+				                                	<p id="menuPrice" data-menuPrice="<c:out value="${list.menuPrice}" />"><c:out value="${list.menuPrice}"></c:out></p><br>
 		                                		</div>
-		                            		</a>
-		                            	</li>
+			                            	</li>
+			                             </c:if>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>
-							<li></li>
 						</ul>
 					</div>
 					<!-- 카테고리별 메뉴  -->
@@ -92,13 +91,13 @@
 					<!-- 모달 백그라운드  -->
                    	<div class="modalLeftBox">
                        	<div class="modalBox">
-                           	<img src="/resources/assets/img/국밥1.jpg" alt="">
+                           	<img src="" alt="" id="modalImg">
                            	<div class="modal_info">
-                               	<p>순대 국밥</p>
+                               	<p id="modalName"></p>
                                	<div class="count_box">
                                    	<div class="count-wrap _count">
                                        	<button type="button" class="minus">-</button>
-                                       	<input type="text" class="inp" value="1" />
+                                       	<input type="text" class="inp" value="1" readonly />
                                        	<button type="button" class="plus">+</button>
                                    	</div>
                                	</div>
@@ -111,7 +110,7 @@
 	                                 <i class="fa-solid fa-star"></i>
                                 </div>
                                 <!-- 별점 -->
-                               	<p><span id="modalPrice">15,000</span>원</p>
+                               	<p><span id="modalPrice"></span>원</p>
                                	<!-- 가격 -->
                            	</div>
                            	<!-- 모닲창 내용 -->
@@ -406,8 +405,7 @@
 	    					 var htmlContent = '';
 		    			      if (response.rtMenu.length > 0) {
 		    			        $.each(response.rtMenu, function(index, item) {
-		    			          htmlContent += '<li class="popup_btn">';
-		    			          htmlContent += '<a href="#">';
+		    			          htmlContent += '<li class="popup_btn" data-category="' + item.category + '">';
 		    			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
 		    			          htmlContent += '<div class="menuName">';
 		    			          htmlContent += '<div class="stars">';
@@ -417,12 +415,10 @@
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 		    			          htmlContent += '</div>';
-		    			          htmlContent += item.menuName + '<br>';
+		    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>' + '<br>';
 		    			          htmlContent += item.menuPrice;
 		    			          htmlContent += '</div>';
-		    			          htmlContent += '</a>';
 		    			          htmlContent += '</li>';
-		    			          console.log(this)
 		    			        });
 		    			      } else {
 		    			        htmlContent = '<p>데이터가 없습니다!</p>';
@@ -441,6 +437,9 @@
 	    	});
 
 	    });
+
+		
+
 		
     
 

@@ -21,7 +21,7 @@ public class MenuVo {
 
 		private int startRnumForMysql = 0;							// 쿼리 시작 row
 		
-		private Integer seq;
+		private String seq;
 		private String menuName;
 		private String menuPrice;
 		private String category;
@@ -30,10 +30,10 @@ public class MenuVo {
 
 		
 		
-public Integer getSeq() {
+public String getSeq() {
 			return seq;
 		}
-		public void setSeq(Integer seq) {
+		public void setSeq(String seq) {
 			this.seq = seq;
 		}
 		public String getMenuName() {

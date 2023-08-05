@@ -2,7 +2,7 @@ package com.kiosk.app.infra.menu;
 
 public class Menu {
 	
-	private Integer seq;
+	private String seq;
 	private String menuImg;
 	private String menuName;
 	private String menuPrice;
@@ -19,10 +19,10 @@ public class Menu {
 //	검색
 	
 	
-	public Integer getSeq() {
+	public String getSeq() {
 		return seq;
 	}
-	public void setSeq(Integer seq) {
+	public void setSeq(String seq) {
 		this.seq = seq;
 	}
 	public String getMenuImg() {
