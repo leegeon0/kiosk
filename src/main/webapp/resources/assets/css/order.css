@@ -17,9 +17,10 @@ body{width: 100%; height: 100vh; font-family: 'Noto Sans KR', sans-serif; backgr
 /* 탭 메뉴 영역 */
 .categoryBox {box-sizing: border-box; width: 100%; height: 16%; display: flex; position: relative; z-index: 1; justify-content: space-between; padding: 0; margin: 0;}
 .categoryBox li {width: 22%; height: 100%;}
-.categoryBox li a {width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; font-weight: bold; margin: auto; border-radius: 15px; border : 1px solid #ff6b3d; box-sizing: border-box; background-color: #fff; color: #ff6b3d; font-size: 1.3vw;}
+.categoryBox li {width: 22%; height: 100%;}
+.categoryBox li button{width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; font-weight: bold; margin: auto; border-radius: 15px; border : 1px solid #ff6b3d; box-sizing: border-box; background-color: #fff; color: #ff6b3d; font-size: 1.3vw;}
 
-.categoryBox li a.tab_active {background-color: #ff6b3d; color:white; box-shadow: 10px 10px 10px rgba(0,0,0,.1);}
+.categoryBox li button.tab_active {background-color: #ff6b3d; color:white; box-shadow: 10px 10px 10px rgba(0,0,0,.1);}
 
 
 

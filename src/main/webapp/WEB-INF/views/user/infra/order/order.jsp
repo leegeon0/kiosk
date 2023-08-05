@@ -49,400 +49,149 @@
         	<div class="orderContainerLeft">
                 
                 <ul class="categoryBox">
-                    <li><button class="categoryBtn" id="category1" type="button" value="1">세트 메뉴</button></li>
-                    <li><button class="categoryBtn" id="category2" type="button" value="2">식사 메뉴</button></li>
-                    <li><button class="categoryBtn" id="category3" type="button" value="3">사이드 메뉴</button></li>
-                    <li><button class="categoryBtn" id="category4" type="button" value="4">주류/음료</button></li>
+                    <li><button class="categoryBtn btnColor tab_active" id="category1" type="button" value="1">세트 메뉴</button></li>
+                    <li><button class="categoryBtn btnColor" id="category2" type="button" value="2">식사 메뉴</button></li>
+                    <li><button class="categoryBtn btnColor" id="category3" type="button" value="3">사이드 메뉴</button></li>
+                    <li><button class="categoryBtn btnColor" id="category4" type="button" value="4">주류/음료</button></li>
                 </ul>
+                <!-- 상단 카테고리  -->
                 
                 <div class="menuBox">
                     <div id="tab1-1" class="tab_content1">
-                        <ul class="tab_c_arti1" id="menuList">
-                        
-                    <c:choose>
-						<c:when test="${fn:length(list) eq 0}">
-							<p>There is no data!</p>
-						</c:when>
-						<c:otherwise>
-							<c:forEach items="${list}" var="list" varStatus="status">
-							   <li class="popup_btn">
-							   		<a href="#">
-                           				<img alt="" src="<c:out value="${list.menuImg}"></c:out>">     
-                                		<div class="menuName">
-                                    		<div class="stars">
-		                                        <i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
-                                    		</div>
-		                                	<c:out value="${list.menuName}"></c:out><br>
-		                                	<c:out value="${list.menuPrice}"></c:out>
-                                		</div>
-                            		</a>
-                            	</li>
-							</c:forEach>
-						</c:otherwise>
-					</c:choose>
+                    	<ul class="tab_c_arti1"  id="menuList">
+		                    <c:choose>
+								<c:when test="${fn:length(list) eq 0}">
+									<p>There is no data!</p>
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="list" varStatus="status" begin="1" >
+									   <li class="popup_btn">
+									   		<a href="#">
+		                           				<img alt="" src="<c:out value="${list.menuImg}"></c:out>">     
+		                                		<div class="menuName">
+		                                    		<div class="stars">
+				                                        <i class="fa-solid fa-star"></i>
+				                                        <i class="fa-solid fa-star"></i>
+				                                        <i class="fa-solid fa-star"></i>
+				                                        <i class="fa-solid fa-star"></i>
+				                                        <i class="fa-solid fa-star"></i>
+		                                    		</div>
+				                                	<c:out value="${list.menuName}"></c:out><br>
+				                                	<c:out value="${list.menuPrice}"></c:out>
+		                                		</div>
+		                            		</a>
+		                            	</li>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+							<li></li>
+						</ul>
+					</div>
+					<!-- 카테고리별 메뉴  -->
 					<div class="modal_bg"></div>
-                            	<div class="modalLeftBox">
-                                	<div class="modalBox">
-                                    	<img src="/resources/assets/img/국밥1.jpg" alt="">
-                                    	<div class="modal_info">
-                                        	<p>순대 국밥</p>
-                                        	<div class="count_box">
-                                            	<div class="count-wrap _count">
-                                                	<button type="button" class="minus">-</button>
-                                                	<input type="text" class="inp" value="1" />
-                                                	<button type="button" class="plus">+</button>
-                                            	</div>
-                                        	</div>
-	                                        <div class="stars">
-			                                	<i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
-		                                        <i class="fa-solid fa-star"></i>
-	                                        </div>
-                                        	<p><span id="modalPrice">15,000</span>원</p>
-                                    	</div> 
-	                                    <button class="modalOptionBtn btnBorder">옵션 선택</button>
-	                                    <button class="modalCencelBtn btnBorder">취소하기</button>
-	                                    <button class="modalOrderBtn btnColor">주문하기</button>
-                                	</div>    
-                                <div class="modalOptionRightBox">
-                                    <p>옵션 선택</p>
-                                    <ul class="modalOptionBox">
-                                        <li><a href="#">
-                                            <img src="/resources/assets/img/공기밥.png" alt="">
-                                            <p>공기밥</p>
-                                            <p>1,000원</p>
-                                        </a></li>
-                                        <li><a href="#">
-                                            <img src="/resources/assets/img/순대.png" alt="">
-                                            <p>순대</p>
-                                            <p>3,000원</p>
-                                        </a></li>
-                                        <li><a href="#">
-                                            <img src="" alt="">
-                                            <p>냠</p>
-                                            <p>1,000원</p>
-                                        </a></li>
-                                        <li><a href="#">
-                                            <img src="" alt="">
-                                            <p>냠</p>
-                                            <p>1,000원</p>
-                                        </a></li>
-                                        <li><a href="#">
-                                            <img src="" alt="">
-                                            <p>냠</p>
-                                            <p>1,000원</p>
-                                        </a></li>
-                                        <li><a href="#">
-                                            <img src="" alt="">
-                                            <p>냠</p>
-                                            <p>1,000원</p>
-                                    </ul>
-                                    <button class="modalOptionCloseBtn btnBorder">
-                                        닫기
-                                    </button>
+					<!-- 모달 백그라운드  -->
+                   	<div class="modalLeftBox">
+                       	<div class="modalBox">
+                           	<img src="/resources/assets/img/국밥1.jpg" alt="">
+                           	<div class="modal_info">
+                               	<p>순대 국밥</p>
+                               	<div class="count_box">
+                                   	<div class="count-wrap _count">
+                                       	<button type="button" class="minus">-</button>
+                                       	<input type="text" class="inp" value="1" />
+                                       	<button type="button" class="plus">+</button>
+                                   	</div>
+                               	</div>
+                               	<!-- 수량 -->
+                            	<div class="stars">
+                          			 <i class="fa-solid fa-star"></i>
+	                                 <i class="fa-solid fa-star"></i>
+	                                 <i class="fa-solid fa-star"></i>
+	                                 <i class="fa-solid fa-star"></i>
+	                                 <i class="fa-solid fa-star"></i>
                                 </div>
-                                <div class="modalStarRightBox">
-                                    <p>이전에 이 음식을 드셔보셨다면 별점을 등록해주세요!
-                                    </p>
-                                    <div class="stars modalStarBox">
-			                             <fieldset class="rate fa-solid">
-			                                <input type="radio" id="rating10" name="rating" value="10"><label for="rating10" title="5점"></label>
-			                                <input type="radio" id="rating8" name="rating" value="8"><label for="rating8" title="4점"></label>
-			                                <input type="radio" id="rating6" name="rating" value="6"><label for="rating6" title="3점"></label>
-			                                <input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="2점"></label>
-			                                <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
-			                            </fieldset>
-                                    </div>
-                                    <button class="btnColor submitBtn">
-                                        등록하기
-                                    </button>
-                                    <button class="btnBorder closeStarBox">
-                                        안 할래요
-                                    </button>
-                                </div>
-                            </div>
-					
-                        </ul>
-                    </div>
-                    <div id="tab1-2" class="tab_content1">
-                        <ul class="tab_c_arti1">
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥1.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>수육 국밥</p>
-                                    <p>8,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥2.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>해장국</p>
-                                    <p>8,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥3.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>나주 곰탕</p>
-                                    <p>8,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥4.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>갈비탕</p>
-                                    <p>8,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥5.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>황태 해장국</p>
-                                    <p>8,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥8.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>콩나물 국밥</p>
-                                    <p>8,000</p>
-                                </div>
-                            </a></li>
-                        </ul>
-                    </div>
-                    <div id="tab1-3" class="tab_content1">
-                        <ul class="tab_c_arti1">
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥1.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>어린이 돈까스</p>
-                                    <p>6,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥2.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>파전</p>
-                                    <p>6,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥3.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>김치전</p>
-                                    <p>6,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥4.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p></p>
-                                    <p>30,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥5.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p></p>
-                                    <p>30,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥8.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p></p>
-                                    <p>30,000</p>
-                                </div>
-                            </a></li>
-                        </ul>
-                    </div>
-                    <div id="tab1-4" class="tab_content1">
-                        <ul class="tab_c_arti1">
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥1.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>콜라</p>
-                                    <p>1,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥2.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>사이다</p>
-                                    <p>1,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥3.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>환타</p>
-                                    <p>1,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥4.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>소주</p>
-                                    <p>3,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥5.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>맥주</p>
-                                    <p>3,000</p>
-                                </div>
-                            </a></li>
-                            <li><a href="#">
-                                <img src="/resources/assets/img/국밥8.jpg" alt="">
-                                <div class="menuName">
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>막걸리</p>
-                                    <p>3,000</p>
-                                </div>
-                            </a></li>
-                        </ul>
-                    </div>
+                                <!-- 별점 -->
+                               	<p><span id="modalPrice">15,000</span>원</p>
+                               	<!-- 가격 -->
+                           	</div>
+                           	<!-- 모닲창 내용 -->
+                            <button class="modalOptionBtn btnBorder">옵션 선택</button>
+                            <button class="modalCencelBtn btnBorder">취소하기</button>
+                            <button class="modalOrderBtn btnColor">주문하기</button>
+                            <!-- 모달창 버튼들 -->
+                       	</div>
+                       	<!-- 모달 주요 내용 -->    
+                       <div class="modalOptionRightBox">
+                           <p>옵션 선택</p>
+                           <ul class="modalOptionBox">
+                               <li>
+                           			<a href="#">
+                                   		<img src="/resources/assets/img/공기밥.png" alt="">
+                                   		<p>공기밥</p>
+                                   		<p>1,000원</p>
+                               		</a>
+                          		</li>
+                          		<!-- 옵션 -->
+                               <li><a href="#">
+                                   <img src="/resources/assets/img/순대.png" alt="">
+                                   <p>순대</p>
+                                   <p>3,000원</p>
+                               </a></li>
+                               <li><a href="#">
+                                   <img src="" alt="">
+                                   <p>냠</p>
+                                   <p>1,000원</p>
+                               </a></li>
+                               <li><a href="#">
+                                   <img src="" alt="">
+                                   <p>냠</p>
+                                   <p>1,000원</p>
+                               </a></li>
+                               <li><a href="#">
+                                   <img src="" alt="">
+                                   <p>냠</p>
+                                   <p>1,000원</p>
+                               </a></li>
+                               <li><a href="#">
+                                   <img src="" alt="">
+                                   <p>냠</p>
+                                   <p>1,000원</p>
+                           </ul>
+                           <button class="modalOptionCloseBtn btnBorder">
+                               닫기
+                           </button>
+                       </div>
+                       <!-- 모달창 옵션 박스 -->
+                       <div class="modalStarRightBox">
+                           <p>
+                           		이전에 이 음식을 드셔보셨다면 별점을 등록해주세요!
+                           </p>
+                       <div class="stars modalStarBox">
+	                       <fieldset class="rate fa-solid">
+	                          <input type="radio" id="rating10" name="rating" value="10"><label for="rating10" title="5점"></label>
+	                          <input type="radio" id="rating8" name="rating" value="8"><label for="rating8" title="4점"></label>
+	                          <input type="radio" id="rating6" name="rating" value="6"><label for="rating6" title="3점"></label>
+	                          <input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="2점"></label>
+	                          <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
+	                      </fieldset>
+                       </div>
+                       <!-- 별점주기 -->
+                           <button class="btnColor submitBtn">
+                               등록하기
+                           </button>
+                           <button class="btnBorder closeStarBox">
+                               안 할래요
+                           </button>
+                       </div>
+                       <!-- 모달창 별점등록 박스 -->
+                   </div>
+                   <!-- 모달창 -->
+                   </div>
+                   <!-- menu Box -->
                 </div>
+                <!-- orderContainerLeft -->
             </div>
-            
-        </div>
-
-
-
-
-
+            <!-- left -->
 
         <div class="orderContainer">
             <div class="orderContainerRight">
@@ -608,7 +357,7 @@
             </div>
         </div>
     </div>
-
+	
     
     
     <script src="/resources/assets/js/order.js"></script>
@@ -638,7 +387,9 @@
 	
 		$(".categoryBtn").on("click",function(){
 	    	var categoryValue = $(this).val();
-	      	 
+	    	$(this).addClass('tab_active');
+	    	$(".categoryBtn").not(this).removeClass("tab_active");
+	    	
 	    	$.ajax({
 	    		async: true 
 	    		,cache: false
@@ -671,6 +422,7 @@
 		    			          htmlContent += '</div>';
 		    			          htmlContent += '</a>';
 		    			          htmlContent += '</li>';
+		    			          console.log(this)
 		    			        });
 		    			      } else {
 		    			        htmlContent = '<p>데이터가 없습니다!</p>';
