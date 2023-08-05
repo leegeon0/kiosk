@@ -31,6 +31,10 @@
 <!-- Header / nav 영역 include -->
 	 
 
+<!-- Header / nav 영역 include -->
+<%@include file="../include/xdmHeader.jsp"%>
+<%@include file="../include/xdmNav.jsp"%>
+
 
   <main id="main" class="main">
 

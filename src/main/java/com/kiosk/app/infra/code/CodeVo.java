@@ -1,6 +1,13 @@
 package com.kiosk.app.infra.code;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import com.kiosk.app.infra.codegroup.Codegroup;
+
 public class CodeVo {
+
 //	paging
 	private int thisPage = 1;									// 현재 페이지
 //	private int rowNumToShow = Constants.ROW_NUM_TO_SHOW;		// 화면에 보여줄 데이터 줄 갯수
@@ -25,14 +32,7 @@ public class CodeVo {
 	private String shKeyword;
 	private String seq;
 // ----------
-	
-	private Integer codeGroup_seq;
-	private String categoryName;
-	private Integer codeGroupDelNy;
-	private Integer codeSeq;
-	private String codeName;
-	private Integer codeDelNy;
-	private Integer codeGroupFK;
+	private String codeSeq;
 	
 	
 	public Integer getShOption() {
@@ -175,48 +175,31 @@ public class CodeVo {
 	
 	
 	
-	public Integer getCodeGroup_seq() {
-		return codeGroup_seq;
+	
+
+	public static List<CodeVo> getSelectCodeGroupList() {
+		return selectCodeGroupList;
 	}
-	public void setCodeGroup_seq(Integer codeGroup_seq) {
-		this.codeGroup_seq = codeGroup_seq;
+	public static void setSelectCodeGroupList(List<CodeVo> selectCodeGroupList) {
+		CodeVo.selectCodeGroupList = selectCodeGroupList;
 	}
-	public String getCategoryName() {
-		return categoryName;
-	}
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
-	}
-	public Integer getCodeGroupDelNy() {
-		return codeGroupDelNy;
-	}
-	public void setCodeGroupDelNy(Integer codeGroupDelNy) {
-		this.codeGroupDelNy = codeGroupDelNy;
-	}
-	public Integer getCodeSeq() {
+
+
+
+
+
+
+	public String getCodeSeq() {
 		return codeSeq;
 	}
-	public void setCodeSeq(Integer codeSeq) {
+	public void setCodeSeq(String codeSeq) {
 		this.codeSeq = codeSeq;
 	}
-	public String getCodeName() {
-		return codeName;
-	}
-	public void setCodeName(String codeName) {
-		this.codeName = codeName;
-	}
-	public Integer getCodeDelNy() {
-		return codeDelNy;
-	}
-	public void setCodeDelNy(Integer codeDelNy) {
-		this.codeDelNy = codeDelNy;
-	}
-	public Integer getCodeGroupFK() {
-		return codeGroupFK;
-	}
-	public void setCodeGroupFK(Integer codeGroupFK) {
-		this.codeGroupFK = codeGroupFK;
-	}
-	
-	
+
+
+
+
+
+
+	public static List<CodeVo> selectCodeGroupList = new ArrayList<CodeVo>();
 }

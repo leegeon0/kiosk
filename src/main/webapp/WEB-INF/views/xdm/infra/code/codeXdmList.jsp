@@ -102,10 +102,10 @@
 						<c:otherwise>
 							<c:forEach items="${list}" var="list" varStatus="status">
 							<tr>
-								<td><c:out value="${list.seq}"></c:out></td>
-								<td><a href="codeXdmForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name}"/></a></td>
+								<td><c:out value="${list.codeSeq}"></c:out></td>
+								<td><a href="codeXdmForm?seq=<c:out value="${list.codeSeq}"/>"><c:out value="${list.codeName}"/></a></td>
 								<td><c:out value="${list.codegroup_seq}"></c:out><br></td>
-								<td><c:out value="${list.delNy}"></c:out><br></td>
+								<td><c:out value="${list.codeDelNy}"></c:out><br></td>
 							</tr>
 							</c:forEach>
 						</c:otherwise>

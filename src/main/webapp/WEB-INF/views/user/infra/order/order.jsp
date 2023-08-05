@@ -51,8 +51,8 @@
                 <ul class="categoryBox">
                     <li><button class="categoryBtn" id="category1" type="button" value="1">세트 메뉴</button></li>
                     <li><button class="categoryBtn" id="category2" type="button" value="2">식사 메뉴</button></li>
-                    <li><a href="#tab1-3">사이드 메뉴</a></li>
-                    <li><a href="#tab1-4">주류/음료</a></li>
+                    <li><button class="categoryBtn" id="category3" type="button" value="3">사이드 메뉴</button></li>
+                    <li><button class="categoryBtn" id="category4" type="button" value="4">주류/음료</button></li>
                 </ul>
                 
                 <div class="menuBox">
@@ -638,7 +638,6 @@
 	
 		$(".categoryBtn").on("click",function(){
 	    	var categoryValue = $(this).val();
-	    	
 	      	 
 	    	$.ajax({
 	    		async: true 
@@ -650,62 +649,38 @@
 	    		,data : {
 	    			"category" : categoryValue}
 	    		,success: function(response) {
-	    			if(response.rt == "success" && categoryValue == 1 ) {
-	    			     var htmlContent = '';
-	    			      if (response.rtMenu.length > 0) {
-	    			        $.each(response.rtMenu, function(index, item) {
-	    			          htmlContent += '<li class="popup_btn">';
-	    			          htmlContent += '<a href="#">';
-	    			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
-	    			          htmlContent += '<div class="menuName">';
-	    			          htmlContent += '<div class="stars">';
-	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
-	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
-	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
-	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
-	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
-	    			          htmlContent += '</div>';
-	    			          htmlContent += item.menuName + '<br>';
-	    			          htmlContent += item.menuPrice;
-	    			          htmlContent += '</div>';
-	    			          htmlContent += '</a>';
-	    			          htmlContent += '</li>';
-	    			        });
-	    			      } else {
-	    			        htmlContent = '<p>데이터가 없습니다!</p>';
-	    			      }
-	    			      $("#menuList").html(htmlContent);
+	    			
+	    			for(i=1; i<=4; i++) {
+	    				if(response.rt == "success" && categoryValue == i) {
+	    					 var htmlContent = '';
+		    			      if (response.rtMenu.length > 0) {
+		    			        $.each(response.rtMenu, function(index, item) {
+		    			          htmlContent += '<li class="popup_btn">';
+		    			          htmlContent += '<a href="#">';
+		    			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
+		    			          htmlContent += '<div class="menuName">';
+		    			          htmlContent += '<div class="stars">';
+		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+		    			          htmlContent += '</div>';
+		    			          htmlContent += item.menuName + '<br>';
+		    			          htmlContent += item.menuPrice;
+		    			          htmlContent += '</div>';
+		    			          htmlContent += '</a>';
+		    			          htmlContent += '</li>';
+		    			        });
+		    			      } else {
+		    			        htmlContent = '<p>데이터가 없습니다!</p>';
+		    			      }
+		    			      $("#menuList").html(htmlContent);
+		    				
+	    				} else {
+	    					/* by pass */
+	    				}
 	    				
-	    				
-	    				
-	    			}else if(response.rt == "success" && categoryValue == 2 ){
-	    				var htmlContent = '';
-	  			      if (response.rtMenu.length > 0) {
-	  			        $.each(response.rtMenu, function(index, item) {
-	  			          htmlContent += '<li class="popup_btn">';
-	  			          htmlContent += '<a href="#">';
-	  			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
-	  			          htmlContent += '<div class="menuName">';
-	  			          htmlContent += '<div class="stars">';
-	  			          htmlContent += '<i class="fa-solid fa-star"></i>';
-	  			          htmlContent += '<i class="fa-solid fa-star"></i>';
-	  			          htmlContent += '<i class="fa-solid fa-star"></i>';
-	  			          htmlContent += '<i class="fa-solid fa-star"></i>';
-	  			          htmlContent += '<i class="fa-solid fa-star"></i>';
-	  			          htmlContent += '</div>';
-	  			          htmlContent += item.menuName + '<br>';
-	  			          htmlContent += item.menuPrice;
-	  			          htmlContent += '</div>';
-	  			          htmlContent += '</a>';
-	  			          htmlContent += '</li>';
-	  			        });
-	  			      } else {
-	  			        htmlContent = '<p>데이터가 없습니다!</p>';
-	  			      }
-	  			      $("#menuList").html(htmlContent);
-	    			}
-	    			else {
-	    				alert("실패");
 	    			}
 	    		}
 	    		,error : function(jqXHR, textStatus, errorThrown){

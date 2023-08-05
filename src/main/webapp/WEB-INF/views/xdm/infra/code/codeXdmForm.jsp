@@ -62,10 +62,10 @@
                 	</thead>
 	                <tbody>
 	                <tr>
-		                <td><input type="text" class="form-control" id="seq" name="seq" placeholder="Auto Increment" required readonly value="<c:out value="${item.seq}"/>"></td>
-		                <td><input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>"></td>
+		                <td><input type="text" class="form-control" id="seq" name="seq" placeholder="Auto Increment" required readonly value="<c:out value="${item.codeSeq}"/>"></td>
+		                <td><input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.codeName}"/>"></td>
 		                <td><input type="text" class="form-control" id="codegroup_seq" name="codegroup_seq" required value="<c:out value="${item.codegroup_seq}"/>"></td>
-		                <td><input type="text" class="form-control" id="delNy" name="delNy" required value="<c:out value="${item.delNy}"/>"></td>
+		                <td><input type="text" class="form-control" id="delNy" name="delNy" required value="<c:out value="${item.codeDelNy}"/>"></td>
 					</tr>
 	                </tbody>
               		</table>
