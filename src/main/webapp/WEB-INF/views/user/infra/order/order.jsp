@@ -436,18 +436,18 @@
 	    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 	    		}
 	    	});
-	    	/* 
+
 	    	$("#menuList").on("click","li", function () {
 	       	 var menuImg = $(this).find("img").attr("src");
 	       	 var menuPrice = $(this).find("#menuPrice").data("menuPrice");
 	       	 var menuName = $(this).find("#menuName").data("menuName");
 	   		 $(".modalLeftBox,.modal_bg").fadeIn();
 	   		 $("#modalImg").attr("src", menuImg);
-	   		 $("#modalPrice").text(menuPrice);
-	   		 $("#modalName").text(menuName);
+	   		 $("#modalPrice").data("menuPrice");
+	   		 $("#modalName").data("menuName");
 	   	});
- */
- /* 
+
+ 
 	       $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){
 	           $(".modalLeftBox,.modal_bg").fadeOut();
 	           $(".modalLeftBox").css('width','650px');
@@ -456,7 +456,7 @@
 	           $(".modalOptionBtn").css('display','block');
 	       });
 	    });
- */
+
 		
 
 		

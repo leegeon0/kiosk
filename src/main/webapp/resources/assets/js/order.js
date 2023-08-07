@@ -19,15 +19,14 @@ $(function(){
         
     });*/
 
-	$("#menuList").on("click","li", function () {
+	$("#menuList>li").on("click", function () {
     	 var menuImg = $(this).find("img").attr("src");
-    	 var menuPrice = $(this).find("#menuPrice").data("menuPrice");
-    	 var menuName = $(this).find("#menuName").data("menuName");
+    	 var menuPrice = $(this).find("#menuPrice").text();
+    	 var menuName = $(this).find("#menuName").text();
 		 $(".modalLeftBox,.modal_bg").fadeIn();
 		 $("#modalImg").attr("src", menuImg);
 		 $("#modalPrice").text(menuPrice);
-		 $("#modalName").data(menuName);
-		 console.log(menuName);
+		 $("#modalName").text(menuName);
 	});
 
     $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){
