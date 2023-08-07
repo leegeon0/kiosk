@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/resources/assets/css/kiosk.css">
     <script src="/resources/assets/js/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
+	
 </head>
 
 <body>
@@ -37,7 +37,7 @@
                     <thead>
                       <tr>
                         <th scope="col">품명</th>
-                        <th scope="col">수량</th>
+                        <th scope="col">dn수량</th>
                         <th scope="col">금액</th>
                       </tr>
                     </thead>
