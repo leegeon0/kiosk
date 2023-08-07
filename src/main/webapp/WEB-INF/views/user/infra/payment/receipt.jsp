@@ -37,7 +37,7 @@
                     <thead>
                       <tr>
                         <th scope="col">품명</th>
-                        <th scope="col">dn수량</th>
+                        <th scope="col">d n수량</th>
                         <th scope="col">금액</th>
                       </tr>
                     </thead>
