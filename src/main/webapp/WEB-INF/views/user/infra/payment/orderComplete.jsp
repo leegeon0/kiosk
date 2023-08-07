@@ -34,7 +34,7 @@
                     <p><span id="orderNum">1</span> 번</p>
                 </div>
                 <div class="usePayBtn">
-                    <button class="receiptBtn btnColor">영수증 출력하기</button> 
+                    <button class="receiptBtn btnColor">영수증 출력하기</button>
                 </div>
 
 
