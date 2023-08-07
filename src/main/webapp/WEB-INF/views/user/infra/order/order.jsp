@@ -419,7 +419,6 @@
 		    			          htmlContent += item.menuPrice;
 		    			          htmlContent += '</div>';
 		    			          htmlContent += '</li>';
-									console.log("나오ㅑㅏ");
 		    			        });
 		    			      } else {
 		    			        htmlContent = '<p>데이터가 없습니다!</p>';
@@ -437,24 +436,6 @@
 	    		}
 	    	});
 
-	    	$("#menuList").on("click","li", function () {
-	       	 var menuImg = $(this).find("img").attr("src");
-	       	 var menuPrice = $(this).find("#menuPrice").data("menuPrice");
-	       	 var menuName = $(this).find("#menuName").data("menuName");
-	   		 $(".modalLeftBox,.modal_bg").fadeIn();
-	   		 $("#modalImg").attr("src", menuImg);
-	   		 $("#modalPrice").data("menuPrice");
-	   		 $("#modalName").data("menuName");
-	   	});
-
- 
-	       $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){
-	           $(".modalLeftBox,.modal_bg").fadeOut();
-	           $(".modalLeftBox").css('width','650px');
-	           $(".modalOptionRightBox").css('display','none');
-	           $(".modalStarRightBox").css('display','none');
-	           $(".modalOptionBtn").css('display','block');
-	       });
 	    });
 
 		
