@@ -153,9 +153,6 @@ animation-name: ani1; animation-duration: 30s; animation-iteration-count: infini
 
 
 
-
-
-
 .count_box {width: 200px; height: 40px; display: flex; align-items: center; justify-content: flex-end; position: absolute; bottom: 90px; right: 30px;}
 
 /* .count-wrap {position: relative;padding: 0 38px;border: 1px solid #ddd;overflow: hidden;width: 60px; border-radius: 5px;} */
