@@ -366,7 +366,15 @@
 	$(document).ready(function(){
 		
 		 var categoryValue = 1;
-		 
+	      	$("#menuList>li").on("click", function () {  
+		       	 var menuImg = $(this).find("img").attr("src");
+		       	 var menuPrice = $(this).find(".menuPrice").data("menuPrice");
+		       	 var menuName = $(this).find(".menuName").data("menuName");
+		   		 $(".modalLeftBox,.modal_bg").fadeIn();
+		   		 $("#modalImg").attr("src", menuImg);
+		   		 $("#modalPrice").text(menuPrice);
+		   		 $("#modalName").data(menuName);
+	      	});
 		 
 /* 
 		  // 이벤트 핸들러 등록
@@ -421,7 +429,7 @@
 		    			          htmlContent += '</li>';
 		    			          
 		    			          
-		    			      	$("#menuList>li").on("click", function () {  
+		    			      	$("#menuList").on("click","li", function () {  
 		    			       	 var menuImg = $(this).find("img").attr("src");
 		    			       	 var menuPrice = $(this).find(".menuPrice").data("menuPrice");
 		    			       	 var menuName = $(this).find(".menuName").data("menuName");

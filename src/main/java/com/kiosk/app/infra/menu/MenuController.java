@@ -119,6 +119,8 @@ public class MenuController {
 			
 			httpSession.setMaxInactiveInterval(60*60);	//60min
 			httpSession.setAttribute("sessionCategory", vo.getCategory());
+			httpSession.setAttribute("sessionMenuName", vo.getMenuName());
+
 			
 			returnMap.put("rtMenu", rtMenu);
 			returnMap.put("rt", "success");
