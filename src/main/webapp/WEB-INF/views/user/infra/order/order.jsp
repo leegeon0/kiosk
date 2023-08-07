@@ -350,7 +350,7 @@
                     <span>￦<span>39,000</span>원</span>
                 </div>
                 <div class="orderBtnBox">
-                    <button class="btnBorder cencelBtn">취소하기</button>
+                    <button class="btnBorder cencelBtn">취소하기ye</button>
                     <button class="btnColor orderBtn" id="orderBtn">주문하기</button>
                 </div>
             </div>
