@@ -68,7 +68,6 @@
 										<c:if test="${list.category eq 1}">
 										   <li class="popup_btn" data-category="<c:out value="${list.category}" />">
 	                           					<img alt="메뉴사진" src="<c:out value="${list.menuImg}"></c:out>">     
-		                                		<div class="menuName">
 		                                    		<div class="stars">
 				                                        <i class="fa-solid fa-star"></i>
 				                                        <i class="fa-solid fa-star"></i>
@@ -78,7 +77,6 @@
 		                                    		</div>
 				                                	<p class="menuName" data-menuName="<c:out value="${list.menuName}" />"><c:out value="${list.menuName}"></c:out></p><br>
 				                                	<p class="menuPrice" data-menuPrice="<c:out value="${list.menuPrice}" />"><c:out value="${list.menuPrice}"></c:out></p><br>
-		                                		</div>
 			                            	</li>
 			                             </c:if>
 									</c:forEach>
@@ -414,7 +412,6 @@
 		    			        $.each(response.rtMenu, function(index, item) {
 		    			          htmlContent += '<li class="popup_btn" data-category="' + item.category + '">';
 		    			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
-		    			          htmlContent += '<div class="menuName">';
 		    			          htmlContent += '<div class="stars">';
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
@@ -424,20 +421,7 @@
 		    			          htmlContent += '</div>';
 		    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>' + '<br>';
 		    			          htmlContent += '<p class="menuPrice" data-menuName="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
-		    			          htmlContent += '</div>';
 		    			          htmlContent += '</li>';
-		    			          
-		    			          
-		    			      	$("#menuList").on("click","li", function () {  
-		    			       	 var menuImg = $(this).find("img").attr("src");
-		    			       	 var menuPrice = $(this).find(".menuPrice").data("menuPrice");
-		    			       	 var menuName = $(this).find(".menuName").data("menuName");
-		    			   		 $(".modalLeftBox,.modal_bg").fadeIn();
-		    			   		 $("#modalImg").attr("src", menuImg);
-		    			   		 $("#modalPrice").text(menuPrice);
-		    			   		 $("#modalName").data(menuName);
-		    			   		 console.log(this);
-		    			   	});
 		    			          
 		    			        });
 		    			      } else {
@@ -458,7 +442,16 @@
 
 	    });
 
-		
+      	$("#menuList li").on("click", function () {  
+	       	 var menuImg = $(this).find("img").attr("src");
+	       	 var menuPrice = $(this).find(".menuPrice").data("menuprice");
+	       	 var menuName = $(this).find(".menuName").data("menuname");
+	   		 $(".modalLeftBox,.modal_bg").fadeIn();
+	   		 $("#modalImg").attr("src", menuImg);
+	   		 $("#modalPrice").text(menuPrice);
+	   		 $("#modalName").text(menuName);
+	   		 console.log(menuName);
+	   	});
 
 		
     
