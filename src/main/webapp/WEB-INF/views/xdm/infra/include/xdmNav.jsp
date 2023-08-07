@@ -38,7 +38,7 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="아돈노와이얼유두잉디스ㅂㅈ">
               <i class="bi bi-circle"></i><span>CustomerNum</span>
             </a>
           </li>
