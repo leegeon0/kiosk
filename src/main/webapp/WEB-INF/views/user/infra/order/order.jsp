@@ -419,7 +419,7 @@
 		    			          htmlContent += item.menuPrice;
 		    			          htmlContent += '</div>';
 		    			          htmlContent += '</li>';
-
+									console.log("나오ㅑㅏ"); 
 		    			        });
 		    			      } else {
 		    			        htmlContent = '<p>데이터가 없습니다!</p>';
