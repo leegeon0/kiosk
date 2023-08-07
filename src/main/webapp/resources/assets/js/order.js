@@ -19,17 +19,6 @@ $(function(){
         
     });*/
 
-	$("#menuList").on("click","li", function () {
-    	 var menuImg = $(this).find("img").attr("src");
-    	 var menuPrice = $(this).find("#menuPrice").data("menuPrice");
-    	 var menuName = $(this).find("#menuName").data("menuName");
-		 $(".modalLeftBox,.modal_bg").fadeIn();
-		 $("#modalImg").attr("src", menuImg);
-		 $("#modalPrice").text(menuPrice);
-		 $("#modalName").data(menuName);
-		 console.log(menuName);
-	});
-
     $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){
         $(".modalLeftBox,.modal_bg").fadeOut();
         $(".modalLeftBox").css('width','650px');
@@ -117,5 +106,4 @@ $(function(){
 	$(".modalOrderBtn").on("click",function(){
 		console.log(this);
 	});
-
 });

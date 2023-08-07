@@ -76,8 +76,8 @@
 				                                        <i class="fa-solid fa-star"></i>
 				                                        <i class="fa-solid fa-star"></i>
 		                                    		</div>
-				                                	<p id="menuName" data-menuName="<c:out value="${list.menuName}" />"><c:out value="${list.menuName}"></c:out></p><br>
-				                                	<p id="menuPrice" data-menuPrice="<c:out value="${list.menuPrice}" />"><c:out value="${list.menuPrice}"></c:out></p><br>
+				                                	<p class="menuName" data-menuName="<c:out value="${list.menuName}" />"><c:out value="${list.menuName}"></c:out></p><br>
+				                                	<p class="menuPrice" data-menuPrice="<c:out value="${list.menuPrice}" />"><c:out value="${list.menuPrice}"></c:out></p><br>
 		                                		</div>
 			                            	</li>
 			                             </c:if>
@@ -416,14 +416,27 @@
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 		    			          htmlContent += '</div>';
 		    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>' + '<br>';
-		    			          htmlContent += item.menuPrice;
+		    			          htmlContent += '<p class="menuPrice" data-menuName="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
 		    			          htmlContent += '</div>';
 		    			          htmlContent += '</li>';
+		    			          
+		    			          
+		    			      	$("#menuList>li").on("click", function () {  
+		    			       	 var menuImg = $(this).find("img").attr("src");
+		    			       	 var menuPrice = $(this).find(".menuPrice").data("menuPrice");
+		    			       	 var menuName = $(this).find(".menuName").data("menuName");
+		    			   		 $(".modalLeftBox,.modal_bg").fadeIn();
+		    			   		 $("#modalImg").attr("src", menuImg);
+		    			   		 $("#modalPrice").text(menuPrice);
+		    			   		 $("#modalName").data(menuName);
+		    			   		 console.log(this);
+		    			   	});
+		    			          
 		    			        });
 		    			      } else {
 		    			        htmlContent = '<p>데이터가 없습니다!</p>';
 		    			      }
-		    			      $("#menuList").html(htmlContent);
+		    			       $("#menuList").html(htmlContent);
 		    				
 	    				} else {
 	    					/* by pass */
