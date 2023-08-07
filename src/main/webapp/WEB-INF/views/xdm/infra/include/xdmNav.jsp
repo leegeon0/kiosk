@@ -43,7 +43,7 @@
             </a>
           </li>
           <li>
-            <a href="starXdmList">
+            <a href="stampXdmList">
               <i class="bi bi-circle"></i><span>CustomerStamp</span>
             </a>
           </li>
