@@ -48,8 +48,7 @@
                 </div>
                 <div class="usePayBtn">
                     <button class="skipBtn btnColor">건너뛰기</button>
-<%-- 테스트         --%>
-<%--                    테ㄴㅇㄹ호ㅓ-%>
+
                 </div>
             </div>
 
