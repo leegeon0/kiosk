@@ -84,9 +84,7 @@
 							</c:choose>
 						</ul>
 					</div>
-					<!-- 카테고리별 메뉴  -->
 					<div class="modal_bg"></div>
-					<!-- 모달 백그라운드  -->
                    	<div class="modalLeftBox">
                        	<div class="modalBox">
                            	<img src="" alt="" id="modalImg">
@@ -99,7 +97,6 @@
                                        	<button type="button" class="plus">+</button>
                                    	</div>
                                	</div>
-                               	<!-- 수량 -->
                             	<div class="stars">
                           			 <i class="fa-solid fa-star"></i>
 	                                 <i class="fa-solid fa-star"></i>
@@ -107,17 +104,12 @@
 	                                 <i class="fa-solid fa-star"></i>
 	                                 <i class="fa-solid fa-star"></i>
                                 </div>
-                                <!-- 별점 -->
-                               	<p><span id="modalPrice"></span>원</p>
-                               	<!-- 가격 -->
+                               	<p><span id="modalPrice" data-menuPrice=""></span>원</p>
                            	</div>
-                           	<!-- 모닲창 내용 -->
                             <button class="modalOptionBtn btnBorder">옵션 선택</button>
                             <button class="modalCencelBtn btnBorder">취소하기</button>
                             <button class="modalOrderBtn btnColor">주문하기</button>
-                            <!-- 모달창 버튼들 -->
                        	</div>
-                       	<!-- 모달 주요 내용 -->    
                        <div class="modalOptionRightBox">
                            <p>옵션 선택</p>
                            <ul class="modalOptionBox">
@@ -128,7 +120,6 @@
                                    		<p>1,000원</p>
                                		</a>
                           		</li>
-                          		<!-- 옵션 -->
                                <li><a href="#">
                                    <img src="/resources/assets/img/순대.png" alt="">
                                    <p>순대</p>
@@ -158,7 +149,6 @@
                                닫기
                            </button>
                        </div>
-                       <!-- 모달창 옵션 박스 -->
                        <div class="modalStarRightBox">
                            <p>
                            		이전에 이 음식을 드셔보셨다면 별점을 등록해주세요!
@@ -172,7 +162,6 @@
 	                          <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
 	                      </fieldset>
                        </div>
-                       <!-- 별점주기 -->
                            <button class="btnColor submitBtn">
                                등록하기
                            </button>
@@ -180,21 +169,16 @@
                                안 할래요
                            </button>
                        </div>
-                       <!-- 모달창 별점등록 박스 -->
                    </div>
-                   <!-- 모달창 -->
                    </div>
-                   <!-- menu Box -->
                 </div>
-                <!-- orderContainerLeft -->
             </div>
-            <!-- left -->
 
         <div class="orderContainer">
             <div class="orderContainerRight">
                 <div class="countTimeBox">
                     <span>자동 종료 시간</span>
-                    <span><span>120</span>초</span>
+                    <span><span class="countDown">120</span>초</span>
                 </div>
                 <div class="orderList">
                     <ul class="like_box">
@@ -207,7 +191,7 @@
                         <p>메뉴를 선택해주세요.</p>
                     </div> -->
                     <div class="new_contents_container" class="scroll_bar">
-                        <ul class="liked">
+                        <!-- <ul class="liked">
                             <li>
                                 <ul>
                                     <li>소머리국밥</li>
@@ -340,7 +324,7 @@
                                     <li><button><i class="fa-solid fa-xmark"></i></button></li>
                                 </ul>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
                 <div class="totalPriceBox">
@@ -362,17 +346,7 @@
     
 	$(document).ready(function(){
 		
-		 var categoryValue = 1;
-	      	$("#menuList>li").on("click", function () {  
-		       	 var menuImg = $(this).find("img").attr("src");
-		       	 var menuPrice = $(this).find(".menuPrice").data("menuPrice");
-		       	 var menuName = $(this).find(".menuName").data("menuName");
-		   		 $(".modalLeftBox,.modal_bg").fadeIn();
-		   		 $("#modalImg").attr("src", menuImg);
-		   		 $("#modalPrice").text(menuPrice);
-		   		 $("#modalName").data(menuName);
-	      	});
-		 
+		 var categoryValue = 1;		 
 /* 
 		  // 이벤트 핸들러 등록
 		  $(".categoryBtn").on("click", function() {
@@ -442,15 +416,17 @@
 
 	    });
 
+		/* 메뉴 리스트 클릭시 모달창 출력 */
       	$("#menuList li").on("click", function () {  
 	       	 var menuImg = $(this).find("img").attr("src");
 	       	 var menuPrice = $(this).find(".menuPrice").data("menuprice");
+	       	 var modalPrice = $("#modalPrice").data("menuprice");
 	       	 var menuName = $(this).find(".menuName").data("menuname");
 	   		 $(".modalLeftBox,.modal_bg").fadeIn();
 	   		 $("#modalImg").attr("src", menuImg);
 	   		 $("#modalPrice").text(menuPrice);
+   			 modalPrice = $("#modalPrice").attr("data-menuprice" ,menuPrice);
 	   		 $("#modalName").text(menuName);
-	   		 console.log(menuName);
 	   	});
 
 		
