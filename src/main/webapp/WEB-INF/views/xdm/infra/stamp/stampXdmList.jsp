@@ -266,7 +266,7 @@
 
                                                 <td><c:out value="${list.countStampUseDate}"></c:out></td>
 
-                                                <td><c:out value="${list.customer_seq}"></c:out></td>
+                                                <td><c:out value="${list.phoneNum}"></c:out></td>
 
                                             </tr>
 
