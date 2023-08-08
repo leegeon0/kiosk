@@ -31,7 +31,8 @@ $(function(){
             var min = 1;
             var max = 999;
             var num = now;
-            var modalPrice = $('#modalPrice');
+            var modalPrice = $('.modalPrice');
+         	var setPrice = modalPrice.attr("data-menuprice").replace(',',"");
             if($(this).hasClass('minus')){
                 var type = 'm';
             }else{
@@ -50,8 +51,7 @@ $(function(){
                 $count.val(num);
             }
             
-            modalPrice.text(15000*num)
-            console.log(modalPrice.text())
+           	modalPrice.text(setPrice * num);
         }
     });
 

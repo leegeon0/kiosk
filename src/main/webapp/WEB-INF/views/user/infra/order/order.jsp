@@ -104,7 +104,7 @@
 	                                 <i class="fa-solid fa-star"></i>
 	                                 <i class="fa-solid fa-star"></i>
                                 </div>
-                               	<p><span id="modalPrice" data-menuPrice=""></span>원</p>
+                               	<p><span class="modalPrice" data-menuPrice=""></span>원</p>
                            	</div>
                             <button class="modalOptionBtn btnBorder">옵션 선택</button>
                             <button class="modalCencelBtn btnBorder">취소하기</button>
@@ -372,7 +372,7 @@
 	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 	    			          htmlContent += '</div>';
 	    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>' + '<br>';
-	    			          htmlContent += '<p class="menuPrice" data-menuName="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
+	    			          htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
 	    			          htmlContent += '</div>';
 	    			          htmlContent += '</li>';
 	    			          
@@ -428,7 +428,7 @@
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 		    			          htmlContent += '</div>';
 		    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>' + '<br>';
-		    			          htmlContent += '<p class="menuPrice" data-menuName="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
+		    			          htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
 		    			          htmlContent += '</li>';
 		    			          
 
@@ -456,17 +456,18 @@
       	    var menuImg = $(this).find("img").attr("src");
       	    var menuPrice = $(this).find(".menuPrice").attr("data-menuPrice");
       	    var menuName = $(this).find(".menuName").attr("data-menuName");
+      	  	var modalPrice = $(".modalPrice").data("menuprice");
       	  	$(".modalLeftBox,.modal_bg").fadeIn();
       	    $("#modalImg").attr("src", menuImg);
-      	    $("#modalPrice").text(menuPrice);
+      	    $(".modalPrice").text(menuPrice);
       	    $("#modalName").text(menuName);
       	    console.log("menuPrice:", menuPrice);
       	    console.log("menuName:", menuName);
-      	  console.log("menuImg:", menuImg);
+      	  	console.log("menuImg:", menuImg);
       	});
 
 		/* 메뉴 리스트 클릭시 모달창 출력 */
-      	$("#menuList li").on("click", function () {  
+/*       	$("#menuList li").on("click", function () {  
 	       	 var menuImg = $(this).find("img").attr("src");
 	       	 var menuPrice = $(this).find(".menuPrice").data("menuprice");
 	       	 var modalPrice = $("#modalPrice").data("menuprice");
@@ -476,7 +477,7 @@
 	   		 $("#modalPrice").text(menuPrice);
    			 modalPrice = $("#modalPrice").attr("data-menuprice" ,menuPrice);
 	   		 $("#modalName").text(menuName);
-	   	});
+	   	}); */
 
       	
         $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){
