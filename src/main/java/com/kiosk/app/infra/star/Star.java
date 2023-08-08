@@ -2,10 +2,10 @@ package com.kiosk.app.infra.star;
 
 public class Star {
 	
-	private Integer seq;
+	private Integer starSeq;
 	private Integer star;
 	private String starDate;
-	private Integer menuSeq;
+	private Integer menu_seq;
 	
 //	검색
 	private Integer shOption;
@@ -110,12 +110,15 @@ public class Star {
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
 	}
-	public Integer getSeq() {
-		return seq;
+
+	public Integer getStarSeq() {
+		return starSeq;
 	}
-	public void setSeq(Integer seq) {
-		this.seq = seq;
+
+	public void setStarSeq(Integer starSeq) {
+		this.starSeq = starSeq;
 	}
+
 	public Integer getStar() {
 		return star;
 	}
@@ -128,13 +131,15 @@ public class Star {
 	public void setStarDate(String starDate) {
 		this.starDate = starDate;
 	}
-	public Integer getMenuSeq() {
-		return menuSeq;
+
+	public Integer getMenu_seq() {
+		return menu_seq;
 	}
-	public void setMenuSeq(Integer menuSeq) {
-		this.menuSeq = menuSeq;
+
+	public void setMenu_seq(Integer menu_seq) {
+		this.menu_seq = menu_seq;
 	}
-	
+
 	public void setParamsPaging(int totalRows) {
 		
 		//		setThisPage(3);
