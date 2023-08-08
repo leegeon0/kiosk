@@ -460,10 +460,8 @@
       	  	$(".modalLeftBox,.modal_bg").fadeIn();
       	    $("#modalImg").attr("src", menuImg);
       	    $(".modalPrice").text(menuPrice);
+      	  	modalPrice = $(".modalPrice").attr("data-menuprice" ,menuPrice);
       	    $("#modalName").text(menuName);
-      	    console.log("menuPrice:", menuPrice);
-      	    console.log("menuName:", menuName);
-      	  	console.log("menuImg:", menuImg);
       	});
 
 		/* 메뉴 리스트 클릭시 모달창 출력 */
@@ -486,7 +484,11 @@
             $(".modalOptionRightBox").css('display','none');
             $(".modalStarRightBox").css('display','none');
             $(".modalOptionBtn").css('display','block');
+            setTimeout(function(){
+            	$('.inp').val(1);
+            },500);
         });
+	   	
         
         
           
