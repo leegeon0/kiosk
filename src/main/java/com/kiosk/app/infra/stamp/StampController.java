@@ -16,8 +16,10 @@ public class StampController {
 	
 	@RequestMapping("/stampXdmList")
 	public String customerXdmList(@ModelAttribute("vo") StampVo vo,Model model) {
-		
-		
+
+//		List<Stamp> test = service.test(vo);
+//		model.addAttribute("list",test);
+
 		vo.setShKeyword(vo.getShKeyword() == null ? "": vo.getShKeyword()); 
 		
 		vo.setParamsPaging(service.selectOneCount(vo));

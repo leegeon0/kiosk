@@ -24,8 +24,6 @@
 
 		stampNy,
 
-		countStamp,
-
 		countStampUseDate,
 
 		customer_seq
@@ -122,6 +120,21 @@
 
 	</select>
 
+<!--	<select id="test" resultMap="resultMapObj">-->
+
+<!--		select-->
+<!--			s.stampSeq,-->
+<!--			s.stampNy,-->
+<!--			s.countStampUseDate,-->
+<!--			c.phoneNum-->
+<!--		from-->
+<!--			stamp s-->
+<!--				join customer c on s.customer_seq = c.seq;-->
+
+<!--	</select>-->
+
+
+
 
 
 
@@ -137,8 +150,6 @@
 		set
 
 			stampNy = #{stampNy},
-
-			countStamp = #{countStamp},
 
 			countStampUseDate = #{countStampUseDate},
 
@@ -186,8 +197,6 @@
 
 			stampNy,
 
-			countStamp,
-
 			countStampUseDate,
 
 			customer_seq
@@ -195,8 +204,6 @@
 		)value(
 
 			#{stampNy},
-
-			#{countStamp},
 
 			#{countStampUseDate},
 

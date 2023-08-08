@@ -19,7 +19,7 @@ public class StampDao {
 		
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
 		
-		}
+	}
 	
 	
 	public List<Stamp> selectList(StampVo vo){
@@ -32,6 +32,10 @@ public class StampDao {
 		return sqlSession.selectOne(namespace + ".selectOne", vo);
 		
 	}
+
+//	public List<Stamp> test(StampVo vo) {
+//		return sqlSession.selectList(namespace + ".selectList", vo);
+//	}
 	
 	
 	public int update(Stamp dto) {
