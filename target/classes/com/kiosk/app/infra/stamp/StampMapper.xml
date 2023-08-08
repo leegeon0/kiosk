@@ -24,11 +24,10 @@
 
 		stampNy,
 
-		countStamp,
-
 		countStampUseDate,
 
-		customer_seq
+-- 		customer_seq,
+		customer.phoneNum
 
 	</sql>
 
@@ -108,17 +107,25 @@
 
 	<select id="selectOne" resultMap="resultMapObj">
 
+<!--		select-->
+
+<!--		<include refid="abc" />-->
+
+<!--		from-->
+
+<!--		stamp-->
+
+<!--		where 1=1-->
+
+<!--		and	stampSeq = #{stampSeq}-->
 		select
-
-		<include refid="abc" />
-
+		s.stampSeq,
+		s.stampNy,
+		s.countStampUseDate,
+		c.phoneNum
 		from
-
-		stamp
-
-		where 1=1
-
-		and	stampSeq = #{stampSeq}
+		stamp s
+		join customer c on s.customer_seq = c.seq;
 
 	</select>
 
@@ -137,8 +144,6 @@
 		set
 
 			stampNy = #{stampNy},
-
-			countStamp = #{countStamp},
 
 			countStampUseDate = #{countStampUseDate},
 
@@ -186,8 +191,6 @@
 
 			stampNy,
 
-			countStamp,
-
 			countStampUseDate,
 
 			customer_seq
@@ -195,8 +198,6 @@
 		)value(
 
 			#{stampNy},
-
-			#{countStamp},
 
 			#{countStampUseDate},
 

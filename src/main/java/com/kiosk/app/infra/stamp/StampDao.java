@@ -19,7 +19,7 @@ public class StampDao {
 		
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
 		
-		}
+	}
 	
 	
 	public List<Stamp> selectList(StampVo vo){

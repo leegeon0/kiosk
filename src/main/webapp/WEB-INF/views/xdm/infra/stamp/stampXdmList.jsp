@@ -228,15 +228,13 @@
 
                                 <tr>
 
-                                    <th scope="col">seq</th>
+                                    <th scope="col">stampSeq</th>
 
                                     <th scope="col">stampNy</th>
 
-                                    <th scope="col">countStamp</th>
-
                                     <th scope="col">countStampUseDate</th>
 
-                                    <th scope="col">customer_seq</th>
+                                    <th scope="col">customer.phoneNum</th>
 
                                 </tr>
 
@@ -266,11 +264,9 @@
 
                                                 <td><c:out value="${list.stampNy}"></c:out></td>
 
-                                                <td><c:out value="${list.countStamp}"></c:out></td>
-
                                                 <td><c:out value="${list.countStampUseDate}"></c:out></td>
 
-                                                <td><c:out value="${list.customer_seq}"></c:out></td>
+                                                <td><c:out value="${list.phoneNum}"></c:out></td>
 
                                             </tr>
 

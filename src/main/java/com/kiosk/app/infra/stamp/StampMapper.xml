@@ -24,8 +24,6 @@
 
 		stampNy,
 
-		countStamp,
-
 		countStampUseDate,
 
 		customer_seq
@@ -138,8 +136,6 @@
 
 			stampNy = #{stampNy},
 
-			countStamp = #{countStamp},
-
 			countStampUseDate = #{countStampUseDate},
 
 			customer_seq = #{customer_seq}
@@ -186,8 +182,6 @@
 
 			stampNy,
 
-			countStamp,
-
 			countStampUseDate,
 
 			customer_seq
@@ -195,8 +189,6 @@
 		)value(
 
 			#{stampNy},
-
-			#{countStamp},
 
 			#{countStampUseDate},
 
