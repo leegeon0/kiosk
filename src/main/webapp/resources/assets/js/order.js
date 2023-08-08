@@ -97,9 +97,9 @@ $(function(){
     });
 
 
-	$(".modalOrderBtn").on("click",function(){
+	/*$(".modalOrderBtn").on("click",function(){
 		console.log(this);
-	});
+	});*/
 	
 	/*자동 종료시간 카운트 다운*/
 	function countDown(e){
@@ -112,7 +112,9 @@ $(function(){
 				count = 0;
 				clearInterval(countTime)
 			}
-		},1000);		
+		},1000);
+		
+		
 
 	};
 	countDown();
