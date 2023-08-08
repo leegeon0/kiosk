@@ -51,25 +51,25 @@
 				   <table class="table">
                 	<thead>
 		                <tr>
-		                    <th scope="col">seq</th>
-		                    <th scope="col">optionName</th>
-		                    <th scope="col">optionPrice</th>
-		                    <th scope="col">menuSeq</th>
+		                    <th scope="col">starSeq</th>
+		                    <th scope="col">star</th>
+		                    <th scope="col">starDate</th>
+		                    <th scope="col">menu_seq</th>
 		                </tr>
                 	</thead>
 	                <tbody>
 	                <tr>
-		                <td><input type="text" class="form-control" id="seq" name="seq" placeholder="Auto Increment" required readonly value="<c:out value="${item.seq}"/>"></td>
+		                <td><input type="text" class="form-control" id="starSeq" name="starSeq" placeholder="Auto Increment" required readonly value="<c:out value="${item.starSeq}"/>"></td>
 		                <td><input type="text" class="form-control" id="star" name="star" value="<c:out value="${item.star}"/>"></td>
 		                <td><input type="text" class="form-control" id="starDate" name="starDate" required value="<c:out value="${item.starDate}"/>"></td>
-		                <td><input type="text" class="form-control" id="menuSeq" name="menuSeq" required value="<c:out value="${item.menuSeq}"/>"></td>
+		                <td><input type="text" class="form-control" id="menuSeq" name="menuSeq" required value="<c:out value="${item.menu_seq}"/>"></td>
 					</tr>
 	                </tbody>
               		</table>
 
 
               		<c:choose>
-						<c:when test="${empty item.seq }">
+						<c:when test="${empty item.starSeq}">
 							<button type="button" class="btn btn-primary" id="submitBtn">저장</button>
 						</c:when>
 						<c:otherwise>

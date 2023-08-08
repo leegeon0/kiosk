@@ -61,7 +61,7 @@
 				   
                 	<thead>
 		                <tr>
-		                    <th scope="col">seq</th>
+		                    <th scope="col">starSeq</th>
 		                    <th scope="col">star</th>
 		                    <th scope="col">starDate</th>
 		                    <th scope="col">menu_seq</th>	                    
@@ -77,10 +77,10 @@
 						<c:otherwise>
 							<c:forEach items="${list}" var="list" varStatus="status">
 							<tr>
-								<td><c:out value="${list.seq}"></c:out></td>
-								<td><a href="starXdmForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.star}"/></a></td>
+								<td><a href="starXdmForm?seq=<c:out value="${list.starSeq}"/>"><c:out value="${list.starSeq}"/></a></td>
+								<td><c:out value="${list.star}"></c:out></td>
 								<td><c:out value="${list.starDate}"></c:out><br></td>
-								<td><c:out value="${list.menuSeq}"></c:out><br></td>
+								<td><c:out value="${list.menu_seq}"></c:out><br></td>
 							</tr>
 							</c:forEach>
 						</c:otherwise>

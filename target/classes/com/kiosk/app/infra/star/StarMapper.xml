@@ -9,7 +9,7 @@
 		<resultMap type="com.kiosk.app.infra.star.Star" id="resultMapObj"></resultMap>
 	 
 	 	<sql id="starTable">
-	 		seq,
+	 		starSeq,
 	 		star,
 	 		starDate,
 	 		menu_seq
@@ -45,7 +45,7 @@
 	 		from
 	 			star
 	 		where 1=1
-	 			and	seq = #{seq}
+	 			and	starSeq = #{starSeq}
 	 			<!-- 문자 검색은 대부분 like를 사용 -->
 	 	
 	 	
@@ -57,7 +57,7 @@
 	 	set
 	 		star = #{star}
 	 	where 1=1
-	 		and seq = #{seq}
+	 		and starSeq = #{starSeq}
 	 </update>
 	 
 	 <delete id="delete">
@@ -65,7 +65,7 @@
 	 	from
 	 		star
 	 	where 1=1
-	 		and seq = #{seq}
+	 		and starSeq = #{starSeq}
 	 </delete>
 	 
 	 <insert id="insert">
@@ -100,6 +100,6 @@
 	 	set
 	 		menu_seq = #{menuSeq}
 	 	where 1=1
-	 		and seq = #{seq} 
+	 		and starSeq = #{starSeq}
 	 </update>
 	 </mapper>
