@@ -144,36 +144,40 @@
                                    <img src="" alt="">
                                    <p>냠</p>
                                    <p>1,000원</p>
+                                   </a></li>
                            </ul>
                            <button class="modalOptionCloseBtn btnBorder">
                                닫기
                            </button>
                        </div>
-                       <div class="modalStarRightBox">
-                           <p>
-                           		이전에 이 음식을 드셔보셨다면 별점을 등록해주세요!
-                           </p>
-                       <div class="stars modalStarBox">
-	                       <fieldset class="rate fa-solid">
-	                          <input type="radio" id="rating10" name="rating" value="10"><label for="rating10" title="5점"></label>
-	                          <input type="radio" id="rating8" name="rating" value="8"><label for="rating8" title="4점"></label>
-	                          <input type="radio" id="rating6" name="rating" value="6"><label for="rating6" title="3점"></label>
-	                          <input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="2점"></label>
-	                          <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
-	                      </fieldset>
-                       </div>
-                           <button class="btnColor submitBtn">
-                               등록하기
-                           </button>
-                           <button class="btnBorder closeStarBox">
-                               안 할래요
-                           </button>
-                       </div>
+                       <form name="star" method="post">
+	                       <div class="modalStarRightBox">
+	                           <p>
+	                           		이전에 이 음식을 드셔보셨다면 별점을 등록해주세요!
+	                           </p>
+	                       <div class="stars modalStarBox">
+		                       <fieldset class="rate fa-solid">
+		                          <input type="radio" id="rating10" name="rating" value="10"><label for="rating10" title="5점"></label>
+		                          <input type="radio" id="rating8" name="rating" value="8"><label for="rating8" title="4점"></label>
+		                          <input type="radio" id="rating6" name="rating" value="6"><label for="rating6" title="3점"></label>
+		                          <input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="2점"></label>
+		                          <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
+		                      </fieldset>
+	                       </div>
+	                           <button class="btnColor submitBtn" type="button">
+	                               등록하기
+	                           </button>
+	                           <button class="btnBorder closeStarBox" type="button">
+	                               안 할래요
+	                           </button>
+	                       </div>
+                       </form>
+                       
                    </div>
                    </div>
                 </div>
             </div>
-
+		
         <div class="orderContainer">
             <div class="orderContainerRight">
                 <div class="countTimeBox">
