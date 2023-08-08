@@ -55,11 +55,15 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+    <!-- Head영역 include -->
+    <%@include file="../include/xdmHead.jsp" %>
 </head>
 
 <body>
 
-<%@include file="codegroupTop.jsp"%>
+<!-- Header / nav 영역 include -->
+<%@include file="../include/xdmHeader.jsp"%>
+<%@include file="../include/xdmNav.jsp"%>
 
   <main id="main" class="main">
 
@@ -93,6 +97,7 @@
 	                <tr>
 		                <td><input type="text" class="form-control" id="seq" name="seq" placeholder="Auto Increment" required readonly value="<c:out value="${item.seq}"/>"></td>
 		                <td><input type="text" class="form-control" id="phoneNum" name="phoneNum" value="<c:out value="${item.phoneNum}"/>"></td>
+                        <td><input type="text" class="form-control" id="countStamp" name="countStamp" value="<c:out value="${item.countStamp}"/>"></td>
 					</tr>
 	                </tbody>
               		</table>
@@ -132,7 +137,7 @@
 
   </main><!-- End #main -->
 
-<%@include file="codegroupBottom.jsp"%>
+<%@include file="../include/xdmFooter.jsp"%>
 
   <!-- Vendor JS Files -->
   <script src="/resources/assets/vendor/apexcharts/apexcharts.min.js"></script>
