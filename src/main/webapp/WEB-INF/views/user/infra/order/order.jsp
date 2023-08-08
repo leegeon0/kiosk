@@ -144,7 +144,7 @@
                                    <img src="" alt="">
                                    <p>냠</p>
                                    <p>1,000원</p>
-                                   </a></li>
+                                   </a></li> 
                            </ul>
                            <button class="modalOptionCloseBtn btnBorder">
                                닫기
