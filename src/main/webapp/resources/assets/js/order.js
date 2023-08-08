@@ -50,8 +50,8 @@ $(function(){
             if(num != now){
                 $count.val(num);
             }
-            
-           	modalPrice.text(setPrice * num);
+            let countPrice = setPrice * num;
+           	modalPrice.text(countPrice.toLocaleString());
         }
     });
 
