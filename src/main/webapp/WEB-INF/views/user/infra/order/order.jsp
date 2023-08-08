@@ -486,6 +486,8 @@
             $(".modalStarRightBox").css('display','none');
             $(".modalOptionBtn").css('display','block');
         });
+        
+        
           
     
 
