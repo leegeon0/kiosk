@@ -19,13 +19,7 @@ $(function(){
         
     });*/
 
-    $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){
-        $(".modalLeftBox,.modal_bg").fadeOut();
-        $(".modalLeftBox").css('width','650px');
-        $(".modalOptionRightBox").css('display','none');
-        $(".modalStarRightBox").css('display','none');
-        $(".modalOptionBtn").css('display','block');
-    });
+
 
 
 

@@ -109,7 +109,7 @@ public class MenuController {
 	
 	@ResponseBody
 	@RequestMapping("/menu")
-	public Map<String, Object> loginMember(MenuVo vo, HttpSession httpSession ) {
+	public Map<String, Object> menuSelectList(MenuVo vo, HttpSession httpSession ) {
 		
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		

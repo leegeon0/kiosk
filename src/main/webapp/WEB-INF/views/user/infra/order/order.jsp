@@ -93,7 +93,7 @@
                        	<div class="modalBox">
                            	<img src="" alt="" id="modalImg">
                            	<div class="modal_info">
-                               	<p id="modalName"></p>
+                               	<p><span id="modalName"></span></p>
                                	<div class="count_box">
                                    	<div class="count-wrap _count">
                                        	<button type="button" class="minus">-</button>
@@ -363,31 +363,53 @@
     <script>
     
 	$(document).ready(function(){
+    	var categoryValue = 1;    	
+    	$.ajax({
+    		async: true 
+    		,cache: false
+    		,type: "post"
+    	
+    		,url: "/menu"
+    
+    		,data : {
+    			"category" : categoryValue}
+    		,success: function(response) {
+    			
+    				if(response.rt == "success") {
+    					 var htmlContent = '';
+	    			      if (response.rtMenu.length > 0) {
+	    			        $.each(response.rtMenu, function(index, item) {
+	    			          htmlContent += '<li class="popup_btn" data-category="' + item.category + '">';
+	    			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
+	    			          htmlContent += '<div class="menuNames">';
+	    			          htmlContent += '<div class="stars">';
+	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
+	    			          htmlContent += '</div>';
+	    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>' + '<br>';
+	    			          htmlContent += '<p class="menuPrice" data-menuName="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
+	    			          htmlContent += '</div>';
+	    			          htmlContent += '</li>';
+	    			          
+	    			         
+
+	    			        });
+	    			      } else {
+	    			        htmlContent = '<p>데이터가 없습니다!</p>';
+	    			      }
+	    			       $("#menuList").html(htmlContent);
+	    				
+    				}
+    		}
+    		,error : function(jqXHR, textStatus, errorThrown){
+    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+    		}
+    	});
+
 		
-		 var categoryValue = 1;
-	      	$("#menuList>li").on("click", function () {  
-		       	 var menuImg = $(this).find("img").attr("src");
-		       	 var menuPrice = $(this).find(".menuPrice").data("menuPrice");
-		       	 var menuName = $(this).find(".menuName").data("menuName");
-		   		 $(".modalLeftBox,.modal_bg").fadeIn();
-		   		 $("#modalImg").attr("src", menuImg);
-		   		 $("#modalPrice").text(menuPrice);
-		   		 $("#modalName").data(menuName);
-	      	});
-		 
-/* 
-		  // 이벤트 핸들러 등록
-		  $(".categoryBtn").on("click", function() {
-		    // 클릭한 버튼의 값을 categoryValue에 설정
-		    categoryValue = $(this).val();
-			
-		    
-		    
-		    // AJAX 호출 및 처리
-		    // ... (이전 코드와 동일한 AJAX 부분)
-		  });
-		
- */
 	}); 
     
 	
@@ -400,9 +422,9 @@
 	    		async: true 
 	    		,cache: false
 	    		,type: "post"
-	    		/* ,dataType:"json" */
+	    	
 	    		,url: "/menu"
-	    		/* ,data : $("#formLogin").serialize() */
+	    
 	    		,data : {
 	    			"category" : categoryValue}
 	    		,success: function(response) {
@@ -414,7 +436,7 @@
 		    			        $.each(response.rtMenu, function(index, item) {
 		    			          htmlContent += '<li class="popup_btn" data-category="' + item.category + '">';
 		    			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
-		    			          htmlContent += '<div class="menuName">';
+		    			          htmlContent += '<div class="menuNames">';
 		    			          htmlContent += '<div class="stars">';
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
@@ -427,18 +449,8 @@
 		    			          htmlContent += '</div>';
 		    			          htmlContent += '</li>';
 		    			          
-		    			          
-		    			      	$("#menuList").on("click","li", function () {  
-		    			       	 var menuImg = $(this).find("img").attr("src");
-		    			       	 var menuPrice = $(this).find(".menuPrice").data("menuPrice");
-		    			       	 var menuName = $(this).find(".menuName").data("menuName");
-		    			   		 $(".modalLeftBox,.modal_bg").fadeIn();
-		    			   		 $("#modalImg").attr("src", menuImg);
-		    			   		 $("#modalPrice").text(menuPrice);
-		    			   		 $("#modalName").data(menuName);
-		    			   		 console.log(this);
-		    			   	});
-		    			          
+		    			         
+
 		    			        });
 		    			      } else {
 		    			        htmlContent = '<p>데이터가 없습니다!</p>';
@@ -459,8 +471,28 @@
 	    });
 
 		
+      	$("#menuList").on("click", "li", function () {  
+      	    var menuImg = $(this).find("img").attr("src");
+      	    var menuPrice = $(this).find(".menuPrice").attr("data-menuPrice");
+      	    var menuName = $(this).find(".menuName").attr("data-menuName");
+      	  	$(".modalLeftBox,.modal_bg").fadeIn();
+      	    $("#modalImg").attr("src", menuImg);
+      	    $("#modalPrice").text(menuPrice);
+      	    $("#modalName").text(menuName);
+      	    console.log("menuPrice:", menuPrice);
+      	    console.log("menuName:", menuName);
+      	  console.log("menuImg:", menuImg);
+      	});
 
-		
+      	
+        $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){
+            $(".modalLeftBox,.modal_bg").fadeOut();
+            $(".modalLeftBox").css('width','650px');
+            $(".modalOptionRightBox").css('display','none');
+            $(".modalStarRightBox").css('display','none');
+            $(".modalOptionBtn").css('display','block');
+        });
+          
     
 
     </script>
