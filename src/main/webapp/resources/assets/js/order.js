@@ -19,9 +19,12 @@ $(function(){
         
     });*/
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> branch 'main' of https://github.com/leegeon0/kiosk.git
 
     $('._count :button').on({
         'click' : function(e){
@@ -32,6 +35,9 @@ $(function(){
             var max = 999;
             var num = now;
             var modalPrice = $('#modalPrice');
+            var setPrice = modalPrice.attr("data-menuprice").replace(',',"");
+/*            var result = parseInt(setPrice);*/
+            
             if($(this).hasClass('minus')){
                 var type = 'm';
             }else{
@@ -50,9 +56,19 @@ $(function(){
                 $count.val(num);
             }
             
-            modalPrice.text(15000*num)
-            console.log(modalPrice.text())
+            modalPrice.text(setPrice * num);
+            
         }
+    });
+    
+    
+        $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){
+        $(".modalLeftBox,.modal_bg").fadeOut();
+        $(".modalLeftBox").css('width','650px');
+        $(".modalOptionRightBox").css('display','none');
+        $(".modalStarRightBox").css('display','none');
+        $(".modalOptionBtn").css('display','block');
+        $('.inp').val(1);
     });
 
 
@@ -100,4 +116,24 @@ $(function(){
 	$(".modalOrderBtn").on("click",function(){
 		console.log(this);
 	});
+	
+	
+	
+	/*자동 종료시간 카운트 다운*/
+	function countDown(e){
+		var count = 120; // 시간
+		var countTime = setInterval(function() {
+			if(count >= 0) {
+				$('.countDown').text(count);
+				count--;
+			} else {
+				count = 0;
+				clearInterval(countTime)
+			}
+		},1000);		
+
+	};
+	countDown();
+
+
 });

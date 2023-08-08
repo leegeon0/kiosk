@@ -38,12 +38,12 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="아돈노와이얼유두잉디스ㅂㅈ">
+            <a href="customerXdmList">
               <i class="bi bi-circle"></i><span>CustomerNum</span>
             </a>
           </li>
           <li>
-            <a href="starXdmList">
+            <a href="stampXdmList">
               <i class="bi bi-circle"></i><span>CustomerStamp</span>
             </a>
           </li>

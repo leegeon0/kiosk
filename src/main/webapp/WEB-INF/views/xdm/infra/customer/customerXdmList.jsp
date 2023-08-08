@@ -53,11 +53,16 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+    <!-- Head영역 include -->
+    <%@include file="../include/xdmHead.jsp" %>
 </head>
 
 <body>
 
-	<%@include file="codegroupTop.jsp"%>
+<!-- Header / nav 영역 include -->
+<%@include file="../include/xdmHeader.jsp"%>
+<%@include file="../include/xdmNav.jsp"%>
 
 
   <main id="main" class="main">
