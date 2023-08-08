@@ -3,6 +3,8 @@ package com.kiosk.app.infra.customer;
 public class Customer {
 	private String seq;
 	private String phoneNum;
+
+	private String countStamp;
 	public String getSeq() {
 		return seq;
 	}
@@ -20,4 +22,11 @@ public class Customer {
 		this.phoneNum = phoneNum;
 	}
 
+	public String getCountStamp() {
+		return countStamp;
+	}
+
+	public void setCountStamp(String countStamp) {
+		this.countStamp = countStamp;
+	}
 }

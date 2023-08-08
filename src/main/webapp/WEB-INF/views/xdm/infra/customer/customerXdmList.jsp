@@ -114,6 +114,7 @@
 		                <tr>
 		                    <th scope="col">seq</th>
 		                    <th scope="col">phoneNum</th>
+                            <th scope="col">countStamp</th>
 		                </tr>
                 	</thead>
 	                <tbody>
@@ -128,6 +129,7 @@
 							<tr>
 								<td><c:out value="${list.seq}"></c:out></td>
 								<td><a href="customerForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.phoneNum}"/></a></td>
+                                <td><c:out value="${list.countStamp}"></c:out></td>
 							</tr>
 							</c:forEach>
 						</c:otherwise>

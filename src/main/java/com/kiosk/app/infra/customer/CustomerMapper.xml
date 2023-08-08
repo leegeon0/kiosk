@@ -10,7 +10,8 @@
  
  	<sql id="abc">
  		seq,
-		phoneNum
+		phoneNum,
+ 		countStamp
 	</sql>
  
  
@@ -65,6 +66,7 @@
  		customer
  	set
  		phoneNum = #{phoneNum}
+		countStamp = #{countStamp}
  	where 1=1
  		and seq = #{seq}
  </update>
@@ -88,6 +90,7 @@
  			phoneNum
  		)value(
  			#{phoneNum}
+ 	    	#{countStamp}
  		)
  
  </insert>
