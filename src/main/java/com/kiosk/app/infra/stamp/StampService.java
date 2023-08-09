@@ -16,6 +16,6 @@ public interface StampService {
 	
 	public int insert(Stamp dto);
 
-//	public List<Stamp>test(StampVo vo);
+	public List<Stamp>test(StampVo vo);
 
 }

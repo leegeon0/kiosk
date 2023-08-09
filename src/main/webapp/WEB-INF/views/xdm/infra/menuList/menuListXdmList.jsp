@@ -63,11 +63,9 @@
 				   
                 	<thead>
 		                <tr>
-		                    <th scope="col">seq</th>
-   		                    <th scope="col">menu_seq</th>
-		                    <th scope="col">menuName</th>
+		                    <th scope="col">menuListSeq</th>
 		                    <th scope="col">menuQuantity</th>
-		                    <th scope="col">menuPrice</th>	                    
+		                    <th scope="col">menu_seq</th>
 		                </tr>
                 	</thead>
 	                <tbody>
@@ -81,17 +79,15 @@
 							<c:forEach items="${list}" var="list" varStatus="status">
 							<tr>
 								<td><c:out value="${list.menuListSeq}"></c:out></td>
-								<td><c:out value="${list.menu_seq}"></c:out></td>
-								<td><c:out value="${list.menuName}"></c:out></td>
 								<td><a href="menuListXdmForm?seq=<c:out value="${list.menuListSeq}"/>"><c:out value="${list.menuQuantity}"/></a></td>
-								<td><c:out value="${list.menuPrice}"></c:out><br></td>
+								<td><c:out value="${list.menu_seq}"></c:out></td>
 							</tr>
 							</c:forEach>
 						</c:otherwise>
 						</c:choose>
 	                </tbody>
               		</table>
-              		<a href="menuXdmForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
+              		<a href="menuListXdmForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
               		<div class="container-fluid px-0 mt-2">
 					    <div class="row">
 					        <div class="col">

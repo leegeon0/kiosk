@@ -85,18 +85,16 @@
 				   <table class="table">
                 	<thead>
 		                <tr>
-		                    <th scope="col">seq</th>
+		                    <th scope="col">stampSeq</th>
 		                    <th scope="col">stampNy</th>
-		                    <th scope="col">countStamp</th>
 		                    <th scope="col">countStampUseDate</th>
 		                    <th scope="col">customer_seq</th>
 		                </tr>
                 	</thead>
 	                <tbody>
 	                <tr>
-		                <td><input type="text" class="form-control" id="seq" name="seq" placeholder="Auto Increment" required readonly value="<c:out value="${item.seq}"/>"></td>
+		                <td><input type="text" class="form-control" id="stampSeq" name="stampSeq" placeholder="Auto Increment" required readonly value="<c:out value="${item.stampSeq}"/>"></td>
 		                <td><input type="text" class="form-control" id="stampNy" name="stampNy" value="<c:out value="${item.stampNy}"/>"></td>
-		                <td><input type="text" class="form-control" id="countStamp" name="countStamp" value="<c:out value="${item.countStamp}"/>"></td>
 		                <td><input type="text" class="form-control" id="countStampUseDate" name="countStampUseDate" value="<c:out value="${item.countStampUseDate}"/>"></td>
 		                <td><input type="text" class="form-control" id="costomer_seq" name="costomer_seq" value="<c:out value="${item.customer_seq}"/>"></td>
 					</tr>

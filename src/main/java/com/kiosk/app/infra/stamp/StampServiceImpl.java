@@ -47,10 +47,10 @@ public class StampServiceImpl implements StampService{
 		return dao.insert(dto);
 	}
 
-//	@Override
-//	public List<Stamp> test(StampVo vo) {
-//		return dao.test(vo);
-//	}
+	@Override
+	public List<Stamp> test(StampVo vo) {
+		return dao.test(vo);
+	}
 
 
 }

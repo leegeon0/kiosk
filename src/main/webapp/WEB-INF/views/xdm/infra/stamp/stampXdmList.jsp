@@ -11,7 +11,7 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 
-
+<jsp:useBean id="StampServiceImpl" class="com.kiosk.app.infra.stamp.StampServiceImpl"/>
 
 
 
@@ -260,13 +260,13 @@
 
                                             <tr>
 
-                                                <td><a href="customerForm?seq=<c:out value="${list2.stampSeq}"/>"><c:out value="${list.stampSeq}"/></a></td>
+                                                <td><a href="stampForm?seq=<c:out value="${list.stampSeq}"/>"><c:out value="${list.stampSeq}"/></a></td>
 
                                                 <td><c:out value="${list.stampNy}"></c:out></td>
 
                                                 <td><c:out value="${list.countStampUseDate}"></c:out></td>
 
-                                                <td><c:out value="${list.customer_seq}"></c:out></td>
+                                                <td><c:out value="${list.phoneNum}"></c:out></td>
 
                                             </tr>
 
@@ -280,7 +280,7 @@
 
                             </table>
 
-                            <a href="customerForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
+                            <a href="stampForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
 
                             <div class="container-fluid px-0 mt-2">
 

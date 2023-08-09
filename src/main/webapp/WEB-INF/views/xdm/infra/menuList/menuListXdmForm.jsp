@@ -51,14 +51,14 @@
 				   <table class="table">
                 	<thead>
 		                <tr>
-		                    <th scope="col">seq</th>
+		                    <th scope="col">menuListSeq</th>
 		                    <th scope="col">menuQuantity</th>
 		                    <th scope="col">menu_seq</th>
 		                </tr>
                 	</thead>
 	                <tbody>
 	                <tr>
-		                <td><input type="text" class="form-control" id="seq" name="seq" placeholder="Auto Increment" required readonly value="<c:out value="${item.menuListSeq}"/>"></td>
+		                <td><input type="text" class="form-control" id="menuListSeq" name="menuListSeq" placeholder="Auto Increment" required readonly value="<c:out value="${item.menuListSeq}"/>"></td>
 		                <td><input type="text" class="form-control" id="menuQuantity" name="menuQuantity" value="<c:out value="${item.menuQuantity}"/>"></td>
 		                <td><input type="text" class="form-control" id="menu_seq" name="menu_seq" value="<c:out value="${item.menu_seq}"/>"></td>
 					</tr>

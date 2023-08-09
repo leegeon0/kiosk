@@ -33,9 +33,9 @@ public class StampDao {
 		
 	}
 
-//	public List<Stamp> test(StampVo vo) {
-//		return sqlSession.selectList(namespace + ".selectList", vo);
-//	}
+	public List<Stamp> test(StampVo vo) {
+		return sqlSession.selectList(namespace + ".test", vo);
+	}
 	
 	
 	public int update(Stamp dto) {

@@ -26,8 +26,10 @@ public class StampVo {
 	
 	private Integer shOption;
 	private String shKeyword;
-	private String seq;
-	//예를 들어 로그인을 했을 때 db에 전달해주는 정보를 입력해주는 파일(seq = 순서 keyword = 검색 키워드(여기까지는 필수) option = 셀렉트 번호임)  
+	private String stampSeq;
+	//예를 들어 로그인을 했을 때 db에 전달해주는 정보를 입력해주는 파일(seq = 순서 keyword = 검색 키워드(여기까지는 필수) option = 셀렉트 번호임)
+
+	private String phoneNum;
 // ----------
 	public Integer getShOption() {
 		return shOption;
@@ -35,12 +37,24 @@ public class StampVo {
 	public void setShOption(Integer shOption) {
 		this.shOption = shOption;
 	}
-	public String getSeq() {
-		return seq;
+
+
+	public String getStampSeq() {
+		return stampSeq;
 	}
-	public void setSeq(String seq) {
-		this.seq = seq;
+
+	public void setStampSeq(String stampSeq) {
+		this.stampSeq = stampSeq;
 	}
+
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+
 	public String getShKeyword() {
 		return shKeyword;
 	}
@@ -48,8 +62,8 @@ public class StampVo {
 		this.shKeyword = shKeyword;
 	}
 
-	
-	
+
+
 	public int getThisPage() {
 		return thisPage;
 	}

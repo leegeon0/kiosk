@@ -119,18 +119,21 @@
 
 	</select>
 
-<!--	<select id="test" resultMap="resultMapObj">-->
 
-<!--		select-->
-<!--			s.stampSeq,-->
-<!--			s.stampNy,-->
-<!--			s.countStampUseDate,-->
-<!--			c.phoneNum-->
-<!--		from-->
-<!--			stamp s-->
-<!--				join customer c on s.customer_seq = c.seq;-->
 
-<!--	</select>-->
+
+	<select id="test" resultMap="resultMapObj">
+
+		select
+			s.stampSeq,
+			s.stampNy,
+			s.countStampUseDate,
+			c.phoneNum
+		from
+			stamp s
+				join customer c on s.customer_seq = c.seq;
+
+	</select>
 
 
 
@@ -150,9 +153,7 @@
 
 			stampNy = #{stampNy},
 
-			countStampUseDate = #{countStampUseDate},
-
-			customer_seq = #{customer_seq}
+			countStampUseDate = #{countStampUseDate}
 
 		where 1=1
 
@@ -206,7 +207,7 @@
 
 			#{countStampUseDate},
 
-			#{customer_seq}
+		    #{customer_seq}
 
 			)
 

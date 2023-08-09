@@ -12,6 +12,8 @@ public class Stamp {
 
 	private String customer_seq;
 
+	private String phoneNum;
+
 
 
 
@@ -51,5 +53,13 @@ public class Stamp {
 
 	public void setCustomer_seq(String customer_seq) {
 		this.customer_seq = customer_seq;
+	}
+
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
 	}
 }
