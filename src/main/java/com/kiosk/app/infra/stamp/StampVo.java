@@ -1,5 +1,8 @@
 package com.kiosk.app.infra.stamp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StampVo {
 //	paging
 	private int thisPage = 1;									// 현재 페이지

@@ -17,16 +17,17 @@ public class StampController {
 	@RequestMapping("/stampXdmList")
 	public String customerXdmList(@ModelAttribute("vo") StampVo vo,Model model) {
 
-		List<Stamp> test = service.test(vo);
-		model.addAttribute("list",test);
+		/*
+		 * List<StampVo> test = service.test(vo); model.addAttribute("list",test);
+		 */
 
 		vo.setShKeyword(vo.getShKeyword() == null ? "": vo.getShKeyword()); 
 		
 		vo.setParamsPaging(service.selectOneCount(vo));
 		
 		if(vo.getTotalRows()>0) {
-			List<Stamp> list = service.selectList(vo);
-			model.addAttribute("list",list);
+			List<StampVo> test = service.test(vo);
+			model.addAttribute("list",test);
 		} else {
 			// by pass
 		}

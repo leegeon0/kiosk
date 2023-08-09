@@ -33,7 +33,7 @@ public class StampDao {
 		
 	}
 
-	public List<Stamp> test(StampVo vo) {
+	public List<StampVo> test(StampVo vo) {
 		return sqlSession.selectList(namespace + ".test", vo);
 	}
 	

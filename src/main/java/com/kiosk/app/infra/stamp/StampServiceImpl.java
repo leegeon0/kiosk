@@ -48,7 +48,7 @@ public class StampServiceImpl implements StampService{
 	}
 
 	@Override
-	public List<Stamp> test(StampVo vo) {
+	public List<StampVo> test(StampVo vo) {
 		return dao.test(vo);
 	}
 
