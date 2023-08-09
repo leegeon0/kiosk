@@ -110,14 +110,25 @@ $(function(){
 				count--;
 			} else {
 				count = 0;
-				clearInterval(countTime)
+				clearInterval(countTime);
+				
+				/*var link = '/userMain';
+   					 window.location.href = link; */ 
 			}
 		},1000);
 		
+		document.onmousedown = function clickEvent() {
+		var target = window.event;
 		
+		if(target) {
+			count = 120;
+		}
+	}
 
 	};
 	countDown();
+	
+
 	
 
 });
