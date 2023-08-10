@@ -2,6 +2,9 @@ package com.kiosk.app.infra.orderList;
 
 import java.util.List;
 
+import com.kiosk.app.infra.order.Order;
+import com.kiosk.app.infra.order.OrderServiceImpl;
+import com.kiosk.app.infra.order.OrderVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class OrderListController {
 	
 	@Autowired
-	OrderListServiceImpl service;
+	OrderServiceImpl service;
 	
-	@RequestMapping("/orderListXdmList")
-	public String orderListXdmList(@ModelAttribute("vo") OrderListVo vo,Model model) {
+	@RequestMapping("/orderXdmList")
+	public String orderListXdmList(@ModelAttribute("vo") OrderVo vo,Model model) {
 		
 		
 		vo.setShKeyword(vo.getShKeyword() == null ? "": vo.getShKeyword()); 
@@ -23,14 +26,14 @@ public class OrderListController {
 		vo.setParamsPaging(service.selectOneCount(vo));
 		
 		if(vo.getTotalRows()>0) {
-			List<OrderList> list = service.selectList(vo);
+			List<Order> list = service.selectList(vo);
 			model.addAttribute("list",list);
 		} else {
 			// by pass
 		}
 		
 		
-		return "xdm/infra/orderList/orderListXdmList";
+		return "xdm/infra/order/orderXdmList";
 	}
 	
 	
@@ -47,49 +50,49 @@ public class OrderListController {
 //
 //	}
 	
-	@RequestMapping("/orderListForm")
-	public String orderListForm(OrderListVo vo, Model model) {
+	@RequestMapping("/orderForm")
+	public String orderListForm(OrderVo vo, Model model) {
 
-		OrderList item = service.selectOne(vo);
+		Order item = service.selectOne(vo);
 
 //		왼쪽의 list는 isp에서 사용할 변수명
 		model.addAttribute("item", item);
 
-		return "/xdm/infra/orderList/orderListForm";
+		return "/xdm/infra/order/orderForm";
 
 	}
 	
-	@RequestMapping("/orderListDelt")
+	@RequestMapping("/orderDelt")
 
-	public String orderListDelt(OrderList dto) {
+	public String orderDelt(Order dto) {
 
-		System.out.println("orderListDelt");
+		System.out.println("orderDelt");
 		service.delete(dto);
 
-		return "redirect:/orderListXdmList";
+		return "redirect:/orderXdmList";
 
 	}
 	
 	
-	@RequestMapping("/orderListUpdt")
+	@RequestMapping("/orderUpdt")
 
-	public String orderListUpdt(OrderList dto) {
+	public String orderUpdt(Order dto) {
 
-		System.out.println("orderListUpdt");
+		System.out.println("orderUpdt");
 		service.update(dto);
 
-		return "redirect:/orderListXdmList";
+		return "redirect:/orderXdmList";
 
 	}
 	
-	@RequestMapping("/orderListInsert")
+	@RequestMapping("/orderInsert")
 
-	public String orderListInsert(OrderList dto) {
+	public String orderInsert(Order dto) {
 
-		System.out.println("orderListInsert");
+		System.out.println("orderInsert");
 		service.insert(dto);
 
-		return "redirect:/orderListXdmList";
+		return "redirect:/orderXdmList";
 
 	}
 

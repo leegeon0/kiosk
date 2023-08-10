@@ -26,8 +26,10 @@ public class OptionListVo {
 	
 	private Integer shOption;
 	private String shKeyword;
-	private String seq;
-	//예를 들어 로그인을 했을 때 db에 전달해주는 정보를 입력해주는 파일(seq = 순서 keyword = 검색 키워드(여기까지는 필수) option = 셀렉트 번호임)  
+
+	private String optionListSeq;
+	private String optionQuantity;
+	private String optionMenu_seq;
 // ----------
 	public Integer getShOption() {
 		return shOption;
@@ -35,12 +37,7 @@ public class OptionListVo {
 	public void setShOption(Integer shOption) {
 		this.shOption = shOption;
 	}
-	public String getSeq() {
-		return seq;
-	}
-	public void setSeq(String seq) {
-		this.seq = seq;
-	}
+
 	public String getShKeyword() {
 		return shKeyword;
 	}
@@ -48,8 +45,30 @@ public class OptionListVo {
 		this.shKeyword = shKeyword;
 	}
 
-	
-	
+	public String getOptionListSeq() {
+		return optionListSeq;
+	}
+
+	public void setOptionListSeq(String optionListSeq) {
+		this.optionListSeq = optionListSeq;
+	}
+
+	public String getOptionQuantity() {
+		return optionQuantity;
+	}
+
+	public void setOptionQuantity(String optionQuantity) {
+		this.optionQuantity = optionQuantity;
+	}
+
+	public String getOptionMenu_seq() {
+		return optionMenu_seq;
+	}
+
+	public void setOptionMenu_seq(String optionMenu_seq) {
+		this.optionMenu_seq = optionMenu_seq;
+	}
+
 	public int getThisPage() {
 		return thisPage;
 	}

@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="OptionListServiceImpl" class="com.kiosk.app.infra.optionList.OptionListServiceImpl"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -53,11 +54,15 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+	<!-- Head영역 include -->
+	<%@include file="../include/xdmHead.jsp" %>
 </head>
 
 <body>
-
-	<%@include file="codegroupTop.jsp"%>
+<!-- Header / nav 영역 include -->
+<%@include file="../include/xdmHeader.jsp"%>
+<%@include file="../include/xdmNav.jsp"%>
 
 
   <main id="main" class="main">
@@ -107,10 +112,9 @@
 				  	</div>
 				  	 -->
 		                <tr>
-		                    <th scope="col">seq</th>
+		                    <th scope="col">optionListSeq</th>
 		                    <th scope="col">optionQuantity</th>
-		                    <th scope="col">option_seq</th>
-		                    <th scope="col">orderList_orderListID</th>
+		                    <th scope="col">optionMenu_seq</th>
 		                    
 		                </tr>
                 	</thead>
@@ -124,17 +128,16 @@
 						<c:otherwise>
 							<c:forEach items="${list}" var="list" varStatus="status">
 							<tr>
-								<td><a href="optionListForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.seq}"/></a></td>
+								<td><a href="optionListForm?seq=<c:out value="${list.optionListSeq}"/>"><c:out value="${list.optionListSeq}"/></a></td>
 								<td><c:out value="${list.optionQuantity}"></c:out></td>
-								<td><c:out value="${list.option_seq}"></c:out></td>
-								<td><c:out value="${list.orderList_orderListId}"></c:out></td>
+								<td><c:out value="${list.optionMenu_seq}"></c:out></td>
 							</tr>
 							</c:forEach>
 						</c:otherwise>
 						</c:choose>
 	                </tbody>
               		</table>
-              		<a href="customerForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
+              		<a href="optionListForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
               		<div class="container-fluid px-0 mt-2">
 					    <div class="row">
 					        <div class="col">
@@ -180,7 +183,8 @@
 
   </main><!-- End #main -->
 
-  <%@include file="codegroupBottom.jsp"%>
+<!-- Footer영역 include -->
+<%@include file="../include/xdmFooter.jsp"%>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
