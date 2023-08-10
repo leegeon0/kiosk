@@ -77,10 +77,9 @@
 				  	</div>
 				  	 -->
 		                <tr>
-		                    <th scope="col">seq</th>
-		                    <th scope="col">총금액</th>
-		                    <th scope="col">주문시간</th>
-		                    <th scope="col">메뉴리스트seq</th>
+		                    <th scope="col">orderListSeq</th>
+		                    <th scope="col">optionList_seq</th>
+		                    <th scope="col">menuList_seq</th>
 		                </tr>
                 	</thead>
 	                <tbody>
@@ -93,10 +92,9 @@
 						<c:otherwise>
 							<c:forEach items="${list}" var="list" varStatus="status">
 							<tr>
-								<td><a href="customerForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.seq}"/></a></td>
-								<td><c:out value="${list.totalPrice}"></c:out></td>
-								<td><c:out value="${list.orderTime}"></c:out></td>
-								<td><c:out value="${list.menuList_seq}"></c:out></td>
+								<td><a href="customerForm?seq=<c:out value="${list.orderListSeq}"/>"><c:out value="${list.orderListSeq}"/></a></td>
+								<td><c:out value="${list.optionList_seq}"></c:out></td>
+								<td><c:out value="${list.menuList_seq}"></c:out></td>u7
 							</tr>
 							</c:forEach>
 						</c:otherwise>

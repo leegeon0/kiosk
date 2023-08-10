@@ -55,11 +55,15 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+    <!-- Head영역 include -->
+    <%@include file="../include/xdmHead.jsp" %>
 </head>
 
 <body>
 
-<%@include file="codegroupTop.jsp"%>
+<!-- Header / nav 영역 include -->
+<%@include file="../include/xdmHeader.jsp"%>
+<%@include file="../include/xdmNav.jsp"%>
 
   <main id="main" class="main">
 
@@ -85,25 +89,23 @@
 				   <table class="table">
                 	<thead>
 		                <tr>
-		                    <th scope="col">seq</th>
+		                    <th scope="col">optionListSeq</th>
 		                    <th scope="col">optionQuantity</th>
 		                    <th scope="col">option_seq</th>
-		                    <th scope="col">orderList_orderListId</th>
 		                </tr>
                 	</thead>
 	                <tbody>
 	                <tr>
-		                <td><input type="text" class="form-control" id="seq" name="seq" placeholder="Auto Increment" required readonly value="<c:out value="${item.seq}"/>"></td>
+		                <td><input type="text" class="form-control" id="optionListSeq" name="optionListSeq" placeholder="Auto Increment" required readonly value="<c:out value="${item.optionListSeq}"/>"></td>
 		                <td><input type="text" class="form-control" id="optionQuantity" name="optionQuantity" value="<c:out value="${item.optionQuantity}"/>"></td>
-		                <td><input type="text" class="form-control" id="option_seq" name="option_seq" value="<c:out value="${item.option_seq}"/>"></td>
-		                <td><input type="text" class="form-control" id="orderList_orderListId" name="orderList_orderListId" value="<c:out value="${item.orderList_orderListId}"/>"></td>
+		                <td><input type="text" class="form-control" id="optionMenu_seq" name="optionMenu_seq" value="<c:out value="${item.optionMenu_seq}"/>"></td>
 					</tr>
 	                </tbody>
               		</table>
 
 
               		<c:choose>
-						<c:when test="${empty item.seq }">
+						<c:when test="${empty item.optionListSeq}">
 							<button type="button" class="btn btn-primary" id="submitBtn">저장</button>
 						</c:when>
 						<c:otherwise>
@@ -136,7 +138,8 @@
 
   </main><!-- End #main -->
 
-<%@include file="codegroupBottom.jsp"%>
+<!-- Footer영역 include -->
+<%@include file="../include/xdmFooter.jsp"%>
 
   <!-- Vendor JS Files -->
   <script src="/resources/assets/vendor/apexcharts/apexcharts.min.js"></script>

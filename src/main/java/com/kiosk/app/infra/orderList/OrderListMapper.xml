@@ -9,9 +9,8 @@
 	<resultMap type="com.kiosk.app.infra.orderList.OrderList" id="resultMapObj"></resultMap>
  
  	<sql id="abc">
- 		seq,
-		totalPrice,
-		orderTime,
+		orderListSeq,
+		optionList_seq,
 		menuList_seq
 	</sql>
  
@@ -21,7 +20,7 @@
    		FROM    
 	    	orderList
 		WHERE 1=1
-			<if test="shKeyword != null and !shKeyword.equals('')">AND menu_seq LIKE CONCAT('%',#{shKeyword},'%')</if>
+			<if test="shKeyword != null and !shKeyword.equals('')">AND orderListSeq LIKE CONCAT('%',#{shKeyword},'%')</if>
     </sql>
     <!-- 검색 용도 -->
 
@@ -57,7 +56,7 @@
  		from
  			orderList
  		where 1=1
- 			and	seq = #{seq}
+ 			and	orderListSeq = #{orderListSeq}
  	</select>
  	
  	
@@ -66,11 +65,10 @@
  	update
  		orderList
  	set
- 		totalPrice = #{totalPrice},
- 		orderTime = #{orderTime},
- 		menuList_seq = #{menuList_seq}
+		optionList_seq = #{optionList_seq},
+		menuList_seq = #{menuList_seq}
  	where 1=1
- 		and seq = #{seq}
+ 		and orderListSeq = #{orderListSeq}
  </update>
  <!-- 추후에 바뀔 수 있는 컬럼들을 update set에다가 넣음 -->
  
@@ -81,7 +79,7 @@
  	from
  		orderList
  	where 1=1
- 		and seq = #{seq}
+ 		and orderListSeq = #{orderListSeq}
  </delete>
  
  
@@ -89,12 +87,10 @@
  <insert id="insert">
  	insert into 
  		orderList (
- 			totalPrice,
-			orderTime,
- 			menuList_seq
+			optionList_seq,
+			menuList_seq
  		)value(
- 			#{totalPrice},
- 			#{orderTime},
+ 			#{optionList_seq},
  			#{menuList_seq}
  		)
  

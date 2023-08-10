@@ -1,33 +1,30 @@
 package com.kiosk.app.infra.orderList;
 
 public class OrderList {
-	private String seq;
-	private String totalPrice;
-	private String orderTime;
+	private String orderListSeq;
+	private String optionList_seq;
 	private String menuList_seq;
 	
 	
 //	----------------------------------------
-	
 
-	public String getSeq() {
-		return seq;
+
+	public String getOrderListSeq() {
+		return orderListSeq;
 	}
-	public void setSeq(String seq) {
-		this.seq = seq;
+
+	public void setOrderListSeq(String orderListSeq) {
+		this.orderListSeq = orderListSeq;
 	}
-	public String getTotalPrice() {
-		return totalPrice;
+
+	public String getOptionList_seq() {
+		return optionList_seq;
 	}
-	public void setTotalPrice(String totalPrice) {
-		this.totalPrice = totalPrice;
+
+	public void setOptionList_seq(String optionList_seq) {
+		this.optionList_seq = optionList_seq;
 	}
-	public String getOrderTime() {
-		return orderTime;
-	}
-	public void setOrderTime(String orderTime) {
-		this.orderTime = orderTime;
-	}
+
 	public String getMenuList_seq() {
 		return menuList_seq;
 	}
