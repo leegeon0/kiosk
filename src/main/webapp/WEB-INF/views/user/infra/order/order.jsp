@@ -431,7 +431,7 @@
 		/* 옵션 출력 ajax  */
 		var optionDelNyValue = 1;
 		$.ajax({
-	        async: true,
+	        async: false,
 	        cache: false,
 	        type: "post",
 	        url: "/option",
