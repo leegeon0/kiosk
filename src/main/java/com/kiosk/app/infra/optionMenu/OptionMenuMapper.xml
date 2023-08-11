@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ 
+<mapper namespace="com.kiosk.app.infra.optionMenu.OptionMenuMapper">
+
+	<resultMap type="com.kiosk.app.infra.optionMenu.OptionMenu" id="resultMapObj"></resultMap>
+ 
+ 	<sql id="abc">
+ 		optionMenuSeq,
+ 		optionImg,
+ 		optionName,
+ 		optionPrice,
+ 		optionSoldOutNy,
+ 		optionDelNy
+ 	</sql>
+ 	<sql id ="selectCommon">
+   		FROM    
+	    	optionMenu
+		WHERE 1=1
+		and optionDelNy = 1
+			<if test="shKeyword != null and !shKeyword.equals('')">
+        		AND (optionPrice LIKE CONCAT('%',#{shKeyword},'%') OR optionName LIKE CONCAT('%',#{shKeyword},'%'))
+    		</if>
+			<!-- <if test="shKeyword != null and !shKeyword.equals('')">AND id LIKE CONCAT('%',#{shKeyword},'%')</if> -->
+			
+    </sql>
+
+   	<select id="selectOneCount" resultType="Integer">
+		SELECT count(*)
+		<include refid="selectCommon" />
+	</select>
+
+   	<select id="selectList" resultMap="resultMapObj">
+		SELECT aa.* FROM (   	
+	   		SELECT
+				<include refid="abc" />
+	   			<include refid="selectCommon" />
+		) aa
+		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
+   	</select>
+ 
+ 
+ 
+
+ 	
+ 	<select id="selectOne" resultMap="resultMapObj">
+ 		select
+ 			<include refid="abc" />
+ 		from
+ 			optionMenu
+ 		where 1=1
+ 			and	optionMenuSeq = #{optionMenuSeq}
+ 			<!-- 문자 검색은 대부분 like를 사용 -->
+ 	
+ 	
+ 	</select>
+ 	
+ 	 <select id="selectTwo" resultMap="resultMapObj">
+ 		select
+ 			<include refid="abc" />
+ 		from
+ 			optionMenu
+ 		where 1=1
+ 			and	optionName = #{optionName}
+ 			and optionPrice = #{optionPrice}
+ 			<!-- 문자 검색은 대부분 like를 사용 -->
+ 	
+ 	</select>
+<!--  	
+ 	<select id="selectOneCheckId" resultType="Integer">
+ 		select
+ 			count(name)
+ 		from
+ 			kioskAccount
+ 		where 1=1
+ 			and name = #{name}
+ 	</select>
+ 	 -->
+ 	 
+ 	   <select id="optionSelectList" resultMap="resultMapObj">
+ 		select
+ 			optionImg,
+ 			optionName,
+ 			optionPrice
+ 		from
+ 			optionMenu
+ 		where 1=1
+ 			and	optionDelNy = #{optionDelNy}
+ 			
+ 			<!-- 문자 검색은 대부분 like를 사용 -->
+ 	
+ 	</select>
+ 			
+
+ 	
+ 	
+ 	
+ <update id="update" >
+ 	update
+ 		optionMenu
+ 	set
+ 		optionName = #{optionName},
+ 		optionPrice = #{optionPrice}
+ 	where 1=1
+ 		and optionMenuSeq = #{optionMenuSeq}
+ </update>
+ 
+ <delete id="delete">
+ 	delete
+ 	from
+ 		optionMenu
+ 	where 1=1
+ 		and optionMenuSeq = #{optionMenuSeq}
+ </delete>
+ 
+ <insert id="insert">
+ 	insert into optionMenu
+ 	(
+ 		optionImg,
+ 		optionName,
+ 		optionPrice,
+ 		optionSoldOutNy,
+ 		optionDelNy
+ 		)value(
+ 			#{optionImg},
+ 			#{optionName},
+ 			#{optionPrice},
+ 			#{optionSoldOutNy},
+ 			#{optionDelNy}
+ 		<!-- 	
+		 <choose>
+            <when test="delNy == null or delNy == '' or delNy == 0">
+                1
+            </when>
+            <when test="delNy == '1' or delNy == 1 ">
+                1
+            </when>
+            <otherwise>
+                <![CDATA[(SELECT 1/0)]]>
+            </otherwise>
+        </choose>
+         -->
+ 			<!-- 여기에 delNy값을 설정해야함 -->
+ 		)
+ 
+ </insert>
+ 	
+ <update id="uelete">
+	update
+ 		optionMenu
+ 	set
+ 		optionSoldOutNy = #{optionSoldOutNy},
+ 		optionDelNy = #{optionDelNy}
+ 	where 1=1
+ 		and optionMenuSeq = #{optionMenuSeq} 
+ </update>
+ </mapper>

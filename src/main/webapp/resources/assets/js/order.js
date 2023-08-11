@@ -87,10 +87,6 @@ $(function(){
         $(".modalLeftBox").css('width','650px');
     });
 
-    $(".modalOptionBox li").click(function(){
-        $(this).toggleClass('selected');
-    });
-
     $(".closeStarBox").click(function(){
         $(".modalStarRightBox").css('display','none');
         $(".modalLeftBox").css('width','650px');
