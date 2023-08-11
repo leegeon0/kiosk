@@ -452,8 +452,8 @@
 	                        if (item.optionDelNy == null) {
 	                            var listItem = '<li class="selectOption">' +
 	                                '<img alt="메뉴사진" src="' + item.optionImg + '">' +
-	                                '<p class="optionName" data-menuName="' + item.optionName + '">' + item.optionName + '</p>' +
-	                                '<p class="optionPrice" data-menuPrice="' + item.optionPrice + '">' + item.optionPrice + '</p>' +
+	                                '<p class="optionName" data-optionName="' + item.optionName + '">' + item.optionName + '</p>' +
+	                                '<p class="optionPrice" data-optionPrice="' + item.optionPrice + '">' + item.optionPrice + '</p>' +
 	                                '</li>';
 	                            modalOptionBox.append(listItem);
 	                        }
@@ -494,16 +494,7 @@
             	$('.inp').val(1);
             },500);
         });
-        
-        
-        $(document).on("click",$(".selectOption"),function(){
-        	/* $(".selectOption").toggleClass("selected"); */
-        	$(".selectOption").on("click", function(){
-        		$(this).toggleClass("selected");
-        	});
-        });
-
-	   	
+        	   	
     </script>
 </body>
 

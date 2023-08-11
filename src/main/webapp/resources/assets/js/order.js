@@ -125,6 +125,11 @@ $(function(){
 	countDown();
 	
 
-	
+    $(document).on("click",$(".selectOption"),function(){
+	/* $(".selectOption").toggleClass("selected"); */
+	$(".selectOption").on("click", function(){
+		$(this).toggleClass("selected");
+		});
+	});
 
 });
