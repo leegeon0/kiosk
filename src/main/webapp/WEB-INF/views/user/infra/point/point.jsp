@@ -33,18 +33,18 @@
                     <input type="tel" name="phoneNumber" id="phoneNumber" value="010-">
                 </form>
                 <div class="keypad">
-                    <button class="num1 btnBorder numberPad">1</button>
-                    <button class="num2 btnBorder numberPad">2</button>
-                    <button class="num3 btnBorder numberPad">3</button>
-                    <button class="num4 btnBorder numberPad">4</button>
-                    <button class="num5 btnBorder numberPad">5</button>
-                    <button class="num6 btnBorder numberPad">6</button>
-                    <button class="num7 btnBorder numberPad">7</button>
-                    <button class="num8 btnBorder numberPad">8</button>
-                    <button class="num9 btnBorder numberPad">9</button>
-                    <button class="cencel btnBorder numberPad">C</button>
-                    <button class="num0 btnBorder numberPad">0</button>
-                    <button class="enter btnBorder numberPad">적립</button>
+                    <button class="num1 btnBorder numberPad" id="1">1</button>
+                    <button class="num2 btnBorder numberPad" id="2">2</button>
+                    <button class="num3 btnBorder numberPad" id="3">3</button>
+                    <button class="num4 btnBorder numberPad" id="4">4</button>
+                    <button class="num5 btnBorder numberPad" id="5">5</button>
+                    <button class="num6 btnBorder numberPad" id="6">6</button>
+                    <button class="num7 btnBorder numberPad" id="7">7</button>
+                    <button class="num8 btnBorder numberPad" id="8">8</button>
+                    <button class="num9 btnBorder numberPad" id="9">9</button>
+                    <button class="cencel btnBorder numberPad" id="cancel">C</button>
+                    <button class="num0 btnBorder numberPad" id="0">0</button>
+                    <button class="enter btnBorder numberPad" id="enter">적립</button>
                 </div>
                 <div class="usePayBtn">
                     <button class="skipBtn btnColor">건너뛰기</button>
@@ -60,16 +60,45 @@
     <script src="/resources/assets/js/kiosk.js"></script>
     <script>
 
-        let phoneNumber = $("#phoneNumber").val();
-        if (phoneNumber.length > 8) {
-        phoneNumber = phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
-        }
-        $("#phoneNumber").val(phoneNumber);
+        // let phoneNumber = $("#phoneNumber").val();
+        // if (phoneNumber.length > 8) {
+        // phoneNumber = phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+        // }
+        // $("#phoneNumber").val(phoneNumber);
 
+        // $(document).ready(function() {
+        //     $("#phoneNumber").on("input", function() {
+        //         let input = $(this).val().replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+        //         if (input.length > 11) {
+        //             input = input.substr(0, 11); // 11자리 이상이면 11자리까지 자름
+        //         }
+        //         if (input.length > 8) {
+        //             input = input.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+        //         }
+        //         $(this).val(input);
+        //     });
+        // }); // 이코드는 키보드 숫자키로는 되는데 화면의 숫자패드로는 안됨!!
 
-        
+        $(document).ready(function() {
+            $("#1,#2,#3,#4,#5,#6,#7,#8,#9,#0").off().on("click", function() {
+                let buttonValue = $(this).text();
+                let input = $("#phoneNumber").val().replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+                let newValue = input + buttonValue;
+
+                if (newValue.length > 11) {
+                    newValue = newValue.substr(0, 11); // 11자리 이상이면 11자리까지 자름
+                }
+                if (newValue.length > 8) {
+                    newValue = newValue.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+                }
+
+                $("#phoneNumber").val(newValue);
+            });
+        });
+
 
     </script>
+
 </body>
 
 </html>
