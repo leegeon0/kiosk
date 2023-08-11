@@ -111,6 +111,9 @@ $(function(){
 				/*var link = '/userMain';
    					 window.location.href = link; */ 
 			}
+			if($(".modalLeftBox").css("display") == "none") {
+				$(".selectOption.selected").removeClass("selected");
+			}
 		},1000);
 		
 		document.onmousedown = function clickEvent() {
@@ -134,6 +137,7 @@ $(function(){
 	
 	$(".selectOption").on("click",function(){
 		$(this).toggleClass("selected");
-	})
+	});
 
+	
 });
