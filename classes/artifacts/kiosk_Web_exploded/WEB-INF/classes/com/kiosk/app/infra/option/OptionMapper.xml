@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+	<mapper namespace="com.kiosk.app.infra.option.OptionMapper">
+	
+		<resultMap type="com.kiosk.app.infra.option.Option" id="resultMapObj"></resultMap>
+	 
+	 	<sql id="optionTable">
+	 		seq,
+	 		optionName,
+	 		optionPrice,
+	 		menu_seq
+	 	</sql>
+	 
+	    <sql id ="selectCommon">
+	   		FROM    
+		    	optionMenu
+			WHERE 1=1
+				<if test="shKeyword != null and !shKeyword.equals('')">AND optionName LIKE CONCAT('%',#{shKeyword},'%')</if>
+	    </sql>
+	
+	   	<select id="selectOneCount" resultType="Integer">
+			SELECT count(*)
+			<include refid="selectCommon" />
+		</select>
+	
+	   	<select id="selectList" resultMap="resultMapObj">
+			SELECT aa.* FROM (   	
+		   		SELECT
+					<include refid="optionTable" />
+		   			<include refid="selectCommon" />
+			) aa
+			LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
+	   	</select>
+	 
+	 
+	 
+	 	
+	 		<select id="selectOne" resultMap="resultMapObj">
+	 		select
+	 			<include refid="optionTable" />
+	 		from
+	 			optionMenu
+	 		where 1=1
+	 			and	seq = #{seq}
+	 			<!-- 문자 검색은 대부분 like를 사용 -->
+	 	
+	 	
+	 	</select>
+	 	
+	 <update id="update" >
+	 	update
+	 		optionMenu
+	 	set
+	 		optionName = #{optionName}
+	 	where 1=1
+	 		and seq = #{seq}
+	 </update>
+	 
+	 <delete id="delete">
+	 	delete
+	 	from
+	 		optionMenu
+	 	where 1=1
+	 		and seq = #{seq}
+	 </delete>
+	 
+	 <insert id="insert">
+	 	insert into 
+	 	menu(
+	 		optionName,
+	 		optionPrice,
+			menu_seq
+	 		)value(
+	 			#{optionName},
+	 			#{optionPrice},
+	 			#{menuSeq}
+	 		)
+	 
+	 </insert>
+	 	
+	 <update id="uelete">
+		update
+	 		optionMenu
+	 	set
+	 		menu_seq = #{menuSeq}
+	 	where 1=1
+	 		and seq = #{seq} 
+	 </update>
+	 </mapper>

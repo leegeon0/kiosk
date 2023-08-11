@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+ 
+<mapper namespace="com.kiosk.app.infra.code.CodeMapper">
+
+	<resultMap type="com.kiosk.app.infra.code.Code" id="resultMapObj"></resultMap>
+
+ 	<sql id="abc">
+ 		codeSeq,
+ 		codeName,
+ 		codeDelNy,
+ 		codegroup_seq
+ 		
+ 	</sql>
+ 
+ <sql id ="selectCommon">
+   		FROM    
+	    	code
+		WHERE 1=1
+			<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%',#{shKeyword},'%')</if>
+    </sql>
+
+   	<select id="selectOneCount" resultType="Integer">
+		SELECT count(*)
+		<include refid="selectCommon" />
+	</select>
+
+   	<select id="selectList" resultMap="resultMapObj">
+		SELECT aa.* FROM (   	
+	   		SELECT
+				<include refid="abc" />
+	   			<include refid="selectCommon" />
+		) aa
+		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
+   	</select>
+ 
+ 
+ 
+
+ 	<select id="selectOne" resultMap="resultMapObj">
+ 		select
+ 			<include refid="abc" />
+ 		from
+ 			code
+ 		where 1=1
+ 			and	codeSeq = #{codeSeq}
+ 			<!-- 문자 검색은 대부분 like를 사용 -->
+ 	
+ 	
+ 	</select>
+ 	
+	 <update id="update" >
+	 	update
+	 		code
+	 	set
+	 		codeName = #{codeName},
+	 		codegroup_seq = #{codegroup_seq}
+	 	where 1=1
+	 		and codeSeq = #{codeSeq}
+	 </update>
+ 
+	 <delete id="delete">
+	 	delete
+	 	from
+	 		code
+	 	where 1=1
+	 		and codeSeq = #{codeSeq}
+	 </delete>
+	 
+	 <insert id="insert">
+	 	insert into 
+	 	code(
+	 		codeName,
+	 		codeDelNy,
+	 		codegroup_seq
+	 		)value(
+	 			#{codeName},
+	 			#{codeDelNy},
+	 			#{codegroup_seq}
+	 		)
+	 
+	 </insert>
+	 	
+	 <update id="uelete">
+		update
+	 		code
+	 	set
+	 		codeDelNy = #{codeDelNy}
+	 	where 1=1
+	 		and codeSeq = #{codeSeq} 
+	 </update> 
+	 
+	
+	
+	  <select id="selectListCodeArrayList" resultMap="resultMapObj">
+	  
+	  	select
+	  		codeSeq,
+	  		codeName,
+	  		codeDelNy,
+	  		codegroup_seq
+	  	from
+	  		code
+	  	where 1=1
+	  	and codeDelNy = 1
+	  
+	  </select>
+	  
+	<select id="selectCodeGroupList" resultMap="resultMapObj">
+			SELECT  
+				codeGroup.seq,
+			    codeGroup.categoryName,
+			    codeGroup.delNy,
+			    code.codeSeq,
+			    code.codeName,
+			    code.codeDelNy,
+			    code.codegroup_seq
+			FROM    code code
+			        	LEFT JOIN codegroup codeGroup ON codeGroup.seq = code.codegroup_seq
+			           ;
+	
+	</select>
+
+ </mapper>
