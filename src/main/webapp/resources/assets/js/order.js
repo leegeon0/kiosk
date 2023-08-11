@@ -111,6 +111,9 @@ $(function(){
 				/*var link = '/userMain';
    					 window.location.href = link; */ 
 			}
+			if($(".modalLeftBox").css("display") == "none") {
+				$(".selectOption.selected").removeClass("selected");
+			}
 		},1000);
 		
 		document.onmousedown = function clickEvent() {
@@ -125,11 +128,16 @@ $(function(){
 	countDown();
 	
 
-    $(document).on("click",$(".selectOption"),function(){
-	/* $(".selectOption").toggleClass("selected"); */
-	$(".selectOption").on("click", function(){
+/*    $(document).on("click",$(".selectOption"),function(){
+	
+		$(".selectOption").on("click", function(){
+			$(this).toggleClass("selected");
+			});
+	});*/
+	
+	$(".selectOption").on("click",function(){
 		$(this).toggleClass("selected");
-		});
 	});
 
+	
 });
