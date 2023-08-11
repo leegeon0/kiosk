@@ -116,59 +116,7 @@
                        <div class="modalOptionRightBox">
                        	<p>옵션 선택</p>
                            <ul class="modalOptionBox" id="optionList">
-                           <%-- 
-		                      		<c:choose>
-										<c:when test="${fn:length(list) eq 0}">
-											<p>There is no data!</p>
-										</c:when>
-										<c:otherwise>
-											<c:forEach items="${list}" var="list" varStatus="status">
-												<c:if test="${list.optionMenuSeq eq null}">
-												   <li>
-			                           					<img alt="메뉴사진" src="<c:out value="${list.optionImg}"></c:out>">     
-						                                	<p class="optionName" data-menuName="<c:out value="${list.optionName}" />"><c:out value="${list.optionName}"></c:out></p><br>
-						                                	<p class="optionPrice" data-menuPrice="<c:out value="${list.optionPrice}" />"><c:out value="${list.optionPrice}"></c:out></p><br>
-						                                	
-					                            	</li>
-					                             </c:if>
-											</c:forEach>
-										</c:otherwise>
-									</c:choose>
-									 --%>
-							<!-- 
-                               <li>
-                           			<a href="#">
-                                   		<img src="/resources/assets/img/공기밥.png" alt="">
-                                   		<p>공기밥</p>
-                                   		<p>1,000원</p>
-                               		</a>
-                          		</li>
-                               <li><a href="#">
-                                   <img src="/resources/assets/img/순대.png" alt="">
-                                   <p>순대</p>
-                                   <p>3,000원</p>
-                               </a></li>
-                               <li><a href="#">
-                                   <img src="" alt="">
-                                   <p>냠</p>
-                                   <p>1,000원</p>
-                               </a></li>
-                               <li><a href="#">
-                                   <img src="" alt="">
-                                   <p>냠</p>
-                                   <p>1,000원</p>
-                               </a></li>
-                               <li><a href="#">
-                                   <img src="" alt="">
-                                   <p>냠</p>
-                                   <p>1,000원</p>
-                               </a></li>
-                               <li><a href="#">
-                                   <img src="" alt="">
-                                   <p>냠</p>
-                                   <p>1,000원</p>
-                                   </a></li>
-                                      -->
+                           
                            </ul>
                            <button class="modalOptionCloseBtn btnBorder">
                                닫기
@@ -479,46 +427,50 @@
 
 	    });
 		
-		$("#modalOptionBtn").on("click", function () {
-			var optionDelNyValue = $(this).val();
-		    $.ajax({
-		        async: true,
-		        cache: false,
-		        type: "post",
-		        url: "/option",
-		        data: {
-		        		"optionDelNy" : optionDelNyValue},
-		        success: function (response) {
-		            if (response.rt == "success") {
-		                // Ajax 요청이 성공하고 조건을 만족할 때
-		                var optionList = response.rtOption; // 여기서 response.list는 서버에서 받은 리스트 데이터입니다.
-		                var modalOptionBox = $("#optionList"); // <ul> 엘리먼트
+		
+		/* 옵션 출력 ajax  */
+		var optionDelNyValue = 1;
+		$.ajax({
+	        async: true,
+	        cache: false,
+	        type: "post",
+	        url: "/option",
+	        data: {
+	        		"optionDelNy" : optionDelNyValue},
+	        success: function (response) {
+	            if (response.rt == "success") {
+	                // Ajax 요청이 성공하고 조건을 만족할 때
+	                var optionList = response.rtOption; // 여기서 response.list는 서버에서 받은 리스트 데이터입니다.
+	                var modalOptionBox = $("#optionList"); // <ul> 엘리먼트
 
-		                // 리스트 데이터가 비어있을 경우 "There is no data!" 출력
-		                if (optionList.length == 0) {
-		                    modalOptionBox.append('<p>There is no data!</p>');
-		                } else {
-		                    // 리스트 데이터가 비어있지 않은 경우 각 아이템을 출력
-		                    optionList.forEach(function (item) {
-		                        if (item.optionDelNy == null) {
-		                            var listItem = '<li>' +
-		                                '<img alt="메뉴사진" src="' + item.optionImg + '">' +
-		                                '<p class="optionName" data-menuName="' + item.optionName + '">' + item.optionName + '</p><br>' +
-		                                '<p class="optionPrice" data-menuPrice="' + item.optionPrice + '">' + item.optionPrice + '</p><br>' +
-		                                '</li>';
-		                            modalOptionBox.append(listItem);
-		                        }
-		                    });
-		                }
-		            } else {
-		                // 조건을 만족하지 않는 경우에 대한 처리
-		            }
-		        },
-		        error: function (jqXHR, textStatus, errorThrown) {
-		            alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-		        }
-		    });
-		});
+	                // 리스트 데이터가 비어있을 경우 "There is no data!" 출력
+	                if (optionList.length == 0) {
+	                    modalOptionBox.append('<p>There is no data!</p>');
+	                } else {
+	                    // 리스트 데이터가 비어있지 않은 경우 각 아이템을 출력
+	                    optionList.forEach(function (item) {
+	                        if (item.optionDelNy == null) {
+	                            var listItem = '<li class="selectOption">' +
+	                                '<img alt="메뉴사진" src="' + item.optionImg + '">' +
+	                                '<p class="optionName" data-menuName="' + item.optionName + '">' + item.optionName + '</p>' +
+	                                '<p class="optionPrice" data-menuPrice="' + item.optionPrice + '">' + item.optionPrice + '</p>' +
+	                                '</li>';
+	                            modalOptionBox.append(listItem);
+	                        }
+	                    });
+	                }
+	            } else {
+	                // 조건을 만족하지 않는 경우에 대한 처리
+	            }
+	        },
+	        error: function (jqXHR, textStatus, errorThrown) {
+	            alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+	        }
+	    });
+		
+
+		
+		/* 옵션 출력 ajax */
 		
       	$("#menuList").on("click", "li", function () {  
       	    var menuImg = $(this).find("img").attr("src");
@@ -532,20 +484,6 @@
       	    $("#modalName").text(menuName);
       	});
 
-		/* 메뉴 리스트 클릭시 모달창 출력 */
-/*       	$("#menuList li").on("click", function () {  
-	       	 var menuImg = $(this).find("img").attr("src");
-	       	 var menuPrice = $(this).find(".menuPrice").data("menuprice");
-	       	 var modalPrice = $("#modalPrice").data("menuprice");
-	       	 var menuName = $(this).find(".menuName").data("menuname");
-	   		 $(".modalLeftBox,.modal_bg").fadeIn();
-	   		 $("#modalImg").attr("src", menuImg);
-	   		 $("#modalPrice").text(menuPrice);
-   			 modalPrice = $("#modalPrice").attr("data-menuprice" ,menuPrice);
-	   		 $("#modalName").text(menuName);
-	   	}); */
-
-      	
         $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){
             $(".modalLeftBox,.modal_bg").fadeOut();
             $(".modalLeftBox").css('width','650px');
@@ -556,18 +494,16 @@
             	$('.inp').val(1);
             },500);
         });
-	   	
-	   	$(".modalOptionCloseBtn").on("click", function () {
-	        // 모달 창 닫기
-	        
-	        // 리스트 데이터 비우기
-	        $("#optionList").empty();
-	    });
         
         
-          
-    
+        $(document).on("click",$(".selectOption"),function(){
+        	/* $(".selectOption").toggleClass("selected"); */
+        	$(".selectOption").on("click", function(){
+        		$(this).toggleClass("selected");
+        	});
+        });
 
+	   	
     </script>
 </body>
 

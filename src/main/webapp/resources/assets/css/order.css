@@ -133,10 +133,6 @@ animation-name: ani1; animation-duration: 30s; animation-iteration-count: infini
 .modalOptionRightBox p {font-size: 1.3vw;}
 .modalOptionBox {width: 480px; height: 330px; margin: 25px auto 0; padding: 0;}
 .modalOptionBox li {width: 150px; height: 157px; float: left; box-shadow: 10px 10px 10px rgba(0,0,0,.05);}
-.modalOptionBox li:nth-child(3n+2) {margin: 0 15px;}
-.modalOptionBox li:nth-child(4),
-.modalOptionBox li:last-child {margin: 16px 0;}
-.modalOptionBox li:nth-child(5) {margin: 16px 15px;}
 .modalOptionBox li img {width: 100%; aspect-ratio: 1.5;}
 .modalOptionCloseBtn {width: 120px; height: 50px; position:absolute; bottom: 20px; right: 36px;}
 .modalStarRightBox {width: 550px; height: 500px; float: left; display: flex; justify-content: center; align-items: center; display: none; position: relative;}
