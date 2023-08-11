@@ -519,6 +519,39 @@
 		        }
 		    });
 		});
+
+		/* 
+		$("#modalOptionBtn").on("click",function(){
+	    	$.ajax({
+	    		async: true 
+	    		,cache: false
+	    		,type: "post"
+	    	
+	    		,url: "/option"
+	    
+	    		,data : {
+	    			"optionMenuSeq" : optionMenuSeq
+	    			}
+	    		,success: function(response) {
+	    			
+	    			
+	    				if(response.rt == "success" && optionMenuSeq == null) {
+	    				
+		    			             
+		    				
+	    				} else {
+	    					
+	    				}
+		    			      
+	    			
+	    		}
+	    		,error : function(jqXHR, textStatus, errorThrown){
+	    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+	    		}
+	    	});
+
+	    });
+ */
 		
       	$("#menuList").on("click", "li", function () {  
       	    var menuImg = $(this).find("img").attr("src");

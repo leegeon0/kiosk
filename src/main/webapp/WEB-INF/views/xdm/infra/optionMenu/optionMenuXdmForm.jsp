@@ -51,25 +51,29 @@
 				   <table class="table">
                 	<thead>
 		                <tr>
-		                    <th scope="col">seq</th>
-		                    <th scope="col">optionName</th>
-		                    <th scope="col">optionPrice</th>
-		                    <th scope="col">menuSeq</th>
+		                    <th scope="col">OptionMenuSeq</th>
+		                    <th scope="col">OptionImg</th>
+		                    <th scope="col">OptionName</th>
+		                    <th scope="col">OptionPrice</th>
+		                    <th scope="col">OptionSoldOutNy</th>
+		                    <th scope="col">OptionDelNy</th>
 		                </tr>
                 	</thead>
 	                <tbody>
 	                <tr>
-		                <td><input type="text" class="form-control" id="seq" name="seq" placeholder="Auto Increment" required readonly value="<c:out value="${item.seq}"/>"></td>
+		                <td><input type="text" class="form-control" id="optionMenuSeq" name="optionMenuSeq" placeholder="Auto Increment" required readonly value="<c:out value="${item.optionMenuSeq}"/>"></td>
+		                <td><input type="text" class="form-control" id="optionImg" name="optionImg" value="<c:out value="${item.optionImg}"/>"></td>
 		                <td><input type="text" class="form-control" id="optionName" name="optionName" value="<c:out value="${item.optionName}"/>"></td>
 		                <td><input type="text" class="form-control" id="optionPrice" name="optionPrice" required value="<c:out value="${item.optionPrice}"/>"></td>
-		                <td><input type="text" class="form-control" id="menuSeq" name="menuSeq" required value="<c:out value="${item.menuSeq}"/>"></td>
+		                <td><input type="text" class="form-control" id="optionSoldOutNy" name="optionSoldOutNy" value="<c:out value="${item.optionSoldOutNy}"/>"></td>
+		                <td><input type="text" class="form-control" id="optionDelNy" name="optionDelNy" value="<c:out value="${item.optionDelNy}"/>"></td>
 					</tr>
 	                </tbody>
               		</table>
 
 
               		<c:choose>
-						<c:when test="${empty item.seq }">
+						<c:when test="${empty item.optionMenuSeq }">
 							<button type="button" class="btn btn-primary" id="submitBtn">저장</button>
 						</c:when>
 						<c:otherwise>
@@ -108,7 +112,7 @@
 
   
   <script type="text/javascript">
-  
+/*   
   	var objName = $("#optionName");
   
     validationInst = function(){
@@ -124,11 +128,11 @@
 		
 	}  
  	
+ 	 */
  	
  	
- 	
-/*   $("#submitBtn").on("click",function(){
-	  	if(validationInst() == false) return false; 
+	   $("#submitBtn").on("click",function(){
+	  	/* if(validationInst() == false) return false; 
 	   	// 함수는 ()이게 있어야 함!!!
 
 		var delNyValue = $("#delNy").val();
@@ -143,15 +147,15 @@
 	    
 	    
  	    
-	 	$("form[name=form]").attr("action","/optionInsert").submit();
+	 	$("form[name=form]").attr("action","/optionMenuInsert").submit();
 	 	 
 	  });
   
 
 	  $("#updateBtn").on("click",function(){
 	 	
- 		 if(validationUpdt() == false) return false;	 	 
-		 $("form[name=form]").attr("action","/optionUpdt").submit(); 
+ 		 /* if(validationUpdt() == false) return false;	 */ 	 
+		 $("form[name=form]").attr("action","/optionMenuUpdt").submit(); 
 	  });
 		 
 /* 	  
@@ -188,7 +192,7 @@
 	  $("#deleteBtn").on("click",function(){
 	 		
 	 		
-	 		$("form[name=form]").attr("action","/optionDel").submit();
+	 		$("form[name=form]").attr("action","/optionMenuDel").submit();
 
 	 		 
 	 });
@@ -196,7 +200,7 @@
 	  $("#ueleteBtn").on("click",function(){
 	 		
 	 		
-	 		$("form[name=form]").attr("action","/optionUele").submit();
+	 		$("form[name=form]").attr("action","/optionMenuUele").submit();
 	 		 
 	 });
 	  

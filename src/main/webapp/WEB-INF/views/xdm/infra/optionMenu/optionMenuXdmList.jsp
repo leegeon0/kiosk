@@ -62,9 +62,11 @@
                 	<thead>
 		                <tr>
 		                    <th scope="col">seq</th>
+		                    <th scope="col">optionImg</th>
 		                    <th scope="col">optionName</th>
 		                    <th scope="col">optionPrice</th>
-		                    <th scope="col">menu_seq</th>	                    
+		                    <th scope="col">optionSoldOutNy</th>
+		                    <th scope="col">optionDelNy</th>                
 		                </tr>
                 	</thead>
 	                <tbody>
@@ -77,17 +79,19 @@
 						<c:otherwise>
 							<c:forEach items="${list}" var="list" varStatus="status">
 							<tr>
-								<td><c:out value="${list.seq}"></c:out></td>
-								<td><a href="optionXdmForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.optionName}"/></a></td>
-								<td><c:out value="${list.optionPrice}"></c:out><br></td>
-								<td><c:out value="${list.menuSeq}"></c:out><br></td>
+								<td><c:out value="${list.optionMenuSeq}"></c:out></td>
+								<td><c:out value="${list.optionImg}"></c:out></td>
+								<td><a href="optionMenuXdmForm?optionMenuSeq=<c:out value="${list.optionMenuSeq}"/>"><c:out value="${list.optionName}"/></a></td>
+								<td><c:out value="${list.optionPrice}"></c:out></td>
+								<td><c:out value="${list.optionSoldOutNy}"></c:out></td>
+								<td><c:out value="${list.optionDelNy}"></c:out></td>
 							</tr>
 							</c:forEach>
 						</c:otherwise>
 						</c:choose>
 	                </tbody>
               		</table>
-              		<a href="optionXdmForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
+              		<a href="optionMenuXdmForm"><button type="button" class="btn btn-primary" id="insertBtn">추가</button></a>
               		<div class="container-fluid px-0 mt-2">
 					    <div class="row">
 					        <div class="col">
@@ -144,7 +148,7 @@
 		
 		/* $("form[name=formList]").attr("method","get"); */
 
-		$("form[name=formList]").attr("action", "/optionXdmList").submit();
+		$("form[name=formList]").attr("action", "/optionMenuXdmList").submit();
 		$("form[name=formList]").attr("method","post");
 		
 		
@@ -152,7 +156,7 @@
   
   goList = function(thisPage) {
 		$("input:hidden[name=thisPage]").val(thisPage);
-		$("form[name=formList]").attr("action", "/optionXdmList").submit();
+		$("form[name=formList]").attr("action", "/optionMenuXdmList").submit();
 	}
   </script>
 
