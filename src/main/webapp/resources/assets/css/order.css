@@ -131,8 +131,8 @@ animation-name: ani1; animation-duration: 30s; animation-iteration-count: infini
 .closeStarBox {width: 205px; height: 100px; position: absolute; bottom: 48px; left:60px; border-radius: 15px; font-size: 20px; font-weight: bold;}
 .modalOptionRightBox {width: 550px; height: 100%; float:left; padding: 20px; box-sizing: border-box; display: none;}
 .modalOptionRightBox p {margin:unset;}
-.modalOptionBox {width: 480px; height: 330px; margin-top: 25px; padding: 0; display: flex; justify-content: space-between; flex-wrap: wrap; align-content: space-between;}
-.modalOptionBox li {width: 150px; height: 157px; float: left; box-shadow: 10px 10px 10px rgba(0,0,0,.05); cursor:pointer; position: relative;}
+.modalOptionBox {width: 480px; height: 330px; margin-top: 25px; padding: 0;}
+.modalOptionBox li {width: 150px; height: 157px; box-shadow: 10px 10px 10px rgba(0,0,0,.05); cursor:pointer; position: relative; float: left; margin-right: 15px;}
 .modalOptionBox li img {width: 100%; aspect-ratio: 1.5;}
 .modalOptionCloseBtn {width: 120px; height: 50px; position:absolute; bottom: 20px; right: 36px;}
 .modalStarRightBox {width: 550px; height: 500px; float: left; display: flex; justify-content: center; align-items: center; display: none; position: relative;}

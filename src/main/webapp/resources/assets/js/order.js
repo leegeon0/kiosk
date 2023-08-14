@@ -125,16 +125,22 @@ $(function(){
 	countDown();
 
 	var countNum = 1;
-	$(".selectOption").on("click",function(){
+	$(".selectOption").on("click",function(e){
 		var optionCount = '<div class="d-flex optionCounter">' + '<button type="button" class="optionMinus"> - </button>'
 		+ '<p>' + countNum + '</p>' + '<button type="button" class="optionPlus"> + </button>' + '</div>';
 		if($(this).hasClass("selected") === true ) {
+				
+				$(this).find("button").on("click", (a) => {
+				console.log(a.currentTarget == $(".optionMinus"))
+				
 				$(this).find("div.optionCounter").remove();
 				$(this).removeClass("selected");
-		} else if($(this).find("div.optionCounter") == true && $(".optionPlus").on("click")) {
-			console.log("억")
+			})
+		
+				
+				
+				
 		}	else {
-			
 			$(this).append(optionCount);
 			$(this).addClass("selected");
 		}
