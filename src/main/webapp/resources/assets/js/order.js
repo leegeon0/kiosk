@@ -111,9 +111,6 @@ $(function(){
 				/*var link = '/userMain';
    					 window.location.href = link; */ 
 			}
-			if($(".modalLeftBox").css("display") == "none") {
-				$(".selectOption.selected").removeClass("selected");
-			}
 		},1000);
 		
 		document.onmousedown = function clickEvent() {
@@ -126,17 +123,42 @@ $(function(){
 
 	};
 	countDown();
-	
 
-/*    $(document).on("click",$(".selectOption"),function(){
-	
-		$(".selectOption").on("click", function(){
-			$(this).toggleClass("selected");
-			});
-	});*/
-	
+	var countNum = 1;
 	$(".selectOption").on("click",function(){
-		$(this).toggleClass("selected");
+		var optionCount = '<div class="d-flex optionCounter">' + '<button type="button" class="optionMinus"> - </button>'
+		+ '<p>' + countNum + '</p>' + '<button type="button" class="optionPlus"> + </button>' + '</div>';
+		if($(this).hasClass("selected") === true ) {
+				$(this).find("div.optionCounter").remove();
+				$(this).removeClass("selected");
+		} else if($(this).find("div.optionCounter") == true && $(".optionPlus").on("click")) {
+			console.log("억")
+		}	else {
+			
+			$(this).append(optionCount);
+			$(this).addClass("selected");
+		}
+	});
+	
+	setInterval( function() {
+		if($(".modalLeftBox").css("display") == "none") {
+				$(".selectOption.selected").removeClass("selected");
+				$(".selectOption").find("div.optionCounter").remove();
+				$("#modalOptionBtn").removeClass("btnColor");
+        		$("#modalOptionBtn").addClass("btnBorder");
+			}
+	});
+	
+    $(".modalOptionCloseBtn").on("click",function(){
+	if($(".selectOption").hasClass("selected") === true) {
+		$("#modalOptionBtn").text("옵션 수정");
+		$("#modalOptionBtn").removeClass("btnBorder");
+		$("#modalOptionBtn").addClass("btnColor");
+	} else {
+		$("#modalOptionBtn").text("옵션 선택");
+		$("#modalOptionBtn").removeClass("btnColor");
+		$("#modalOptionBtn").addClass("btnBorder");
+	}
 	});
 
 	
