@@ -29,7 +29,7 @@
         <div class="pointContainer">
             <div class="pointBox">
                 <h2>적립하기</h2>
-                <form method="post" class="phoneNumBox">
+                <form method="post" class="phoneNumBox" name="num">
                     <input type="tel" name="phoneNumber" id="phoneNumber" value="010-">
                 </form>
                 <div class="keypad">
@@ -95,6 +95,41 @@
                 $("#phoneNumber").val(newValue);
             });
         });
+
+        // $("#enter").on("click", function(){
+        //     alert("233");
+        //     $("form[name=num]").attr("action", "/customerInsert").submit();
+        // });
+
+        $("#enter").on("click", function(){
+            var phoneNum = "";  // 전화번호를 저장할 변수
+             phoneNum = $("#phoneNumber").val();  // 입력 필드의 id가 "phoneInput"일 경우
+
+            if (phoneNum !== "") {
+                alert("전화번호: " + phoneNum + ", 적립: 0");  // 디버깅용 메시지
+
+                // 서버로 데이터 전송 (Ajax 요청 등)
+                $.ajax({
+                    type: "POST",  // 요청 방식 (POST, GET 등)
+                    url: "/customerInsert",  // 요청할 URL
+                    data: {
+                        phoneNum: phoneNum,  // 전화번호
+                        countStamp: 0  // 적립 초기 값
+                    },
+                    success: function(response) {
+                        // 서버 응답을 처리할 코드
+                        console.log("데이터베이스에 삽입되었습니다.");
+                    },
+                    error: function(error) {
+                        // 오류 발생 시 처리할 코드
+                        console.error("오류 발생: " + error);
+                    }
+                });
+            } else {
+                alert("전화번호를 입력해주세요.");
+            }
+        });
+
 
 
     </script>
