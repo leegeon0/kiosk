@@ -162,145 +162,8 @@
                         <li>수량</li>
                         <li>금액</li>
                     </ul>
-                    <!-- <div id="nothing">
-                        <i class="fa-solid fa-utensils"></i>
-                        <p>메뉴를 선택해주세요.</p>
-                    </div> -->
                     <div class="new_contents_container" class="scroll_bar">
-                        <!-- <ul class="liked">
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>콩나물국밥 정식</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                        </ul> -->
+                        
                     </div>
                 </div>
                 <div class="totalPriceBox">
@@ -451,10 +314,10 @@
 	                    optionList.forEach(function (item) {
 	                        if (item.optionDelNy == null) {
 	                            var listItem = '<li class="selectOption">' +
-	                                '<img alt="메뉴사진" src="' + item.optionImg + '">' +
+	                                '<img alt="메뉴사진" src="' + item.optionImg + '">' + '<div>' +
 	                                '<p class="optionName" data-optionName="' + item.optionName + '">' + item.optionName + '</p>' +
 	                                '<p class="optionPrice" data-optionPrice="' + item.optionPrice + '">' + item.optionPrice + '</p>' +
-	                                '</li>';
+	                                '</div>' + '</li>';
 	                            modalOptionBox.append(listItem);
 	                        }
 	                    });
@@ -494,6 +357,7 @@
             	$('.inp').val(1);
             },500);
         });
+
         	   	
     </script>
 </body>
