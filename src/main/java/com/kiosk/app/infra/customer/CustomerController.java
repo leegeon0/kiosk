@@ -84,10 +84,17 @@ public class CustomerController {
 	
 	@RequestMapping("/customerInsert")
 
-	public String customerInsert(Customer dto) {
+	public String customerInsert(Customer dto,@ModelAttribute("vo") CustomerVo vo,Model model) {
 
 		System.out.println("customerInsert");
-		service.insert(dto);
+
+		int rtNum = service.idCheck(vo);
+
+		if(rtNum > 0) {
+			// by pass
+		} else {
+			service.insert(dto);
+		}
 
 		return "redirect:/customerXdmList";
 

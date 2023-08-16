@@ -46,4 +46,7 @@ public class CustomerDao {
 		return sqlSession.insert(namespace + ".insert", dto);
 	}
 
+	public int idCheck(CustomerVo vo){ return sqlSession.selectOne(namespace + ".idCheck", vo);}
+
+
 }

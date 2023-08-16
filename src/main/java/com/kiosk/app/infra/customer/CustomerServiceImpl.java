@@ -47,5 +47,10 @@ public class CustomerServiceImpl implements CustomerService{
 		return dao.insert(dto);
 	}
 
+	@Override
+	public int idCheck(CustomerVo vo) {
+		return dao.idCheck(vo);
+	}
+
 
 }

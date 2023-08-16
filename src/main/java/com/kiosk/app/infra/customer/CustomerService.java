@@ -16,4 +16,5 @@ public interface CustomerService {
 	
 	public int insert(Customer dto);
 
+	public int idCheck(CustomerVo vo);
 }
