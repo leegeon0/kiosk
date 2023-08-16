@@ -107,6 +107,17 @@
 
  </insert>
 
+
+
+	<select id="idCheck" resultType="Integer">
+		select
+		Count(*) cnt
+		from customer
+		where phoneNum = ${phoneNum}
+	</select>
+
+
+
 <!--	<insert id="insert">-->
 <!--		<selectKey keyProperty="id" resultType="java.lang.Long" order="AFTER">-->
 <!--			SELECT id FROM customer WHERE phoneNum = #{phoneNum}-->

@@ -313,11 +313,16 @@
 	                    // 리스트 데이터가 비어있지 않은 경우 각 아이템을 출력
 	                    optionList.forEach(function (item) {
 	                        if (item.optionDelNy == null) {
-	                            var listItem = '<li class="selectOption">' +
-	                                '<img alt="메뉴사진" src="' + item.optionImg + '">' + '<div>' +
-	                                '<p class="optionName" data-optionName="' + item.optionName + '">' + item.optionName + '</p>' +
-	                                '<p class="optionPrice" data-optionPrice="' + item.optionPrice + '">' + item.optionPrice + '</p>' +
-	                                '</div>' + '</li>';
+	                            var listItem = 
+	                            	'<li class="selectOption">' +
+	                            		'<div class="optionConts">' + 
+	                            			'<img alt="메뉴사진" src="' + item.optionImg + '">' +
+	                            			'<div>' +
+		    	                                '<p class="optionName" data-optionName="' + item.optionName + '">' + item.optionName + '</p>' +
+		    	                                '<p class="optionPrice" data-optionPrice="' + item.optionPrice + '">' + item.optionPrice + '</p>' +
+	    	                                '</div>' + 
+	                            		'</div>' +
+	                                '</li>';
 	                            modalOptionBox.append(listItem);
 	                        }
 	                    });
