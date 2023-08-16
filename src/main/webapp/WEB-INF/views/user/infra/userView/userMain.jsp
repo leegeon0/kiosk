@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -53,7 +54,7 @@
                     <p>음성안내</p>
                 </div>
                 <div class="languageBtn">
-                    <button class="btnColor"><i class="fa-solid fa-globe"></i></button>
+                    <button class="btnColor" id="transBtn"><i class="fa-solid fa-globe"></i></button>
                     <p>LANGUAGE</p>
                 </div>
             </div>
@@ -61,8 +62,43 @@
         <!-- rightSide 끝 -->
     </div>
     <!-- wrapper 끝 -->
+    <div class="translatedText"></div>
 	<script src="/resources/assets/js/kiosk.js"></script>
     <script type="text/javascript">
+    $(document).ready(function() {
+        $("#transBtn").click(function() {
+            translateAllText();
+        });
+    });
+
+    function translateAllText() {
+        var clientId = "8090vN5qrPlrk0DF9HhJ";
+        var clientSecret = "1IAIwQE4Ku";
+
+        var allText = $("body").text(); // 전체 텍스트 가져오기
+
+        // 파파고 API 호출 및 번역
+        $.ajax({
+            url: "http://localhost:3000/translate", // 프록시 서버 URL로 변경
+            type: "POST",
+            data: {
+                clientId: clientId,
+                clientSecret: clientSecret,
+                text: allText,
+                source: "ko",
+                target: "en"
+            },
+            success: function(response) {
+                var translatedText = response.translatedText;
+                $(".translatedText").text(translatedText); // 번역 결과 출력
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+        
         const date = new Date();
         const year = date.getFullYear();
         let month = date.getMonth()+1;

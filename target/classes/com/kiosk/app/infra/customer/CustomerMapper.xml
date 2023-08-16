@@ -91,7 +91,18 @@
 			countStamp
  		)value(
  			#{phoneNum},
- 	    	#{countStamp}
+ 			#{countStamp}
+<!-- 		 <choose>
+		    <when test="countStamp == null or countStamp == '' or countStamp == 0">
+		        1
+		    </when>
+		    <otherwise>
+		        <![CDATA[(SELECT 1/0)]]>
+		    </otherwise>
+		</choose>
+		적립할때 자동으로 1이 추가됨
+ -->
+		
  		)
 
  </insert>
