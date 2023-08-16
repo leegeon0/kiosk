@@ -105,7 +105,7 @@
             var phoneNum = "";  // 전화번호를 저장할 변수
              phoneNum = $("#phoneNumber").val();  // 입력 필드의 id가 "phoneInput"일 경우
 
-            if (phoneNum !== "") {
+            if (phoneNum.length >= 11) {
                 alert("전화번호: " + phoneNum + ", 적립: 0");  // 디버깅용 메시지
 
                 // 서버로 데이터 전송 (Ajax 요청 등)
@@ -126,7 +126,7 @@
                     }
                 });
             } else {
-                alert("전화번호를 입력해주세요.");
+                alert("11자리의 전화번호를 입력해주세요.");
             }
         });
 
