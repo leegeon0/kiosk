@@ -126,31 +126,34 @@ $(function(){
 
 
 	var countNum = 1;
-	$(".selectOption").on("click",function(e){
+	$(".optionConts").on("click",function(){
 		var optionCount = '<div class="d-flex optionCounter">' + '<button type="button" class="optionMinus"> - </button>'
 		+ '<p>' + countNum + '</p>' + '<button type="button" class="optionPlus"> + </button>' + '</div>';
-		console.log($(this));
-		console.log(e);
-		console.log(e.currentTarget);
+			
+		$(this).parent(".selectOption").toggleClass("selected");
 		
-		
-		/*if($(this).hasClass("selected") === true ) {
-				
-				$(this).find("button").on("click", (a) => {
-				console.log(a.currentTarget == $(".optionMinus"))
-				
-				
-			})
-			$(this).find("div.optionCounter").remove();
-			$(this).removeClass("selected");
-		
-				
-				
+		if($(this).parent(".selectOption").hasClass("selected") === true ) {
+			$(this).parent(".selectOption").append(optionCount);
+			$(this).addClass("optionContsBackground");
+			
+			$(this).siblings(".optionCounter").on("click", function(e){
+
+				if(e.target.classList.value === 'optionPlus') {
+					const p = e.currentTarget.find = "p";
+					countNum++;
+					console.log()
+					/*e.target.find("p").text(countNum);*/
+					p.text = countNum;
+				} else if (e.target.classList.value === 'optionMinus') {
+					$(this).find("p").text(--countNum);
+				}
+
+			});
 				
 		}	else {
-			$(this).append(optionCount);
-			$(this).addClass("selected");
-		}*/
+			$(this).siblings().remove();
+			$(this).removeClass("optionContsBackground");
+		}
 	});
 
 
