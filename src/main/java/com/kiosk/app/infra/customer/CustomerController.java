@@ -1,12 +1,17 @@
 package com.kiosk.app.infra.customer;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpSession;
 
 @Controller 
 public class CustomerController {
@@ -81,23 +86,64 @@ public class CustomerController {
 		return "redirect:/customerXdmList";
 
 	}
-	
+	@ResponseBody
 	@RequestMapping("/customerInsert")
-
-	public String customerInsert(Customer dto,@ModelAttribute("vo") CustomerVo vo,Model model) {
-
-		System.out.println("customerInsert");
+	public Map<String,Object> idCheck(CustomerVo vo, HttpSession httpSession){
+		Map<String,Object> returnMap = new HashMap<String,Object>();
 
 		int rtNum = service.idCheck(vo);
 
 		if(rtNum > 0) {
 			// by pass
+			returnMap.put("rt", "welcomeBack");
 		} else {
-			service.insert(dto);
+//			service.insert(dto);
+			returnMap.put("rt", "welcome");
 		}
 
-		return "redirect:/customerXdmList";
+		return returnMap;
 
 	}
+
+
+//	@ResponseBody
+//	@RequestMapping("/userlogin")
+//	public Map<String,Object> loginUser(MemberVo vo, HttpSession httpSession){
+//		Map<String,Object> returnMap = new HashMap<String,Object>();
+//		Member rtMemberUser = serviceMember.loginUser(vo);
+//		if(rtMemberUser != null) {
+////			returnMap.put("rtMemberUser",rtMemberUser);
+////			returnMap.put("rt","success");
+////			httpSession.setMaxInactiveInterval(60*60);//min60
+////			httpSession.setAttribute("sessionUserId",vo.getId_Email());
+////			httpSession.setAttribute("sessionUserName",rtMemberUser.getName());
+////			httpSession.setAttribute("sessionUserSeq",rtMemberUser.getSeq());
+//		}else {
+//			returnMap.put("rt","fail");
+//		}
+//
+//
+//		return returnMap;
+//	}
+
+//	@ResponseBody
+//	@RequestMapping("/customerInsert")
+//	public Map<String,Object> idCheck(CustomerVo vo, HttpSession httpSession){
+//		Map<String,Object> returnMap = new HashMap<String,Object>();
+//		Customer rtMemberUser = serviceMember.loginUser(vo);
+//		if(rtMemberUser != null) {
+//			returnMap.put("rtMemberUser",rtMemberUser);
+//			returnMap.put("rt","success");
+//			httpSession.setMaxInactiveInterval(60*60);//min60
+//			httpSession.setAttribute("sessionUserId",vo.getId_Email());
+//			httpSession.setAttribute("sessionUserName",rtMemberUser.getName());
+//			httpSession.setAttribute("sessionUserSeq",rtMemberUser.getSeq());
+//		}else {
+//			returnMap.put("rt","fail");
+//		}
+//
+//
+//		return returnMap;
+//	}
 
 }

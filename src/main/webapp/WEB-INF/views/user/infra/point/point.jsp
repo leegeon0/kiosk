@@ -96,57 +96,36 @@
             });
         });
 
+
+
+
         // $("#enter").on("click", function(){
         //     alert("233");
         //     $("form[name=num]").attr("action", "/customerInsert").submit();
         // });
 
-        // $("#enter").on("click", function(){
-        //     var phoneNum = "";
-        //      phoneNum = $("#phoneNumber").val();
-        //
-        //     if (phoneNum.length >= 11) {
-        //         alert("전화번호: " + phoneNum + ", 적립: 0");
-        //
-        //         $.ajax({
-        //             type: "POST",
-        //             url: "/customerInsert",
-        //             data: {
-        //                 phoneNum: phoneNum,
-        //                 countStamp: 0
-        //             },
-        //             success: function(response) {
-        //                 console.log("데이터베이스에 삽입되었습니다.");
-        //             },
-        //             error: function(error) {
-        //                 console.error("오류 발생: " + error);
-        //             }
-        //         });
-        //     } else {
-        //         alert("11자리의 전화번호를 입력해주세요.");
-        //     }
-        // });
-
         $("#enter").on("click", function(){
             var phoneNum = "";
-            phoneNum = $("#phoneNumber").val();
+             phoneNum = $("#phoneNumber").val();
 
             if (phoneNum.length >= 11) {
                 // alert("전화번호: " + phoneNum + ", 적립: 0");
 
                 $.ajax({
                     type: "POST",
-                    url: "${cpath}/idCheck.do",
+                    url: "/customerInsert",
                     data: {
-                        phoneNum: phoneNum,
-                        countStamp: 0
+                        "phoneNum" : $("#phoneNum").val(),
+                        "countStamp" : 0
                     },
-                    success: function(result) {
-                        // console.log("데이터베이스에 삽입되었습니다.");
-                        if(result!=0){
-                            alert("기존에 있는 고객입니다.");
+                    success: function(response) {
+                        if(response.rt == "welcomeBack") {
+                            alert("어서 오세요.");
+                            location.href = "/countStamp";
                         } else {
                             alert("신규 고객입니다.");
+
+                            location.href = "/newSignUp";
                         }
                     },
                     error: function(error) {
@@ -157,6 +136,67 @@
                 alert("11자리의 전화번호를 입력해주세요.");
             }
         });
+
+        // $("#bookmark").on("click", function(){
+        //
+        //     // if(validation() == false) return false;
+        //
+        //     $.ajax({
+        //         async: true
+        //         ,cache: false
+        //         ,type: "post"
+        //         /* ,dataType:"json" */
+        //         ,url: "/userlogin"
+        //         /* ,data : $("#formLogin").serialize() */
+        //         ,data : { "id_Email" : $("#id_Email").val(),
+        //             "password" : $("#password").val()},
+        //         success: function(response) {
+        //             if(response.rt == "success") {
+        //                 // alert(response.rtMemberUser.name + "님 환영합니다.");
+        //                 console.log(1);
+        //                 console.log(response.rtMemberUser.getPassword);
+        //                 location.href = "/main";
+        //             } else {
+        //                 alert("그런 회원 없습니다.");
+        //             }
+        //         }
+        //         ,error : function(jqXHR, textStatus, errorThrown){
+        //             alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+        //         }
+        //     });
+        // });
+
+        <%--$("#enter").on("click", function(){--%>
+        <%--    var phoneNum = "";--%>
+        <%--    phoneNum = $("#phoneNumber").val();--%>
+
+        <%--    if (phoneNum.length >= 11) {--%>
+        <%--        // alert("전화번호: " + phoneNum + ", 적립: 0");--%>
+
+        <%--        $.ajax({--%>
+        <%--            type: "POST",--%>
+        <%--            url: "${cpath}/idCheck.do",--%>
+        <%--            data: {--%>
+        <%--                phoneNum: phoneNum,--%>
+        <%--                countStamp: 0--%>
+        <%--            },--%>
+        <%--            success: function(result) {--%>
+        <%--                // console.log("데이터베이스에 삽입되었습니다.");--%>
+        <%--                if(result!=0){--%>
+        <%--                    alert("기존에 있는 고객입니다.");--%>
+        <%--                } else {--%>
+        <%--                    alert("신규 고객입니다.");--%>
+        <%--                }--%>
+        <%--            },--%>
+        <%--            error: function(error) {--%>
+        <%--                console.error("오류 발생: " + error);--%>
+        <%--            }--%>
+        <%--        });--%>
+        <%--    } else {--%>
+        <%--        alert("11자리의 전화번호를 입력해주세요.");--%>
+        <%--    }--%>
+        <%--});--%>
+        // 중복 체크 이전에 작동하던 코드임! 지우지 말것
 
 
 
