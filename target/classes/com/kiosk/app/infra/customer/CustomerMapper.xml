@@ -113,7 +113,7 @@
 		select
 		Count(*) cnt
 		from customer
-		where phoneNum = ${phoneNum}
+		where phoneNum = #{phoneNum}
 	</select>
 
 

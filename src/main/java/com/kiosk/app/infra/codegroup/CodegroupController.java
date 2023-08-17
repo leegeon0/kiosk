@@ -81,6 +81,10 @@ public class CodegroupController {
 		
 		return "redirect:/codegroupXdmList";
 	}
+
+
+
+
 	
 	@RequestMapping("/codegroupUele")
 	public String kioskcodegroupUele(Codegroup dto) {

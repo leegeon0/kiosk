@@ -91,6 +91,7 @@
 		                <tr>
 		                    <th scope="col">seq</th>
 		                    <th scope="col">phoneNum</th>
+                            <th scope="col">countStamp</th>
 		                </tr>
                 	</thead>
 	                <tbody>

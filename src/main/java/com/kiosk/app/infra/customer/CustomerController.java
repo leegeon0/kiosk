@@ -88,7 +88,7 @@ public class CustomerController {
 	}
 	@ResponseBody
 	@RequestMapping("/customerInsert")
-	public Map<String,Object> idCheck(CustomerVo vo, HttpSession httpSession){
+	public Map<String,Object> idCheck(CustomerVo vo, HttpSession httpSession, Customer dto){
 		Map<String,Object> returnMap = new HashMap<String,Object>();
 
 		int rtNum = service.idCheck(vo);

@@ -44,7 +44,7 @@
                     <button class="num9 btnBorder numberPad" id="9">9</button>
                     <button class="cencel btnBorder numberPad" id="cancel">C</button>
                     <button class="num0 btnBorder numberPad" id="0">0</button>
-                    <button class="enter btnBorder numberPad" id="enter">적립</button>
+                    <button class="enter btnBorder numberPad" id="enter" type="button">적립</button>
                 </div>
                 <div class="usePayBtn">
                     <button class="skipBtn btnColor">건너뛰기</button>
@@ -57,7 +57,7 @@
 
 
 
-    <script src="/resources/assets/js/kiosk.js"></script>
+<%--    <script src="/resources/assets/js/kiosk.js"></script>--%>
     <script>
 
         // let phoneNumber = $("#phoneNumber").val();
@@ -99,6 +99,8 @@
 
 
 
+
+
         // $("#enter").on("click", function(){
         //     alert("233");
         //     $("form[name=num]").attr("action", "/customerInsert").submit();
@@ -106,20 +108,19 @@
 
         $("#enter").on("click", function(){
             var phoneNum = "";
-             phoneNum = $("#phoneNumber").val();
+            phoneNum = $("#phoneNumber").val();
 
             if (phoneNum.length >= 11) {
-                // alert("전화번호: " + phoneNum + ", 적립: 0");
-
+                // alert(phoneNum);
                 $.ajax({
                     type: "POST",
                     url: "/customerInsert",
                     data: {
-                        "phoneNum" : $("#phoneNum").val(),
+                        "phoneNum" : phoneNum,
                         "countStamp" : 0
                     },
                     success: function(response) {
-                        if(response.rt == "welcomeBack") {
+                        if(response.rt === "welcomeBack") {
                             alert("어서 오세요.");
                             location.href = "/countStamp";
                         } else {
@@ -129,13 +130,21 @@
                         }
                     },
                     error: function(error) {
-                        console.error("오류 발생: " + error);
+                        console.log("오류 발생: " + error);
                     }
                 });
             } else {
                 alert("11자리의 전화번호를 입력해주세요.");
             }
         });
+        // 정상 실행되는 ajax임 지우면 안됨
+
+
+
+
+
+
+
 
         // $("#bookmark").on("click", function(){
         //
@@ -196,9 +205,25 @@
         <%--        alert("11자리의 전화번호를 입력해주세요.");--%>
         <%--    }--%>
         <%--});--%>
-        // 중복 체크 이전에 작동하던 코드임! 지우지 말것
 
 
+        $(document).ready(function() {
+            // $(".numberPad").click(function() {
+            //   var number = $(this).text();
+            //   var phoneNumberInput = $("#phoneNumber");
+            //   phoneNumberInput.val(phoneNumberInput.val() + number);
+            // });
+
+
+
+            $(".cencel").click(function() {
+                $("#phoneNumber").val("010-"); // 입력 필드 값을 초기화합니다.
+            });
+
+            // $(".enter").click(function() {
+            //   $("form").submit(); // 폼을 제출합니다.
+            // });
+        });
 
     </script>
 
