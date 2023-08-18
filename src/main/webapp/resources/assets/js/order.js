@@ -136,18 +136,24 @@ $(function(){
 			$(this).parent(".selectOption").append(optionCount);
 			$(this).addClass("optionContsBackground");
 			
-			$(this).siblings(".optionCounter").on("click", function(e){
-
-				if(e.target.classList.value === 'optionPlus') {
-					const p = e.currentTarget.find = "p";
+			$(".optionConts").each(( i, e ) => {
+				console.log(i)
+				console.log(e)
+				console.log(this)
+				console.log($(this).siblings)
+				console.log($(this).siblings(".optionCounter"))
+				$(this).siblings(".optionCounter").on("click", (button)=> {
+										console.log(button.target.classList)
+					if(button.target.classList.value === 'optionPlus') {
 					countNum++;
-					console.log()
-					/*e.target.find("p").text(countNum);*/
-					p.text = countNum;
-				} else if (e.target.classList.value === 'optionMinus') {
-					$(this).find("p").text(--countNum);
-				}
 
+					/*e.target.find("p").text(countNum);*/
+					/*p.text = countNum;*/
+				} else if (button.target.classList.value === 'optionMinus') {
+					/*$(this).find("p").text(--countNum);*/
+					countNum--;
+				}
+				})
 			});
 				
 		}	else {
@@ -161,6 +167,7 @@ $(function(){
 	setInterval( function() {
 		if($(".modalLeftBox").css("display") == "none") {
 				$(".selectOption.selected").removeClass("selected");
+				$(".optionConts").removeClass("optionContsBackground");
 				$(".selectOption").find("div.optionCounter").remove();
 				$("#modalOptionBtn").removeClass("btnColor");
         		$("#modalOptionBtn").addClass("btnBorder");
