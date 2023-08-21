@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -45,8 +47,8 @@
         <div class="rightSide col-5">
             <div class="date" id="date"></div> 
             <div class="userMainBtn">
-                <button class="btnColor eatBtn" id="eatBtn">먹고가기</button>
-                <button class="btnBorder takeoutBtn" id="takeoutBtn">포장하기</button>
+                <button class="btnColor eatBtn" id="eatBtn"><spring:message code="site.eat" text="default text" /></button>
+                <button class="btnBorder takeoutBtn" id="takeoutBtn"><spring:message code="site.takeOut" text="default text" /></button>
             </div>
             <div class="userMainCircleBtn">
                 <div class="voiceBtn">
@@ -55,48 +57,18 @@
                 </div>
                 <div class="languageBtn">
                     <button class="btnColor" id="transBtn"><i class="fa-solid fa-globe"></i></button>
-                    <p>LANGUAGE</p>
+                    <a href="<c:url value="/userMain.do?lang=en" />">English</a></t>
+                    <a href="<c:url value="/userMain.do?lang=ko" />">Korean</a>
                 </div>
             </div>
         </div>
         <!-- rightSide 끝 -->
     </div>
     <!-- wrapper 끝 -->
+    
     <div class="translatedText"></div>
 	<script src="/resources/assets/js/kiosk.js"></script>
     <script type="text/javascript">
-    $(document).ready(function() {
-        $("#transBtn").click(function() {
-            translateAllText();
-        });
-    });
-
-    function translateAllText() {
-        var clientId = "8090vN5qrPlrk0DF9HhJ";
-        var clientSecret = "1IAIwQE4Ku";
-
-        var allText = $("body").text(); // 전체 텍스트 가져오기
-
-        // 파파고 API 호출 및 번역
-        $.ajax({
-            url: "http://localhost:3000/translate", // 프록시 서버 URL로 변경
-            type: "POST",
-            data: {
-                clientId: clientId,
-                clientSecret: clientSecret,
-                text: allText,
-                source: "ko",
-                target: "en"
-            },
-            success: function(response) {
-                var translatedText = response.translatedText;
-                $(".translatedText").text(translatedText); // 번역 결과 출력
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        });
-    }
 
         
         const date = new Date();

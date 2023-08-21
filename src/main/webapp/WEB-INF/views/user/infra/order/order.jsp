@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <jsp:useBean id="OptionMenuServiceImpl" class="com.kiosk.app.infra.optionMenu.OptionMenuServiceImpl"/> 
 
@@ -171,7 +172,7 @@
                     <span>￦<span>39,000</span>원</span>
                 </div>
                 <div class="orderBtnBox">
-                    <button class="btnColor orderBtn" id="orderBtn">주문하기</button>
+                    <button class="btnColor orderBtn" id="orderBtn"><spring:message code="site.orderFirst" text="default text" /></button>
                 </div>
             </div>
         </div>
