@@ -3,9 +3,29 @@ package com.kiosk.app.infra.index;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Locale;
+import javax.servlet.http.HttpServletRequest;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 
 @Controller
 public class IndexController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+
+	@Autowired
+	SessionLocaleResolver localeResolver;
+
+	@Autowired
+	MessageSource messageSource;
+	
 	@RequestMapping(value="/") // value = / : 최상위 도메인
 	public String biographyUserView() {
 		
@@ -61,14 +81,10 @@ public class IndexController {
 		return "user/infra/userView/userLogin";
 	}
 	
-	@RequestMapping(value="/userMain") // value = / : 최상위 도메인
-	public String userMain() {
+	@RequestMapping(value="/userMain" , method = RequestMethod.GET) // value = / : 최상위 도메인
+	public String userMain(Locale locale, HttpServletRequest request, Model model) {
 		
-		// 여기에서 서버단에서 필요한 작업을 수행한다.
-		
-		// href = "/resources/css/style.css";
-		
-		// 아래의 jsp 파일 호출
+		model.addAttribute("siteCount", messageSource.getMessage("msg.first", null, locale));
 		return "user/infra/userView/userMain";
 	}
 	
@@ -138,19 +154,16 @@ public class IndexController {
 		return "user/infra/payment/receipt";
 	}
 
-	/*
-	 * @RequestMapping(value="/order") // value = / : 최상위 도메인 public String order()
-	 * {
-	 * 
-	 * 
-	 * 
-	 * 
-	 * // 여기에서 서버단에서 필요한 작업을 수행한다.
-	 * 
-	 * // href = "/resources/css/style.css";
-	 * 
-	 * // 아래의 jsp 파일 호출 return "user/infra/order/order"; }
-	 */
+	
+	  @RequestMapping(value="/order" , method = RequestMethod.GET) // value = / : 최상위 도메인 public String order()
+	  public String order(Locale locale, HttpServletRequest request, Model model){
+	  
+	  
+		  model.addAttribute("siteCount", messageSource.getMessage("msg.first", null, locale));
+	  
+	 return "user/infra/order/order";
+	 }
+	 
 	@RequestMapping(value="/joinForm") // value = / : 최상위 도메인
 	public String joinForm() {
 		
@@ -161,6 +174,16 @@ public class IndexController {
 		// 아래의 jsp 파일 호출
 		return "xdm/infra/form/joinForm";
 	}
-
+	
+	@RequestMapping(value="/backUpOrder") // value = / : 최상위 도메인
+	public String userApi() {
+		
+		// 여기에서 서버단에서 필요한 작업을 수행한다.
+		
+		// href = "/resources/css/style.css";
+		
+		// 아래의 jsp 파일 호출
+		return "user/infra/order/backUpOrder";
+	}
 
 }

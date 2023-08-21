@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <jsp:useBean id="OptionMenuServiceImpl" class="com.kiosk.app.infra.optionMenu.OptionMenuServiceImpl"/> 
 
@@ -100,13 +101,13 @@
                                        	<button type="button" class="plus">+</button>
                                    	</div>
                                	</div>
-                            	<div class="stars">
-                          			 <i class="fa-solid fa-star"></i>
-	                                 <i class="fa-solid fa-star"></i>
-	                                 <i class="fa-solid fa-star"></i>
-	                                 <i class="fa-solid fa-star"></i>
-	                                 <i class="fa-solid fa-star"></i>
-                                </div>
+                              <div class="rate fa-solid stars">
+		                          <input type="radio" id="rating10" name="rating" value="5"><label for="rating10" title="5점"></label>
+		                          <input type="radio" id="rating8" name="rating" value="4"><label for="rating8" title="4점"></label>
+		                          <input type="radio" id="rating6" name="rating" value="3"><label for="rating6" title="3점"></label>
+		                          <input type="radio" id="rating4" name="rating" value="2"><label for="rating4" title="2점"></label>
+		                          <input type="radio" id="rating2" name="rating" value="1"><label for="rating2" title="1점"></label>
+		                      </div>
                                	<p><span class="modalPrice" data-menuPrice=""></span>원</p>
                            	</div>
                             <button type="button" id="modalOptionBtn" class="modalOptionBtn btnBorder" value="1">옵션 선택</button>
@@ -116,59 +117,7 @@
                        <div class="modalOptionRightBox">
                        	<p>옵션 선택</p>
                            <ul class="modalOptionBox" id="optionList">
-                           <%-- 
-		                      		<c:choose>
-										<c:when test="${fn:length(list) eq 0}">
-											<p>There is no data!</p>
-										</c:when>
-										<c:otherwise>
-											<c:forEach items="${list}" var="list" varStatus="status">
-												<c:if test="${list.optionMenuSeq eq null}">
-												   <li>
-			                           					<img alt="메뉴사진" src="<c:out value="${list.optionImg}"></c:out>">     
-						                                	<p class="optionName" data-menuName="<c:out value="${list.optionName}" />"><c:out value="${list.optionName}"></c:out></p><br>
-						                                	<p class="optionPrice" data-menuPrice="<c:out value="${list.optionPrice}" />"><c:out value="${list.optionPrice}"></c:out></p><br>
-						                                	
-					                            	</li>
-					                             </c:if>
-											</c:forEach>
-										</c:otherwise>
-									</c:choose>
-									 --%>
-							<!-- 
-                               <li>
-                           			<a href="#">
-                                   		<img src="/resources/assets/img/공기밥.png" alt="">
-                                   		<p>공기밥</p>
-                                   		<p>1,000원</p>
-                               		</a>
-                          		</li>
-                               <li><a href="#">
-                                   <img src="/resources/assets/img/순대.png" alt="">
-                                   <p>순대</p>
-                                   <p>3,000원</p>
-                               </a></li>
-                               <li><a href="#">
-                                   <img src="" alt="">
-                                   <p>냠</p>
-                                   <p>1,000원</p>
-                               </a></li>
-                               <li><a href="#">
-                                   <img src="" alt="">
-                                   <p>냠</p>
-                                   <p>1,000원</p>
-                               </a></li>
-                               <li><a href="#">
-                                   <img src="" alt="">
-                                   <p>냠</p>
-                                   <p>1,000원</p>
-                               </a></li>
-                               <li><a href="#">
-                                   <img src="" alt="">
-                                   <p>냠</p>
-                                   <p>1,000원</p>
-                                   </a></li>
-                                      -->
+                           
                            </ul>
                            <button class="modalOptionCloseBtn btnBorder">
                                닫기
@@ -181,11 +130,11 @@
 	                           </p>
 	                       <div class="stars modalStarBox">
 		                       <fieldset class="rate fa-solid">
-		                          <input type="radio" id="rating10" name="rating" value="10"><label for="rating10" title="5점"></label>
-		                          <input type="radio" id="rating8" name="rating" value="8"><label for="rating8" title="4점"></label>
-		                          <input type="radio" id="rating6" name="rating" value="6"><label for="rating6" title="3점"></label>
-		                          <input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="2점"></label>
-		                          <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
+		                          <input type="radio" id="rating10" name="rating" value="5"><label for="rating10" title="5점"></label>
+		                          <input type="radio" id="rating8" name="rating" value="4"><label for="rating8" title="4점"></label>
+		                          <input type="radio" id="rating6" name="rating" value="3"><label for="rating6" title="3점"></label>
+		                          <input type="radio" id="rating4" name="rating" value="2"><label for="rating4" title="2점"></label>
+		                          <input type="radio" id="rating2" name="rating" value="1"><label for="rating2" title="1점"></label>
 		                      </fieldset>
 	                       </div>
 	                           <button class="btnColor submitBtn" type="button">
@@ -214,145 +163,8 @@
                         <li>수량</li>
                         <li>금액</li>
                     </ul>
-                    <!-- <div id="nothing">
-                        <i class="fa-solid fa-utensils"></i>
-                        <p>메뉴를 선택해주세요.</p>
-                    </div> -->
                     <div class="new_contents_container" class="scroll_bar">
-                        <!-- <ul class="liked">
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>소머리국밥</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>콩나물국밥 정식</li>
-                                    <li>
-                                        <button class="likedMinus">-</button>
-                                        <span>1</span>
-                                        <button class="likedPlus">+</button>
-                                    </li>
-                                    <li><span>20,000</span>원</li>
-                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                                </ul>
-                            </li>
-                        </ul> -->
+                        
                     </div>
                 </div>
                 <div class="totalPriceBox">
@@ -479,79 +291,55 @@
 
 	    });
 		
-		$("#modalOptionBtn").on("click", function () {
-			var optionDelNyValue = $(this).val();
-		    $.ajax({
-		        async: true,
-		        cache: false,
-		        type: "post",
-		        url: "/option",
-		        data: {
-		        		"optionDelNy" : optionDelNyValue},
-		        success: function (response) {
-		            if (response.rt == "success") {
-		                // Ajax 요청이 성공하고 조건을 만족할 때
-		                var optionList = response.rtOption; // 여기서 response.list는 서버에서 받은 리스트 데이터입니다.
-		                var modalOptionBox = $("#optionList"); // <ul> 엘리먼트
+		
+		/* 옵션 출력 ajax  */
+		var optionDelNyValue = 1;
+		$.ajax({
+	        async: false,
+	        cache: false,
+	        type: "post",
+	        url: "/option",
+	        data: {
+	        		"optionDelNy" : optionDelNyValue},
+	        success: function (response) {
+	            if (response.rt == "success") {
+	                // Ajax 요청이 성공하고 조건을 만족할 때
+	                var optionList = response.rtOption; // 여기서 response.list는 서버에서 받은 리스트 데이터입니다.
+	                var modalOptionBox = $("#optionList"); // <ul> 엘리먼트
 
-		                // 리스트 데이터가 비어있을 경우 "There is no data!" 출력
-		                if (optionList.length == 0) {
-		                    modalOptionBox.append('<p>There is no data!</p>');
-		                } else {
-		                    // 리스트 데이터가 비어있지 않은 경우 각 아이템을 출력
-		                    optionList.forEach(function (item) {
-		                        if (item.optionDelNy == null) {
-		                            var listItem = '<li>' +
-		                                '<img alt="메뉴사진" src="' + item.optionImg + '">' +
-		                                '<p class="optionName" data-menuName="' + item.optionName + '">' + item.optionName + '</p><br>' +
-		                                '<p class="optionPrice" data-menuPrice="' + item.optionPrice + '">' + item.optionPrice + '</p><br>' +
-		                                '</li>';
-		                            modalOptionBox.append(listItem);
-		                        }
-		                    });
-		                }
-		            } else {
-		                // 조건을 만족하지 않는 경우에 대한 처리
-		            }
-		        },
-		        error: function (jqXHR, textStatus, errorThrown) {
-		            alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-		        }
-		    });
-		});
-
-		/* 
-		$("#modalOptionBtn").on("click",function(){
-	    	$.ajax({
-	    		async: true 
-	    		,cache: false
-	    		,type: "post"
-	    	
-	    		,url: "/option"
-	    
-	    		,data : {
-	    			"optionMenuSeq" : optionMenuSeq
-	    			}
-	    		,success: function(response) {
-	    			
-	    			
-	    				if(response.rt == "success" && optionMenuSeq == null) {
-	    				
-		    			             
-		    				
-	    				} else {
-	    					
-	    				}
-		    			      
-	    			
-	    		}
-	    		,error : function(jqXHR, textStatus, errorThrown){
-	    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-	    		}
-	    	});
-
+	                // 리스트 데이터가 비어있을 경우 "There is no data!" 출력
+	                if (optionList.length == 0) {
+	                    modalOptionBox.append('<p>There is no data!</p>');
+	                } else {
+	                    // 리스트 데이터가 비어있지 않은 경우 각 아이템을 출력
+	                    optionList.forEach(function (item) {
+	                        if (item.optionDelNy == null) {
+	                            var listItem = 
+	                            	'<li class="selectOption">' +
+	                            		'<div class="optionConts">' + 
+	                            			'<img alt="메뉴사진" src="' + item.optionImg + '">' +
+	                            			'<div>' +
+		    	                                '<p class="optionName" data-optionName="' + item.optionName + '">' + item.optionName + '</p>' +
+		    	                                '<p class="optionPrice" data-optionPrice="' + item.optionPrice + '">' + item.optionPrice + '</p>' +
+	    	                                '</div>' + 
+	                            		'</div>' +
+	                                '</li>';
+	                            modalOptionBox.append(listItem);
+	                        }
+	                    });
+	                }
+	            } else {
+	                // 조건을 만족하지 않는 경우에 대한 처리
+	            }
+	        },
+	        error: function (jqXHR, textStatus, errorThrown) {
+	            alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+	        }
 	    });
- */
+		
+
+		
+		/* 옵션 출력 ajax */
 		
       	$("#menuList").on("click", "li", function () {  
       	    var menuImg = $(this).find("img").attr("src");
@@ -565,20 +353,6 @@
       	    $("#modalName").text(menuName);
       	});
 
-		/* 메뉴 리스트 클릭시 모달창 출력 */
-/*       	$("#menuList li").on("click", function () {  
-	       	 var menuImg = $(this).find("img").attr("src");
-	       	 var menuPrice = $(this).find(".menuPrice").data("menuprice");
-	       	 var modalPrice = $("#modalPrice").data("menuprice");
-	       	 var menuName = $(this).find(".menuName").data("menuname");
-	   		 $(".modalLeftBox,.modal_bg").fadeIn();
-	   		 $("#modalImg").attr("src", menuImg);
-	   		 $("#modalPrice").text(menuPrice);
-   			 modalPrice = $("#modalPrice").attr("data-menuprice" ,menuPrice);
-	   		 $("#modalName").text(menuName);
-	   	}); */
-
-      	
         $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){
             $(".modalLeftBox,.modal_bg").fadeOut();
             $(".modalLeftBox").css('width','650px');
@@ -589,18 +363,8 @@
             	$('.inp').val(1);
             },500);
         });
-	   	
-	   	$(".modalOptionCloseBtn").on("click", function () {
-	        // 모달 창 닫기
-	        
-	        // 리스트 데이터 비우기
-	        $("#optionList").empty();
-	    });
-        
-        
-          
-    
 
+        	   	
     </script>
 </body>
 

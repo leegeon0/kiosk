@@ -58,4 +58,10 @@
 	</interceptors>	
 	 -->
 	<!-- session interceptor e 2023.07.18 for logincheck -->
+	
+	<interceptors>
+	<beans:bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<beans:property name="paramName" value="lang" />
+	</beans:bean>
+	</interceptors>
 </beans:beans>
