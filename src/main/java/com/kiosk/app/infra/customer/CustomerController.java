@@ -81,7 +81,7 @@ public class CustomerController {
 	public String customerUpdt(Customer dto) {
 
 		System.out.println("customerUpdt");
-		service.update(dto);
+//		service.update(dto);
 
 		return "redirect:/customerXdmList";
 
@@ -97,7 +97,7 @@ public class CustomerController {
 			// by pass
 			returnMap.put("rt", "welcomeBack");
 		} else {
-//			service.insert(dto);
+			service.insert(dto);
 			returnMap.put("rt", "welcome");
 		}
 

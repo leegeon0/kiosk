@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<script src="https://kit.fontawesome.com/9ba187d4f0.js" crossorigin="anonymous"></script>
 
 
 <!DOCTYPE html>

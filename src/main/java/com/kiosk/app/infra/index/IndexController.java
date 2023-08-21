@@ -1,11 +1,18 @@
 package com.kiosk.app.infra.index;
 
+import com.kiosk.app.infra.customer.Customer;
+import com.kiosk.app.infra.customer.CustomerServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
 public class IndexController {
+
+	@Autowired
+	CustomerServiceImpl service;
+
 	@RequestMapping(value="/") // value = / : 최상위 도메인
 	public String biographyUserView() {
 		
@@ -84,13 +91,10 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value="/newSignUp") // value = / : 최상위 도메인
-	public String newSignUp() {
-		
-		// 여기에서 서버단에서 필요한 작업을 수행한다.
-		
-		// href = "/resources/css/style.css";
-		
-		// 아래의 jsp 파일 호출
+	public String newSignUp(Customer dto) {
+
+//		service.insert(dto);
+
 		return "user/infra/point/newSignUp";
 	}
 	

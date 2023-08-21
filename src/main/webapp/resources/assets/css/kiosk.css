@@ -214,6 +214,17 @@ body{width: 100%; height: 100vh; font-family: 'Noto Sans KR', sans-serif; backgr
     min-height: 50px;
     border-radius: 50px;
 }
+
+/*.wrapper>.leftSide>iframe {width: 400px;*/
+/*    min-width: 200px;*/
+/*    min-height: 50px;*/
+/*    border-radius: 50px;*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*}*/
+
+
 .rightSide {
     padding: 8.5%;
     padding-bottom: 0;

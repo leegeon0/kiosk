@@ -40,6 +40,13 @@
             <button class="musicBtn btnBorder">
                 매장 음악
             </button>
+<%--            <iframe width="400" height="50"--%>
+<%--                    src="https://www.youtube.com/embed/Ton-wNlb0uo?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe>--%>
+<%--자동재생, 뮤트상태인 유튜브 음악--%>
+
+<%--            <audio autoplay controls>--%>
+<%--                <source src="audio/The_Weeknd-I_Feel_It_Coming(cover_byJ.Fla).mp3" type="audio/mp3">--%>
+<%--            </audio>--%>
         </div>
         <!-- leftSide 끝 -->
         <!-- rightSide 시작 -->

@@ -31,9 +31,10 @@
                 <div class="newSignUpBox">
                     <p>등록되지 않은 번호입니다.</p>
                     <p>앞으로 이 번호를 통해 스탬프를 적립할까요?</p>
+                    <form method="post" name="form">
                     <button class="btnColor newSignUpNoBtn newSignUpBtn">아니오</button>
-                    <button class="btnBorder newSignUpYesBtn newSignUpBtn">예</button>
-                    
+                    <button class="btnBorder newSignUpYesBtn newSignUpBtn" id="yes">예</button>
+                    </form>
                 </div>
             </div>
 
@@ -50,6 +51,18 @@
         phoneNumber = phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
         }
         $("#phoneNumber").val(phoneNumber);
+
+
+
+
+
+
+        // $("#yes").on("click",function(){
+        //
+        //
+        //     $("form[name=form]").attr("action","/newSignUp").submit();
+        //
+        // });
 
 
         
