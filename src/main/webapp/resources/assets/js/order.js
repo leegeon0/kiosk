@@ -143,7 +143,7 @@ $(function(){
 		
 			        if (currentQuantity > 1) {
 			                $quantity.text(currentQuantity - 1);
-        			        $getOptionPrice.text($optionPrice * parseInt($quantity.text()));
+        			        $getOptionPrice.text($optionPrice * parseInt($quantity.text()).toLocaleString());
 			            }
 			        
 		        });
@@ -156,7 +156,7 @@ $(function(){
 		
 		           if (currentQuantity < 20) {
 			                $quantity.text(currentQuantity + 1);
-			                $getOptionPrice.text($optionPrice * parseInt($quantity.text()));			       
+			                $getOptionPrice.text($optionPrice * parseInt($quantity.text()).toLocaleString());			       
 			            }
 		        });
 
@@ -164,6 +164,7 @@ $(function(){
 			countNum = 1;
 			$(this).siblings().remove();
 			$(this).removeClass("optionContsBackground");
+			$(".optionPrice").text($(".optionPrice").attr("data-optionPrice"))
 		}
 	});
 
