@@ -361,6 +361,7 @@
             $(".modalOptionBtn").css('display','block');
             setTimeout(function(){
             	$('.inp').val(1);
+            	$(".optionPrice").text($(".optionPrice").attr("data-optionPrice"));
             },500);
         });
 

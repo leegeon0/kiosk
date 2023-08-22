@@ -164,7 +164,6 @@ $(function(){
 			countNum = 1;
 			$(this).siblings().remove();
 			$(this).removeClass("optionContsBackground");
-			$(".optionPrice").text($(".optionPrice").attr("data-optionPrice"))
 		}
 	});
 
