@@ -129,34 +129,39 @@ $(function(){
 	$(".optionConts").on("click",function(){
 		var optionCount = '<div class="d-flex optionCounter">' + '<button type="button" class="optionMinus"> - </button>'
 		+ '<p>' + countNum + '</p>' + '<button type="button" class="optionPlus"> + </button>' + '</div>';
-			
 		$(this).parent(".selectOption").toggleClass("selected");
 		
 		if($(this).parent(".selectOption").hasClass("selected") === true ) {
 			$(this).parent(".selectOption").append(optionCount);
 			$(this).addClass("optionContsBackground");
 			
-			$(".optionConts").each(( i, e ) => {
-				console.log(i)
-				console.log(e)
-				console.log(this)
-				console.log($(this).siblings)
-				console.log($(this).siblings(".optionCounter"))
-				$(this).siblings(".optionCounter").on("click", (button)=> {
-										console.log(button.target.classList)
-					if(button.target.classList.value === 'optionPlus') {
-					countNum++;
+				$(".optionMinus").click(function() {
+			        var $quantity = $(this).siblings("p");
+			        var currentQuantity = parseInt($quantity.text(), 10);
+			        var $getOptionPrice = $(this).parent().siblings(".optionConts").find(".optionPrice");
+			        var $optionPrice = $getOptionPrice.attr("data-optionPrice").replace(",","");
+		
+			        if (currentQuantity > 1) {
+			                $quantity.text(currentQuantity - 1);
+        			        $getOptionPrice.text($optionPrice * parseInt($quantity.text()));
+			            }
+			        
+		        });
+		
+		        $(".optionPlus").click(function() {
+		            var $quantity = $(this).siblings("p");
+		            var currentQuantity = parseInt($quantity.text(), 10);
+	             	var $getOptionPrice = $(this).parent().siblings(".optionConts").find(".optionPrice");
+			        var $optionPrice = $getOptionPrice.attr("data-optionPrice").replace(",","");
+		
+		           if (currentQuantity < 20) {
+			                $quantity.text(currentQuantity + 1);
+			                $getOptionPrice.text($optionPrice * parseInt($quantity.text()));			       
+			            }
+		        });
 
-					/*e.target.find("p").text(countNum);*/
-					/*p.text = countNum;*/
-				} else if (button.target.classList.value === 'optionMinus') {
-					/*$(this).find("p").text(--countNum);*/
-					countNum--;
-				}
-				})
-			});
-				
 		}	else {
+			countNum = 1;
 			$(this).siblings().remove();
 			$(this).removeClass("optionContsBackground");
 		}
