@@ -7,6 +7,7 @@
 	<mapper namespace="com.kiosk.app.infra.star.StarMapper">
 	
 		<resultMap type="com.kiosk.app.infra.star.Star" id="resultMapObj"></resultMap>
+
 	 
 	 	<sql id="starTable">
 	 		starSeq,
@@ -70,14 +71,14 @@
 	 
 	 <insert id="insert">
 	 	insert into 
-	 	menu(
+	 	star(
 	 		star,
 	 		starDate,
 			menu_seq
 	 		)value(
 	 			#{star},
 	 			#{starDate},
-	 			#{menuSeq}
+	 			#{menu_seq}
 			 <!-- <choose>
 	            <when test="menuSeq == null or menuSeq == '' or menuSeq == 0">
 	                1
@@ -102,4 +103,18 @@
 	 	where 1=1
 	 		and starSeq = #{starSeq}
 	 </update>
+	 
+	 
+	 <insert id="starInsert" >
+	 	insert into
+		 	star(
+			 	star,
+		 		menu_seq
+		 	) value(
+			 	#{star},
+			 	#{menu_seq}
+	 		)
+	 </insert>
+	 
+	 
 	 </mapper>

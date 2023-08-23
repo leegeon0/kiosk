@@ -14,5 +14,6 @@ public interface StarService {
 	public int delete(Star dto);
 	public int insert(Star dto);
 	public int uelete(Star dto);
+	public int starInsert(Star dto);
 
 }

@@ -30,7 +30,7 @@
        .rate { display: inline-block;border: 0;margin-right: 15px;}
 .rate > input {display: none;}
 .rate > label {float: right;color: #ddd}
-.rate > label:before {display: inline-block;font-size: 1rem;padding: .3rem .2rem;margin: 0;cursor: pointer;font-family: FontAwesome;content: "\f005 ";}
+.rate > label:before {display: inline-block;font-size: 4rem;padding: 2.3rem .2rem;margin: 0 5px;cursor: pointer;font-family: FontAwesome;content: "\f005 ";}
 .rate .half:before {content: "\f089 "; position: absolute;padding-right: 0;}
 .rate input:checked ~ label, 
 .rate label:hover,.rate label:hover ~ label { color: #f73c32 !important;  } 
@@ -62,7 +62,7 @@
                 <div class="menuBox">
                     <div id="tab1-1" class="tab_content1">
                     	<ul class="tab_c_arti1"  id="menuList">
-		                    <c:choose>
+<%-- 		                    <c:choose>
 								<c:when test="${fn:length(list) eq 0}">
 									<p>There is no data!</p>
 								</c:when>
@@ -80,12 +80,11 @@
 		                                    		</div>
 				                                	<p class="menuName" data-menuName="<c:out value="${list.menuName}" />"><c:out value="${list.menuName}"></c:out></p><br>
 				                                	<p class="menuPrice" data-menuPrice="<c:out value="${list.menuPrice}" />"><c:out value="${list.menuPrice}"></c:out></p><br>
-				                                	
 			                            	</li>
 			                             </c:if>
 									</c:forEach>
 								</c:otherwise>
-							</c:choose>
+							</c:choose> --%>
 						</ul>
 					</div>
 					<div class="modal_bg"></div>
@@ -94,6 +93,7 @@
                            	<img src="" alt="" id="modalImg">
                            	<div class="modal_info">
                                	<p><span id="modalName"></span></p>
+                               	<p style="display : none;"><span id="modalSeq"></span></p>
                                	<div class="count_box">
                                    	<div class="count-wrap _count">
                                        	<button type="button" class="minus">-</button>
@@ -130,14 +130,14 @@
 	                           </p>
 	                       <div class="stars modalStarBox">
 		                       <fieldset class="rate fa-solid">
-		                          <input type="radio" id="rating10" name="rating" value="10"><label for="rating10" title="5점"></label>
-		                          <input type="radio" id="rating8" name="rating" value="8"><label for="rating8" title="4점"></label>
-		                          <input type="radio" id="rating6" name="rating" value="6"><label for="rating6" title="3점"></label>
-		                          <input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="2점"></label>
-		                          <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
+		                          <input type="radio" id="rating10" name="rating" value="5"><label for="rating10" title="5점"></label>
+		                          <input type="radio" id="rating8" name="rating" value="4"><label for="rating8" title="4점"></label>
+		                          <input type="radio" id="rating6" name="rating" value="3"><label for="rating6" title="3점"></label>
+		                          <input type="radio" id="rating4" name="rating" value="2"><label for="rating4" title="2점"></label>
+		                          <input type="radio" id="rating2" name="rating" value="1"><label for="rating2" title="1점"></label>
 		                      </fieldset>
 	                       </div>
-	                           <button class="btnColor submitBtn" type="button">
+	                           <button class="btnColor submitBtn" id="starSubmitBtn" type="button">
 	                               등록하기
 	                           </button>
 	                           <button class="btnBorder closeStarBox" type="button">
@@ -213,6 +213,7 @@
 	    			          htmlContent += '</div>';
 	    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>' + '<br>';
 	    			          htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
+ 			        		  htmlContent += '<p style="display : none;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>'; 
 	    			          htmlContent += '</div>';
 	    			          htmlContent += '</li>';
 	    			          
@@ -270,6 +271,7 @@
 		    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>' + '<br>';
 		    			          htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
 		    			          htmlContent += '</li>';
+		    			          
 		    			          
 
 		    			        });
@@ -346,11 +348,14 @@
       	    var menuPrice = $(this).find(".menuPrice").attr("data-menuPrice");
       	    var menuName = $(this).find(".menuName").attr("data-menuName");
       	  	var modalPrice = $(".modalPrice").data("menuprice");
+      	  	var menuSeq = $(this).find(".menuSeq").attr("data-menuSeq");
+      	  	var modalSeq = $(".modalSeq").data("menuSeq");
       	  	$(".modalLeftBox,.modal_bg").fadeIn();
       	    $("#modalImg").attr("src", menuImg);
       	    $(".modalPrice").text(menuPrice);
       	  	modalPrice = $(".modalPrice").attr("data-menuprice" ,menuPrice);
       	    $("#modalName").text(menuName);
+      	  	$("#modalSeq").text(menuSeq);
       	});
 
         $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){

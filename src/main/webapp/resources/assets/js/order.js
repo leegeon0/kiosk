@@ -191,5 +191,60 @@ $(function(){
 	}
 	});
 
+/*
+	$("#starSubmitBtn").on("click",function(){
+		var selectedRating = $("input[name='rating']:checked").val();
+		var menuSeqValue =  $(".menuSeq").data("menuseq"); 
+		$.ajax({
+    		async: true 
+    		,cache: false
+    		,type: "post"
+    	
+    		,url: "/userStarInsert"
+    
+    		,data : { star : selectedRating,
+    				  menu_seq : menuSeqValue
+    		}
+    		,success: function(response) {
+    			alert("성공");
+
+    		}
+    		,error : function(jqXHR, textStatus, errorThrown){
+    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+    		}
+    	});
+		
+		
+	});
+	star의 값은 저장되지만 seq값은 처음 list의 나온 값만 저장됨
+	*/
+$("#starSubmitBtn").on("click",function(){
+		var selectedRating = $("input[name='rating']:checked").val();
+		var selectedSeq = $("#modalSeq").text();
+		$.ajax({
+    		async: true 
+    		,cache: false
+    		,type: "post"
+    	
+    		,url: "/userStarInsert"
+    
+    		,data : { star : selectedRating,
+    				  menu_seq : selectedSeq,
+    		}
+    		,success: function(response) {
+    			alert("성공");
+
+    		}
+    		,error : function(jqXHR, textStatus, errorThrown){
+    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+    			console.log(selectedSeq);
+    		}
+    	});
+    	
+
+	});
+
+	
+
 	
 });
