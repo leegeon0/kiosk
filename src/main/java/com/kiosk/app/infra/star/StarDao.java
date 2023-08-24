@@ -31,6 +31,11 @@ public class StarDao {
 			return sqlSession.selectList(namespace + ".selectList2", vo);
 		}
 	
+	public List<Star> averageStar(StarVo vo){
+		
+		return sqlSession.selectList(namespace + ".averageStar", vo);
+	}
+	
 	public Star selectOne(StarVo vo) {
 		
 		return sqlSession.selectOne(namespace + ".selectOne", vo);

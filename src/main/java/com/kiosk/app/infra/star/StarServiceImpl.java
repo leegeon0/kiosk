@@ -64,4 +64,10 @@ public class StarServiceImpl implements StarService{
 		// TODO Auto-generated method stub
 		return dao.selectList2(vo);
 	}
+
+	@Override
+	public List<Star> averageStar(StarVo vo) {
+		// TODO Auto-generated method stub
+		return dao.averageStar(vo);
+	}
 }

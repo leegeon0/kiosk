@@ -55,6 +55,7 @@
 		                    <th scope="col">star</th>
 		                    <th scope="col">starDate</th>
 		                    <th scope="col">menu_seq</th>
+		                    <th scope="col">category</th>
 		                </tr>
                 	</thead>
 	                <tbody>
@@ -63,6 +64,7 @@
 		                <td><input type="text" class="form-control" id="star" name="star" value="<c:out value="${item.star}"/>"></td>
 		                <td><input type="text" class="form-control" id="starDate" name="starDate" required value="<c:out value="${item.starDate}"/>"></td>
 		                <td><input type="text" class="form-control" id="menuSeq" name="menuSeq" required value="<c:out value="${item.menu_seq}"/>"></td>
+		                <td><input type="text" class="form-control" id="menuSeq" name="menuSeq" required value="<c:out value="${item.category}"/>"></td>
 					</tr>
 	                </tbody>
               		</table>

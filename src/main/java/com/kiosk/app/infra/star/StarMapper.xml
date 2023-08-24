@@ -9,7 +9,7 @@
 		<resultMap type="com.kiosk.app.infra.star.Star" id="resultMapObj"></resultMap>
 
 	 
-	 
+
 	 <select id="selectList2" resultMap="resultMapObj">
 	 			SELECT aa.* FROM (   	
 		   		SELECT
@@ -66,16 +66,31 @@
 			) aa
 			LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
 	   	</select>
+	   	
+	   	<select id="StarAverage" resultMap="resultMapObj">
+			SELECT aa.* FROM (   	
+		   		SELECT
+					SELECT menu_seq, ROUND(AVG(star)) AS averageStar
+						FROM star
+						GROUP BY menu_seq
+						ORDER BY menu_seq;
+			) aa
+			LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
+	   	</select>
 	 
 	 
 	 
 	 	
 	 		<select id="selectOne" resultMap="resultMapObj">
-	 		
-	 		select
-	 			<include refid="starTable" />
-	 		from
-	 			star
+	 		SELECT
+					b.starSeq,
+					b.star,
+					b.starDate,
+					b.menu_seq,
+					a.category
+			
+					from menu a
+					join star b on b.menu_seq = a.seq
 	 		where 1=1
 	 			and	starSeq = #{starSeq}
 	 			
@@ -157,6 +172,8 @@
 			 	#{menu_seq}
 	 		)
 	 </insert>
+	 
+	 
 	 
 	 
 	 </mapper>

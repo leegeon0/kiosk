@@ -8,6 +8,7 @@ public interface StarService {
 	
 	public List<Star>selectList(StarVo vo);
 	public List<Star>selectList2(StarVo vo);
+	public List<Star>averageStar(StarVo vo);
 	public Star selectOne(StarVo vo);
 	
 	public int update(Star dto);

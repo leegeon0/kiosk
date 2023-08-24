@@ -5,7 +5,8 @@ public class StarVo {
 	private Integer star;
 	private String starDate;
 	private Integer menu_seq;
-	
+	private String averageStar;
+	private String category;
 //	검색
 	private Integer shOption;
 	private String shKeyword;
@@ -32,9 +33,15 @@ public class StarVo {
 	
 	
 	
-	private String category;
 	
 	
+	
+	public String getAverageStar() {
+		return averageStar;
+	}
+	public void setAverageStar(String averageStar) {
+		this.averageStar = averageStar;
+	}
 	public String getCategory() {
 		return category;
 	}

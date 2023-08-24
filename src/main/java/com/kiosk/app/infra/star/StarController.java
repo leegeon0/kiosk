@@ -1,6 +1,10 @@
 package com.kiosk.app.infra.star;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.kiosk.app.infra.menu.Menu;
+import com.kiosk.app.infra.menu.MenuVo;
 
 @Controller
 public class StarController {
@@ -84,6 +92,30 @@ public class StarController {
 		service.starInsert(dto);
 		
 		return  "redirect:/order";
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/star")
+	public Map<String, Object> averageStar(StarVo vo, HttpSession httpSession ) {
+		
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		List<Star> rtStar = service.averageStar(vo);
+		
+		if(rtStar != null) {
+			
+			httpSession.setMaxInactiveInterval(60*60);	//60min
+			
+
+			
+			returnMap.put("rtStar", rtStar);
+			returnMap.put("rts", "success");
+		}else {
+			returnMap.put("rts", "fail");
+		}
+		
+		return returnMap;
 	}
 	
 	

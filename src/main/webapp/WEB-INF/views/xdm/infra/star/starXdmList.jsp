@@ -77,7 +77,7 @@
 						<c:otherwise>
 							<c:forEach items="${list}" var="list" varStatus="status">
 							<tr>
-								<td><a href="starXdmForm?seq=<c:out value="${list.starSeq}"/>"><c:out value="${list.starSeq}"/></a></td>
+								<td><a href="starXdmForm?starSeq=<c:out value="${list.starSeq}"/>"><c:out value="${list.starSeq}"/></a></td>
 								<td><c:out value="${list.star}"></c:out></td>
 								<td><c:out value="${list.starDate}"></c:out><br></td>
 								<td><c:out value="${list.menu_seq}"></c:out><br></td>

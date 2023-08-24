@@ -211,14 +211,11 @@
 	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 	    			          htmlContent += '</div>';
-	    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>' + '<br>';
+	    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>';
 	    			          htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
  			        		  htmlContent += '<p style="display : none;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>'; 
 	    			          htmlContent += '</div>';
 	    			          htmlContent += '</li>';
-	    			          
-	    			         
-
 	    			        });
 	    			      } else {
 	    			        htmlContent = '<p>데이터가 없습니다!</p>';
@@ -268,7 +265,7 @@
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 		    			          htmlContent += '</div>';
-		    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>' + '<br>';
+		    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>';
 		    			          htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
 		    			          htmlContent += '<p style="display : none;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>'; 
 		    			          htmlContent += '</li>';

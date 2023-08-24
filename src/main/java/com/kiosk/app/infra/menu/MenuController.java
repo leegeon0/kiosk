@@ -10,16 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.AbstractController;
 
-import com.kiosk.app.infra.member.Member;
-import com.kiosk.app.infra.member.MemberVo;
+import com.kiosk.app.infra.star.Star;
+import com.kiosk.app.infra.star.StarService;
+import com.kiosk.app.infra.star.StarServiceImpl;
+import com.kiosk.app.infra.star.StarVo;
 
 
 
@@ -28,6 +25,7 @@ public class MenuController {
 
 	@Autowired
 	MenuServiceImpl service;
+	
 	
 	@RequestMapping("/menuXdmList")
 	public String menuXdmList(@ModelAttribute("vo") MenuVo vo,Model model) throws Exception {
@@ -53,7 +51,6 @@ public class MenuController {
 		
 		List<Menu> list = service.selectList(vo);
 		model.addAttribute("list",list);
-		
 		// 여기에서 서버단에서 필요한 작업을 수행한다.
 		
 		// href = "/resources/css/style.css";
