@@ -134,17 +134,7 @@ $(function(){
 		if($(this).parent(".selectOption").hasClass("selected") === true ) {
 			$(this).parent(".selectOption").append(optionCount);
 			$(this).addClass("optionContsBackground");
-			var optionLenght = $(".selectOption.selected").length;
-			var addOption = "<div class='addOption'></div>";
-			
 
-				if(optionLenght == 1) {
-
-					var	addOptionText =" + " + $(this).find(".optionName").attr("data-optionname");
-					console.log("addOptionText : " + addOptionText);	
-					$(".modal_info").append(addOption);
-					$(".addOption").text(addOptionText);
-				}
 			
 				$(".optionMinus").click(function() {
 			        var $quantity = $(this).siblings("p");
@@ -182,6 +172,33 @@ $(function(){
 				$(this).find(".optionPrice").text(resetPrice);
 			}
 		}
+		
+		
+			var optionLenght = $(".selectOption.selected").length;
+			var addOption = "<div class='addOption'></div>";
+			
+
+				if(optionLenght == 1) {
+
+					var	addOptionText =" + " + $(".selectOption.selected").find(".optionName").attr("data-optionname");
+					$(".modal_info").append(addOption);
+					$(".addOption").text(addOptionText);
+					
+				} else if (optionLenght > 1) {
+					
+					var	addOptionText =" + " + $(".selectOption.selected").find(".optionName").first().attr("data-optionname") + "외";
+					$(".modal_info").append(addOption);
+					$(".addOption").text(addOptionText);
+					
+				} else {
+					
+					var	addOptionText ="";
+					$(".addOption").remove();
+					$(".addOption").text(addOptionText);
+					
+				}
+		
+		
 	});
 
 
