@@ -143,7 +143,8 @@ $(function(){
 		
 			        if (currentQuantity > 1) {
 			                $quantity.text(currentQuantity - 1);
-        			        $getOptionPrice.text($optionPrice * parseInt($quantity.text()).toLocaleString());
+			                $optionPrice = $optionPrice * parseInt($quantity.text());
+			                $getOptionPrice.text($optionPrice.toLocaleString());	
 			            }
 			        
 		        });
@@ -156,7 +157,8 @@ $(function(){
 		
 		           if (currentQuantity < 20) {
 			                $quantity.text(currentQuantity + 1);
-			                $getOptionPrice.text($optionPrice * parseInt($quantity.text()).toLocaleString());			       
+			                $optionPrice = $optionPrice * parseInt($quantity.text());
+			                $getOptionPrice.text($optionPrice.toLocaleString());		       
 			            }
 		        });
 
@@ -164,6 +166,10 @@ $(function(){
 			countNum = 1;
 			$(this).siblings().remove();
 			$(this).removeClass("optionContsBackground");
+			if ( countNum == 1) {
+				var resetPrice = $(this).find(".optionPrice").attr("data-optionPrice");
+				$(this).find(".optionPrice").text(resetPrice);
+			}
 		}
 	});
 
@@ -190,6 +196,61 @@ $(function(){
 		$("#modalOptionBtn").addClass("btnBorder");
 	}
 	});
+
+/*
+	$("#starSubmitBtn").on("click",function(){
+		var selectedRating = $("input[name='rating']:checked").val();
+		var menuSeqValue =  $(".menuSeq").data("menuseq"); 
+		$.ajax({
+    		async: true 
+    		,cache: false
+    		,type: "post"
+    	
+    		,url: "/userStarInsert"
+    
+    		,data : { star : selectedRating,
+    				  menu_seq : menuSeqValue
+    		}
+    		,success: function(response) {
+    			alert("성공");
+
+    		}
+    		,error : function(jqXHR, textStatus, errorThrown){
+    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+    		}
+    	});
+		
+		
+	});
+	star의 값은 저장되지만 seq값은 처음 list의 나온 값만 저장됨
+	*/
+$("#starSubmitBtn").on("click",function(){
+		var selectedRating = $("input[name='rating']:checked").val();
+		var selectedSeq = $("#modalSeq").text();
+		$.ajax({
+    		async: true 
+    		,cache: false
+    		,type: "post"
+    	
+    		,url: "/userStarInsert"
+    
+    		,data : { star : selectedRating,
+    				  menu_seq : selectedSeq,
+    		}
+    		,success: function(response) {
+    			alert("성공");
+
+    		}
+    		,error : function(jqXHR, textStatus, errorThrown){
+    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+    			console.log(selectedSeq);
+    		}
+    	});
+    	
+
+	});
+
+	
 
 	
 });

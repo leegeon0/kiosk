@@ -52,4 +52,10 @@ public class StarServiceImpl implements StarService{
 		// TODO Auto-generated method stub
 		return dao.uelete(dto);
 	}
+
+	@Override
+	public int starInsert(Star dto) {
+		// TODO Auto-generated method stub
+		return dao.starInsert(dto);
+	}
 }

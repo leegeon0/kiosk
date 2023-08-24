@@ -44,4 +44,7 @@ public class StarDao {
 	public int uelete(Star dto) {
 		return sqlSession.update(namespace + ".uelete", dto);
 	}
+	public int starInsert(Star dto) {
+		return sqlSession.insert(namespace + ".starInsert", dto);
+	}
 }

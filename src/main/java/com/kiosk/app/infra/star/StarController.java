@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.kiosk.app.infra.option.Option;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class StarController {
@@ -50,7 +50,7 @@ public class StarController {
 	}
 	
 	@RequestMapping("/starInsert")
-	public String starInsert(Star dto) {
+	public String starInsert1(Star dto) {
 		
 		service.insert(dto);
 		
@@ -72,4 +72,15 @@ public class StarController {
 		
 		return "redirect:/starXdmList";
 	}
+	
+	@RequestMapping("/userStarInsert")
+	public String starInsert(Star dto, @RequestParam("menu_seq") String menuSeq) {
+		
+		service.starInsert(dto);
+		
+		return  "redirect:/order";
+	}
+	
+	
+
 }
