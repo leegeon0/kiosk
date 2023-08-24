@@ -297,7 +297,7 @@
 		
 		/* 옵션 출력 ajax  */
 		var optionDelNyValue = 1;
-		$.ajax({
+		var optionAjax = $.ajax({
 	        async: false,
 	        cache: false,
 	        type: "post",
@@ -365,9 +365,13 @@
             $(".modalOptionRightBox").css('display','none');
             $(".modalStarRightBox").css('display','none');
             $(".modalOptionBtn").css('display','block');
+            var resetOption = optionAjax.responseJSON.rtOption;
+            var optionPrice = document.querySelectorAll(".optionPrice");
+            resetOption.forEach((e,i)=>{
+           		optionPrice[i].innerText = resetOption[i].optionPrice;
+           	});
             setTimeout(function(){
             	$('.inp').val(1);
-            	$(".optionPrice").text($(".optionPrice").attr("data-optionPrice"));
             },500);
         });
 
