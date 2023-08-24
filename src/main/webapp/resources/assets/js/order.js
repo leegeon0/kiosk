@@ -187,13 +187,13 @@ $(function(){
 				} else if (optionLenght > 1) {
 					
 					var	addOptionText =" + " + $(".selectOption.selected").find(".optionName").first().attr("data-optionname") + "외";
-					$(".modal_info").append(addOption);
+/*					$(".modal_info").append(addOption);*/
 					$(".addOption").text(addOptionText);
 					
 				} else {
 					
 					var	addOptionText ="";
-					$(".addOption").remove();
+					$(".modal_info .addOption").remove();
 					$(".addOption").text(addOptionText);
 					
 				}
