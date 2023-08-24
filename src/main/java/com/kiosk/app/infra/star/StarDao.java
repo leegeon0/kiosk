@@ -17,19 +17,23 @@ public class StarDao {
 	
 	private static String namespace = "com.kiosk.app.infra.star.StarMapper";
 	
-	public int selectOneCount(Star dto) {
+	public int selectOneCount(StarVo vo) {
 		
-		return sqlSession.selectOne(namespace + ".selectOneCount", dto);
+		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
 	}
 	
-	public List<Star> selectList(Star dto) {
+	public List<Star> selectList(StarVo vo) {
 		
-		return sqlSession.selectList(namespace + ".selectList", dto);
+		return sqlSession.selectList(namespace + ".selectList", vo);
 	}
+	public List<Star> selectList2(StarVo vo) {
+			
+			return sqlSession.selectList(namespace + ".selectList2", vo);
+		}
 	
-	public Star selectOne(Star dto) {
+	public Star selectOne(StarVo vo) {
 		
-		return sqlSession.selectOne(namespace + ".selectOne", dto);
+		return sqlSession.selectOne(namespace + ".selectOne", vo);
 	}
 	
 	public int update(Star dto) {

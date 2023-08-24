@@ -16,21 +16,26 @@ public class StarController {
 	StarServiceImpl service;
 
 	@RequestMapping("/starXdmList")
-	public String starXdmList(@ModelAttribute("vo") Star vo, Model model) throws Exception {
+	public String starXdmList(@ModelAttribute("vo") StarVo vo, Model model) throws Exception {
 		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
 		
 		vo.setParamsPaging(service.selectOneCount(vo));
 		
+		
+		List<Star> list = service.selectList2(vo);
+		
 		if(vo.getTotalRows()>0) {
-			List<Star> list = service.selectList(vo);
+			
 			model.addAttribute("list",list);
+			
+			
 		} else {
 			// by pass
 		}
 		return "xdm/infra/star/starXdmList";
 	}
 	@RequestMapping("/starXdmForm")
-	public String memberXdomForm(Star vo,Model model) {
+	public String memberXdomForm(StarVo vo,Model model) {
 		
 		Star star = service.selectOne(vo);
 		
@@ -74,7 +79,7 @@ public class StarController {
 	}
 	
 	@RequestMapping("/userStarInsert")
-	public String starInsert(Star dto, @RequestParam("menu_seq") String menuSeq) {
+	public String starInsert(Star dto) {
 		
 		service.starInsert(dto);
 		

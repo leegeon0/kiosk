@@ -9,6 +9,36 @@
 		<resultMap type="com.kiosk.app.infra.star.Star" id="resultMapObj"></resultMap>
 
 	 
+	 
+	 <select id="selectList2" resultMap="resultMapObj">
+	 			SELECT aa.* FROM (   	
+		   		SELECT
+					b.starSeq,
+					b.star,
+					b.starDate,
+					b.menu_seq,
+					a.category
+			
+					from menu a
+					join star b on b.menu_seq = a.seq
+
+			)
+			 aa
+			LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	  
+			<!-- SELECT 
+					b.starSeq,
+					b.star,
+					b.starDate,
+					b.menu_seq,
+					a.category
+			
+			from menu a
+			join star b on b.menu_seq = a.seq -->
+			
+						   			
+	   	</select>
+	 
+	 
 	 	<sql id="starTable">
 	 		starSeq,
 	 		star,
@@ -41,15 +71,27 @@
 	 
 	 	
 	 		<select id="selectOne" resultMap="resultMapObj">
+	 		
 	 		select
 	 			<include refid="starTable" />
 	 		from
 	 			star
 	 		where 1=1
 	 			and	starSeq = #{starSeq}
+	 			
 	 			<!-- 문자 검색은 대부분 like를 사용 -->
-	 	
-	 	
+<!-- 	 	SELECT 
+					b.starSeq,
+					b.star,
+					b.starDate,
+					b.menu_seq,
+					a.category
+			
+			from menu a
+			join star b on b.menu_seq = a.seq
+			where 1=1
+	 			and	starSeq = #{starSeq}
+	 	 -->
 	 	</select>
 	 	
 	 <update id="update" >

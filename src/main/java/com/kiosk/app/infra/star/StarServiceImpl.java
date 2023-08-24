@@ -12,21 +12,21 @@ public class StarServiceImpl implements StarService{
 	StarDao dao;
 
 	@Override
-	public int selectOneCount(Star dto) {
+	public int selectOneCount(StarVo vo) {
 		// TODO Auto-generated method stub
-		return dao.selectOneCount(dto);
+		return dao.selectOneCount(vo);
 	}
 
 	@Override
-	public List<Star> selectList(Star dto) {
+	public List<Star> selectList(StarVo vo) {
 		// TODO Auto-generated method stub
-		return dao.selectList(dto);
+		return dao.selectList(vo);
 	}
 
 	@Override
-	public Star selectOne(Star dto) {
+	public Star selectOne(StarVo vo) {
 		// TODO Auto-generated method stub
-		return dao.selectOne(dto);
+		return dao.selectOne(vo);
 	}
 
 	@Override
@@ -57,5 +57,11 @@ public class StarServiceImpl implements StarService{
 	public int starInsert(Star dto) {
 		// TODO Auto-generated method stub
 		return dao.starInsert(dto);
+	}
+
+	@Override
+	public List<Star> selectList2(StarVo vo) {
+		// TODO Auto-generated method stub
+		return dao.selectList2(vo);
 	}
 }

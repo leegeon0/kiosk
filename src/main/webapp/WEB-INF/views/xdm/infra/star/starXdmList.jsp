@@ -64,7 +64,7 @@
 		                    <th scope="col">starSeq</th>
 		                    <th scope="col">star</th>
 		                    <th scope="col">starDate</th>
-		                    <th scope="col">menu_seq</th>	                  
+		                    <th scope="col">menu_seq</th>	
 		                </tr>
                 	</thead>
 	                <tbody>

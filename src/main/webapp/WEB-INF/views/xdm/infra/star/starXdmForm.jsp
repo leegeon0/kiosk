@@ -150,7 +150,7 @@
 
 	  $("#updateBtn").on("click",function(){
 	 	
- 		 if(validationUpdt() == false) return false;	 	 
+ 	/* 	 if(validationUpdt() == false) return false;	 */ 	 
 		 $("form[name=form]").attr("action","/starUpdt").submit(); 
 	  });
 		 

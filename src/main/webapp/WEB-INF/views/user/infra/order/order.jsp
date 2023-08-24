@@ -270,6 +270,7 @@
 		    			          htmlContent += '</div>';
 		    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>' + '<br>';
 		    			          htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
+		    			          htmlContent += '<p style="display : none;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>'; 
 		    			          htmlContent += '</li>';
 		    			          
 		    			          
