@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -97,13 +98,53 @@ public class CustomerController {
 			// by pass
 			returnMap.put("rt", "welcomeBack");
 		} else {
-			service.insert(dto);
+//			service.insert(dto);
 			returnMap.put("rt", "welcome");
 		}
 
 		return returnMap;
 
 	}
+
+	@ResponseBody
+	@RequestMapping("/customerInsert2")
+	public Map<String,Object> customerInsert2(Customer dto){
+		Map<String,Object> returnMap = new HashMap<String,Object>();
+
+		returnMap.put("rt", "welcome");
+		service.insert(dto);
+
+		return returnMap;
+
+	}
+
+
+//	@ResponseBody
+//	@RequestMapping("/customerInsert2")
+//	public String customerInsert2(CustomerVo vo, HttpSession httpSession, Customer dto){
+////		int rtNum = service.insert(dto);
+//
+//		service.insert(dto);
+//		return "redirect:/newSighUp";
+//
+//	}
+
+
+
+
+
+//	@ResponseBody
+//	@RequestMapping("/customerInsert2")
+//	public Map<String, Object> customerInsert2(@RequestParam("phoneNum") String phoneNum, HttpSession httpSession, Customer dto) {
+//		Map<String, Object> responseMap = new HashMap<String, Object>();
+//
+//		dto.setPhoneNum(phoneNum); // Set the phoneNum in the dto
+//		service.insert(dto);
+//		responseMap.put("result", "success");
+//
+//		return responseMap;
+//	}
+
 
 
 //	@ResponseBody

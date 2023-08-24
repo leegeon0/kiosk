@@ -12,13 +12,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Point</title>
+    <title>point</title>
     <script src="https://kit.fontawesome.com/9ba187d4f0.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/assets/css/kiosk.css">
+    <link rel="stylesheet" href="/resources/assets/css/point.css">
     <script src="/resources/assets/js/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -45,6 +46,16 @@
                     <button class="cencel btnBorder numberPad" id="cancel">C</button>
                     <button class="num0 btnBorder numberPad" id="0">0</button>
                     <button class="enter btnBorder numberPad" id="enter" type="button">적립</button>
+
+<%--                    <span id="popup_btn">★ READ ME ★</span>--%>
+                    <div id="modal_bg"></div>
+                    <div id="modal_box">
+                        <p>신규 등록</p>
+                        <p>등록되지 않은 번호입니다.</p>
+                        <p>앞으로 이 번호를 통해 스탬프를 적립할까요?</p>
+                        <button id="no">아니오</button>
+                        <button id="yes">예</button>
+                    </div>
                 </div>
                 <div class="usePayBtn">
                     <button class="skipBtn btnColor">건너뛰기</button>
@@ -106,6 +117,10 @@
         //     $("form[name=num]").attr("action", "/customerInsert").submit();
         // });
 
+
+
+
+
         $("#enter").on("click", function(){
             var phoneNum = "";
             phoneNum = $("#phoneNumber").val();
@@ -124,9 +139,15 @@
                             alert("어서 오세요.");
                             location.href = "/countStamp";
                         } else {
-                            alert("신규 고객입니다.");
+                            // alert("신규 고객입니다.");
 
-                            location.href = "/newSignUp";
+                            // location.href = "/countStamp";
+
+                            // var redirectURL = "/newSignUp?phoneNumber=" + phoneNum;
+                            // window.location.href = redirectURL;
+
+                            $("#modal_bg").fadeIn();
+                            $("#modal_box").fadeIn();
                         }
                     },
                     error: function(error) {
@@ -138,6 +159,9 @@
             }
         });
         // 정상 실행되는 ajax임 지우면 안됨
+
+
+
 
 
 
@@ -223,6 +247,32 @@
             // $(".enter").click(function() {
             //   $("form").submit(); // 폼을 제출합니다.
             // });
+        });
+
+        $("#yes").on("click", function() {
+            var phoneNum = $("#phoneNumber").val();
+            $.ajax({
+                type: "POST",
+                url: "/customerInsert2",
+                data: {
+                    "phoneNum": phoneNum,
+                    "countStamp": 0
+                },
+                success: function(response) {
+                    if (response.rt === "welcome") {
+                        // alert("신규 고객입니다.");
+                        location.href = "/countStamp";
+                    }
+                },
+                error: function(error) {
+                    console.log("오류 발생: " + error);
+                }
+            });
+        });
+
+
+        $("#no").on("click", function() {
+            location.href = "/countStamp";
         });
 
     </script>

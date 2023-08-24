@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Point</title>
+    <title>newSignUp</title>
     <script src="https://kit.fontawesome.com/9ba187d4f0.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
                     <p>등록되지 않은 번호입니다.</p>
                     <p>앞으로 이 번호를 통해 스탬프를 적립할까요?</p>
                     <form method="post" name="form">
-                    <button class="btnColor newSignUpNoBtn newSignUpBtn">아니오</button>
+                    <button class="btnColor newSignUpNoBtn newSignUpBtn" id="no">아니오</button>
                     <button class="btnBorder newSignUpYesBtn newSignUpBtn" id="yes">예</button>
                     </form>
                 </div>
@@ -43,17 +43,8 @@
 
 
 
-    <script src="/resources/assets/js/kiosk.js"></script>
+<%--    <script src="/resources/assets/js/kiosk.js"></script>--%>
     <script>
-
-        let phoneNumber = $("#phoneNumber").val();
-        if (phoneNumber.length > 8) {
-        phoneNumber = phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
-        }
-        $("#phoneNumber").val(phoneNumber);
-
-
-
 
 
 
@@ -65,7 +56,36 @@
         // });
 
 
-        
+        $("#no").on("click",function(){
+            window.location.href = "/payment";
+            alert("alert창이 없으면 payment로 넘어가지 않음");
+        });
+
+
+
+        // $("#yes").on("click", function() {
+        //     var phoneNum = $("#phoneNumber").val(); // Get the phone number from the input field
+        //
+        //     $.ajax({
+        //         type: "POST", // Change the request type to POST
+        //         url: "/customerInsert2", // Change the URL to match the POST endpoint
+        //         data: {
+        //             phoneNum: phoneNum,
+        //             countStamp: 0
+        //         },
+        //         success: function(response) {
+        //             alert("qwerty");
+        //             console.log(response);
+        //         },
+        //         error: function(error) {
+        //             console.log("오류 발생: " + error);
+        //         }
+        //     });
+        // });
+
+
+
+
 
     </script>
 </body>

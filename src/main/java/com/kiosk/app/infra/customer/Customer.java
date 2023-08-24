@@ -29,7 +29,4 @@ public class Customer {
 	public void setCountStamp(String countStamp) {
 		this.countStamp = countStamp;
 	}
-
-//    public boolean idCheck() {
-//    }
 }
