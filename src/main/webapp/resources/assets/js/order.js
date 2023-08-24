@@ -126,7 +126,7 @@ $(function(){
 
 
 	var countNum = 1;
-	$(".optionConts").on("click",function(){
+	$(".optionConts").on("click",function(a){
 		var optionCount = '<div class="d-flex optionCounter">' + '<button type="button" class="optionMinus"> - </button>'
 		+ '<p>' + countNum + '</p>' + '<button type="button" class="optionPlus"> + </button>' + '</div>';
 		$(this).parent(".selectOption").toggleClass("selected");
@@ -134,6 +134,17 @@ $(function(){
 		if($(this).parent(".selectOption").hasClass("selected") === true ) {
 			$(this).parent(".selectOption").append(optionCount);
 			$(this).addClass("optionContsBackground");
+			var optionLenght = $(".selectOption.selected").length;
+			var addOption = "<div class='addOption'></div>";
+			
+
+				if(optionLenght == 1) {
+
+					var	addOptionText =" + " + $(this).find(".optionName").attr("data-optionname");
+					console.log("addOptionText : " + addOptionText);	
+					$(".modal_info").append(addOption);
+					$(".addOption").text(addOptionText);
+				}
 			
 				$(".optionMinus").click(function() {
 			        var $quantity = $(this).siblings("p");
