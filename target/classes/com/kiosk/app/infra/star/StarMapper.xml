@@ -67,15 +67,10 @@
 			LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
 	   	</select>
 	   	
-	   	<select id="StarAverage" resultMap="resultMapObj">
-			SELECT aa.* FROM (   	
-		   		SELECT
-					SELECT menu_seq, ROUND(AVG(star)) AS averageStar
-						FROM star
-						GROUP BY menu_seq
-						ORDER BY menu_seq;
-			) aa
-			LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
+	   	<select id="averageStar" resultMap="resultMapObj">
+					SELECT menu_seq, round(AVG(star)) AS averageStar
+								FROM star
+								GROUP BY menu_seq;
 	   	</select>
 	 
 	 
