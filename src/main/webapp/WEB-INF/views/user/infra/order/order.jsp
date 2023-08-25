@@ -101,6 +101,7 @@
                                        	<button type="button" class="plus">+</button>
                                    	</div>
                                	</div>
+                               	<p><span class="modalPrice" data-menuPrice=""></span>원</p>
                             	<div class="stars">
                           			 <i class="fa-solid fa-star"></i>
 	                                 <i class="fa-solid fa-star"></i>
@@ -108,7 +109,7 @@
 	                                 <i class="fa-solid fa-star"></i>
 	                                 <i class="fa-solid fa-star"></i>
                                 </div>
-                               	<p><span class="modalPrice" data-menuPrice=""></span>원</p>
+                                <div class="addOption"><p class="modalTotalPrice"></p></div>
                            	</div>
                             <button type="button" id="modalOptionBtn" class="modalOptionBtn btnBorder" value="1">옵션 선택</button>
                             <button class="modalCencelBtn btnBorder">취소하기</button>
@@ -361,7 +362,7 @@
             $(".modalLeftBox").css('width','650px');
             $(".modalOptionRightBox").css('display','none');
             $(".modalStarRightBox").css('display','none');
-            $(".modalOptionBtn").css('display','block');
+            $(".modalOptionBtn").css('display','block').text("옵션선택");
             var resetOption = optionAjax.responseJSON.rtOption;
             var optionPrice = document.querySelectorAll(".optionPrice");
             resetOption.forEach((e,i)=>{
@@ -369,6 +370,8 @@
            	});
             setTimeout(function(){
             	$('.inp').val(1);
+            	var	addOptionText ="";
+				$(".addOption").text(addOptionText);
             },500);
         });
 

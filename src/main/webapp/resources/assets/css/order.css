@@ -137,11 +137,13 @@ animation-name: ani1; animation-duration: 30s; animation-iteration-count: infini
 .modalStarRightBox {width: 550px; height: 500px; float: left; display: flex; justify-content: center; align-items: center; display: none; position: relative;}
 .modalStarRightBox p {text-align: center; font-size: 1.1vw; font-weight: bold; margin-top: 100px;}
 .md_m {float: right; width: 420px; height: 100%; font-family: 'Gowun Batang', serif;}
-.modal_info {width: 260px; height: 190px; position: absolute; bottom: 255px; right: 25px;}
-.modal_info p {text-align: center;}
-.modal_info .stars {position: absolute; right: 0; bottom: 40px;}
-.modal_info p:last-child {position: absolute; bottom: 0; margin-bottom: 0; right: 0;}
-.modal_info .addOption {position: absolute; bottom: 0; left: 0;}
+.modal_info {width: 260px; position: absolute; top: 40px; right: 25px;}
+.modal_info p:first-child {text-align: center;}
+.modal_info p:last-of-type {text-align: right; padding: 20px 0 5px; margin:0;}
+.modal_info .stars {width: 100%; display: flex; justify-content: flex-end;}
+
+
+.modal_info .addOption {margin: 1rem 0;}
 .modalOptionBtn {width: 270px; height: 70px; font-size: 1.3vw; position: absolute; right: 25px; bottom: 165px;}
 .modalCencelBtn {width:290px; height: 100px; font-size: 1.3vw;position: absolute; left: 30px; bottom: 20px;}
 .modalOrderBtn {width:290px; height: 100px; font-size: 1.3vw; position: absolute; right: 30px; bottom: 20px; border-radius: 15px;}

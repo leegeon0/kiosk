@@ -123,7 +123,7 @@ $(function(){
 
 	};
 	countDown();
-
+	
 
 	var countNum = 1;
 	$(".optionConts").on("click",function(a){
@@ -175,26 +175,28 @@ $(function(){
 		
 		
 			var optionLenght = $(".selectOption.selected").length;
-			var addOption = "<div class='addOption'></div>";
+			var totalOptionPrice = $(".selectOption.selected");
+			console.log()
+
 			
 
 				if(optionLenght == 1) {
 
 					var	addOptionText =" + " + $(".selectOption.selected").find(".optionName").attr("data-optionname");
-					$(".modal_info").append(addOption);
 					$(".addOption").text(addOptionText);
+					$(".modalTotalPrice").text();
 					
 				} else if (optionLenght > 1) {
 					
-					var	addOptionText =" + " + $(".selectOption.selected").find(".optionName").first().attr("data-optionname") + "외";
-/*					$(".modal_info").append(addOption);*/
+					var	addOptionText =" + " + $(".selectOption.selected").find(".optionName").first().attr("data-optionname") + " 외　" + (optionLenght-1);
 					$(".addOption").text(addOptionText);
+					$(".modalTotalPrice").text();
 					
 				} else {
 					
 					var	addOptionText ="";
-					$(".modal_info .addOption").remove();
 					$(".addOption").text(addOptionText);
+					$(".modalTotalPrice").text();
 					
 				}
 		
