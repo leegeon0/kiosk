@@ -136,7 +136,7 @@
                     },
                     success: function(response) {
                         if(response.rt === "welcomeBack") {
-                            alert("어서 오세요.");
+                            // alert("어서 오세요.");
                             location.href = "/countStamp";
                         } else {
                             // alert("신규 고객입니다.");
@@ -261,7 +261,7 @@
                 success: function(response) {
                     if (response.rt === "welcome") {
                         // alert("신규 고객입니다.");
-                        location.href = "/countStamp";
+                        location.href = "/payment";
                     }
                 },
                 error: function(error) {
@@ -272,7 +272,7 @@
 
 
         $("#no").on("click", function() {
-            location.href = "/countStamp";
+            location.href = "/payment";
         });
 
     </script>
