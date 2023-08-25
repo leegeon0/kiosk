@@ -229,8 +229,40 @@
     			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
     		}
     	});
+    	var averageStar = 0;
+    	var starAjax = $.ajax({
+    		async: true 
+    		,cache: false
+    		,type: "post"
+    	
+    		,url: "/star"
+    
+    		,data : {
+    			"averageStar" : averageStar}
+    		,success: function(response) {
+    			
+    				if(response.rts == "success") {
+    					alert("나오긴하는거?");
+    					 var htmlContent = '';
+	    			      if (response.rtStar.length > 0) {
+	    			        $.each(response.rtStar, function(index, item) {
 
-		
+	    			          htmlContent += '<p class="avgStar" data-avgStar="'+ item.averageStar +'">' + item.averageStar + '</p>';
+
+	    			        });
+	    			      } else {
+	    			        htmlContent = '<p>데이터가 없습니다!</p>';
+	    			      }
+	    			       $("#menuList").html(htmlContent);
+	    				
+    				}
+    		}
+    		,error : function(jqXHR, textStatus, errorThrown){
+    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+    		}
+    	});
+
+		console.log(starAjax.responseJSON.averaeStar);
 
 	}); 
     

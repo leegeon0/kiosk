@@ -9,14 +9,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.kiosk.app.infra.menu.Menu;
-import com.kiosk.app.infra.menu.MenuVo;
 
 @Controller
 public class StarController {
@@ -97,15 +92,18 @@ public class StarController {
 	
 	@ResponseBody
 	@RequestMapping("/star")
-	public Map<String, Object> averageStar(StarVo vo, HttpSession httpSession ) {
+	public Map<String, Object> averageStar(StarVo vo, HttpSession httpSession) throws Exception {
 		
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
 		List<Star> rtStar = service.averageStar(vo);
+		System.out.println(vo.getAverageStar());
+		
 		
 		if(rtStar != null) {
 			
 			httpSession.setMaxInactiveInterval(60*60);	//60min
+			httpSession.setAttribute("sessionAverageStar", vo.getAverageStar());
 			
 
 			

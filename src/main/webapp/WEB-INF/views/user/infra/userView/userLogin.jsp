@@ -27,6 +27,9 @@
     <!-- 폰트 어썸 -->
     <script src="https://kit.fontawesome.com/9ba187d4f0.js" crossorigin="anonymous"></script>
     <!-- 폰트 어썸 -->
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+<%--    유튜브api를 사용--%>
 </head>
 <body>
     <!-- wrapper 시작 -->
@@ -37,12 +40,16 @@
             <div class="calendar">
 
             </div>
-            <button class="musicBtn btnBorder">
+            <button class="musicBtn btnBorder" id="playMusicBtn">
                 매장 음악
             </button>
-<%--            <iframe width="400" height="50"--%>
-<%--                    src="https://www.youtube.com/embed/Ton-wNlb0uo?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe>--%>
-<%--자동재생, 뮤트상태인 유튜브 음악--%>
+            <div class="musicContainer"></div>
+<%--            <div class="musicBtn">--%>
+<%--&lt;%&ndash;                <iframe width="400" height="50"&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        src="https://www.youtube.com/embed/Ton-wNlb0uo?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                &lt;%&ndash;자동재생, 뮤트상태인 유튜브 음악&ndash;%&gt;&ndash;%&gt;--%>
+<%--            </div>--%>
+
 
 <%--            <audio autoplay controls>--%>
 <%--                <source src="audio/The_Weeknd-I_Feel_It_Coming(cover_byJ.Fla).mp3" type="audio/mp3">--%>
@@ -130,8 +137,103 @@
     	location.href ="/joinForm";
     	
     });
-    
-    
-    </script>
+
+
+
+
+
+    const playButton = document.getElementById('playMusicBtn');
+    const musicContainer = document.querySelector('.musicContainer');
+    let isPlaying = false;
+
+    playButton.addEventListener('click', () => {
+        if (!isPlaying) {
+            const youtubeIframe = document.createElement('iframe');
+            youtubeIframe.width = '1';
+            youtubeIframe.height = '1';
+            youtubeIframe.src = 'https://www.youtube.com/embed/Ton-wNlb0uo?autoplay=1';
+            youtubeIframe.title = 'YouTube 동영상 플레이어';
+            youtubeIframe.frameBorder = '0';
+            youtubeIframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            youtubeIframe.allowFullscreen = true;
+            youtubeIframe.id = 'youtubeIframe';
+
+            musicContainer.appendChild(youtubeIframe);
+            isPlaying = true;
+            playButton.textContent = '매장 음악 멈춤';
+        } else {
+            const youtubeIframe = document.getElementById('youtubeIframe');
+            youtubeIframe.remove();
+            isPlaying = false;
+            playButton.textContent = '매장 음악';
+        }
+    });
+
+
+
+
+    // // Load the YouTube IFrame API
+    // const tag = document.createElement('script');
+    // tag.src = 'https://www.youtube.com/iframe_api';
+    // const firstScriptTag = document.getElementsByTagName('script')[0];
+    // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    //
+    // let player; // YouTube player instance
+    //
+    // function onYouTubeIframeAPIReady() {
+    //     player = new YT.Player('youtubeIframe', {
+    //         height: '1',
+    //         width: '1',
+    //         videoId: 'Ton-wNlb0uo',
+    //         playerVars: {
+    //             'autoplay': 0,
+    //             'controls': 0,
+    //             'rel': 0,
+    //             'enablejsapi': 1
+    //         },
+    //         events: {
+    //             'onStateChange': onPlayerStateChange
+    //         }
+    //     });
+    // }
+    //
+    // function onPlayerStateChange(event) {
+    //     const playButton = document.getElementById('playMusicBtn');
+    //
+    //     if (event.data === YT.PlayerState.PLAYING) {
+    //         playButton.textContent = "매장음악 끄기"; // 재생 중일 때 문구 변경
+    //     } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+    //         playButton.textContent = "매장 음악"; // 일시정지 또는 종료 상태일 때 문구 변경
+    //     }
+    // }
+    //
+    // document.getElementById('playMusicBtn').addEventListener('click', function() {
+    //     if (player) {
+    //         if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+    //             player.pauseVideo();
+    //         } else {
+    //             player.playVideo();
+    //         }
+    //     }
+    // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
 </body>
 </html>
