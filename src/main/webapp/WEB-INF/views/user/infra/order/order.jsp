@@ -146,7 +146,6 @@
 	                           </button>
 	                       </div>
                        </form>
-                       
                    </div>
                    </div>
                 </div>
@@ -214,7 +213,8 @@
 	    			          htmlContent += '</div>';
 	    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>';
 	    			          htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
- 			        		  htmlContent += '<p style="display : none;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>'; 
+ 			        		  htmlContent += '<p style="display :none ;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>';
+                                htmlContent += '<p class="avgStar" data-avgStar="'+ item.averageStar +'">' + item.averageStar + '</p>';
 	    			          htmlContent += '</div>';
 	    			          htmlContent += '</li>';
 	    			        });
@@ -239,30 +239,67 @@
     
     		,data : {
     			"averageStar" : averageStar}
-    		,success: function(response) {
-    			
-    				if(response.rts == "success") {
-    					alert("나오긴하는거?");
-    					 var htmlContent = '';
-	    			      if (response.rtStar.length > 0) {
-	    			        $.each(response.rtStar, function(index, item) {
-
-	    			          htmlContent += '<p class="avgStar" data-avgStar="'+ item.averageStar +'">' + item.averageStar + '</p>';
-
-	    			        });
-	    			      } else {
-	    			        htmlContent = '<p>데이터가 없습니다!</p>';
-	    			      }
-	    			       $("#menuList").html(htmlContent);
-	    				
-    				}
-    		}
+    		// ,success: function(response) {
+    		//
+    		// 		if(response.rts == "success") {
+    		// 			// alert("나오긴하는거?");
+    		// 			 var htmlContent = '';
+	    	// 		      if (response.rtStar.length > 0) {
+	    	// 		        $.each(response.rtStar, function(index, item) {
+            //
+	    	// 		          // htmlContent += '<p class="avgStar" data-avgStar="'+ item.averageStar +'">' + item.averageStar + '</p>';
+            //
+	    	// 		        });
+	    	// 		      } else {
+	    	// 		        htmlContent = '<p>데이터가 없습니다!</p>';
+	    	// 		      }
+	    	// 		       $("#menuList").html(htmlContent);
+	    	//
+    		// 		}
+    		// }
+            // starAjax의 success 콜백 함수 안에서 해당 부분을 추가하여 별 아이콘을 조작합니다.
+            ,success: function(response) {
+                if (response.rts == "success") {
+                    var htmlContent = '';
+                    if (response.rtStar.length > 0) {
+                        $.each(response.rtStar, function(index, item) {
+                            // 메뉴 별 평균 별점 값 가져오기
+                            const avgStarValue = parseFloat(item.averageStar);
+                            // 최대 별점 개수 (여기서는 5개)
+                            const maxStars = 5;
+                            // 별 아이콘을 담을 변수
+                            let starIcons = '';
+                            // 각 별 아이콘을 생성하고 스타일을 적용
+                            for (let i = 1; i <= maxStars; i++) {
+                                if (i <= avgStarValue) {
+                                    starIcons += '<i class="fa-solid fa-star"></i>';
+                                } else {
+                                    starIcons += '<i class="fa-solid fa-star" style="color: grey;"></i>';
+                                }
+                            }
+                            // 나머지 HTML 내용과 별 아이콘을 결합하여 추가
+                            htmlContent += '<li class="popup_btn" data-category="' + item.category + '">';
+                            htmlContent += '<img alt="" src="' + item.menuImg + '">';
+                            htmlContent += '<div class="menuNames">';
+                            htmlContent += '<div class="stars">' + starIcons + '</div>';
+                            htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>';
+                            htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
+                            htmlContent += '<p style="display: none;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>';
+                            htmlContent += '</div>';
+                            htmlContent += '</li>';
+                        });
+                    } else {
+                        htmlContent = '<p>데이터가 없습니다!</p>';
+                    }
+                    $("#menuList").html(htmlContent);
+                }
+            }
     		,error : function(jqXHR, textStatus, errorThrown){
     			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
     		}
     	});
 
-		console.log(starAjax.responseJSON.averaeStar);
+		// console.log(starAjax.responseJSON.averageStar);
 
 	}); 
     
@@ -282,41 +319,69 @@
 	    		,data : {
 	    			"category" : categoryValue}
 	    		,success: function(response) {
-	    			
-	    			for(i=1; i<=4; i++) {
-	    				if(response.rt == "success" && categoryValue == i) {
-	    					 var htmlContent = '';
-		    			      if (response.rtMenu.length > 0) {
-		    			        $.each(response.rtMenu, function(index, item) {
-		    			          htmlContent += '<li class="popup_btn" data-category="' + item.category + '">';
-		    			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
-		    			          htmlContent += '<div class="menuNames">';
-		    			          htmlContent += '<div class="stars">';
-		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
-		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
-		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
-		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
-		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
-		    			          htmlContent += '</div>';
-		    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>';
-		    			          htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
-		    			          htmlContent += '<p style="display : none;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>'; 
-		    			          htmlContent += '</li>';
-		    			          
-		    			          
 
-		    			        });
-		    			      } else {
-		    			        htmlContent = '<p>데이터가 없습니다!</p>';
-		    			      }
-		    			       $("#menuList").html(htmlContent);
-		    				
-	    				} else {
-	    					/* by pass */
-	    				}
-	    				
-	    			}
-	    		}
+                    for (i = 1; i <= 4; i++) {
+                        if (response.rt == "success" && categoryValue == i) {
+                            var htmlContent = '';
+                            if (response.rtMenu.length > 0) {
+                                $.each(response.rtMenu, function (index, item) {
+                                    htmlContent += '<li class="popup_btn" data-category="' + item.category + '">';
+                                    htmlContent += '<img alt="" src="' + item.menuImg + '">';
+                                    htmlContent += '<div class="menuNames">';
+                                    htmlContent += '<div class="stars">';
+                                    // htmlContent += '<i class="fa-solid fa-star"></i>';
+                                    // htmlContent += '<i class="fa-solid fa-star"></i>';
+                                    // htmlContent += '<i class="fa-solid fa-star"></i>';
+                                    // htmlContent += '<i class="fa-solid fa-star"></i>';
+                                    // htmlContent += '<i class="fa-solid fa-star"></i>';
+                                    // htmlContent += '</div>';
+                                    // htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>';
+                                    // htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
+                                    // htmlContent += '<p style="display : ;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>';
+                                    // htmlContent += '</li>';
+
+
+                                    // 메뉴 항목에 평균 별점 값을 업데이트
+                                    var avgStarElement = $(this).find(".avgStar");
+                                    if (avgStarElement.length) {
+
+                                        // 별점 노란색과 회색 아이콘 생성
+                                        var yellowStars = averageStar;
+                                        var grayStars = 5 - averageStar;
+
+                                        // 노란색 별 아이콘 추가
+                                        for (var i = 0; i < yellowStars; i++) {
+                                            htmlContent += '<i class="fa-solid fa-star" style="color: gold;"></i>';
+                                        }
+
+                                        // 회색 별 아이콘 추가
+                                        for (var i = 0; i < grayStars; i++) {
+                                            htmlContent += '<i class="fa-solid fa-star" style="color: lightgray;"></i>';
+                                        }
+
+
+                                        //
+                                        //     // 나머지 코드
+                                        htmlContent += '</div>';
+                                        htmlContent += '<p class="menuName" data-menuName="' + item.menuName + '">' + item.menuName + '</p>';
+                                        htmlContent += '<p class="menuPrice" data-menuPrice="' + item.menuPrice + '">' + item.menuPrice + '</p>';
+                                        htmlContent += '<p style="display : ;" class="menuSeq" data-menuSeq="' + item.seq + '">' + item.seq + '</p>';
+                                        htmlContent += '</li>';
+
+
+                                    } else {
+                                        htmlContent = '<p>데이터가 없습니다!</p>';
+                                    }
+                                    $("#menuList").html(htmlContent);
+
+                                });
+                            } else {
+                                /* by pass */
+                            }
+
+                        }
+                    }
+                }
 	    		,error : function(jqXHR, textStatus, errorThrown){
 	    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 	    		}
