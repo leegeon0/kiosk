@@ -214,7 +214,7 @@
 	    			          htmlContent += '</div>';
 	    			          htmlContent += '<p class="menuName" data-menuName="'+ item.menuName +'">' + item.menuName + '</p>';
 	    			          htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
- 			        		  htmlContent += '<p style="display : none;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>'; 
+ 			        		  htmlContent += '<p style="display :none ;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>';
 	    			          htmlContent += '</div>';
 	    			          htmlContent += '</li>';
 	    			        });
@@ -242,7 +242,7 @@
     		,success: function(response) {
     			
     				if(response.rts == "success") {
-    					alert("나오긴하는거?");
+    					// alert("나오긴하는거?");
     					 var htmlContent = '';
 	    			      if (response.rtStar.length > 0) {
 	    			        $.each(response.rtStar, function(index, item) {
@@ -262,7 +262,7 @@
     		}
     	});
 
-		console.log(starAjax.responseJSON.averaeStar);
+		console.log(starAjax.responseJSON.averageStar);
 
 	}); 
     
