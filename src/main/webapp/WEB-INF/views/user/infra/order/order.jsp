@@ -109,7 +109,7 @@
 	                                 <i class="fa-solid fa-star"></i>
 	                                 <i class="fa-solid fa-star"></i>
                                 </div>
-                                <div class="addOption"><p class="modalTotalPrice"></p></div>
+                                <div class="addOption"><p class="addOptionText"></p><p class="modalTotalPrice"></p></div>
                            	</div>
                             <button type="button" id="modalOptionBtn" class="modalOptionBtn btnBorder" value="1">옵션 선택</button>
                             <button class="modalCencelBtn btnBorder">취소하기</button>
@@ -400,8 +400,8 @@
            	});
             setTimeout(function(){
             	$('.inp').val(1);
-            	var	addOptionText ="";
-				$(".addOption").text(addOptionText);
+				$(".addOptionText").text("");
+				$(".modalTotalPrice").text("");
             },500);
         });
 

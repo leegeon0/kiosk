@@ -134,7 +134,6 @@ $(function(){
 		if($(this).parent(".selectOption").hasClass("selected") === true ) {
 			$(this).parent(".selectOption").append(optionCount);
 			$(this).addClass("optionContsBackground");
-
 			
 				$(".optionMinus").click(function() {
 			        var $quantity = $(this).siblings("p");
@@ -145,9 +144,8 @@ $(function(){
 			        if (currentQuantity > 1) {
 			                $quantity.text(currentQuantity - 1);
 			                $optionPrice = $optionPrice * parseInt($quantity.text());
-			                $getOptionPrice.text($optionPrice.toLocaleString());	
+			                $getOptionPrice.text($optionPrice.toLocaleString());
 			            }
-			        
 		        });
 		
 		        $(".optionPlus").click(function() {
@@ -159,7 +157,8 @@ $(function(){
 		           if (currentQuantity < 20) {
 			                $quantity.text(currentQuantity + 1);
 			                $optionPrice = $optionPrice * parseInt($quantity.text());
-			                $getOptionPrice.text($optionPrice.toLocaleString());		       
+			                $getOptionPrice.text($optionPrice.toLocaleString());
+		                	priceSum = $optionPrice;		       
 			            }
 		        });
 
@@ -171,33 +170,33 @@ $(function(){
 				var resetPrice = $(this).find(".optionPrice").attr("data-optionPrice");
 				$(this).find(".optionPrice").text(resetPrice);
 			}
+			$(".addOptionText").text("");
+			$(".modalTotalPrice").text("");
 		}
 		
 		
 			var optionLenght = $(".selectOption.selected").length;
-			var totalOptionPrice = $(".selectOption.selected");
-			console.log()
+			var getOptionPrice = $(".selectOption.selected").find(".optionPrice").attr("data-optionPrice");
 
 			
 
 				if(optionLenght == 1) {
 
 					var	addOptionText =" + " + $(".selectOption.selected").find(".optionName").attr("data-optionname");
-					$(".addOption").text(addOptionText);
-					$(".modalTotalPrice").text();
+					var getOptionPrice = $(".selectOption.selected").find(".optionPrice").attr("data-optionPrice");
+					$(".addOptionText").text(addOptionText);
+					$(".modalTotalPrice").text(getOptionPrice);
 					
 				} else if (optionLenght > 1) {
 					
 					var	addOptionText =" + " + $(".selectOption.selected").find(".optionName").first().attr("data-optionname") + " 외　" + (optionLenght-1);
-					$(".addOption").text(addOptionText);
+					$(".addOptionText").text(addOptionText);
 					$(".modalTotalPrice").text();
 					
 				} else {
-					
-					var	addOptionText ="";
-					$(".addOption").text(addOptionText);
-					$(".modalTotalPrice").text();
-					
+						$(".addOptiontext").text("선택하지 않았습니다.");
+						$(".modalTotalPrice").text();
+
 				}
 		
 		
