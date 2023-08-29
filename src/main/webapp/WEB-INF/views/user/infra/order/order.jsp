@@ -185,6 +185,9 @@
     <script src="/resources/assets/js/kiosk.js"></script>
     <script>
     
+    
+    
+
 	$(document).ready(function(){
     	var categoryValue = 1;    	
     	$.ajax({
@@ -205,7 +208,7 @@
 	    			          htmlContent += '<li class="popup_btn" data-category="' + item.category + '">';
 	    			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
 	    			          htmlContent += '<div class="menuNames">';
-	    			          htmlContent += '<div class="stars">';
+	    			          htmlContent += '<div class="stars" data-menuSeq="'+ item.seq +'">';
 	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 	    			          htmlContent += '<i class="fa-solid fa-star"></i>';
@@ -229,43 +232,41 @@
     			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
     		}
     	});
-    	var averageStar = 0;
-    	var starAjax = $.ajax({
-    		async: true 
-    		,cache: false
-    		,type: "post"
-    	
-    		,url: "/star"
-    
-    		,data : {
-    			"averageStar" : averageStar}
-    		,success: function(response) {
-    			
-    				if(response.rts == "success") {
-    					// alert("나오긴하는거?");
-    					 var htmlContent = '';
-	    			      if (response.rtStar.length > 0) {
-	    			        $.each(response.rtStar, function(index, item) {
-
-	    			          htmlContent += '<p class="avgStar" data-avgStar="'+ item.averageStar +'">' + item.averageStar + '</p>';
-
-	    			        });
-	    			      } else {
-	    			        htmlContent = '<p>데이터가 없습니다!</p>';
-	    			      }
-	    			       $("#menuList").html(htmlContent);
-	    				
-    				}
-    		}
-    		,error : function(jqXHR, textStatus, errorThrown){
-    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-    		}
-    	});
-
-		console.log(starAjax.responseJSON.averageStar);
-
 	}); 
-    
+	
+	var averageStar = 0;
+	 $.ajax({
+		async: true 
+		,cache: false
+		,type: "post"
+	
+		,url: "/star"
+
+		,data : {
+			"averageStar" : averageStar}
+		,success: function(response) {
+			
+				if(response.rts == "success") {
+					// alert("나오긴하는거?");
+					 var htmlContent = '';
+    			      if (response.rtStar.length > 0) {
+    			        $.each(response.rtStar, function(index, item) {
+
+    			          htmlContent += '<p class="avgStar" data-avgStar="'+ item.averageStar +'">' + item.averageStar + '</p>';
+    			        });
+    			      } else {
+    			        htmlContent = '<p>데이터가 없습니다!</p>';
+    			      }
+
+    			       $("#menuList").html(htmlContent);
+    				
+				}
+		}
+		,error : function(jqXHR, textStatus, errorThrown){
+			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		}
+	});	
+ 	    
 	
 		$(".categoryBtn").on("click",function(){
 	    	var categoryValue = $(this).val();
@@ -291,7 +292,7 @@
 		    			          htmlContent += '<li class="popup_btn" data-category="' + item.category + '">';
 		    			          htmlContent += '<img alt="" src="' + item.menuImg + '">';
 		    			          htmlContent += '<div class="menuNames">';
-		    			          htmlContent += '<div class="stars">';
+		    			          htmlContent += '<div class="stars" data-menuSeq="'+ item.seq +'">';
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
 		    			          htmlContent += '<i class="fa-solid fa-star"></i>';
@@ -302,9 +303,6 @@
 		    			          htmlContent += '<p class="menuPrice" data-menuPrice="'+ item.menuPrice +'">' + item.menuPrice + '</p>';
 		    			          htmlContent += '<p style="display : none;" class="menuSeq" data-menuSeq="'+ item.seq +'">' + item.seq + '</p>'; 
 		    			          htmlContent += '</li>';
-		    			          
-		    			          
-
 		    			        });
 		    			      } else {
 		    			        htmlContent = '<p>데이터가 없습니다!</p>';
