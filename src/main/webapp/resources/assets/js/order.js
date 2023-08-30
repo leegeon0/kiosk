@@ -52,9 +52,9 @@ $(function(){
             }
             let countPrice = setPrice * num;
            	modalPrice.text(countPrice.toLocaleString());
+           	$(".modalPrice").attr("data-changeprice", countPrice);
         }
     });
-
 
     $(".modalOptionBtn").click(function(){
         $(".modalLeftBox").css('width','1200px');
