@@ -101,7 +101,7 @@
                                        	<button type="button" class="plus">+</button>
                                    	</div>
                                	</div>
-                               	<p><span class="modalPrice" data-menuPrice=""></span>원</p>
+                               	<p><span class="modalPrice" data-menuPrice="" data-changeprice=""></span>원</p>
                             	<div class="stars">
                           			 <i class="fa-solid fa-star"></i>
 	                                 <i class="fa-solid fa-star"></i>
@@ -385,7 +385,8 @@
       	    $("#modalImg").attr("src", menuImg);
       	    $(".modalPrice").text(menuPrice);
       	  	modalPrice = $(".modalPrice").attr("data-menuprice" ,menuPrice);
-      	    $("#modalName").text(menuName);
+      	  $(".modalPrice").attr("data-changeprice", menuPrice.replace(',',""));
+      	  	$("#modalName").text(menuName);
       	  	$("#modalSeq").text(menuSeq);
       	});
 
