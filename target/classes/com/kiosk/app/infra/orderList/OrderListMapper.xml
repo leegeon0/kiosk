@@ -8,13 +8,41 @@
 
 	<resultMap type="com.kiosk.app.infra.orderList.OrderList" id="resultMapObj"></resultMap>
  
+ 
+ 
+ <select id="selectList2" resultMap="resultMapObj">
+	 			SELECT aa.* FROM (   	
+		   		select
+					ol.orderListSeq,
+					ol.menu_seq,
+				    m.menuName,
+				    m.menuPrice,
+				    ol.menuQuantity,
+				    ol.optionMenu_optionMenuSeq,
+				    o.optionName,
+				    o.optionPrice,
+				    ol.optionQuantity,
+				    ol.delNy
+				    from orderList ol
+				    join menu m on ol.menu_seq = m.seq
+				    join optionMenu o on ol.optionMenu_optionMenuSeq = o.optionMenuSeq
+
+			)
+			 aa
+			LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
+</select>	
+			
+			
+			
  	<sql id="abc">
-		orderListSeq,
-		optionList_seq,
-		menuList_seq
+		 orderListSeq,
+		 menu_seq,
+		 optionMenu_optionMenuSeq,
+		 menuQuantity,
+		 optionQuantity,
+		 delNy
 	</sql>
- 
- 
+ 	 
  
  	<sql id ="selectCommon">
    		FROM    
@@ -65,8 +93,8 @@
  	update
  		orderList
  	set
-		optionList_seq = #{optionList_seq},
-		menuList_seq = #{menuList_seq}
+		menu_seq = #{menu_seq},
+		optionMenu_optionMenuSeq = #{optionMenu_optionMenuSeq}
  	where 1=1
  		and orderListSeq = #{orderListSeq}
  </update>
@@ -87,11 +115,11 @@
  <insert id="insert">
  	insert into 
  		orderList (
-			optionList_seq,
-			menuList_seq
+			menu_seq,
+			optionMenu_optionMenuSeq
  		)value(
- 			#{optionList_seq},
- 			#{menuList_seq}
+ 			#{menu_seq},
+ 			#{optionMenu_optionMenuSeq}
  		)
  
  </insert>
