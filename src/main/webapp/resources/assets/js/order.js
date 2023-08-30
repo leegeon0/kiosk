@@ -157,8 +157,7 @@ $(function(){
 		           if (currentQuantity < 20) {
 			                $quantity.text(currentQuantity + 1);
 			                $optionPrice = $optionPrice * parseInt($quantity.text());
-			                $getOptionPrice.text($optionPrice.toLocaleString());
-		                	priceSum = $optionPrice;		       
+			                $getOptionPrice.text($optionPrice.toLocaleString());      
 			            }
 		        });
 
