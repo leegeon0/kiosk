@@ -184,7 +184,7 @@ $(function(){
             $(this).find(".optionPrice").text(resetPrice);
          }
          $(".addOptionText").text("");
-/*         $(".modalTotalPrice").text("");*/
+         $(".modalTotalPrice").text($(".modalTotalPrice").text());
       }
       
       
@@ -207,9 +207,7 @@ $(function(){
                
                var addOptionText =" + " + $(".selectOption.selected").find(".optionName").first().attr("data-optionname") + " 외　" + (optionLenght-1);
                $(".addOptionText").text(addOptionText);
-               var $getOptionPrice = $(".selectOption.selected").find(".optionPrice").attr("data-optionPrice");
-               var $getOptionPriceInt = parseInt($getOptionPrice.replace(",",""));
-               var addOptionPrice = (getPriceInt + $getOptionPriceInt).toLocaleString();
+               console.log($(this).find(".optionPrice").attr("data-optionPrice"));
           
                
                  
