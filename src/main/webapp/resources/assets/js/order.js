@@ -52,13 +52,16 @@ $(function(){
             }
             let countPrice = setPrice * num;
             modalPrice.text(countPrice.toLocaleString());
-            
-            /*총 합계*/
+
             $(".modalPrice").attr("data-changeprice", countPrice);
-            /*변하는 금액 저장*/
-            modalTotalPrice.text("총 " + countPrice.toLocaleString() + "원");
-			console.log(modalTotalPrice.text())
-            /*전역변수*/
+            $(".modalTotalPrice").text("총 " + countPrice.toLocaleString() + "원")
+            var getPrice = modalTotalPrice.text().replace(/[^\d,]+/g, "");
+            console.log(getPrice.replace(",",""));
+            console.log(num)
+    /*        if(num < 1) {
+				
+			}*/
+			
         }
     });
 
@@ -140,6 +143,7 @@ $(function(){
       if($(this).parent(".selectOption").hasClass("selected") === true ) {
          $(this).parent(".selectOption").append(optionCount);
          $(this).addClass("optionContsBackground");
+
          
             $(".optionMinus").off("click").on("click",function() {
                  var $quantity = $(this).siblings("p");
@@ -185,26 +189,32 @@ $(function(){
       
       
          var optionLenght = $(".selectOption.selected").length;
-         var getOptionPrice = $(".selectOption.selected").find(".optionPrice").attr("data-optionPrice");
-
-         
+         var getPrice = $(".modalPrice").attr("data-changeprice");
+		 var getPriceInt = parseInt(getPrice);
+         var $getOptionPrice = $(".selectOption.selected").find(".optionPrice").attr("data-optionPrice");
+         var $getOptionPriceInt = parseInt($getOptionPrice.replace(",",""));
+         var addOptionPrice = (getPriceInt + $getOptionPriceInt).toLocaleString();
+         var changePrice = $(".modalTotalPrice").text().replace(/\d+(,\d+)?/, addOptionPrice);
+         $(".modalTotalPrice").text(changePrice); 
 
             if(optionLenght == 1) {
-
-               var   addOptionText =" + " + $(".selectOption.selected").find(".optionName").attr("data-optionname");
-               var getOptionPrice = $(".selectOption.selected").find(".optionPrice").attr("data-optionPrice");
+               var addOptionText =" + " + $(".selectOption.selected").find(".optionName").attr("data-optionname");
                $(".addOptionText").text(addOptionText);
-               /*$(".modalTotalPrice").text(getOptionPrice);*/
+                  
+               
                
             } else if (optionLenght > 1) {
                
-               var   addOptionText =" + " + $(".selectOption.selected").find(".optionName").first().attr("data-optionname") + " 외　" + (optionLenght-1);
+               var addOptionText =" + " + $(".selectOption.selected").find(".optionName").first().attr("data-optionname") + " 외　" + (optionLenght-1);
                $(".addOptionText").text(addOptionText);
-              /* $(".modalTotalPrice").text();*/
+               var $getOptionPrice = $(".selectOption.selected").find(".optionPrice").attr("data-optionPrice");
+               var $getOptionPriceInt = parseInt($getOptionPrice.replace(",",""));
+               var addOptionPrice = (getPriceInt + $getOptionPriceInt).toLocaleString();
+          
                
+                 
             } else {
                   $(".addOptiontext").text("선택하지 않았습니다.");
-                 /* $(".modalTotalPrice").text();*/
 
             }
       
