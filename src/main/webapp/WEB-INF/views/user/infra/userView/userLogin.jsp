@@ -62,13 +62,13 @@
             <form  id="login" method="post">
                 <div class="radio">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radio" id="adminRadio" checked>
+                        <input class="form-check-input" type="radio" name="radio" id="adminRadio">
                         <label class="form-check-label" for="adminRadio">
                           관리자 화면
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radio" id="customerRadio">
+                        <input class="form-check-input" type="radio" name="radio" id="customerRadio"checked>
                         <label class="form-check-label" for="customerRadio">
                           고객 화면
                         </label>
@@ -77,11 +77,11 @@
                 <!-- radio Btn -->
                 <div class="inputBox">
                     <div class="idInput">
-                        <input type="text" id="id" value="" name="id">
+                        <input type="text" id="id" value="geon" name="id">
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="pwInput" >
-                        <input type="password" id="password" value="" name="password">
+                        <input type="password" id="password" value="geon" name="password">
                         <i class="fa-solid fa-key"></i>
                     </div>
                 </div>

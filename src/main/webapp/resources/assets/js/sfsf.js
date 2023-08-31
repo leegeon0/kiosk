@@ -135,36 +135,33 @@ $(function(){
          $(this).parent(".selectOption").append(optionCount);
          $(this).addClass("optionContsBackground");
          
-            $(".optionMinus").off("click").on("click",function() {
+            $(".optionMinus").click(function() {
                  var $quantity = $(this).siblings("p");
                  var currentQuantity = parseInt($quantity.text(), 10);
                  var $getOptionPrice = $(this).parent().siblings(".optionConts").find(".optionPrice");
                  var $optionPrice = $getOptionPrice.attr("data-optionPrice").replace(",","");
       
                  if (currentQuantity > 1) {
-					 	 currentQuantity--;
-                         $quantity.text(currentQuantity);
+                         $quantity.text(currentQuantity - 1);
                          $optionPrice = $optionPrice * parseInt($quantity.text());
                          $getOptionPrice.text($optionPrice.toLocaleString());
-                         
                      }
               });
       
-              $(".optionPlus").off("click").on("click",function() {
+              $(".optionPlus").click(function() {
                   var $quantity = $(this).siblings("p");
                   var currentQuantity = parseInt($quantity.text(), 10);
                    var $getOptionPrice = $(this).parent().siblings(".optionConts").find(".optionPrice");
                  var $optionPrice = $getOptionPrice.attr("data-optionPrice").replace(",","");
       
                  if (currentQuantity < 20) {
-					 	currentQuantity++;
-                         $quantity.text(currentQuantity);
+                         $quantity.text(currentQuantity + 1);
                          $optionPrice = $optionPrice * parseInt($quantity.text());
                          $getOptionPrice.text($optionPrice.toLocaleString());      
                          
-                     }else{
-						 
-					 }
+                         console.log("currentQiantity : " + currentQuantity);
+                         console.log("$quantity : " + $quantity);e
+                     }
               });
 
       }   else {
@@ -288,4 +285,93 @@ $("#starSubmitBtn").on("click",function(){
    
 
    
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ var countNum = 1;
+   $(document).on("click", ".optionConts", function(a) {
+    var $selectOption = $(this).parent(".selectOption");
+    $selectOption.toggleClass("selected");
+
+    if ($selectOption.hasClass("selected")) {
+        var optionCount = `
+            <div class="d-flex optionCounter">
+                <button type="button" class="optionMinus"> - </button>
+                <p>${countNum}</p>
+                <button type="button" class="optionPlus"> + </button>
+            </div>`;
+        $selectOption.append(optionCount);
+        $(this).addClass("optionContsBackground");
+
+        $(".optionMinus").off("click").on("click", function() {
+            var $quantity = $(this).siblings("p");
+            var currentQuantity = parseInt($quantity.text(), 10);
+            var $getOptionPrice = $(this).parent().siblings(".optionConts").find(".optionPrice");
+            var $optionPrice = parseFloat($getOptionPrice.attr("data-optionPrice").replace(",", ""));
+
+            if (currentQuantity > 1) {
+                currentQuantity--;
+                $quantity.text(currentQuantity);
+                $optionPrice *= currentQuantity;
+                $getOptionPrice.text($optionPrice.toLocaleString());
+            }
+        });
+
+        $(".optionPlus").off("click").on("click", function() {
+            var $quantity = $(this).siblings("p");
+            var currentQuantity = parseInt($quantity.text(), 10);
+            var $getOptionPrice = $(this).parent().siblings(".optionConts").find(".optionPrice");
+            var $optionPrice = parseFloat($getOptionPrice.attr("data-optionPrice").replace(",", ""));
+
+            if (currentQuantity < 20) {
+                currentQuantity++;
+                $quantity.text(currentQuantity);
+                $optionPrice *= currentQuantity;
+                $getOptionPrice.text($optionPrice.toLocaleString());
+            }
+        });
+
+    } else {
+        countNum = 1;
+        $(this).siblings().remove();
+        $(this).removeClass("optionContsBackground");
+        var resetPrice = $(this).find(".optionPrice").attr("data-optionPrice");
+        $(this).find(".optionPrice").text(resetPrice);
+        $(".addOptionText, .modalTotalPrice").text("");
+    }
+
+    var $selectedOptions = $(".selectOption.selected");
+    var optionLength = $selectedOptions.length;
+
+    if (optionLength > 0) {
+        var addOptionText = " + " + $selectedOptions.first().find(".optionName").attr("data-optionname");
+        var totalPrice = parseFloat($selectedOptions.first().find(".optionPrice").attr("data-optionPrice").replace(",", ""));
+        $(".addOptionText").text(optionLength === 1 ? addOptionText : addOptionText + " 외 " + (optionLength - 1));
+        $(".modalTotalPrice").text(totalPrice.toLocaleString());
+    } else {
+        $(".addOptionText").text("선택하지 않았습니다.");
+        $(".modalTotalPrice").text("");
+    }
 });
