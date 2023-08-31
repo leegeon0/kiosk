@@ -164,7 +164,32 @@
                     <li>금액</li>
                 </ul>
                 <div class="new_contents_container" class="scroll_bar">
-
+                    <ul class="liked">
+                        <li>
+                            <ul>
+                                <li>소머리국밥</li>
+                                <li>
+                                    <button class="likedMinus">-</button>
+                                    <span>1</span>
+                                    <button class="likedPlus">+</button>
+                                </li>
+                                <li><span>20,000</span>원</li>
+                                <li><button><i class="fa-solid fa-xmark"></i></button></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>소머리국밥</li>
+                                <li>
+                                    <button class="likedMinus">-</button>
+                                    <span>1</span>
+                                    <button class="likedPlus">+</button>
+                                </li>
+                                <li><span>20,000</span>원</li>
+                                <li><button><i class="fa-solid fa-xmark"></i></button></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="totalPriceBox">
