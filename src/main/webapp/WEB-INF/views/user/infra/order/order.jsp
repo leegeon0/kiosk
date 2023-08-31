@@ -377,6 +377,11 @@
 		
 		/* 옵션 출력 ajax */
 		
+		/* 모달창 선택 총 금액 출력하기 */
+		
+		/* 모달창 선택 총 금액 출력하기 */
+		
+		
       	$("#menuList").on("click", "li", function () {  
       	    var menuImg = $(this).find("img").attr("src");
       	    var menuPrice = $(this).find(".menuPrice").attr("data-menuPrice");
@@ -388,7 +393,8 @@
       	    $("#modalImg").attr("src", menuImg);
       	    $(".modalPrice").text(menuPrice);
       	  	modalPrice = $(".modalPrice").attr("data-menuprice" ,menuPrice);
-      	  $(".modalPrice").attr("data-changeprice", menuPrice.replace(',',""));
+      	  	$(".modalPrice").attr("data-changeprice", menuPrice.replace(',',""));
+      	  	$(".modalTotalPrice").text(menuPrice + "원");
       	  	$("#modalName").text(menuName);
       	  	$("#modalSeq").text(menuSeq);
       	});

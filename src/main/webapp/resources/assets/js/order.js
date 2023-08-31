@@ -159,8 +159,9 @@ $(function(){
 			                $optionPrice = $optionPrice * parseInt($quantity.text());
 			                $getOptionPrice.text($optionPrice.toLocaleString());      
 			                
-			                console.log("currentQiantity : " + currentQuantity);
-			                console.log("$quantity : " + $quantity);e
+/*			                console.log("currentQiantity : " + currentQuantity);
+			                console.log("$quantity : " + $quantity);
+			                console.log($quantity);*/
 			            }
 		        });
 
@@ -204,7 +205,7 @@ $(function(){
 		
 	});
 	
-	$("._count :button")
+
 
 	
 	setInterval( function() {
