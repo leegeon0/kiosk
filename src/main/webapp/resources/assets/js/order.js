@@ -51,8 +51,14 @@ $(function(){
                 $count.val(num);
             }
             let countPrice = setPrice * num;
-              modalPrice.text(countPrice.toLocaleString());
-              $(".modalPrice").attr("data-changeprice", countPrice);
+            modalPrice.text(countPrice.toLocaleString());
+            
+            /*총 합계*/
+            $(".modalPrice").attr("data-changeprice", countPrice);
+            /*변하는 금액 저장*/
+            modalTotalPrice.text("총 " + countPrice.toLocaleString() + "원");
+			console.log(modalTotalPrice.text())
+            /*전역변수*/
         }
     });
 
