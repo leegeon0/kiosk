@@ -68,9 +68,16 @@
 	   	</select>
 	   	
 	   	<select id="averageStar" resultMap="resultMapObj">
-					SELECT menu_seq, round(AVG(star)) AS averageStar
-								FROM star
-								GROUP BY menu_seq;
+<!-- 					SELECT menu_seq, ROUND(AVG(star)) AS averageStar
+					FROM star
+					GROUP BY menu_seq; -->
+					 
+					SELECT b.menu_seq, ROUND(AVG(b.star)) AS averageStar
+					FROM star b
+					INNER JOIN menu a ON a.seq = b.menu_seq
+					WHERE a.category = #{category}
+					GROUP BY b.menu_seq;
+					
 	   	</select>
 	 
 	 
