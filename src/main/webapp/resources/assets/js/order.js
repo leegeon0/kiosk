@@ -158,6 +158,9 @@ $(function(){
 			                $quantity.text(currentQuantity + 1);
 			                $optionPrice = $optionPrice * parseInt($quantity.text());
 			                $getOptionPrice.text($optionPrice.toLocaleString());      
+			                
+			                console.log("currentQiantity : " + currentQuantity);
+			                console.log("$quantity : " + $quantity);e
 			            }
 		        });
 
@@ -200,7 +203,8 @@ $(function(){
 		
 		
 	});
-
+	
+	$("._count :button")
 
 	
 	setInterval( function() {
