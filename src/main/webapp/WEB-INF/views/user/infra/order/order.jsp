@@ -120,7 +120,7 @@
                            
                            </ul>
                            <button class="modalOptionCloseBtn btnBorder">
-                               닫기
+                               닫기ㅅ!!!!!!!!!!
                            </button>
                        </div>
                        <form name="star" method="post">
