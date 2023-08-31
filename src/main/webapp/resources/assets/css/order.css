@@ -141,6 +141,8 @@ animation-name: ani1; animation-duration: 30s; animation-iteration-count: infini
 .modal_info p:first-child {text-align: center;}
 .modal_info p:last-of-type {text-align: right; padding: 20px 0 5px; margin:0;}
 .modal_info .stars {width: 100%; display: flex; justify-content: flex-end;}
+.addOption .addOptionText {font-size: 18px;}
+.addOption .modalTotalPrice {font-weight: bold;}
 
 
 

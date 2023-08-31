@@ -389,12 +389,13 @@
       	  	var modalPrice = $(".modalPrice").data("menuprice");
       	  	var menuSeq = $(this).find(".menuSeq").attr("data-menuSeq");
       	  	var modalSeq = $(".modalSeq").data("menuSeq");
+      	  	var totalPriceText = "총 " + menuPrice + "원";
       	  	$(".modalLeftBox,.modal_bg").fadeIn();
       	    $("#modalImg").attr("src", menuImg);
       	    $(".modalPrice").text(menuPrice);
       	  	modalPrice = $(".modalPrice").attr("data-menuprice" ,menuPrice);
       	  	$(".modalPrice").attr("data-changeprice", menuPrice.replace(',',""));
-      	  	modalTotalPrice.text(menuPrice + "원");
+      	  	modalTotalPrice.text(totalPriceText);
       	  	$("#modalName").text(menuName);
       	  	$("#modalSeq").text(menuSeq);
       	});
