@@ -256,7 +256,7 @@
                                 htmlContent += '</li>';
                             });
                         } else {
-                            htmlContent = '<p>데이터가 없습니다!!!!!!!!!!!!!!!!!!!!!!!!!</p>';
+                            htmlContent = '<p>데이터가 없습니다</p>';
                         }
                         $("#menuList").html(htmlContent);
                     }
@@ -432,7 +432,7 @@
 
 
 
-
+            updateMenuList();
      });
 
 
@@ -556,7 +556,29 @@
       	  	var menuSeq = $(this).find(".menuSeq").attr("data-menuSeq");
       	  	var modalSeq = $(".modalSeq").data("menuSeq");
       	  	var totalPriceText = "총 " + menuPrice + "원";
-      	  	$(".modalLeftBox,.modal_bg").fadeIn();
+
+
+
+
+            // 평균 별점 값을 가져오기
+            var avgStarIcons = $(this).find(".stars").html();
+            // console.log("avgStarValue:", avgStarValue);
+            // 안됨(avgStarValue: undefined)
+
+            // 평균 별점 아이콘 생성 및 저장
+            // var maxStars = 5;
+            // var avgStarIcons = '';
+            // for (let i = 1; i <= maxStars; i++) {
+            //     if (i <= avgStarValue) {
+            //         avgStarIcons += '<i class="fa-solid fa-star"></i>';
+            //     } else {
+            //         avgStarIcons += '<i class="fa-solid fa-star" style="color: grey;"></i>';
+            //     }
+            // }
+
+
+
+            $(".modalLeftBox,.modal_bg").fadeIn();
       	    $("#modalImg").attr("src", menuImg);
       	    $(".modalPrice").text(menuPrice);
       	  	modalPrice = $(".modalPrice").attr("data-menuprice" ,menuPrice);
@@ -564,6 +586,11 @@
       	  	modalTotalPrice.text(totalPriceText);
       	  	$("#modalName").text(menuName);
       	  	$("#modalSeq").text(menuSeq);
+
+
+
+            // 모달 창 내의 별점 엘리먼트에 데이터 삽입
+            $(".modalBox .stars").html(avgStarIcons);
       	});
 
         $(".modalCencelBtn,.modal_bg,.modalOrderBtn").click(function(){
