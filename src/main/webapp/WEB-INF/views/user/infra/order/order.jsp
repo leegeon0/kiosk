@@ -378,7 +378,7 @@
 		/* 옵션 출력 ajax */
 		
 		/* 모달창 선택 총 금액 출력하기 */
-		
+		var modalTotalPrice = $(".modalTotalPrice");
 		/* 모달창 선택 총 금액 출력하기 */
 		
 		
@@ -394,7 +394,7 @@
       	    $(".modalPrice").text(menuPrice);
       	  	modalPrice = $(".modalPrice").attr("data-menuprice" ,menuPrice);
       	  	$(".modalPrice").attr("data-changeprice", menuPrice.replace(',',""));
-      	  	$(".modalTotalPrice").text(menuPrice + "원");
+      	  	modalTotalPrice.text(menuPrice + "원");
       	  	$("#modalName").text(menuName);
       	  	$("#modalSeq").text(menuSeq);
       	});
@@ -414,7 +414,7 @@
             	$('.inp').val(1);
             	var	addOptionText ="";
             	$(".addOptionText").text("");
-				$(".modalTotalPrice").text("");
+				/* $(".modalTotalPrice").text(""); */
             },500);
         });
 

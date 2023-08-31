@@ -162,9 +162,7 @@ $(function(){
                          $optionPrice = $optionPrice * parseInt($quantity.text());
                          $getOptionPrice.text($optionPrice.toLocaleString());      
                          
-                     }else{
-						 
-					 }
+                     }
               });
 
       }   else {
@@ -176,7 +174,7 @@ $(function(){
             $(this).find(".optionPrice").text(resetPrice);
          }
          $(".addOptionText").text("");
-         $(".modalTotalPrice").text("");
+/*         $(".modalTotalPrice").text("");*/
       }
       
       
@@ -190,17 +188,17 @@ $(function(){
                var   addOptionText =" + " + $(".selectOption.selected").find(".optionName").attr("data-optionname");
                var getOptionPrice = $(".selectOption.selected").find(".optionPrice").attr("data-optionPrice");
                $(".addOptionText").text(addOptionText);
-               $(".modalTotalPrice").text(getOptionPrice);
+               /*$(".modalTotalPrice").text(getOptionPrice);*/
                
             } else if (optionLenght > 1) {
                
                var   addOptionText =" + " + $(".selectOption.selected").find(".optionName").first().attr("data-optionname") + " 외　" + (optionLenght-1);
                $(".addOptionText").text(addOptionText);
-               $(".modalTotalPrice").text();
+              /* $(".modalTotalPrice").text();*/
                
             } else {
                   $(".addOptiontext").text("선택하지 않았습니다.");
-                  $(".modalTotalPrice").text();
+                 /* $(".modalTotalPrice").text();*/
 
             }
       
