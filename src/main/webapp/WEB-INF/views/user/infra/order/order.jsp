@@ -562,6 +562,19 @@
 
         // 평균 별점 값을 가져오기
         var avgStarIcons = $(this).find(".stars").html();
+        // console.log("avgStarValue:", avgStarValue);
+        // 안됨(avgStarValue: undefined)
+
+        // 평균 별점 아이콘 생성 및 저장
+        // var maxStars = 5;
+        // var avgStarIcons = '';
+        // for (let i = 1; i <= maxStars; i++) {
+        //     if (i <= avgStarValue) {
+        //         avgStarIcons += '<i class="fa-solid fa-star"></i>';
+        //     } else {
+        //         avgStarIcons += '<i class="fa-solid fa-star" style="color: grey;"></i>';
+        //     }
+        // }
 
 
 
