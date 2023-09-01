@@ -133,7 +133,7 @@ $(function(){
    };
    countDown();
    
-
+   
    var countNum = 1;
    $(".optionConts").on("click",function(a){
       var optionCount = '<div class="d-flex optionCounter">' + '<button type="button" class="optionMinus"> - </button>'
@@ -218,6 +218,112 @@ $(function(){
       
       
    });
+   
+
+/*
+   var countNum = 1;
+$(".optionConts").on("click", function (a) {
+  var optionCount =
+    '<div class="d-flex optionCounter">' +
+    '<button type="button" class="optionMinus"> - </button>' +
+    '<p>' +
+    countNum +
+    '</p>' +
+    '<button type="button" class="optionPlus"> + </button>' +
+    '</div>';
+  var $selectOption = $(this).parent(".selectOption");
+
+  $selectOption.toggleClass("selected");
+
+  if ($selectOption.hasClass("selected")) {
+    $selectOption.append(optionCount);
+    $(this).addClass("optionContsBackground");
+
+    // 옵션 선택 시 바로 modalTotalPrice와 addOptionText 업데이트
+    updateTotalPrice();
+  } else {
+    countNum = 1;
+    $(this).siblings().remove();
+    $(this).removeClass("optionContsBackground");
+
+    if (countNum === 1) {
+      var resetPrice = parseFloat($(this).find(".optionPrice").attr("data-optionPrice").replace(",", ""));
+      $(this).find(".optionPrice").text(resetPrice.toLocaleString());
+    }
+    $(".addOptionText").text("");
+    $(".modalTotalPrice").text($(".modalTotalPrice").text());
+
+    // 옵션 해제 시 바로 modalTotalPrice와 addOptionText 업데이트
+    updateTotalPrice();
+  }
+});
+
+// 옵션 추가/제거 버튼 클릭 시 옵션 카운트 업데이트
+$(document).on("click", ".optionPlus", function () {
+  var $quantity = $(this).siblings("p");
+  var currentQuantity = parseInt($quantity.text(), 10);
+
+  if (currentQuantity < 20) {
+    currentQuantity++;
+    $quantity.text(currentQuantity);
+
+    // 옵션 카운트 업데이트 시 바로 modalTotalPrice 업데이트
+    updateTotalPrice();
+  }
+});
+
+$(document).on("click", ".optionMinus", function () {
+  var $quantity = $(this).siblings("p");
+  var currentQuantity = parseInt($quantity.text(), 10);
+
+  if (currentQuantity > 1) {
+    currentQuantity--;
+    $quantity.text(currentQuantity);
+
+    // 옵션 카운트 업데이트 시 바로 modalTotalPrice 업데이트
+    updateTotalPrice();
+  }
+});
+
+function updateTotalPrice() {
+  var optionLenght = $(".selectOption.selected").length;
+  var getPrice = $(".modalPrice").attr("data-changeprice");
+  var getPriceInt = parseFloat(getPrice);
+  var addOptionPrice = 0;
+
+  $(".selectOption.selected").each(function () {
+    var $getOptionPrice = $(this).find(".optionPrice").attr("data-optionPrice");
+    var $getOptionPriceInt = parseFloat($getOptionPrice.replace(",", ""));
+    var $quantity = $(this).find(".optionCounter p");
+    var currentQuantity = parseInt($quantity.text(), 10);
+
+    // 옵션 가격을 수량에 맞게 계산
+    $getOptionPriceInt *= currentQuantity;
+
+    addOptionPrice += $getOptionPriceInt;
+  });
+
+  var changePrice = (getPriceInt + addOptionPrice).toLocaleString();
+  $(".modalTotalPrice").text(changePrice);
+
+  if (optionLenght === 1) {
+    var addOptionText = " + " + $(".selectOption.selected").find(".optionName").attr("data-optionname");
+    $(".addOptionText").text(addOptionText);
+  } else if (optionLenght > 1) {
+    var addOptionText =
+      " + " +
+      $(".selectOption.selected").find(".optionName").first().attr("data-optionname") +
+      " 외 " +
+      (optionLenght - 1);
+    $(".addOptionText").text(addOptionText);
+  } else {
+    $(".addOptionText").text("선택하지 않았습니다.");
+  }
+}
+
+// 페이지 로딩 시 초기 업데이트 수행
+updateTotalPrice();
+*/
    
    $(".modal_info ._count :button, .optionMinus, .optionPlus")
 
