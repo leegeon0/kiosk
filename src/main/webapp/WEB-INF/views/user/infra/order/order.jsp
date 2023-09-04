@@ -164,32 +164,7 @@
                     <li>금액</li>
                 </ul>
                 <div class="new_contents_container" class="scroll_bar">
-                    <ul class="liked">
-                        <li>
-                            <ul>
-                                <li>소머리국밥</li>
-                                <li>
-                                    <button class="likedMinus">-</button>
-                                    <span>1</span>
-                                    <button class="likedPlus">+</button>
-                                </li>
-                                <li><span>20,000</span>원</li>
-                                <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul>
-                                <li>소머리국밥</li>
-                                <li>
-                                    <button class="likedMinus">-</button>
-                                    <span>1</span>
-                                    <button class="likedPlus">+</button>
-                                </li>
-                                <li><span>20,000</span>원</li>
-                                <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                            </ul>
-                        </li>
-                    </ul>
+
                 </div>
             </div>
             <div class="totalPriceBox">
@@ -587,6 +562,19 @@
 
         // 평균 별점 값을 가져오기
         var avgStarIcons = $(this).find(".stars").html();
+        // console.log("avgStarValue:", avgStarValue);
+        // 안됨(avgStarValue: undefined)
+
+        // 평균 별점 아이콘 생성 및 저장
+        // var maxStars = 5;
+        // var avgStarIcons = '';
+        // for (let i = 1; i <= maxStars; i++) {
+        //     if (i <= avgStarValue) {
+        //         avgStarIcons += '<i class="fa-solid fa-star"></i>';
+        //     } else {
+        //         avgStarIcons += '<i class="fa-solid fa-star" style="color: grey;"></i>';
+        //     }
+        // }
 
 
 
