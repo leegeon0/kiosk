@@ -157,48 +157,63 @@
                 <span>자동 종료 시간</span>
                 <span><span class="countDown">120</span>초</span>
             </div>
-            <div class="orderList">
-                <ul class="like_box">
-                    <li>품명</li>
-                    <li>수량</li>
-                    <li>금액</li>
-                </ul>
-                <div class="new_contents_container" class="scroll_bar">
-                    <ul class="liked">
-                        <li>
-                            <ul>
-                                <li>소머리국밥</li>
-                                <li>
-                                    <button class="likedMinus">-</button>
-                                    <span>1</span>
-                                    <button class="likedPlus">+</button>
-                                </li>
-                                <li><span>20,000</span>원</li>
-                                <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul>
-                                <li>소머리국밥</li>
-                                <li>
-                                    <button class="likedMinus">-</button>
-                                    <span>1</span>
-                                    <button class="likedPlus">+</button>
-                                </li>
-                                <li><span>20,000</span>원</li>
-                                <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                            </ul>
-                        </li>
+            <form id="likedForm" method="post" action="/orderList">
+                <div class="orderList">
+                    <ul class="like_box">
+                        <li>품명</li>
+                        <li>수량</li>
+                        <li>금액</li>
                     </ul>
+                    <div class="new_contents_container" class="scroll_bar">
+                        <ul class="liked">
+                            <%--                            <li>--%>
+                            <%--                                <ul>--%>
+                            <%--                                    <li>소머리국밥</li>--%>
+                            <%--                                    <li>--%>
+                            <%--                                        <button class="likedMinus">-</button>--%>
+                            <%--                                        <span>1</span>--%>
+                            <%--                                        <button class="likedPlus">+</button>--%>
+                            <%--                                    </li>--%>
+                            <%--                                    <li><span>20,000</span>원</li>--%>
+                            <%--                                    <li><button><i class="fa-solid fa-xmark"></i></button></li>--%>
+
+                            <%--                                            &lt;%&ndash; +,-버튼과 삭제 버튼은--%>
+                            <%--                                            1씩 증감 기능, 삭제기능을 추가하기 전--%>
+
+                            <%--                                            // - 버튼 클릭 이벤트--%>
+                            <%--                                            $(".likedMinus").on("click", function (e) {--%>
+                            <%--                                                e.preventDefault(); // 기본 동작 막기--%>
+                            <%--                                                // 여기에 수행할 작업 추가--%>
+                            <%--                                            });--%>
+
+                            <%--                                            // + 버튼 클릭 이벤트--%>
+                            <%--                                            $(".likedPlus").on("click", function (e) {--%>
+                            <%--                                                e.preventDefault(); // 기본 동작 막기--%>
+                            <%--                                                // 여기에 수행할 작업 추가--%>
+                            <%--                                            });--%>
+
+                            <%--                                            // 삭제 버튼 클릭 이벤트--%>
+                            <%--                                            $(".fa-xmark").parent("button").on("click", function (e) {--%>
+                            <%--                                                e.preventDefault(); // 기본 동작 막기--%>
+                            <%--                                                // 여기에 수행할 작업 추가--%>
+                            <%--                                            });--%>
+
+                            <%--                                                    하면 +,-, 삭제버튼을 눌러도 다음페이지로 안 넘어가는 것같다.--%>
+                            <%--                                                });&ndash;%&gt;--%>
+
+                            <%--                                </ul>--%>
+                            <%--                            </li>--%>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="totalPriceBox">
-                <span>총 금액</span>
-                <span>￦<span>39,000</span>원</span>
-            </div>
-            <div class="orderBtnBox">
-                <button class="btnColor orderBtn" id="orderBtn"><spring:message code="site.orderFirst" text="default text" /></button>
-            </div>
+                <div class="totalPriceBox">
+                    <span>총 금액</span>
+                    <span>￦<span>39,000</span>원</span>
+                </div>
+                <div class="orderBtnBox">
+                    <button class="btnColor orderBtn" id="orderBtn" type="submit"><spring:message code="site.orderFirst" text="default text" /></button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -622,6 +637,30 @@
             $(".addOptionText").text("");
             /* $(".modalTotalPrice").text(""); */
         },500);
+    });
+
+
+    $(".modalOrderBtn").on("click", function () {
+        // 선택한 메뉴 정보 가져오기
+        var menuName = $("#modalName").text();
+        var quantity = $(".inp").val();
+        var menuPrice = $(".modalPrice").attr("data-menuPrice");
+
+
+        // 금액을 숫자로 파싱하고 수량과 곱하여 총 가격 계산
+        var totalPrice = parseFloat(menuPrice.replace(',', '')) * parseInt(quantity);
+
+        // 새로운 리스트 아이템 생성
+        var $li = $("<li></li>");
+
+        // 리스트 아이템 내부에 ul 및 li 엘리먼트 추가
+        $li.append('<ul><li>' + menuName + '</li><li><button class="likedMinus">-</button><span>' + quantity + '</span><button class="likedPlus">+</button></li><li><span>' + totalPrice.toLocaleString() + '원</span></li><li><button><i class="fa-solid fa-xmark"></i></button></li></ul>');
+
+        // 리스트 아이템을 ul 엘리먼트에 추가
+        $("ul.liked").append($li);
+
+        // 모달 창 닫기
+        $(".modalLeftBox, .modal_bg").fadeOut();
     });
 
 

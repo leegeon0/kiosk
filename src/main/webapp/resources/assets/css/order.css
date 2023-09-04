@@ -74,6 +74,9 @@ body{width: 100%; height: 100vh; font-family: 'Noto Sans KR', sans-serif; backgr
 .countTimeBox {width:90%; display: flex; justify-content: space-between; margin:0 auto 10px; font-size: 1.3vw; align-items: center;}
 .countTimeBox span:last-child span {margin-right: 5px; color: #ff6b3d; font-size: 2vw; }
 
+#likedForm {height: 90%; background-color: rgba(255,0,0,0.1); position: relative;}
+
+
 
 .orderList {width: 100%; height: 58%;}
 .orderList button {cursor: pointer; width: 85px; height: 40px; background-color: white; color: black; border: #bbb solid 1px; box-sizing: border-box; border-radius: 5px; margin: 30px 0 15px;}
@@ -89,7 +92,7 @@ section {width: 100%;}
 #nothing {display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; flex-direction: column;}
 #nothing i {font-size: 3vw;}
 #nothing p {font-size: 18px; margin-top: 20px;}
-.liked {width: 100%; height: 100%; margin: 0; padding: 0;}
+.liked {width: 100%; height: 100%; margin: 0; padding: 0; background-color: rgba(255,0,0,0.1)}
 .liked ul {width: 100%; height: 100%; margin: 0; padding: 0;}
 .liked ul li {float: left; height: 50px; display: flex; align-items: center; justify-content: center;}
 .liked ul li:first-child {width:35%; font-size: 17px;padding: 0 10px; box-sizing: border-box;}
@@ -103,11 +106,11 @@ section {width: 100%;}
 .new_contents_container {width: 100%; height: 90%; overflow-y: auto;}
 
 
-.totalPriceBox {width:90%; display: flex; justify-content: space-between; margin:10px auto; font-size: 1.3vw;}
+.totalPriceBox {width:90%; height:7%;  background-color: rgba(255,255,0,0.4); display: flex; justify-content: space-between; align-items: center; margin:10px auto; font-size: 1.3vw;}
 .totalPriceBox span:last-child span {margin-left: 15px;}
 
 
-.orderBtnBox {height: 20%; display: flex; flex-direction: column; justify-content: space-between;}
+.orderBtnBox {height: 20%; display: flex; flex-direction: column; justify-content: space-between; background-color: rgba(255,0,0,0.2);}
 .cencelBtn {width: 100%; height: 48%; font-size: 1.3vw; font-weight: bold;}
 .orderBtn {width: 100%; height: 48%; font-size: 1.3vw; font-weight: bold; border-radius: 15px;}
 
@@ -121,7 +124,7 @@ section {width: 100%;}
 
 .modal_bg {width: 100%; height: 100%; background-color: rgba(0,0,0,.7); position: fixed; left: 0; top: 0; display: none; z-index: 100;}
 .popup_btn {cursor: pointer; color:darkred; font-family: 'Anton', sans-serif;
-animation-name: ani1; animation-duration: 30s; animation-iteration-count: infinite;}
+    animation-name: ani1; animation-duration: 30s; animation-iteration-count: infinite;}
 .modalLeftBox {width: 650px; height: 500px; position: fixed; left: 50%; top:50%; transform: translate(-50%,-50%);display: none; z-index: 100; background-color: white;}
 .modalBox {width: 650px; height: 500px; float: left; position: relative; box-shadow: 10px 10px 10px rgba(0,0,0,.04);}
 .modalBox img {width: 295px; height: 300px; object-fit: cover; position: absolute; top: 35px; left: 30px;}
