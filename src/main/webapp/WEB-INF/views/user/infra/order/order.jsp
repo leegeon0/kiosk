@@ -669,6 +669,7 @@
     $("ul.liked").on("click", "li button .fa-xmark", function (e) {
         e.preventDefault(); // 기본 동작 막기
         $(this).closest("ul").remove();
+        updateTotalPrice();
     });
 
 
