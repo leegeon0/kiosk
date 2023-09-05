@@ -654,13 +654,13 @@
         var $li = $("<li></li>");
 
         // 리스트 아이템 내부에 ul 및 li 엘리먼트 추가
-        $li.append('<ul><li>' + menuName + '</li><li><button class="likedMinus">-</button><span>' + quantity + '</span><button class="likedPlus">+</button></li><li><span>' + totalPrice.toLocaleString() + '원</span></li><li><button type="button"><i class="fa-solid fa-xmark"></i></button></li></ul>');
+        $li.append('<ul><li>' + menuName + '</li><li><button class="likedMinus" type="button">-</button><span>' + quantity + '</span><button class="likedPlus" type="button">+</button></li><li><span>' + totalPrice.toLocaleString() + '원</span></li><li><button type="button"><i class="fa-solid fa-xmark"></i></button></li></ul>');
 
         // 리스트 아이템을 ul 엘리먼트에 추가
         $("ul.liked").append($li);
 
         // 총 가격 업데이트
-        updateTotalPrice();
+        updateTotalPrice2();
 
         // 모달 창 닫기
         $(".modalLeftBox, .modal_bg").fadeOut();
@@ -669,14 +669,109 @@
     $("ul.liked").on("click", "li button .fa-xmark", function (e) {
         e.preventDefault(); // 기본 동작 막기
         $(this).closest("ul").remove();
-        updateTotalPrice();
+        updateTotalPrice2();
     });
 
 
 
 
+
+    // 각 메뉴의 총 가격을 업데이트하는 함수
+    function updateMenuItemTotal($li) {
+        var $quantity = $li.find("span").eq(0); // 수량 엘리먼트
+        var $price = $li.find("span").eq(1); // 가격 엘리먼트
+        var currentQuantity = parseInt($quantity.text().trim(), 10); // 현재 수량
+        var menuPrice = parseFloat($price.attr("data-menu-price").replace(',', '')); // 메뉴 가격
+
+        if (!isNaN(currentQuantity)) {
+            var menuTotal = currentQuantity * menuPrice;
+            $price.text(menuTotal.toLocaleString() + '원');
+            $li.attr("data-menu-total", menuTotal); // 데이터 속성으로 메뉴 총 가격 저장
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+    // "+" 버튼 클릭 이벤트
+    $("ul.liked").on("click", "li button.likedPlus", function (e) {
+        e.preventDefault(); // 기본 동작 막기
+
+        // 클릭한 "+" 버튼의 부모 li 요소 찾기
+        var $li = $(this).closest("li");
+
+        // 해당 메뉴 아이템의 수량 엘리먼트를 찾기
+        var $quantity = $li.find("span").eq(0); // 첫 번째 <span> 엘리먼트 선택
+
+        // 현재 수량 가져오기
+        var currentQuantity = parseInt($quantity.text().trim(), 10); // 숫자로 파싱, 기본값 10
+
+        // 수량 증가
+        if (!isNaN(currentQuantity)) {
+            currentQuantity += 1;
+
+            // 변경된 수량을 업데이트
+            $quantity.text(currentQuantity);
+
+            // 메뉴의 총 가격 업데이트
+            updateMenuItemTotal($li);
+
+            // 총 가격 업데이트
+            updateTotalPrice2();
+        }
+    });
+
+    // "-" 버튼 클릭 이벤트
+    $("ul.liked").on("click", "li button.likedMinus", function (e) {
+        e.preventDefault(); // 기본 동작 막기
+
+        // 클릭한 "-" 버튼의 부모 li 요소 찾기
+        var $li = $(this).closest("li");
+
+        // 해당 메뉴 아이템의 수량 엘리먼트를 찾기
+        var $quantity = $li.find("span").eq(0); // 첫 번째 <span> 엘리먼트 선택
+
+        // 현재 수량 가져오기
+        var currentQuantity = parseInt($quantity.text().trim(), 10); // 숫자로 파싱, 기본값 10
+
+        // 수량 감소
+        if (!isNaN(currentQuantity) && currentQuantity > 1) {
+            currentQuantity -= 1;
+
+            // 변경된 수량을 업데이트
+            $quantity.text(currentQuantity);
+
+            // 메뉴의 총 가격 업데이트
+            updateMenuItemTotal($li);
+
+            // 총 가격 업데이트
+            updateTotalPrice2();
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //장바구니 총 가격 표시
-    function updateTotalPrice() {
+    function updateTotalPrice2() {
         var total = 0;
         $("ul.liked ul li:nth-child(3) span").each(function () {
             var priceText = $(this).text();
@@ -690,7 +785,7 @@
         $("#finalPrice").text(formattedTotal); // finalPrice 요소에 총 가격 표시
     }
     // 초기 총 가격 업데이트
-    updateTotalPrice();
+    updateTotalPrice2();
 
 
 

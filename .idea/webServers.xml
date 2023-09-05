@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="dbdfdc85-4c4a-4d22-9db7-75893d826ec9" name="kiosk">
+      <webServer id="ef4e72e8-0b0b-4a8c-8db4-8d877183c234" name="dd">
         <fileTransfer accessType="SFTP" host="3.36.112.224" port="22" sshConfigId="32bcefb6-d034-42d6-a808-8f97f69f31f6" sshConfig="root@3.36.112.224:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
