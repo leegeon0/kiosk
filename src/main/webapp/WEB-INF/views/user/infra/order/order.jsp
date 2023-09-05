@@ -208,7 +208,7 @@
                 </div>
                 <div class="totalPriceBox">
                     <span>총 금액</span>
-                    <span>￦<span>39,000</span>원</span>
+                    <span>￦<span id="finalPrice"></span>원</span>
                 </div>
                 <div class="orderBtnBox">
                     <button class="btnColor orderBtn" id="orderBtn" type="submit"><spring:message code="site.orderFirst" text="default text" /></button>
@@ -659,14 +659,38 @@
         // 리스트 아이템을 ul 엘리먼트에 추가
         $("ul.liked").append($li);
 
+        // 총 가격 업데이트
+        updateTotalPrice();
+
         // 모달 창 닫기
         $(".modalLeftBox, .modal_bg").fadeOut();
     });
 
-    $("ul.liked").on("click", "li button", function (e) {
+    $("ul.liked").on("click", "li button .fa-xmark", function (e) {
         e.preventDefault(); // 기본 동작 막기
         $(this).closest("ul").remove();
     });
+
+
+
+
+    //장바구니 총 가격 표시
+    function updateTotalPrice() {
+        var total = 0;
+        $("ul.liked ul li:nth-child(3) span").each(function () {
+            var priceText = $(this).text();
+            // "￦"와 "원" 문자를 제거하고 숫자만 추출
+            var price = parseInt(priceText.replace(/[^0-9]/g, ""), 10);
+            total += price;
+        });
+
+        // 총 가격 업데이트
+        var formattedTotal = total.toLocaleString();
+        $("#finalPrice").text(formattedTotal); // finalPrice 요소에 총 가격 표시
+    }
+    // 초기 총 가격 업데이트
+    updateTotalPrice();
+
 
 
 
