@@ -654,7 +654,7 @@
         var $li = $("<li></li>");
 
         // 리스트 아이템 내부에 ul 및 li 엘리먼트 추가
-        $li.append('<ul><li>' + menuName + '</li><li><button class="likedMinus">-</button><span>' + quantity + '</span><button class="likedPlus">+</button></li><li><span>' + totalPrice.toLocaleString() + '원</span></li><li><button><i class="fa-solid fa-xmark"></i></button></li></ul>');
+        $li.append('<ul><li>' + menuName + '</li><li><button class="likedMinus">-</button><span>' + quantity + '</span><button class="likedPlus">+</button></li><li><span>' + totalPrice.toLocaleString() + '원</span></li><li><button type="button"><i class="fa-solid fa-xmark"></i></button></li></ul>');
 
         // 리스트 아이템을 ul 엘리먼트에 추가
         $("ul.liked").append($li);
@@ -662,6 +662,12 @@
         // 모달 창 닫기
         $(".modalLeftBox, .modal_bg").fadeOut();
     });
+
+    $("ul.liked").on("click", "li button", function (e) {
+        e.preventDefault(); // 기본 동작 막기
+        $(this).closest("ul").remove();
+    });
+
 
 
 </script>
