@@ -27,6 +27,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- 부트스트랩 CDN & JQuery CDN -->
     
+    
+    <!-- favicon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="/resources/assets/img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/resources/assets/img/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/resources/assets/img/favicon-16x16.png">
+	<link rel="manifest" href="/resources/assets/img/manifest.json">
+
+    
     <!-- 폰트 어썸 -->
     <script src="https://kit.fontawesome.com/9ba187d4f0.js" crossorigin="anonymous"></script>
     <!-- 폰트 어썸 -->
@@ -57,7 +65,7 @@
                 </div>
                 <div class="languageBtn">
                     <button class="btnColor" id="transBtn"><i class="fa-solid fa-globe"></i></button>
-                    <a href="<c:url value="/userMain.do?lang=en" />">English</a></t>
+                    <a href="<c:url value="/userMain.do?lang=en" />">English</a><br>
                     <a href="<c:url value="/userMain.do?lang=ko" />">Korean</a>
                 </div>
             </div>

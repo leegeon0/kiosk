@@ -34,6 +34,13 @@
 
   <!-- Template Main CSS File -->
   <link href="/resources/assets/css/biography.css" rel="stylesheet">
+  
+  <!-- favicon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="/resources/assets/img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/resources/assets/img/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/resources/assets/img/favicon-16x16.png">
+	<link rel="manifest" href="/resources/assets/img/manifest.json">
+
 
 
 </head>
@@ -75,7 +82,7 @@
     <!-- Hero Section - Home Page -->
     <section id="hero" class="hero">
 
-      <img src="/resources/assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+      <img src="/resources/assets/img/news-5.jpg" alt="" data-aos="fade-in">
 
       <div class="container">
         <div class="row">
@@ -194,85 +201,6 @@
 
     </section><!-- End Stats Section -->
 
-    <!-- Services Section - Home Page -->
-    <section id="services" class="services">
-
-      <!--  Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>지금까지 우리가 배워왔던 기술들을 제공하겠습니다.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">HTML5</a></h4>
-                <p class="description"> 원할한 유지보수 사용자의 편리한 접근성을 제공합니다.</p>
-              </div>
-            </div>
-          </div>
-          <!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">CSS3</a></h4>
-                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">JS</a></h4>
-                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">STS4</a></h4>
-                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">MySql</a></h4>
-                <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">React</a></h4>
-                <p class="description"></p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- End Services Section -->
 
     <!-- Portfolio Section - Home Page -->
     <section id="portfolio" class="portfolio">
@@ -280,7 +208,6 @@
       <!--  Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -296,21 +223,21 @@
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="/resources/assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
+              <img src="/resources/assets/img/kiosk/order.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>User</h4>
                 <p>Kiosk</p>
-                <a href="/resources/assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Kiosk" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="/resources/assets/img/kiosk/order.png" title="Kiosk" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="userLogin" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="/resources/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
+              <img src="/resources/assets/img/kiosk/managerPage.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Admin</h4>
                 <p>Kiosk Admin</p>
-                <a href="/resources/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Admin" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="/resources/assets/img/kiosk/managerPage.png" title="Admin" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div><!-- End Portfolio Item -->

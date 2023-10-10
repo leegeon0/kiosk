@@ -16,7 +16,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- 구글 Noto Sans 폰트 -->
-
+      <!-- favicon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="/resources/assets/img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/resources/assets/img/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/resources/assets/img/favicon-16x16.png">
+	<link rel="manifest" href="/resources/assets/img/manifest.json">
+  
     <!-- 부트스트랩 CDN & JQuery CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/assets/css/kiosk.css">
